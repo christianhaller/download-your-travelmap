@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link type="text/css" rel="stylesheet" href="/css/css.css"/>
+    <link type="text/css" rel="stylesheet" href="/css/css.min.css"/>
 
     <title><?php echo $page->title;?></title>
 </head>
@@ -26,10 +26,7 @@
 </form>
  <?php endif;?>
 
-<script src="/js/jquery-1.11.1.min.js"></script>
-<script src="/js/jquery-jvectormap-1.2.2.min.js"></script>
-<script src="/js/jquery-jvectormap-world-mill-en.js"></script>
-<script src="/js/custom.js"></script>
+<script src="/js/main.min.js"></script>
 </body>
 </html>
 
