@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link type="text/css" rel="stylesheet" href="/css/jquery-jvectormap-1.2.2.css"/>
+    <link type="text/css" rel="stylesheet" href="/been/css/jquery-jvectormap-1.2.2.css"/>
 
     <title><?php echo $page->title;?></title>
 </head>
@@ -26,10 +26,10 @@
 </form>
  <?php endif;?>
 
-<script src="/js/jquery-1.11.1.min.js"></script>
-<script src="/js/jquery-jvectormap-1.2.2.min.js"></script>
-<script src="/js/jquery-jvectormap-world-mill-en.js"></script>
-<script src="/js/custom.js"></script>
+<script src="/been/js/jquery-1.11.1.min.js"></script>
+<script src="/been/js/jquery-jvectormap-1.2.2.min.js"></script>
+<script src="/been/js/jquery-jvectormap-world-mill-en.js"></script>
+<script src="/been/js/custom.js"></script>
 </body>
 </html>
 
