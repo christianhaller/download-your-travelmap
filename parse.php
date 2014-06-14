@@ -91,8 +91,7 @@ foreach ($json_a['store']['modules.unimplemented.entity.LightWeightPin'] as $pin
     }
 
 
-    $places[] =
-        [
+    $places[] = array(
             'country' => $country,
             'name' => $pin['name'],
             'city' => $city,
@@ -100,7 +99,7 @@ foreach ($json_a['store']['modules.unimplemented.entity.LightWeightPin'] as $pin
             'lng' => $pin['lng'],
             'flags' => $pin['flags'],
             'iso' => $iso
-        ];
+    );
 
 };
 $json = json_encode($places);
