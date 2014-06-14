@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link type="text/css" rel="stylesheet" href="/been/css/jquery-jvectormap-1.2.2.css"/>
+    <link type="text/css" rel="stylesheet" href="/been/css/css.css"/>
 
     <title><?php echo $page->title;?></title>
 </head>
