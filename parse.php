@@ -3,11 +3,27 @@
 include('iso.php');
 
 $url = '';
-$response = array('data' => array(), 'status' => 'success');
+$response = array('data' => array(), 'status' => 'error');
+
+
+function parseStr($str, $start, $end)
+{
+    $startPos = strpos($str, $start);
+    $result = substr($str, $startPos + strlen($start));
+    $endPos = strpos($result, $end);
+    $result = substr($result, 0, $endPos);
+
+    if($result===''){
+        echo ('no result for '.$start.'' .$end.' in:'.$str);
+        //throw new Exception('no result for '.$start.'' .$end.' in:'.$str);
+    }
+
+    return $result;
+}
 
 try {
-    if (isset($_POST['url']) && $_POST['url'] !== '') {
-        $url = $_POST['url'];
+    if (isset($_REQUEST['url']) && $_REQUEST['url'] !== '') {
+        $url = $_REQUEST['url'];
     } else {
         throw new Exception('no url');
     }
@@ -21,9 +37,8 @@ try {
 
     $urlParts = parse_url($url);
 
-    if ($urlParts['host'] !== 'www.tripadvisor.com') {
-        throw new Exception('invalid url' . $url);
-
+    if (strpos($urlParts['host'], 'www.tripadvisor.') === false) {
+        throw new Exception('invalid url:' . $url);
     }
 
 
@@ -42,39 +57,31 @@ try {
     fclose($handle);
 
 
-    // Name parsen
-    $startNameString = '<div class="memberTitle">';
-    $startNamePosition = strpos($str, $startNameString);
-    $username = substr($str, $startNamePosition + strlen($startNameString));
-    $endNamePosition = strpos($username, '<');
-    $username = substr($username, 0, $endNamePosition);
+    $response['data']['username'] = parseStr($str, '<div class="memberTitle">', '<');
 
-    $response['data']['username'] = $username;
+    //Bildchen
+    $response['data']['avatar'] = parseStr($str, 'avatarUrl" src="', '"');
 
 
-    // Pins parsen
-    $start = strpos($str, 'data =');
-    $str = substr($str, $start + 7);
-    $end = strpos($str, ',"modules.membercenter.model.FriendCount"');
-    $str = substr($str, 0, $end - 1);
-    $str .= '}}}';
+    $placesStr = parseStr($str,'{"store":{',',"modules.membercenter.model.FriendCount');
 
 
+    $placesStr = '{'.$placesStr. '}';
+    //echo $placesStr;
     // könnte schief gehen
-    $json_a = json_decode($str, true);
+    $json_a = json_decode($placesStr, true);
+
+
     if ($json_a === NULL) {
         throw new Exception('parse error');
-
-
     }
 
 
     $places = array();
-
     $isoArray = array_flip($iso);
 
 
-    foreach ($json_a['store']['modules.unimplemented.entity.LightWeightPin'] as $pin) {
+    foreach ($json_a['modules.unimplemented.entity.LightWeightPin'] as $pin) {
         $locationArray = explode(',', $pin['name']);
         $country = ltrim($locationArray[sizeof($locationArray) - 1]);
         $city = $locationArray[0];
@@ -82,7 +89,7 @@ try {
 
         if ($iso === null) {
             $iso = '';
-            throw new Exception($country . ' not in ISO' . "\n");
+            //throw new Exception($country . ' not in ISO' . "\n");
 
         }
         $places[] = array(
@@ -99,8 +106,6 @@ try {
     }
 
 
-
-
     $json = json_encode($places);
     $url = urlencode($url);
 
@@ -111,18 +116,22 @@ try {
 
     file_put_contents('data/' . $url . '/' . time(), $json);
     $response['data']['places'] = $places;
+    $response['status'] = 'success';
 
     response($response);
 
 
 } catch (Exception $e) {
+    $response['message'] = $e->getMessage();
     response($response);
 
 };
 
 function response($response)
 {
-
+    if ($response['status'] !== 'success') {
+        header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500);
+    }
     header('Content-Type: application/json');
     echo json_encode($response);
 }
