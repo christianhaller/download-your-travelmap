@@ -10,10 +10,11 @@ var minifycss = require('gulp-minify-css');
 
 
 gulp.task('styles', function() {
-  return gulp.src('src/css/*')
+  return gulp.src(['src/css/pure.css','src/css/css.css'])
 
     .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
-    .pipe(gulp.dest('css'))
+      .pipe(concat('main.css'))
+      .pipe(gulp.dest('css'))
     .pipe(rename({suffix: '.min'}))
     .pipe(minifycss())
     .pipe(gulp.dest('css'))
@@ -21,10 +22,11 @@ gulp.task('styles', function() {
 });
 
 
-gulp.task('default', function () {
+gulp.task('scripts', function () {
     return gulp.src(
             [
-                'src/js/jquery-1.11.1.min.js',
+                'src/js/jquery.js',
+                'src/js/foundation.js',
                 'src/js/jquery-jvectormap-1.2.2.min.js',
                 'src/js/jquery-jvectormap-world-mill-en.js',
                 'src/js/custom.js'
@@ -42,6 +44,22 @@ gulp.task('default', function () {
         .pipe(notify({ message: 'Scripts task complete' }));
 
 
+
+
+
+});
+
+gulp.task('default', function() {
+    gulp.start('styles', 'scripts');
+});
+
+gulp.task('watch', function() {
+
+  // Watch .scss files
+  gulp.watch('src/css/*.css', ['styles']);
+
+  // Watch .js files
+  gulp.watch('src/js/*.js', ['scripts']);
 
 
 

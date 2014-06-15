@@ -1,31 +1,24 @@
-<?php
-    $response = '';
-    if (isset($_GET['url']) && $_GET['url'] !== ''){
-    $url = $_GET['url'];
-    include('parse.php');
-}?>
-
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html class="no-js" lang="en">
 <head>
-    <link type="text/css" rel="stylesheet" href="/css/css.min.css"/>
-
-    <title><?php echo $page->title;?></title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link type="text/css" rel="stylesheet" href="/css/main.min.css"/>
+    <title></title>
 </head>
 <body>
-    <?php if($response!==''):?>
-    <?php echo $response;?>
-        <h1><?php echo $page->title;?></h1>
-    <div id="world-map"></div>
-    <textarea><?php echo $json;?></textarea>
+<div class="content">
+    <h1 class="splash-head">Big Bold Text</h1>
 
-    <?php else: ?>
-<h1>Give me your Tridadvisor map</h1>
-<form action="">
-    <input value="" name="url" type="text"/>
-</form>
- <?php endif;?>
+    <p class="splash-subhead">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
 
+    <form class="pure-form" action="/parse.php">
+        <label for="name">Username</label> <input type="text" id="url" value="" name="url">
+        <button type="submit" class="pure-button pure-button-primary">Sign in</button>
+    </form>
+    <div id="map"></div>
+</div>
 <script src="/js/main.min.js"></script>
 </body>
 </html>
