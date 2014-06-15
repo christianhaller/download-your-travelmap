@@ -37,10 +37,13 @@ $.fn.vectorMap('addMap', 'world_mill_en',{"insets": [{"width": 900.0, "top": 0, 
 $(document).on('ready', function() {
     $('form').on('submit', function(e) {
         var $form = $(this),
+
             url = $form.attr('action'),
+            $alert = $form.find('.pure-alert-error'),
             data = {
                 'url': $form.find('#url').val()
             };
+
 
         e.preventDefault();
 
@@ -52,68 +55,84 @@ $(document).on('ready', function() {
                 "X-Test-Header": "xtest-value"
             },
             url: url
-        }).done(function(response) {
-            var $map = $('#map');
-            $map.empty();
+        }).error(function(response) {
 
-            var countries = [];
 
-            var createMarker = function(array) {
-                var markers = [];
-                $.each(array, function() {
-                    var marker = {};
-                    marker.latLng = [];
-                    marker.latLng.push(this.lat);
-                    marker.latLng.push(this.lng);
-                    marker.name = this.name;
-                    markers.push(marker);
-                    marker.style = {
-                        fill: 'yellow',
-                        r: 3
+         $alert.show().text(response.responseJSON.message);
+        })
+            .success(function(response) {
+                var $response = $('#response'),
+                    $thisIs = $response.find('#thisIs span'),
+                    $map = $response.find('#map'),
+                    countries = [],
+                    markers,
+                    createMarker = function(array) {
+                        var markers = [];
+                        $.each(array, function() {
+                            var marker = {};
+                            marker.latLng = [];
+                            marker.latLng.push(this.lat);
+                            marker.latLng.push(this.lng);
+                            marker.name = this.name;
+                            markers.push(marker);
+                            marker.style = {
+                                fill: 'yellow',
+                                r: 3
+                            };
+
+                            var parts = this.name.split(',');
+                            countries.push(parts[parts.length - 1]);
+
+                        });
+
+                        return markers;
                     };
-
-                    var parts = this.name.split(',');
-                    countries.push(parts[parts.length - 1]);
-
-                });
-
-                return markers;
-            };
-
-            if (typeof data === 'undefined') {
-                return;
-            }
-
-            var markers = createMarker(response.data.places);
+                $alert.hide();
+                $map.empty();
+                $response.show();
 
 
-            $map.vectorMap({
-                map: 'world_mill_en',
 
-                normalizeFunction: 'polynomial',
-                hoverOpacity: 0.7,
-                zoomOnScroll: false,
-                hoverColor: false,
-                markerStyle: {
-                    initial: {
-                        fill: '#F8E23B',
-                        stroke: '#383f47'
-                    }
-                },
-                regionStyle: {
-                    initial: {
-                        fill: '#eee',
-                        "fill-opacity": 1,
-                        stroke: 'none',
-                        "stroke-width": 0,
-                        "stroke-opacity": 1
+
+                if (typeof data === 'undefined') {
+                    return;
+                }
+
+                markers = createMarker(response.data.places);
+
+
+                $map.vectorMap({
+                    map: 'world_mill_en',
+                    onMarkerLabelShow: function(event, label, index) {
+                        $thisIs.text($(label).text());
+
                     },
-                    hover: {
-                        fill: '#ccc'
-                    }
-                },
 
-                /*series: {
+
+                    normalizeFunction: 'polynomial',
+                    hoverOpacity: 0.7,
+                    zoomOnScroll: false,
+                    hoverColor: false,
+                    markerStyle: {
+                        initial: {
+                            fill: '#F8E23B',
+                            stroke: '#383f47'
+                        }
+                    },
+                    regionStyle: {
+                        initial: {
+                            fill: '#eee',
+                            "fill-opacity": 1,
+                            stroke: 'none',
+                            "stroke-width": 0,
+                            "stroke-opacity": 1
+                        },
+                        hover: {
+                            fill: '#ccc'
+                        }
+                    },
+
+                    /*series: {
                    regions: [{
                    values: gdpData,
                    scale: ['#C8EEFF', '#0071A4'],
@@ -121,12 +140,12 @@ $(document).on('ready', function() {
                    }]
                    },*/
 
-                backgroundColor: '#fff',
+                    backgroundColor: '#fff',
 
-                markers: markers
+                    markers: markers
+                });
+
+
             });
-
-
-        });
     });
 });

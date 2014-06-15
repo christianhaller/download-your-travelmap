@@ -11,13 +11,16 @@
     <h1>Download Your TripAdvisor Travel Map</h1>
 
     <p class="splash-subhead">
-       Just enter your TripAdvisor Profle URL</p>
+       Just enter your TripAdvisor Profile URL</p>
 
     <form class="pure-form" action="/magic">
         <label for="url">URL</label> <input type="text" id="url" value="" name="url">
         <button type="submit" class="pure-button pure-button-primary">submit</button>
+        <div class="pure-alert-error pure-alert"></div>
     </form>
-    <div id="map"></div>
+    <div id="response"><div id="map"></div>
+    <strong id="thisIs">This is <span>your travelmap</span></strong>
+    </div>
 </div>
 <script src="/js/main.min.js"></script>
 </body>

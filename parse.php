@@ -43,7 +43,8 @@ try {
 
 
     // Datei runterladen, könnte schief gehen
-    $handle = fopen($url, "r", false, $context);
+    // http://stackoverflow.com/questions/6658859/how-to-stop-fopen-from-triggering-warning-when-attempting-to-open-an-invalid-unr
+    $handle = @fopen($url, "r", false, $context);
     if (!$handle) {
         throw new Exception('cant reach ' . $url);
     }
