@@ -11,7 +11,7 @@
     <h1>Download Your TripAdvisor Travel Map</h1>
 
     <p class="splash-subhead">
-       Just enter your TripAdvisor Profile URL</p>
+       Just enter your TripAdvisor Profile URL <span>e. g. http://www.tripadvisor.com/members/christianhaller (that's me)</span></p>
 
     <form class="pure-form" action="/magic">
         <label for="url">URL</label> <input type="text" id="url" value="" name="url">

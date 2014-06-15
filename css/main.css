@@ -1998,3 +1998,6 @@ body {
     margin:10px 0;
     display: none;
 }
+p span {
+    color:#ccc;
+}
