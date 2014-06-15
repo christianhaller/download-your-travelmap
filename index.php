@@ -13,7 +13,7 @@
     <p class="splash-subhead">
        Just enter your TripAdvisor Profle URL</p>
 
-    <form class="pure-form" action="/parse.php">
+    <form class="pure-form" action="/magic">
         <label for="name">Username</label> <input type="text" id="url" value="" name="url">
         <button type="submit" class="pure-button pure-button-primary">Sign in</button>
     </form>

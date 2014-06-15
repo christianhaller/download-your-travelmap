@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteBase /
+RewriteRule magic parse.php [L,QSA]
