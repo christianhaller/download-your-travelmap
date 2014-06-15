@@ -26,7 +26,7 @@ gulp.task('scripts', function () {
             [
                 'src/js/jquery.js',
                 'src/js/foundation.js',
-                'src/js/jquery-jvectormap-1.2.2.js',
+                'src/js/jquery-jvectormap-1.2.2.min.js',
                 'src/js/jquery-jvectormap-world-mill-en.js',
                 'src/js/custom.js'
             ]
