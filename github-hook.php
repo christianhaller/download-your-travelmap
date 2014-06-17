@@ -3,9 +3,8 @@
 // Use in the "Post-Receive URLs" section of your GitHub repo.
 
 //if ( $_POST['payload'] ) {
-exec( 'git pull origin master',$output,$return );
-echo $return;
-var_dump($output);
+echo shell_exec("/usr/bin/git pull 2>&1");
+
 
 
 
