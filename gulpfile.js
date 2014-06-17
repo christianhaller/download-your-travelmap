@@ -62,6 +62,7 @@ gulp.task('prettify', function () {
                     autosemicolon: true
                 }))
         .pipe(gulp.dest('src/css/'));
+    
 
 
     gulp.src('src/js/custom.js')
