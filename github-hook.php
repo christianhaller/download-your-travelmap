@@ -19,3 +19,5 @@ else {
 //}
 
 ?>hi
+
+<?php phpinfo();?>
