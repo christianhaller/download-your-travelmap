@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="content">
-    <h1>Download Your TripAdvisor Travel Map //</h1>
+    <h1>Download Your TripAdvisor Travel Map</h1>
 
     <p class="splash-subhead">
        Just enter your TripAdvisor Profile URL <span>e. g. http://www.tripadvisor.com/members/christianhaller (that's me)</span></p>
