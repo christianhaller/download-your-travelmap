@@ -1931,73 +1931,89 @@ striping:
 }
 
 
-.jvectormap-label {
-    position: absolute;
-    display: none;
-    border: solid 1px #CDCDCD;
-    border-radius: 3px;
-    background: #292929;
-    color: white;
-    font-family: sans-serif, Verdana;
-    font-size: smaller;
-    padding: 3px;
+.jvectormap-label
+{
+  position: absolute;
+  display: none;
+  border: solid 1px #CDCDCD;
+  border-radius: 3px;
+  background: #292929;
+  color: white;
+  font-family: sans-serif, Verdana;
+  font-size: smaller;
+  padding: 3px;
 }
 
-.jvectormap-zoomin, .jvectormap-zoomout {
-    position: absolute;
-    left: 10px;
-    border-radius: 3px;
-    background: #292929;
-    padding: 3px;
-    color: white;
-    width: 10px;
-    height: 10px;
-    cursor: pointer;
-    line-height: 10px;
-    text-align: center;
+.jvectormap-zoomin, .jvectormap-zoomout
+{
+  position: absolute;
+  left: 10px;
+  border-radius: 3px;
+  background: #292929;
+  padding: 3px;
+  color: white;
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+  line-height: 10px;
+  text-align: center;
 }
 
-.jvectormap-zoomin {
-    top: 10px;
+.jvectormap-zoomin
+{
+  top: 10px;
 }
 
-.jvectormap-zoomout {
-    top: 30px;
+.jvectormap-zoomout
+{
+  top: 30px;
 }
-#response {
-    display:none;
-}
-#map {
-    margin:3em 0;
-    height:400px;
 
+#response
+{
+  display: none;
+}
 
+#map
+{
+  margin: 3em 0;
+  height: 400px;
 }
-.content {
-    padding:1em;
-    width:80%;
-    margin:2em auto;
-    border-radius: 1em;
-    border:.2em solid #68b04d;
-    -webkit-box-shadow: 3px 3px 3px #333;
-    box-shadow: 3px 3px 3px #333;
-    background: #fff;
 
+.content
+{
+  padding: 1em;
+  width: 80%;
+  margin: 2em auto;
+  border-radius: 1em;
+  border: .2em solid #68b04d;
+  -webkit-box-shadow: 3px 3px 3px #333;
+  box-shadow: 3px 3px 3px #333;
+  background: #fff;
 }
-body {
-    background: url(../img/bg.jpg) center center no-repeat;
 
+body
+{
+  background: url(../img/bg.jpg) center center no-repeat;
 }
-#thisIs {
-    font-size: 22px;
+
+#thisIs
+{
+  font-size: 22px;
 }
-#thisIs span {
-    color: #68b04d;
+
+#thisIs span
+{
+  color: #68b04d;
 }
-.pure-alert {
-    margin:10px 0;
-    display: none;
+
+.pure-alert
+{
+  margin: 10px 0;
+  display: none;
 }
-p span {
-    color:#ccc;
+
+p span
+{
+  color: #ccc;
 }

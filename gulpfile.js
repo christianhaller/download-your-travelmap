@@ -6,12 +6,12 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     autoprefixer = require('gulp-autoprefixer'),
     minifycss = require('gulp-minify-css'),
-    prettify = require('gulp-js-prettify');
+    prettify = require('gulp-js-prettify'),
+    cssbeautify = require('gulp-cssbeautify');
 
 
 gulp.task('styles', function () {
-    return gulp.src(['src/css/pure.css','src/css/pure-extras.css', 'src/css/custom.css'])
-
+    return gulp.src(['src/css/pure.css', 'src/css/pure-extras.css', 'src/css/custom.css'])
         .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
         .pipe(concat('main.css'))
         .pipe(gulp.dest('css'))
@@ -46,37 +46,47 @@ gulp.task('jshint', function () {
             [
                 'src/js/custom.js'
             ]
-        ).pipe(jshint('.jshintrc'))
+        )
+        .pipe(jshint('.jshintrc'))
         .pipe(jshint.reporter('default'))
         .pipe(notify({ message: 'JSHINT task complete' }));
 });
 
 
+gulp.task('prettify', function () {
 
 
-gulp.task('prettify', function() {
-  gulp.src('src/js/custom.js')
-    .pipe(prettify({"indent_size": 4,
-        "indent_char": " ",
-        "indent_level": 0,
-        "indent_with_tabs": false,
-        "preserve_newlines": true,
-        "max_preserve_newlines": 10,
-        "jslint_happy": false,
-        "brace_style": "collapse",
-        "keep_array_indentation": false,
-        "keep_function_indentation": false,
-        "space_before_conditional": true,
-        "break_chained_methods": false,
-        "eval_code": false,
-        "unescape_strings": false,
-        "wrap_line_length": 0}))
-    .pipe(gulp.dest('src/js')); // edit in place
+    gulp.src('src/css/custom.css')
+        .pipe(cssbeautify({
+                    indent: '  ',
+                    autosemicolon: true
+                }))
+        .pipe(gulp.dest('src/css/'));
+
+
+    gulp.src('src/js/custom.js')
+        // https://github.com/beautify-web/js-beautify#options
+        .pipe(prettify({"indent_size": 4,
+            "indent_char": " ",
+            "indent_level": 0,
+            "indent_with_tabs": false,
+            "preserve_newlines": false,
+            "max_preserve_newlines": 0,
+            "jslint_happy": false,
+            "brace_style": "collapse",
+            "keep_array_indentation": false,
+            "keep_function_indentation": false,
+            "space_before_conditional": true,
+            "break_chained_methods": false,
+            "eval_code": false,
+            "unescape_strings": false,
+            "wrap_line_length": 0}))
+        .pipe(gulp.dest('src/js')); // edit in place
 });
 
 
 gulp.task('default', function () {
-    gulp.start('styles','prettify', 'jshint', 'scripts');
+    gulp.start('styles', 'prettify', 'jshint', 'scripts');
 });
 
 gulp.task('watch', function () {
