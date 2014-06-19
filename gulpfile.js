@@ -64,7 +64,6 @@ gulp.task('prettify', function () {
         .pipe(gulp.dest('src/css/'));
 
 
-
     gulp.src('src/js/custom.js')
         // https://github.com/beautify-web/js-beautify#options
         .pipe(prettify({"indent_size": 4,
