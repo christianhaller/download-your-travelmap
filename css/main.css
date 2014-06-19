@@ -1670,7 +1670,7 @@ striping:
 }
 
 /* Images */
-.pure-img-eliptical {
+/*.pure-img-eliptical {
 	border-radius: 80%;
 }
 .pure-img-rounded {
@@ -1683,12 +1683,12 @@ striping:
 }
 
 
-/* Thumbnails */
+*//* Thumbnails *//*
 .pure-thumbnails li {
     text-align: center;
     display: inline-block;
     *display: inline;
-    /* IE7 inline-block hack */
+    *//* IE7 inline-block hack *//*
     *zoom: 1;
     vertical-align: top;
     -webkit-box-sizing: border-box;
@@ -1715,7 +1715,7 @@ striping:
     max-width: 100%;
     margin-right: auto;
     margin-left: auto;
-    vertical-align: middle; /* this will remove a thin line below the image */
+    vertical-align: middle; *//* this will remove a thin line below the image *//*
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -1744,7 +1744,7 @@ striping:
 }
 .pure-thumb-rounded img {
 	border-radius: 3px;
-}
+}*/
 
 /* Badges/Pills */
 .pure-badge,
@@ -1820,7 +1820,7 @@ striping:
 
 /* Contextual Modals */
 
-.pure-popover {
+/*.pure-popover {
     position: relative;
     width: 300px;
     background-color: #f0f1f3;
@@ -1828,9 +1828,10 @@ striping:
     padding: 15px;
     border: 1px solid #bfc0c8;
     border-radius: 2px;
-    -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     box-padding: border-box;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
     background-clip: padding-box;
 }
 
@@ -1843,7 +1844,7 @@ striping:
 }
 
 
-/* POPOVER ARROW POSITIONING BOTTOM */
+*//* POPOVER ARROW POSITIONING BOTTOM *//*
 
 .pure-popover.bottom .pure-arrow-border {
     border-color: #bfc0c8 transparent transparent transparent;
@@ -1856,7 +1857,7 @@ striping:
     left: 50%;
 }
 
-/* POPOVER ARROW POSITIONING TOP*/
+*//* POPOVER ARROW POSITIONING TOP*//*
 
 .pure-popover.top .pure-arrow-border {
     border-color: transparent transparent #bfc0c8 transparent;
@@ -1869,7 +1870,7 @@ striping:
     left: 50%;
 }
 
-/* POPOVER ARROW POSITIONING RIGHT*/
+*//* POPOVER ARROW POSITIONING RIGHT*//*
 
 .pure-popover.right .pure-arrow-border {
     border-color: transparent transparent transparent #bfc0c8;
@@ -1883,7 +1884,7 @@ striping:
 }
 
 
-/* POPOVER ARROW POSITIONING LEFT*/
+*//* POPOVER ARROW POSITIONING LEFT*//*
 
 .pure-popover.left .pure-arrow-border {
     border-color: transparent #bfc0c8 transparent transparent;
@@ -1894,7 +1895,7 @@ striping:
     border-color: transparent #f0f1f3 transparent transparent;
     top:45%;
     left: -20px;
-}
+}*/
 
 
 /* BUTTON IMPROVEMENTS */
@@ -1931,8 +1932,7 @@ striping:
 }
 
 
-.jvectormap-label
-{
+.jvectormap-label {
   position: absolute;
   display: none;
   border: solid 1px #CDCDCD;
@@ -1944,8 +1944,7 @@ striping:
   padding: 3px;
 }
 
-.jvectormap-zoomin, .jvectormap-zoomout
-{
+.jvectormap-zoomin, .jvectormap-zoomout {
   position: absolute;
   left: 10px;
   border-radius: 3px;
@@ -1959,29 +1958,24 @@ striping:
   text-align: center;
 }
 
-.jvectormap-zoomin
-{
+.jvectormap-zoomin {
   top: 10px;
 }
 
-.jvectormap-zoomout
-{
+.jvectormap-zoomout {
   top: 30px;
 }
 
-#response
-{
+#response {
   display: none;
 }
 
-#map
-{
+#map {
   margin: 3em 0;
   height: 400px;
 }
 
-.content
-{
+.content {
   padding: 1em;
   width: 80%;
   margin: 2em auto;
@@ -1992,28 +1986,23 @@ striping:
   background: #fff;
 }
 
-body
-{
+body {
   background: url(../img/bg.jpg) center center no-repeat;
 }
 
-#thisIs
-{
+#thisIs {
   font-size: 22px;
 }
 
-#thisIs span
-{
+#thisIs span {
   color: #68b04d;
 }
 
-.pure-alert
-{
+.pure-alert {
   margin: 10px 0;
   display: none;
 }
 
-p span
-{
+p span {
   color: #ccc;
 }

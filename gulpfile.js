@@ -12,7 +12,7 @@ var gulp = require('gulp'),
 
 gulp.task('styles', function () {
     return gulp.src(['src/css/pure.css', 'src/css/pure-extras.css', 'src/css/custom.css'])
-        .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
+        .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
         .pipe(concat('main.css'))
         .pipe(gulp.dest('css'))
         .pipe(rename({suffix: '.min'}))
@@ -24,10 +24,9 @@ gulp.task('styles', function () {
 gulp.task('scripts', function () {
     return gulp.src(
             [
-                'src/js/jquery.js',
-                'src/js/foundation.js',
-                'src/js/jquery-jvectormap-1.2.2.min.js',
-                'src/js/jquery-jvectormap-world-mill-en.js',
+                'src/js/lib/jquery.js',
+                'src/js/lib/jquery-jvectormap-1.2.2.min.js',
+                'src/js/lib/jquery-jvectormap-world-mill-en.js',
                 'src/js/custom.js'
             ]
         )
