@@ -1979,7 +1979,7 @@ striping:
   padding: 1em;
   width: 80%;
   margin: 2em auto;
-  border-radius: 1em;
+  border-radius: 4px;
   border: .2em solid #68b04d;
   -webkit-box-shadow: 3px 3px 3px #333;
   box-shadow: 3px 3px 3px #333;
@@ -2005,4 +2005,21 @@ body {
 
 p span {
   color: #ccc;
+}
+
+#form button {
+  background-color: #68b04d;
+  font-size: 150%;
+}
+
+#form input {
+  font-size: 150%;
+}
+
+#form.success #url {
+  border-color: #68b04d;
+}
+
+#form.error #url {
+  border-color: red;
 }

@@ -13,9 +13,9 @@
     <p class="splash-subhead">
         Just enter your TripAdvisor Profile URL <span>e. g. http://www.tripadvisor.com/members/christianhaller (that's me)</span></p>
 
-    <form class="pure-form" action="/magic">
-        <label for="url">URL</label> <input type="text" id="url" value="" name="url">
-        <button type="submit" class="pure-button pure-button-primary">submit</button>
+    <form id="form" class="pure-form" action="/magic">
+        <input type="text" id="url" value="" name="url">
+        <button type="submit" class="pure-button pure-button-primary pure-button-disabled">submit</button>
         <div class="pure-alert-error pure-alert"></div>
     </form>
     <div id="response">
