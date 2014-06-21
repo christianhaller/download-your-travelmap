@@ -54,45 +54,56 @@ $(document).on('ready', function() {
             'r': 5
         },
         'errorClass': 'error',
-        'successClass': 'success',
-        'disabledClass': 'pure-button-disabled'
+        'successClass': 'success'
     },
         lastUrl = '',
         validateInput = function($url) {
             var $form = $url.closest('form'),
-                $button = $form.find('button'),
                 url = $url.val(),
                 isUrlValid = function(url) {
                     var re = new RegExp("^(http|https)://www.tripadvisor.", "i");
-                    if (!re.test(url)) {
-                        //console.log('starts not with http,https');
-                        return false;
-                    } else {
-                        return true;
-                    }
+                    return re.test(url);
                 };
             if (isUrlValid(url)) {
-                $button.removeClass(options.disabledClass);
                 $form.removeClass(options.errorClass).addClass(options.successClass);
                 return true;
             } else {
                 $url.focus();
-                $button.addClass(options.disabledClass);
                 $form.addClass(options.errorClass).removeClass(options.successClass);
                 return false;
             }
+        },
+        createGoogleStaticMap = function(googleStaticMap) {
+            var src = 'http://maps.googleapis.com/maps/api/staticmap?&size=640x480&format=png32&sensor=false&scale=2&markers=',
+                $googleStaticMap = $('#google-static-map');
+            if (src.length + googleStaticMap.latlng.length < 2048) {
+                src += googleStaticMap.latlng;
+            } else if (src.length + googleStaticMap.latlngLowPrecision.length < 2048) {
+                src += googleStaticMap.latlngLowPrecision;
+            } else {
+                return;
+            }
+            var $img = $('<img/>', {
+                src: src,
+                id: 'static-map'
+            });
+            // http://stackoverflow.com/questions/4278053/google-static-maps-url-length-limit
+            $googleStaticMap.empty().append($img);
         };
-    $('#url').on('blur init', function() {
+    $('nav a').on('click', function(e) {
+        var $a = $(this);
+        $('#response').find('.tab').removeClass('show');
+        $($a.attr('href')).addClass('show');
+        e.preventDefault();
+    });
+    $('#url').on('blur', function() {
         var $url = $(this),
             url = $.trim($url.val());
         if (url === '') {
             return;
         }
         validateInput($url);
-    }).trigger('init');
-
-
-
+    });
     $('#form').on('submit', function(e) {
         var $form = $(this),
             data,
@@ -104,7 +115,6 @@ $(document).on('ready', function() {
             return;
         }
         if (!validateInput($url)) {
-            console.log('nix');
             return;
         }
         lastUrl = url;
@@ -125,25 +135,42 @@ $(document).on('ready', function() {
             var $response = $('#response'),
                 $thisIs = $response.find('#thisIs span'),
                 $map = $response.find('#map'),
-                //countries = [],
                 markers,
+                googleStaticMap = {
+                    'latlng': '',
+                    'country': '',
+                    'latlngLowPrecision': ''
+                },
+                createRegions = function(array) {
+                    var regions = {};
+                    $.each(array, function(index, value) {
+                        var iso = value['iso'];
+                        if (typeof regions[iso] === 'undefined') {
+                            regions[iso] = 1;
+                        } else {
+                            regions[iso]++;
+                        }
+                    });
+                    return regions;
+                },
                 createMarker = function(array) {
                     var markers = [];
-                    $.each(array, function() {
+                    $.each(array, function(index, value) {
                         var marker = {
                             'style': options.been,
-                            'latLng': [this.lat, this.lng],
-                            'name': this.name
+                            'latLng': [value.lat, value.lng],
+                            'name': value.name
                         };
-                        if ($.inArray('want', this.flags) !== -1) {
+                        if ($.inArray('want', value.flags) !== -1) {
                             marker.style = options.want;
                         }
-                        if ($.inArray('fave', this.flags) !== -1) {
+                        if ($.inArray('fave', value.flags) !== -1) {
                             marker.style = options.fave;
                         }
                         markers.push(marker);
-                        //var parts = this.name.split(',');
-                        //countries.push(parts[parts.length - 1]);
+                        googleStaticMap.latlng += '%7C' + value.lat + ',' + value.lng;
+                        googleStaticMap.latlngLowPrecision += '%7C' + Math.round(value.lat * 100) / 100 + ',' + Math.round(value.lng * 100) / 100;
+                        googleStaticMap.country += '%7C' + value.country;
                     });
                     return markers;
                 };
@@ -172,16 +199,17 @@ $(document).on('ready', function() {
                         fill: '#ccc'
                     }
                 },
-                /*series: {
-                 regions: [{
-                 values: gdpData,
-                 scale: ['#C8EEFF', '#0071A4'],
-                 normalizeFunction: 'polynomial'
-                 }]
-                 },*/
+                series: {
+                    regions: [{
+                        values: createRegions(response.data.places),
+                        scale: ['#C8EEFF', '#0071A4'],
+                        normalizeFunction: 'polynomial'
+                    }]
+                },
                 backgroundColor: '#fff',
                 markers: markers
             });
+            createGoogleStaticMap(googleStaticMap);
         });
     });
 });

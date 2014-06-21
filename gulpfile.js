@@ -57,9 +57,9 @@ gulp.task('prettify', function () {
 
     gulp.src('src/css/custom.css')
         .pipe(cssbeautify({
-                    indent: '  ',
-                    autosemicolon: true
-                }))
+            indent: '  ',
+            autosemicolon: true
+        }))
         .pipe(gulp.dest('src/css/'));
 
 
@@ -94,7 +94,7 @@ gulp.task('watch', function () {
     gulp.watch('src/css/*.css', ['styles']);
 
     // Watch .js files
-    gulp.watch('src/js/*.js', ['scripts', 'jshint']);
+    gulp.watch('src/js/*.js', ['scripts']);
 
 
 });

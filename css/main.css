@@ -2023,3 +2023,20 @@ p span {
 #form.error #url {
   border-color: red;
 }
+
+#static-map {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.tab {
+  display: none;
+}
+
+.tab.show {
+  display: block;
+}
+
+nav {
+  margin: 20px 0;
+}
