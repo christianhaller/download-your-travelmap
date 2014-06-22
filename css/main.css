@@ -1970,10 +1970,6 @@ striping:
   display: none;
 }
 
-#map {
-  margin: 3em 0;
-  height: 400px;
-}
 
 .content {
   padding: 1em;
@@ -2039,4 +2035,7 @@ p span {
 
 nav {
   margin: 20px 0;
+}
+#map {
+    height: 400px;
 }

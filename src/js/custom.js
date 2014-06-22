@@ -143,6 +143,7 @@ $(document).on('ready', function() {
             $alert.hide();
             $map.empty();
             $response.show();
+            $response.find('.permalink').attr('href', '/?url=' + encodeURIComponent(data.url));
             markers = createMarker(response.data.places);
             $map.vectorMap({
                 map: 'world_mill_en',
@@ -178,9 +179,8 @@ $(document).on('ready', function() {
             createGoogleStaticMap(googleStaticMap);
         });
     });
-    console.log(window.location);
     if (window.location.search.indexOf('?url=') === 0) {
-        $url.val(window.location.search.substring(5));
+        $url.val(decodeURIComponent(window.location.search.substring(5)));
         $form.trigger('auto');
     }
 });
