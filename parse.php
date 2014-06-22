@@ -1,6 +1,7 @@
 <?php
 
 include('iso.php');
+require_once('SimpleExcel.php');
 
 $url = '';
 $response = array('data' => array(), 'status' => 'error');
@@ -110,18 +111,31 @@ try {
 
 
     $json = json_encode($places);
-    $url = urlencode($url);
 
-    $path = 'data/' . $url;
-    if (!is_dir($path)) {
-        mkdir($path);
-    }
+    $url = md5($url).'-'.time().'.csv';
 
-    file_put_contents('data/' . $url . '/' . time(), $json);
+
+
+    //file_put_contents('data/' . $url . '/' , $json);
+
+
+
+
     $response['data']['places'] = $places;
     $response['status'] = 'success';
 
+
+    $fp = fopen('data/'.$url, 'w');
+         foreach ($places as $key => $fields) {
+             unset($fields['iso']);
+             unset($fields['flags']);
+             fputcsv($fp, $fields);
+         }
+         fclose($fp);
+    $response['csv'] = $url;
     response($response);
+
+
 
 
 } catch (Exception $e) {
@@ -138,6 +152,10 @@ function response($response)
     header('Content-Type: application/json');
     echo json_encode($response);
 }
+
+
+
+
 
 
 

@@ -420,6 +420,8 @@ $(document).on('ready', function() {
                 'cities': markers.length,
                 'countries': countCountries(response.data.places)
             });
+            // csv button
+            $('#csv a').attr('href', '/data/' + response.csv);
         });
     });
     if (window.location.search.indexOf('?url=') === 0) {
