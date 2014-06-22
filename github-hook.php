@@ -7,4 +7,4 @@ shell_exec("cd /var/www/christianhaller.com/subdomains/download-your-travelmap &
 
 //}
 
-?>hi
+?>
