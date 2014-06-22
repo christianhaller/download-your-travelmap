@@ -61,8 +61,7 @@ $(document).on('ready', function() {
             var $form = $url.closest('form'),
                 url = $url.val(),
                 isUrlValid = function(url) {
-                    var re = new RegExp("^(http|https)://www.tripadvisor.[a-z]+/members/[a-z0-9]+", "i");
-
+                    var re = new RegExp("^(http|https)://www.tripadvisor.[a-z]+/member", "i");
                     return re.test(url);
                 };
             if (isUrlValid(url)) {
