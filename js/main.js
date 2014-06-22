@@ -57,6 +57,8 @@ $(document).on('ready', function() {
         'successClass': 'success'
     },
         lastUrl = '',
+        $form,
+        $url,
         validateInput = function($url) {
             var $form = $url.closest('form'),
                 url = $url.val(),
@@ -96,7 +98,7 @@ $(document).on('ready', function() {
         $($a.attr('href')).addClass('show');
         e.preventDefault();
     });
-    $('#url').on('blur', function() {
+    $url = $('#url').on('blur', function() {
         var $url = $(this),
             url = $.trim($url.val());
         if (url === '') {
@@ -104,7 +106,8 @@ $(document).on('ready', function() {
         }
         validateInput($url);
     });
-    $('#form').on('submit', function(e) {
+    $form = $('#form').on('submit auto', function(e) {
+        console.log('auto');
         var $form = $(this),
             data,
             $url = $form.find('#url'),
@@ -144,7 +147,11 @@ $(document).on('ready', function() {
                 createRegions = function(array) {
                     var regions = {};
                     $.each(array, function(index, value) {
-                        var iso = value['iso'];
+                        var iso = value.iso;
+                        if (iso === '') {
+                            //console.log(value.country);
+                            return;
+                        }
                         if (typeof regions[iso] === 'undefined') {
                             regions[iso] = 1;
                         } else {
@@ -212,4 +219,9 @@ $(document).on('ready', function() {
             createGoogleStaticMap(googleStaticMap);
         });
     });
+    console.log(window.location);
+    if (window.location.search.indexOf('?url=') === 0) {
+        $url.val(window.location.search.substring(5));
+        $form.trigger('auto');
+    }
 });
