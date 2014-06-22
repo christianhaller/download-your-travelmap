@@ -1,7 +1,6 @@
 <?php
 
 include('iso.php');
-require_once('SimpleExcel.php');
 
 $url = '';
 $response = array('data' => array(), 'status' => 'error');
