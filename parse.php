@@ -14,8 +14,8 @@ function parseStr($str, $start, $end)
     $result = substr($result, 0, $endPos);
 
     if($result===''){
-        echo ('no result for '.$start.'' .$end.' in:'.$str);
-        //throw new Exception('no result for '.$start.'' .$end.' in:'.$str);
+        //echo ('no result for '.$start.'' .$end.' in:'.$str);
+        throw new Exception('no result for '.$start.'' .$end.' in:'.$str);
     }
 
     return $result;
@@ -59,6 +59,8 @@ try {
 
 
     $response['data']['username'] = parseStr($str, '<div class="memberTitle">', '<');
+    $bodyElement = parseStr($str,'<body','>');
+    $response['data']['lang'] = parseStr($bodyElement,'lang_',' ');
 
     //Bildchen
     $response['data']['avatar'] = parseStr($str, 'avatarUrl" src="', '"');

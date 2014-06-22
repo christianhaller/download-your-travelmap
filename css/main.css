@@ -1936,18 +1936,17 @@ striping:
   position: absolute;
   display: none;
   border: solid 1px #CDCDCD;
-  border-radius: 3px;
+  border-radius: 4px;
   background: #292929;
   color: white;
-  font-family: sans-serif, Verdana;
   font-size: smaller;
   padding: 3px;
 }
 
 .jvectormap-zoomin, .jvectormap-zoomout {
   position: absolute;
-  left: 10px;
-  border-radius: 3px;
+  left: 0;
+  border-radius: 4px;
   background: #292929;
   padding: 3px;
   color: white;
@@ -1969,7 +1968,6 @@ striping:
 #response {
   display: none;
 }
-
 
 .content {
   padding: 1em;
@@ -2027,6 +2025,7 @@ p span {
 
 .tab {
   display: none;
+  position: relative;
 }
 
 .tab.show {
@@ -2036,6 +2035,22 @@ p span {
 nav {
   margin: 20px 0;
 }
+
 #map {
-    height: 400px;
+  height: 400px;
+}
+
+nav.pure-menu-horizontal li {
+  background: #ccc;
+}
+
+#stats {
+  top: 200px;
+  z-index: 1;
+  position: absolute;
+}
+
+#stats td {
+  width: 50px;
+  text-align: right;
 }

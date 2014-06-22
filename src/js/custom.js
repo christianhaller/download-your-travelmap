@@ -34,6 +34,18 @@ $(document).on('ready', function() {
                 return false;
             }
         },
+        createStats = function(total) {
+            var countOptions = {
+                useEasing: true,
+                useGrouping: true,
+                separator: ',',
+                decimal: '.'
+            },
+                cities = new countUp($('#stats .cities')[0], 0, total.cities, 0, 4, countOptions),
+                countries = new countUp($('#stats .countries')[0], 0, total.countries, 0, 4, countOptions);
+            cities.start();
+            countries.start();
+        },
         createGoogleStaticMap = function(googleStaticMap) {
             var src = 'http://maps.googleapis.com/maps/api/staticmap?&size=640x480&format=png32&sensor=false&scale=2&markers=',
                 $googleStaticMap = $('#google-static-map');
@@ -66,7 +78,6 @@ $(document).on('ready', function() {
         validateInput($url);
     });
     $form = $('#form').on('submit auto', function(e) {
-        console.log('auto');
         var $form = $(this),
             data,
             $url = $form.find('#url'),
@@ -98,6 +109,7 @@ $(document).on('ready', function() {
                 $thisIs = $response.find('#thisIs span'),
                 $map = $response.find('#map'),
                 markers,
+                regions = {},
                 googleStaticMap = {
                     'latlng': '',
                     'country': '',
@@ -105,10 +117,10 @@ $(document).on('ready', function() {
                 },
                 createRegions = function(array) {
                     var regions = {};
+                    // get nur, wenn die Sprache englisch ist
                     $.each(array, function(index, value) {
                         var iso = value.iso;
                         if (iso === '') {
-                            //console.log(value.country);
                             return;
                         }
                         if (typeof regions[iso] === 'undefined') {
@@ -118,6 +130,17 @@ $(document).on('ready', function() {
                         }
                     });
                     return regions;
+                },
+                countCountries = function(list) {
+                    var coutryList = [];
+                    $.each(list, function(index, value) {
+                        if ($.inArray(value.country, coutryList) === -1) {
+                            if ($.inArray('been', value.flags) !== -1) {
+                                coutryList.push(value.country);
+                            }
+                        }
+                    });
+                    return coutryList.length;
                 },
                 createMarker = function(array) {
                     var markers = [];
@@ -136,15 +159,20 @@ $(document).on('ready', function() {
                         markers.push(marker);
                         googleStaticMap.latlng += '%7C' + value.lat + ',' + value.lng;
                         googleStaticMap.latlngLowPrecision += '%7C' + Math.round(value.lat * 100) / 100 + ',' + Math.round(value.lng * 100) / 100;
-                        googleStaticMap.country += '%7C' + value.country;
+                        //googleStaticMap.country += '%7C' + value.country;
                     });
                     return markers;
                 };
             $alert.hide();
             $map.empty();
             $response.show();
-            $response.find('.permalink').attr('href', '/?url=' + encodeURIComponent(data.url));
+            if (history.pushState) {
+                window.history.pushState('', '', '/?url=' + encodeURIComponent(data.url));
+            }
             markers = createMarker(response.data.places);
+            if (response.data.lang === 'en') {
+                regions = createRegions(response.data.places);
+            }
             $map.vectorMap({
                 map: 'world_mill_en',
                 onMarkerLabelShow: function(event, label, index) {
@@ -168,7 +196,7 @@ $(document).on('ready', function() {
                 },
                 series: {
                     regions: [{
-                        values: createRegions(response.data.places),
+                        values: regions,
                         scale: ['#C8EEFF', '#0071A4'],
                         normalizeFunction: 'polynomial'
                     }]
@@ -177,6 +205,10 @@ $(document).on('ready', function() {
                 markers: markers
             });
             createGoogleStaticMap(googleStaticMap);
+            createStats({
+                'cities': markers.length,
+                'countries': countCountries(response.data.places)
+            });
         });
     });
     if (window.location.search.indexOf('?url=') === 0) {

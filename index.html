@@ -9,23 +9,33 @@
 <body>
 <div class="content">
     <h1>Download Your TripAdvisor Travel Map</h1>
+
     <p class="splash-subhead">
         Just enter your TripAdvisor Profile URL <span>e. g. http://www.tripadvisor.com/members/christianhaller (that's me)</span></p>
+
     <form id="form" class="pure-form" action="/magic">
         <input type="text" id="url" value="" name="url">
         <button type="submit" class="pure-button pure-button-primary">go</button>
         <div class="pure-alert-error pure-alert"></div>
     </form>
     <div id="response">
-
         <nav class="pure-menu pure-menu-open pure-menu-horizontal">
             <ul>
                 <li class="pure-menu-selected"><a href="#jvectormap">Map</a></li>
                 <li><a href="#google-static-map">Google Static Maps</a></li>
-                <li><a target="_blank" class="permalink" href="#">Permalink</a></li>
             </ul>
         </nav>
         <div class="tab show" id="jvectormap">
+            <table id="stats" class="pure-table">
+                <tr>
+                    <th>Cities</th>
+                    <td class="cities"></td>
+                </tr>
+                <tr>
+                    <th>Countries</th>
+                    <td class="countries"></td>
+                </tr>
+            </table>
             <div id="map"></div>
             <strong id="thisIs">This is <span>your travelmap</span></strong>
         </div>

@@ -2,20 +2,17 @@
   position: absolute;
   display: none;
   border: solid 1px #CDCDCD;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
+  border-radius: 4px;
   background: #292929;
   color: white;
-  font-family: sans-serif, Verdana;
   font-size: smaller;
   padding: 3px;
 }
 
 .jvectormap-zoomin, .jvectormap-zoomout {
   position: absolute;
-  left: 10px;
-  border-radius: 3px;
+  left: 0;
+  border-radius: 4px;
   background: #292929;
   padding: 3px;
   color: white;
@@ -93,6 +90,7 @@ p span {
 
 .tab {
   display: none;
+  position: relative;
 }
 
 .tab.show {
@@ -105,4 +103,19 @@ nav {
 
 #map {
   height: 400px;
+}
+
+nav.pure-menu-horizontal li {
+  background: #ccc;
+}
+
+#stats {
+  top: 200px;
+  z-index: 1;
+  position: absolute;
+}
+
+#stats td {
+  width: 50px;
+  text-align: right;
 }
