@@ -1,6 +1,7 @@
 <?php
 
 include('iso.php');
+date_default_timezone_set("Europe/Berlin");
 
 $url = '';
 $response = array('data' => array(), 'status' => 'error');
@@ -111,7 +112,7 @@ try {
 
     $json = json_encode($places);
 
-    $url = md5($url).'-'.time().'.csv';
+    $url = date('Y-m-d-His').'--'.md5($url).'.csv';
 
 
 

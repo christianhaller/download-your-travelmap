@@ -1,4 +1,5 @@
 $(document).on('ready', function() {
+    console.log('rrr');
     var options = {
         'been': {
             'fill': 'yellow',

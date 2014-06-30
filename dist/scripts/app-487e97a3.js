@@ -210,6 +210,7 @@ function countUp(target, startVal, endVal, decimals, duration, options) {
 // numAnim.start(someMethodToCallOnComplete);
 
 $(document).on('ready', function() {
+    console.log('rrr');
     var options = {
         'been': {
             'fill': 'yellow',
