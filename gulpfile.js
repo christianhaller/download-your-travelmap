@@ -8,6 +8,7 @@ var gulp = require('gulp'),
     handlebars = require('gulp-compile-handlebars'),
     autoprefixer = require('gulp-autoprefixer'),
     minifycss = require('gulp-minify-css'),
+    sourcemaps = require('gulp-sourcemaps'),
     prettify = require('gulp-js-prettify'),
     rev = require('gulp-rev'),
     htmlmin = require('gulp-htmlmin'),
@@ -122,13 +123,14 @@ gulp.task('scripts', function () {
                 'app/scripts/main.js'
             ]
         )
-
+        .pipe(sourcemaps.init())
         .pipe(concat('app.js'))
         .pipe(gulp.dest('./dist/scripts'))
         .pipe(rename({
             suffix: '.min'
         }))
         .pipe(uglify())
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest('./dist/scripts'))
         .pipe(notify({
             message: 'Scripts task complete'
