@@ -3,7 +3,8 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     jshint = require('gulp-jshint'),
     notify = require('gulp-notify'),
-    concat = require('gulp-concat'),
+    concat = require('gulp-concat-sourcemap'),
+    //concat = require('gulp-concat'),
     rename = require('gulp-rename'),
     handlebars = require('gulp-compile-handlebars'),
     autoprefixer = require('gulp-autoprefixer'),
@@ -13,23 +14,36 @@ var gulp = require('gulp'),
     rev = require('gulp-rev'),
     htmlmin = require('gulp-htmlmin'),
     cssbeautify = require('gulp-cssbeautify'),
+    csso = require('gulp-csso'),
     clean = require('gulp-clean'),
+    plumber = require('gulp-plumber'),
     buffer = require('gulp-buffer'),
-    livereload = require('gulp-livereload');
+    browserSync = require('browser-sync'),
+    livereload = require('gulp-livereload'),
+    onError = function (err) {
+        gutil.beep();
+        console.log(err);
+    };
 
 
 gulp.task('rev', ['scripts', 'styles'], function () {
-    // by default, gulp would pick `assets/css` as the base,
-    // so we need to set it explicitly:
-    return gulp.src(['dist/styles/*.css', 'dist/scripts/*.js'], {'base': 'dist'})
-        .pipe(gulp.dest('dist'))
+    return gulp.src(['build/styles/app.min.css', 'build/scripts/app.min.js'], {'base': 'dist'})
+        .pipe(gulp.dest('build'))
         .pipe(rev())
         .pipe(gulp.dest('dist'))
-
         .pipe(rev.manifest())
         .pipe(gulp.dest('dist')); // write manifest to build dir
 });
 
+
+gulp.task('browser-sync', function () {
+    browserSync({
+        server: {
+            baseDir: './dist'
+        }
+    });
+    browserSync.reload();
+});
 
 gulp.task('compile', ['rev'], function () {
     var manifest = JSON.parse(fs.readFileSync('dist/rev-manifest.json', 'utf8'));
@@ -49,9 +63,7 @@ gulp.task('compile', ['rev'], function () {
         .pipe(handlebars(manifest, handlebarOpts))
         .pipe(rename('index.html'))
         .pipe(gulp.dest('./dist'))
-        .pipe(notify({
-            message: 'Compile task complete'
-        }));
+        .pipe(livereload({ auto: false }));
 });
 
 gulp.task('clean', function () {
@@ -71,19 +83,19 @@ gulp.task('styles', ['clean'], function () {
 
     return gulp.src(['app/styles/vendor/pure.css', 'app/styles/vendor/pure-extras.css', 'app/styles/main.css'])
         .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
-        .pipe(concat('app.min.css'))
+        .pipe(concat('app.css'))
 
-        /*
+        .pipe(gulp.dest('build/styles'))
+        .pipe(rename({
+            suffix: '.min'
+        }))
 
-         .pipe(gulp.dest('dist/styles'))
-         .pipe(rename({
-         suffix: '.min'
-         }))
+        .pipe(plumber(onError))
 
-         */
-        .pipe(minifycss())
+        //.pipe(minifycss())
+        //.pipe(csso())
 
-        .pipe(gulp.dest('dist/styles'))
+        .pipe(gulp.dest('build/styles'))
 });
 
 gulp.task('jshint', function () {
@@ -125,24 +137,21 @@ gulp.task('scripts', function () {
         )
         .pipe(sourcemaps.init())
         .pipe(concat('app.js'))
-        .pipe(gulp.dest('./dist/scripts'))
+        .pipe(gulp.dest('./build/scripts'))
         .pipe(rename({
             suffix: '.min'
         }))
         .pipe(uglify())
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('./dist/scripts'))
-        .pipe(notify({
-            message: 'Scripts task complete'
-        }));
+        .pipe(gulp.dest('./build/scripts'));
 
 
 });
 
-gulp.task('minifyhtml',['compile'], function() {
-  gulp.src('./dist/*.html')
-    .pipe(htmlmin({collapseWhitespace: true,'removeComments':true}))
-    .pipe(gulp.dest('./dist'))
+gulp.task('minifyhtml', ['compile'], function () {
+    gulp.src('./dist/*.html')
+        .pipe(htmlmin({collapseWhitespace: true, 'removeComments': true}))
+        .pipe(gulp.dest('./dist'))
 });
 
 
@@ -151,7 +160,7 @@ gulp.task('default', function () {
 });
 
 gulp.task('build', function () {
-    gulp.start('minifyhtml','default');
+    gulp.start('minifyhtml', 'default');
 });
 
 gulp.task('watch', function () {
@@ -162,15 +171,8 @@ gulp.task('watch', function () {
     // Watch .js files
     gulp.watch('app/scripts/*.js', ['default']);
 
-    /*    // Create LiveReload server
-     var server = livereload();
-
-     // Watch any files in dist/, reload on change
-     gulp.watch(['src*/
-    /*.*']).on('change', function (file) {
-
-     server.changed(file.path);
-     });*/
-
+    livereload.listen();
+    gulp.watch('dist/index.html').on('change', livereload.changed);
 
 });
+
