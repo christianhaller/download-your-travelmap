@@ -3,7 +3,10 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link type="text/css" rel="stylesheet" href="/styles/app.min-7e8b29d2.css"/>
+
+    
+    <link type="text/css" rel="stylesheet" href="/styles/app.min-f712d42b.css"/>
+    
     <title>🌎 Download Your TripAdvisor Travel Map  🌎</title>
 </head>
 <body>
@@ -13,12 +16,14 @@
     <p class="splash-subhead">
         Just enter your TripAdvisor Profile URL <span>e. g. http://www.tripadvisor.com/members/christianhaller (that's me)</span></p>
 
-    <form id="form" class="pure-form" action="/magic">
+    <form id="form" class="pure-form mod-url mod" action="/magic"  data-connectors="map">
         <input type="text" id="url" value="" name="url">
         <button type="submit" class="pure-button pure-button-primary">go</button>
         <div class="pure-alert-error pure-alert"></div>
     </form>
-    <div id="response">
+
+
+    <div class="mod-response mod" data-connectors="map">
         <nav class="pure-menu pure-menu-open pure-menu-horizontal">
             <!--<ul>
                 <li class="pure-menu-selected"><a href="#jvectormap">Map</a></li>
@@ -26,8 +31,8 @@
                 <li class="csv"><a href="#csv">csv Download</a></li>
             </ul>-->
         </nav>
-        <div class="tab show" id="jvectormap">
-            <table id="stats" class="pure-table">
+        <div class="tab show" id="map">
+            <table class="pure-table mod mod-stats">
                 <tr>
                     <th>Cities</th>
                     <td class="cities"></td>
@@ -37,8 +42,8 @@
                     <td class="countries"></td>
                 </tr>
             </table>
-            <div id="map"></div>
-            <strong id="thisIs">This is <span>your travelmap</span></strong>
+            <div class="mod-map mod"></div>
+            <strong>This is <span>your travelmap</span></strong>
         </div>
         <div class="tab" id="google-static-map"></div>
         <div class="tab" id="csv">
@@ -46,6 +51,8 @@
         </div>
     </div>
 </div>
-<script src="/scripts/app.min-14c4d74c.js"></script>
+
+    <script src="/scripts/app.min-f5a4516f.js"></script>
+
 </body>
 </html>

@@ -2,3 +2,6 @@ node_modules
 data
 .idea
 build
+.sass-cache
+dist/scripts/src
+dist/styles/src

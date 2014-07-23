@@ -3,10 +3,11 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    {{#if debug}}{{#each assets.styles}}
-            <link type="text/css" rel="stylesheet" href="/styles/src/{{this}}"/>{{/each}}
-        {{else}}
-    <link type="text/css" rel="stylesheet" href="{{assetPath "styles/app.min.css"}}"/>{{/if}}
+    
+            <link type="text/css" rel="stylesheet" href="/styles/src/app/styles/vendor/pure.css"/>
+            <link type="text/css" rel="stylesheet" href="/styles/src/app/styles/vendor/pure-extras.css"/>
+            <link type="text/css" rel="stylesheet" href="/styles/src/app/styles/main.css"/>
+        
     <title>🌎 Download Your TripAdvisor Travel Map  🌎</title>
 </head>
 <body>
@@ -50,8 +51,15 @@
             <a href="#" class="button-xlarge pure-button">Download (csv)</a>
         </div>
     </div>
-</div>{{#if debug}}
-    {{#each assets.scripts}}<script src="/scripts/src/{{this}}"></script>
-    {{/each}}{{else}}<script src="{{assetPath "scripts/app.min.js"}}"></script>{{/if}}
+</div>
+    <script src="/scripts/src/app/scripts/vendor/jquery.js"></script>
+    <script src="/scripts/src/app/scripts/vendor/terrific-2.1.0.js"></script>
+    <script src="/scripts/src/app/scripts/response/response.js"></script>
+    <script src="/scripts/src/app/scripts/url-form/url-form.js"></script>
+    <script src="/scripts/src/app/scripts/vendor/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="/scripts/src/app/scripts/vendor/jquery-jvectormap-world-mill-en.js"></script>
+    <script src="/scripts/src/app/scripts/vendor/countUp.js"></script>
+    <script src="/scripts/src/app/scripts/main.js"></script>
+    
 </body>
 </html>

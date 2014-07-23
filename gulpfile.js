@@ -3,8 +3,8 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     jshint = require('gulp-jshint'),
     notify = require('gulp-notify'),
-    concat = require('gulp-concat-sourcemap'),
-    //concat = require('gulp-concat'),
+    concat = require('gulp-concat'),
+    gutil = require('gulp-util'),
     rename = require('gulp-rename'),
     handlebars = require('gulp-compile-handlebars'),
     autoprefixer = require('gulp-autoprefixer'),
@@ -15,14 +15,34 @@ var gulp = require('gulp'),
     htmlmin = require('gulp-htmlmin'),
     cssbeautify = require('gulp-cssbeautify'),
     csso = require('gulp-csso'),
+    sass = require('gulp-ruby-sass'),
     clean = require('gulp-clean'),
     plumber = require('gulp-plumber'),
+    gzip = require('gulp-gzip'),
+    size = require('gulp-size'),
     buffer = require('gulp-buffer'),
     browserSync = require('browser-sync'),
     livereload = require('gulp-livereload'),
     onError = function (err) {
         gutil.beep();
         console.log(err);
+    },
+    assets = {
+        'scripts': [
+
+        'app/scripts/vendor/jquery.js',
+        'app/scripts/vendor/terrific-2.1.0.js',
+        'app/scripts/response/response.js',
+        'app/scripts/url-form/url-form.js',
+        'app/scripts/vendor/jquery-jvectormap-1.2.2.min.js',
+        'app/scripts/vendor/jquery-jvectormap-world-mill-en.js',
+        'app/scripts/vendor/countUp.js',
+        'app/scripts/main.js'
+    ],
+         'styles':[
+             'app/styles/vendor/pure.css',
+             'app/styles/vendor/pure-extras.css',
+             'app/styles/main.scss']
     };
 
 
@@ -32,7 +52,7 @@ gulp.task('rev', ['scripts', 'styles'], function () {
         .pipe(rev())
         .pipe(gulp.dest('dist'))
         .pipe(rev.manifest())
-        .pipe(gulp.dest('dist')); // write manifest to build dir
+        .pipe(gulp.dest('dist'));
 });
 
 
@@ -53,7 +73,8 @@ gulp.task('compile', ['rev'], function () {
             assetPath: function (path, context) {
                 return ['', context.data.root[path]].join('/');
             }
-        }
+        },
+        debug: false
     };
 
 
@@ -65,6 +86,40 @@ gulp.task('compile', ['rev'], function () {
         .pipe(gulp.dest('./dist'))
         .pipe(livereload({ auto: false }));
 });
+
+
+gulp.task('dev', function () {
+    gulp.start('dev-html','dev-js','dev-css');
+
+
+});
+
+gulp.task('dev-html',function(){
+
+    for (var i = 0, len = assets.styles.length; i < len; i++) {
+        assets.styles[i] = assets.styles[i].replace('scss','css');
+    }
+
+
+    return gulp.src('./app/index.hbs')
+        .pipe(handlebars({'debug': true, 'assets': assets}))
+        .pipe(rename('index-dev.html'))
+        .pipe(gulp.dest('./dist'));
+
+});
+
+gulp.task('dev-js',function(){
+    return gulp.src(assets.scripts,{'base':'./'})
+        .pipe(gulp.dest('./dist/scripts/src'));
+});
+
+gulp.task('dev-css',function(){
+    return gulp.src(assets.styles,{'base':'./'})
+        .pipe(sass())
+        .pipe(gulp.dest('./dist/styles/src'));
+});
+
+
 
 gulp.task('clean', function () {
     return gulp.src(['dist/styles', 'dist/scripts'], {read: false})
@@ -81,8 +136,10 @@ gulp.task('styles', ['clean'], function () {
      .pipe(gulp.dest('src/css/'));*/
 
 
-    return gulp.src(['app/styles/vendor/pure.css', 'app/styles/vendor/pure-extras.css', 'app/styles/main.css'])
+    return gulp.src(assets.styles)
+        .pipe(sass())
         .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
+
         .pipe(concat('app.css'))
 
         .pipe(gulp.dest('build/styles'))
@@ -91,11 +148,12 @@ gulp.task('styles', ['clean'], function () {
         }))
 
         .pipe(plumber(onError))
+        .pipe(csso())
+        .pipe(minifycss())
 
-        //.pipe(minifycss())
-        //.pipe(csso())
 
         .pipe(gulp.dest('build/styles'))
+        .pipe(size());
 });
 
 gulp.task('jshint', function () {
@@ -127,14 +185,9 @@ gulp.task('scripts', function () {
 
 
     return gulp.src(
-            [
-                'app/scripts/vendor/jquery.js',
-                'app/scripts/vendor/jquery-jvectormap-1.2.2.min.js',
-                'app/scripts/vendor/jquery-jvectormap-world-mill-en.js',
-                'app/scripts/vendor/countUp.js',
-                'app/scripts/main.js'
-            ]
+            assets.scripts
         )
+
         .pipe(sourcemaps.init())
         .pipe(concat('app.js'))
         .pipe(gulp.dest('./build/scripts'))
@@ -143,13 +196,16 @@ gulp.task('scripts', function () {
         }))
         .pipe(uglify())
         .pipe(sourcemaps.write())
+        //.pipe(gzip())
+        .pipe(size())
         .pipe(gulp.dest('./build/scripts'));
+    //);
 
 
 });
 
 gulp.task('minifyhtml', ['compile'], function () {
-    gulp.src('./dist/*.html')
+    gulp.src('./dist/index.html')
         .pipe(htmlmin({collapseWhitespace: true, 'removeComments': true}))
         .pipe(gulp.dest('./dist'))
 });
