@@ -31,7 +31,7 @@
   top: 30px;
 }
 
-#response {
+.mod-response {
   display: none;
 }
 
@@ -43,13 +43,11 @@
   border: .2em solid #68b04d;
   box-shadow: 3px 3px 3px #333;
   background: #fff;
-  display: inline;
-  display:block;
 }
 
 body {
   background: url(../img/bg.jpg) center center no-repeat;
-  background: black;
+  background: red;
 
 }
 
@@ -101,28 +99,26 @@ p span {
   display: block;
 }
 
-nav {
+.main-nav {
   margin: 20px 0;
-}
-
-#map {
-  height: 450px;
-}
-
-.pure-menu-horizontal {
 
   li {
     background: #ccc;
   }
 }
 
-#stats {
+#map {
+  height: 450px;
+}
+
+
+.mod-stats {
   top: 200px;
   z-index: 1;
   position: absolute;
-}
 
-#stats td {
-  width: 50px;
-  text-align: right;
+  td {
+    width: 50px;
+    text-align: right;
+  }
 }

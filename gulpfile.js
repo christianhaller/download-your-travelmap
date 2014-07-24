@@ -113,6 +113,11 @@ gulp.task('dev-js',function(){
         .pipe(gulp.dest('./dist/scripts/src'));
 });
 
+gulp.task('php-script',function(){
+    return gulp.src('app/php-script')
+        .pipe(gulp.dest('./dist/php/script'));
+});
+
 gulp.task('dev-css',function(){
     return gulp.src(assets.styles,{'base':'./'})
         .pipe(sass())
