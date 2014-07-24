@@ -1,7 +1,6 @@
 {
   "name": "been",
   "version": "0.0.0",
-  "description": "",
   "main": "gulpfile.js",
   "dependencies": {
     "gulp-autoprefixer": "~0.0.8",
