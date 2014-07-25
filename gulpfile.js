@@ -13,7 +13,7 @@ var gulp = require('gulp'),
     prettify = require('gulp-js-prettify'),
     rev = require('gulp-rev'),
     htmlmin = require('gulp-htmlmin'),
-    cssbeautify = require('gulp-cssbeautify'),
+    //cssbeautify = require('gulp-cssbeautify'),
     csso = require('gulp-csso'),
     sass = require('gulp-ruby-sass'),
     clean = require('gulp-clean'),
@@ -30,19 +30,19 @@ var gulp = require('gulp'),
     assets = {
         'scripts': [
 
-        'app/scripts/vendor/jquery.js',
-        'app/scripts/vendor/terrific-2.1.0.js',
-        'app/scripts/response/response.js',
-        'app/scripts/url-form/url-form.js',
-        'app/scripts/vendor/jquery-jvectormap-1.2.2.min.js',
-        'app/scripts/vendor/jquery-jvectormap-world-mill-en.js',
-        'app/scripts/vendor/countUp.js',
-        'app/scripts/main.js'
-    ],
-         'styles':[
-             'app/styles/vendor/pure.css',
-             'app/styles/vendor/pure-extras.css',
-             'app/styles/main.scss']
+            'app/scripts/vendor/jquery.js',
+            'app/scripts/vendor/terrific-2.1.0.js',
+            'app/scripts/response/response.js',
+            'app/scripts/url-form/url-form.js',
+            'app/scripts/vendor/jquery-jvectormap-1.2.2.min.js',
+            'app/scripts/vendor/jquery-jvectormap-world-mill-en.js',
+            'app/scripts/vendor/countUp.js',
+            'app/scripts/main.js'
+        ],
+        'styles': [
+            'app/styles/vendor/pure.css',
+            'app/styles/vendor/pure-extras.css',
+            'app/styles/main.scss']
     };
 
 
@@ -56,14 +56,7 @@ gulp.task('rev', ['scripts', 'styles'], function () {
 });
 
 
-gulp.task('browser-sync', function () {
-    browserSync({
-        server: {
-            baseDir: './dist'
-        }
-    });
-    browserSync.reload();
-});
+
 
 gulp.task('compile', ['rev'], function () {
     var manifest = JSON.parse(fs.readFileSync('dist/rev-manifest.json', 'utf8'));
@@ -84,46 +77,54 @@ gulp.task('compile', ['rev'], function () {
         .pipe(handlebars(manifest, handlebarOpts))
         .pipe(rename('index.html'))
         .pipe(gulp.dest('./dist'))
-        .pipe(livereload({ auto: false }));
 });
 
 
 gulp.task('dev', function () {
-    gulp.start('dev-html','dev-js','dev-css');
-
-
+    gulp.start('dev-html', 'dev-js', 'dev-sass');
 });
 
-gulp.task('dev-html',function(){
-
+gulp.task('dev-html',['dev-sass','dev-js'], function () {
+    var htmlAssets = {
+        'styles':[],
+        'scripts':assets.scripts
+    };
+    // no sass files in html output
     for (var i = 0, len = assets.styles.length; i < len; i++) {
-        assets.styles[i] = assets.styles[i].replace('scss','css');
+        htmlAssets.styles[i] = assets.styles[i].replace('scss', 'css');
     }
 
-
     return gulp.src('./app/index.hbs')
-        .pipe(handlebars({'debug': true, 'assets': assets}))
+        .pipe(handlebars({'debug': true, 'assets': htmlAssets}))
         .pipe(rename('index-dev.html'))
         .pipe(gulp.dest('./dist'));
 
+
 });
 
-gulp.task('dev-js',function(){
-    return gulp.src(assets.scripts,{'base':'./'})
-        .pipe(gulp.dest('./dist/scripts/src'));
+
+
+gulp.task('dev-js', function () {
+    return gulp.src(assets.scripts, {'base': './'})
+        .pipe(gulp.dest('./dist/scripts/src'))
+        .pipe(livereload({ auto: false }));;
 });
 
-gulp.task('php-script',function(){
+gulp.task('php-script', function () {
     return gulp.src('app/php-script')
         .pipe(gulp.dest('./dist/php/script'));
 });
 
-gulp.task('dev-css',function(){
-    return gulp.src(assets.styles,{'base':'./'})
-        .pipe(sass())
-        .pipe(gulp.dest('./dist/styles/src'));
+gulp.task('dev-css', function () {
+    return gulp.src(assets.styles, {'base': './'})
+        .pipe(gulp.dest('./dist/styles/src'))
 });
-
+gulp.task('dev-sass', ['dev-css'], function () {
+    return gulp.src('dist/styles/src/app/styles/*.*')
+        .pipe(sass())
+        .pipe(gulp.dest('dist/styles/src/app/styles'))
+        .pipe(livereload({ auto: false }));
+});
 
 
 gulp.task('clean', function () {
@@ -225,15 +226,11 @@ gulp.task('build', function () {
 });
 
 gulp.task('watch', function () {
-
-    // Watch .css files
-    gulp.watch('app/styles/*.css', ['default']);
-
-    // Watch .js files
-    gulp.watch('app/scripts/*.js', ['default']);
-
     livereload.listen();
-    gulp.watch('dist/index.html').on('change', livereload.changed);
+    // Watch files
+    gulp.watch('app/**/*', ['dev']);
+    livereload.listen();
+
 
 });
 

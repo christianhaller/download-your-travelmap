@@ -4,27 +4,39 @@
 
             var $ctx = this.$ctx,
                 mod = this,
-                lastUrl;
+                $url = $ctx.find('#url'),
+                config = this.sandbox.getConfig(),
+                lastUrl,
 
-
-
-
-
-
+                validateInput = function () {
+                    var url = $url.val(),
+                        isUrlValid = function (url) {
+                            var re = new RegExp("^(http|https)://www.tripadvisor.[a-z]+/member", "i");
+                            return re.test(url);
+                        };
+                    if (isUrlValid(url)) {
+                        $ctx.removeClass(config.classNames.error).addClass(config.classNames.success);
+                        return true;
+                    } else {
+                        $url.focus();
+                        $ctx.addClass(config.classNames.error).removeClass(config.classNames.success);
+                        return false;
+                    }
+                };
 
 
             $ctx.on('submit auto', function (e) {
                 var data,
-                    $url = $ctx.find('#url'),
+
                     url = $url.val(),
                     $alert = $ctx.find('.pure-alert-error');
                 e.preventDefault();
                 if (url === lastUrl) {
+                    //return;
+                }
+                if (!validateInput()) {
                     return;
                 }
-                /*if (!validateInput($url)) {
-                    return;
-                }*/
                 lastUrl = url;
                 data = {
                     'url': url
@@ -33,25 +45,26 @@
                     data: data,
                     method: 'POST',
                     dataType: 'json',
-
-                    /*headers: {
-                     "X-Test-Header": "xtest-value"
-                     },*/
-
                     url: $ctx.attr('action')
                 }).error(function () {
                     //$alert.show().text(response.responseJSON.message);
-                    mod.fire('dataReceived', {},['map']);
+                    mod.fire('ondataReceived');
 
 
-                }).success();
+                }).success(function (response) {
+                    mod.fire('DataReceived', response);
+                });
             });
 
 
-
             callback();
-        },
-        after: function () {
+
+            if (window.location.search.indexOf('?url=') === 0) {
+                $url.val(decodeURIComponent(window.location.search.substring(5)));
+                $ctx.trigger('auto');
+            }
+
+
         }
     });
 })(Tc.$);
