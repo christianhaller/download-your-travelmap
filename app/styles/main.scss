@@ -1,19 +1,44 @@
-$primary-color: #68b04d;
-$border-radius: 4px;
-$grey : #ccc;
-$error : red;
+@import "globals";
+
+a {
+ color:$link-color;
+
+  .icon--expandable {
+
+    width:0;
+    text-align: left;
+    transition: width 0.3s ease;
+
+
+
+  }
+
+  &:hover {
+    background: $primary-color;
+    border-radius: $border-radius;
+    color:$white;
+    padding:3px;
+
+    .icon--expandable {
+      width:24px;
+      color:$white;
+      fill:$white;
+    }
+
+  }
+}
+
+
+
 
 .mod-response {
   display: none;
-
-
 
 }
 
 .jvectormap {
   height:450px;
   padding-bottom: 100px;
-
 
   .jvectormap-label {
     position: absolute;
@@ -57,7 +82,7 @@ $error : red;
   line-height: 1.5em;
 
 
-  color:#333;
+  color:$font-color;
 
   padding: 3px;
 }
@@ -75,31 +100,27 @@ $error : red;
   z-index: 1;
   background: rgba(133,133,133,.2);
   width: 100%;
-
   border-radius: $border-radius;
-  xbackground: linear-gradient(to right, rgba(255,255,255,0) 0%,rgba(90,90,90,1) 100%);
   box-sizing: border-box;
   text-align: right;
 }
 .download-bar__button.download-bar__button {
   background: $primary-color;
   color:#fff;
-  text-decoration: underline;
-  &:hover {
-   background: red;
-  }
 }
-.download-bar__button:before {
-  content:"";
-  width:14px;
-  margin-right: 5px;
-  height:14px;
-  line-height: 1;
-  display: inline-block;
+.download-bar__button.download-bar__button:hover {
+  background-color: red;
+}
 
-  background-image: url('data:image/png;base64,
-iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAl0lEQVQokZ2SoQ3DMBBFDwaFhhR4jECP0gECslFBO0h5Bgg17QIBKXgF/eAUxb2kT/qSdbon+Vs2E0ALpCCteTScgWeQGUheKsAduAZ5aDeZDmcp9ocEQE0cgayMZ8TsHi5H4sK3bwF6J/ZuvuyJb2CwCsCgnepVb0DjhEazQx0n4KJMUcctL2UXA9Yfco3VgI74c2/TfQCy05fUVxttsAAAAABJRU5ErkJggg==');
+.download-bar__button .icon {
+
+  color:#fff;
+  fill:#fff;
+  margin-left:5px;
 }
+
+
+
 
 .content {
   padding: 1em;
@@ -115,9 +136,13 @@ iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAl0lEQVQokZ2SoQ3DMBBFDwaFhhR4jECP
   display: none;
 }
 
+
+
 body {
-  /*background: url(../img/bg.jpg) center center no-repeat;*/
+  // background: url(../img/bg.jpg) center center no-repeat;
 }
+
+
 
 
 
@@ -130,10 +155,9 @@ body {
   color: #999;
   -ms-word-break: break-all;
 
-  /* Be VERY careful with this, breaks normal words wh_erever */
   word-break: break-all;
 
-  /* Non standard for webkit */
+  // Non standard for webkit
   word-break: break-word;
   display: block;
   margin-top:5px;
@@ -156,8 +180,6 @@ body {
   border-color: $error;
 }
 
-
-
 .tab {
 
   position: relative;
@@ -169,7 +191,6 @@ body {
 }
 
 
-
 .main-nav {
   margin: 20px 0;
 
@@ -177,8 +198,6 @@ body {
     background: $grey;
   }
 }
-
-
 
 .stats {
   bottom: 0;

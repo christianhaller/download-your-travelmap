@@ -1,3 +1,5 @@
+'use strict';
+
 var gulp = require('gulp'),
     fs = require('fs'),
     uglify = require('gulp-uglify'),
@@ -13,7 +15,7 @@ var gulp = require('gulp'),
     prettify = require('gulp-js-prettify'),
     rev = require('gulp-rev'),
     htmlmin = require('gulp-htmlmin'),
-    //cssbeautify = require('gulp-cssbeautify'),
+    cssbeautify = require('gulp-cssbeautify'),
     csso = require('gulp-csso'),
     sass = require('gulp-ruby-sass'),
     clean = require('gulp-clean'),
@@ -23,31 +25,45 @@ var gulp = require('gulp'),
     buffer = require('gulp-buffer'),
     browserSync = require('browser-sync'),
     livereload = require('gulp-livereload'),
-    onError = function (err) {
+    onError = function(err) {
         gutil.beep();
         console.log(err);
     },
     assets = {
-        'scripts': [
+        'scripts': {
+            'vendor': [
 
-            'app/scripts/vendor/jquery.js',
-            'app/scripts/vendor/terrific-2.1.0.js',
-            'app/scripts/response/response.js',
-            'app/scripts/url-form/url-form.js',
-            'app/scripts/vendor/jquery-jvectormap-1.2.2.min.js',
-            'app/scripts/vendor/jquery-jvectormap-world-mill-en.js',
-            'app/scripts/vendor/countUp.js',
-            'app/scripts/main.js'
-        ],
+                'app/scripts/vendor/jquery.js',
+                'app/scripts/vendor/terrific-2.1.0.js',
+                'app/scripts/vendor/jquery-jvectormap-1.2.2.min.js',
+                'app/scripts/vendor/jquery-jvectormap-world-mill-en.js',
+                'app/scripts/vendor/countUp.js'
+
+            ],
+            'custom': [
+                'app/scripts/custom/response/response.js',
+                'app/scripts/custom/url-form/url-form.js',
+                'app/scripts/custom/main.js'
+            ]
+
+        },
         'styles': [
+            'app/styles/globals.scss',
             'app/styles/vendor/pure.css',
             'app/styles/vendor/pure-extras.css',
-            'app/styles/main.scss']
-    };
+            'app/styles/svg-sprite.scss',
+            'app/styles/main.scss'
+        ]
+    },
+    allScripts = assets.scripts.vendor.concat(assets.scripts.custom);
 
 
-gulp.task('rev', ['scripts', 'styles'], function () {
-    return gulp.src(['build/styles/app.min.css', 'build/scripts/app.min.js'], {'base': 'dist'})
+
+
+gulp.task('rev', ['scripts', 'styles'], function() {
+    return gulp.src(['build/styles/app.min.css', 'build/scripts/app.min.js'], {
+        'base': 'dist'
+    })
         .pipe(gulp.dest('build'))
         .pipe(rev())
         .pipe(gulp.dest('dist'))
@@ -58,21 +74,17 @@ gulp.task('rev', ['scripts', 'styles'], function () {
 
 
 
-gulp.task('compile', ['rev'], function () {
-    var manifest = JSON.parse(fs.readFileSync('dist/rev-manifest.json', 'utf8'));
+gulp.task('compile', ['rev'], function() {
+    var manifest = JSON.parse(fs.readFileSync('dist/rev-manifest.json', 'utf8')),
+        handlebarOpts = {
+            helpers: {
+                assetPath: function(path, context) {
+                    return ['', context.data.root[path]].join('/');
+                }
+            },
+            debug: false
+        };
 
-    handlebarOpts = {
-        helpers: {
-            assetPath: function (path, context) {
-                return ['', context.data.root[path]].join('/');
-            }
-        },
-        debug: false
-    };
-
-
-    // read in our handlebars template, compile it using
-    // our manifest, and output it to index.html
     return gulp.src('./app/index.hbs')
         .pipe(handlebars(manifest, handlebarOpts))
         .pipe(rename('index.html'))
@@ -80,14 +92,14 @@ gulp.task('compile', ['rev'], function () {
 });
 
 
-gulp.task('dev', function () {
+gulp.task('dev', function() {
     gulp.start('dev-html', 'dev-js', 'dev-sass');
 });
 
-gulp.task('dev-html',['dev-sass','dev-js'], function () {
+gulp.task('dev-html', ['dev-sass', 'dev-js'], function() {
     var htmlAssets = {
-        'styles':[],
-        'scripts':assets.scripts
+        'styles': [],
+        'scripts': allScripts
     };
     // no sass files in html output
     for (var i = 0, len = assets.styles.length; i < len; i++) {
@@ -95,7 +107,10 @@ gulp.task('dev-html',['dev-sass','dev-js'], function () {
     }
 
     return gulp.src('./app/index.hbs')
-        .pipe(handlebars({'debug': true, 'assets': htmlAssets}))
+        .pipe(handlebars({
+            'debug': true,
+            'assets': htmlAssets
+        }))
         .pipe(rename('index-dev.html'))
         .pipe(gulp.dest('./dist'));
 
@@ -104,43 +119,52 @@ gulp.task('dev-html',['dev-sass','dev-js'], function () {
 
 
 
-gulp.task('dev-js', function () {
-    return gulp.src(assets.scripts, {'base': './'})
+gulp.task('dev-js', function() {
+    return gulp.src(allScripts, {
+        'base': './'
+    })
         .pipe(gulp.dest('./dist/scripts/src'))
-        .pipe(livereload({ auto: false }));;
+        .pipe(livereload({
+            auto: false
+        }));
 });
 
-gulp.task('php-script', function () {
+gulp.task('php-script', function() {
     return gulp.src('app/php-script')
         .pipe(gulp.dest('./dist/php/script'));
 });
 
-gulp.task('dev-css', function () {
-    return gulp.src(assets.styles, {'base': './'})
+gulp.task('dev-css', function() {
+    return gulp.src(assets.styles, {
+        'base': './'
+    })
+        .pipe(cssbeautify({
+            indent: '  ',
+            openbrace: 'separate-line',
+            autosemicolon: true
+        }))
         .pipe(gulp.dest('./dist/styles/src'))
 });
-gulp.task('dev-sass', ['dev-css'], function () {
+gulp.task('dev-sass', ['dev-css'], function() {
     return gulp.src('dist/styles/src/app/styles/*.*')
         .pipe(sass())
         .pipe(gulp.dest('dist/styles/src/app/styles'))
-        .pipe(livereload({ auto: false }));
+        .pipe(livereload({
+            auto: false
+        }));
 });
 
 
-gulp.task('clean', function () {
-    return gulp.src(['dist/styles', 'dist/scripts'], {read: false})
+gulp.task('clean', function() {
+    return gulp.src(['dist/styles', 'dist/scripts'], {
+        read: false
+    })
         .pipe(clean());
 });
 
-gulp.task('styles', ['clean'], function () {
 
-    /*gulp.src('src/css/custom.css')
-     .pipe(cssbeautify({
-     indent: '  ',
-     autosemicolon: true
-     }))
-     .pipe(gulp.dest('src/css/'));*/
 
+gulp.task('styles', ['clean'], function() {
 
     return gulp.src(assets.styles)
         .pipe(sass())
@@ -162,8 +186,8 @@ gulp.task('styles', ['clean'], function () {
         .pipe(size());
 });
 
-gulp.task('jshint', function () {
-    return gulp.src('app/scripts/main.js')
+gulp.task('jshint', function() {
+    return gulp.src('./app/scripts/custom/**/*.js')
         // https://github.com/beautify-web/js-beautify#options
         .pipe(prettify({
             "indent_size": 4,
@@ -183,17 +207,12 @@ gulp.task('jshint', function () {
             "wrap_line_length": 0
         }))
         .pipe(jshint('config/.jshintrc'))
-        .pipe(gulp.dest('app/scripts'));
+        .pipe(gulp.dest('./app/scripts/custom'));
 });
 
 
-gulp.task('scripts', function () {
-
-
-    return gulp.src(
-            assets.scripts
-        )
-
+gulp.task('scripts', function() {
+    return gulp.src(allScripts)
         .pipe(sourcemaps.init())
         .pipe(concat('app.js'))
         .pipe(gulp.dest('./build/scripts'))
@@ -202,35 +221,32 @@ gulp.task('scripts', function () {
         }))
         .pipe(uglify())
         .pipe(sourcemaps.write())
-        //.pipe(gzip())
         .pipe(size())
         .pipe(gulp.dest('./build/scripts'));
-    //);
-
-
 });
 
-gulp.task('minifyhtml', ['compile'], function () {
+gulp.task('minifyhtml', ['compile'], function() {
     gulp.src('./dist/index.html')
-        .pipe(htmlmin({collapseWhitespace: true, 'removeComments': true}))
+        .pipe(htmlmin({
+            collapseWhitespace: true,
+            'removeComments': true
+        }))
         .pipe(gulp.dest('./dist'))
 });
 
 
-gulp.task('default', function () {
+gulp.task('default', function() {
     gulp.start('clean', 'styles', 'scripts', 'rev', 'compile');
 });
 
-gulp.task('build', function () {
+gulp.task('build', function() {
     gulp.start('minifyhtml', 'default');
 });
 
-gulp.task('watch', function () {
+gulp.task('watch', function() {
     livereload.listen();
-    // Watch files
     gulp.watch('app/**/*', ['dev']);
     livereload.listen();
 
 
 });
-

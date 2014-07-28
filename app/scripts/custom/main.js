@@ -1,12 +1,11 @@
-(function ($) {
-    $(document).ready(function () {
-
+(function($) {
+    'use strict';
+    $(document).ready(function() {
         var $page = $(document.body),
             config = {
                 classNames: {
                     'error': 'error',
                     'success': 'success'
-
                 },
                 'been': {
                     'fill': 'yellow',
@@ -22,7 +21,6 @@
                 },
                 'jvectormap': {
                     map: 'world_mill_en',
-
                     normalizeFunction: 'polynomial',
                     hoverOpacity: 0.7,
                     zoomOnScroll: false,
@@ -40,23 +38,18 @@
                         }
                     },
                     series: {
-                        regions: [
-                            {
-                                values: [],
-                                scale: ['#F9FCF8', '#68b04d'],
-                                normalizeFunction: 'polynomial'
-                            }
-                        ]
+                        regions: [{
+                            values: [],
+                            scale: ['#F9FCF8', '#68b04d'],
+                            normalizeFunction: 'polynomial'
+                        }]
                     },
                     backgroundColor: '#fff',
                     markers: []
                 }
             },
             application = new Tc.Application($page, config);
-
         application.registerModules();
         application.start();
-
-
     });
 })(Tc.$);

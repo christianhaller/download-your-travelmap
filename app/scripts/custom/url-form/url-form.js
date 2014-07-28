@@ -1,16 +1,14 @@
-(function ($) {
+(function($) {
     Tc.Module.Url = Tc.Module.extend({
-        on: function (callback) {
-
+        on: function(callback) {
             var $ctx = this.$ctx,
                 mod = this,
                 $url = $ctx.find('#url'),
                 config = this.sandbox.getConfig(),
                 lastUrl,
-
-                validateInput = function () {
+                validateInput = function() {
                     var url = $url.val(),
-                        isUrlValid = function (url) {
+                        isUrlValid = function(url) {
                             var re = new RegExp("^(http|https)://www.tripadvisor.[a-z]+/member", "i");
                             return re.test(url);
                         };
@@ -23,11 +21,8 @@
                         return false;
                     }
                 };
-
-
-            $ctx.on('submit auto', function (e) {
+            $ctx.on('submit auto', function(e) {
                 var data,
-
                     url = $url.val(),
                     $alert = $ctx.find('.pure-alert-error');
                 e.preventDefault();
@@ -46,27 +41,18 @@
                     method: 'POST',
                     dataType: 'json',
                     url: $ctx.attr('action')
-                }).error(function () {
+                }).error(function() {
                     //$alert.show().text(response.responseJSON.message);
                     mod.fire('ondataReceived');
-
-
-                }).success(function (response) {
+                }).success(function(response) {
                     mod.fire('DataReceived', response);
                 });
             });
-
-
             callback();
-
             if (window.location.search.indexOf('?url=') === 0) {
                 $url.val(decodeURIComponent(window.location.search.substring(5)));
                 $ctx.trigger('auto');
             }
-
-
         }
     });
 })(Tc.$);
-
-

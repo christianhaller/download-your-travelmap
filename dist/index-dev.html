@@ -1,29 +1,63 @@
 <!doctype html>
 <html class="no-js" lang="en">
 <head>
-    <script>
-        ;window.Modernizr=function(a,b,c){function u(a){j.cssText=a}function v(a,b){return u(prefixes.join(a+";")+(b||""))}function w(a,b){return typeof a===b}function x(a,b){return!!~(""+a).indexOf(b)}function y(a,b,d){for(var e in a){var f=b[a[e]];if(f!==c)return d===!1?a[e]:w(f,"function")?f.bind(d||b):f}return!1}var d="2.8.3",e={},f=!0,g=b.documentElement,h="modernizr",i=b.createElement(h),j=i.style,k,l={}.toString,m={},n={},o={},p=[],q=p.slice,r,s={}.hasOwnProperty,t;!w(s,"undefined")&&!w(s.call,"undefined")?t=function(a,b){return s.call(a,b)}:t=function(a,b){return b in a&&w(a.constructor.prototype[b],"undefined")},Function.prototype.bind||(Function.prototype.bind=function(b){var c=this;if(typeof c!="function")throw new TypeError;var d=q.call(arguments,1),e=function(){if(this instanceof e){var a=function(){};a.prototype=c.prototype;var f=new a,g=c.apply(f,d.concat(q.call(arguments)));return Object(g)===g?g:f}return c.apply(b,d.concat(q.call(arguments)))};return e}),m.canvas=function(){var a=b.createElement("canvas");return!!a.getContext&&!!a.getContext("2d")},m.canvastext=function(){return!!e.canvas&&!!w(b.createElement("canvas").getContext("2d").fillText,"function")};for(var z in m)t(m,z)&&(r=z.toLowerCase(),e[r]=m[z](),p.push((e[r]?"":"no-")+r));return e.addTest=function(a,b){if(typeof a=="object")for(var d in a)t(a,d)&&e.addTest(d,a[d]);else{a=a.toLowerCase();if(e[a]!==c)return e;b=typeof b=="function"?b():b,typeof f!="undefined"&&f&&(g.className+=" "+(b?"":"no-")+a),e[a]=b}return e},u(""),i=k=null,e._version=d,g.className=g.className.replace(/(^|\s)no-js(\s|$)/,"$1$2")+(f?" js "+p.join(" "):""),e}(this,this.document),Modernizr.addTest("emoji",function(){if(!Modernizr.canvastext)return!1;var a=document.createElement("canvas"),b=a.getContext("2d");return b.textBaseline="top",b.font="32px Arial",b.fillText("😃",0,0),b.getImageData(16,16,1,1).data[0]!==0});
-    </script>
     <meta charset="utf-8"/>
+    <script>
+        /* Modernizr 2.8.3 (Custom Build) | MIT & BSD
+         * Build: http://modernizr.com/download/#-canvas-canvastext-cssclasses-emoji-load
+         */
+        ;window.Modernizr=function(a,b,c){function u(a){j.cssText=a}function v(a,b){return u(prefixes.join(a+";")+(b||""))}function w(a,b){return typeof a===b}function x(a,b){return!!~(""+a).indexOf(b)}function y(a,b,d){for(var e in a){var f=b[a[e]];if(f!==c)return d===!1?a[e]:w(f,"function")?f.bind(d||b):f}return!1}var d="2.8.3",e={},f=!0,g=b.documentElement,h="modernizr",i=b.createElement(h),j=i.style,k,l={}.toString,m={},n={},o={},p=[],q=p.slice,r,s={}.hasOwnProperty,t;!w(s,"undefined")&&!w(s.call,"undefined")?t=function(a,b){return s.call(a,b)}:t=function(a,b){return b in a&&w(a.constructor.prototype[b],"undefined")},Function.prototype.bind||(Function.prototype.bind=function(b){var c=this;if(typeof c!="function")throw new TypeError;var d=q.call(arguments,1),e=function(){if(this instanceof e){var a=function(){};a.prototype=c.prototype;var f=new a,g=c.apply(f,d.concat(q.call(arguments)));return Object(g)===g?g:f}return c.apply(b,d.concat(q.call(arguments)))};return e}),m.canvas=function(){var a=b.createElement("canvas");return!!a.getContext&&!!a.getContext("2d")},m.canvastext=function(){return!!e.canvas&&!!w(b.createElement("canvas").getContext("2d").fillText,"function")};for(var z in m)t(m,z)&&(r=z.toLowerCase(),e[r]=m[z](),p.push((e[r]?"":"no-")+r));return e.addTest=function(a,b){if(typeof a=="object")for(var d in a)t(a,d)&&e.addTest(d,a[d]);else{a=a.toLowerCase();if(e[a]!==c)return e;b=typeof b=="function"?b():b,typeof f!="undefined"&&f&&(g.className+=" "+(b?"":"no-")+a),e[a]=b}return e},u(""),i=k=null,e._version=d,g.className=g.className.replace(/(^|\s)no-js(\s|$)/,"$1$2")+(f?" js "+p.join(" "):""),e}(this,this.document),function(a,b,c){function d(a){return"[object Function]"==o.call(a)}function e(a){return"string"==typeof a}function f(){}function g(a){return!a||"loaded"==a||"complete"==a||"uninitialized"==a}function h(){var a=p.shift();q=1,a?a.t?m(function(){("c"==a.t?B.injectCss:B.injectJs)(a.s,0,a.a,a.x,a.e,1)},0):(a(),h()):q=0}function i(a,c,d,e,f,i,j){function k(b){if(!o&&g(l.readyState)&&(u.r=o=1,!q&&h(),l.onload=l.onreadystatechange=null,b)){"img"!=a&&m(function(){t.removeChild(l)},50);for(var d in y[c])y[c].hasOwnProperty(d)&&y[c][d].onload()}}var j=j||B.errorTimeout,l=b.createElement(a),o=0,r=0,u={t:d,s:c,e:f,a:i,x:j};1===y[c]&&(r=1,y[c]=[]),"object"==a?l.data=c:(l.src=c,l.type=a),l.width=l.height="0",l.onerror=l.onload=l.onreadystatechange=function(){k.call(this,r)},p.splice(e,0,u),"img"!=a&&(r||2===y[c]?(t.insertBefore(l,s?null:n),m(k,j)):y[c].push(l))}function j(a,b,c,d,f){return q=0,b=b||"j",e(a)?i("c"==b?v:u,a,b,this.i++,c,d,f):(p.splice(this.i++,0,a),1==p.length&&h()),this}function k(){var a=B;return a.loader={load:j,i:0},a}var l=b.documentElement,m=a.setTimeout,n=b.getElementsByTagName("script")[0],o={}.toString,p=[],q=0,r="MozAppearance"in l.style,s=r&&!!b.createRange().compareNode,t=s?l:n.parentNode,l=a.opera&&"[object Opera]"==o.call(a.opera),l=!!b.attachEvent&&!l,u=r?"object":l?"script":"img",v=l?"script":u,w=Array.isArray||function(a){return"[object Array]"==o.call(a)},x=[],y={},z={timeout:function(a,b){return b.length&&(a.timeout=b[0]),a}},A,B;B=function(a){function b(a){var a=a.split("!"),b=x.length,c=a.pop(),d=a.length,c={url:c,origUrl:c,prefixes:a},e,f,g;for(f=0;f<d;f++)g=a[f].split("="),(e=z[g.shift()])&&(c=e(c,g));for(f=0;f<b;f++)c=x[f](c);return c}function g(a,e,f,g,h){var i=b(a),j=i.autoCallback;i.url.split(".").pop().split("?").shift(),i.bypass||(e&&(e=d(e)?e:e[a]||e[g]||e[a.split("/").pop().split("?")[0]]),i.instead?i.instead(a,e,f,g,h):(y[i.url]?i.noexec=!0:y[i.url]=1,f.load(i.url,i.forceCSS||!i.forceJS&&"css"==i.url.split(".").pop().split("?").shift()?"c":c,i.noexec,i.attrs,i.timeout),(d(e)||d(j))&&f.load(function(){k(),e&&e(i.origUrl,h,g),j&&j(i.origUrl,h,g),y[i.url]=2})))}function h(a,b){function c(a,c){if(a){if(e(a))c||(j=function(){var a=[].slice.call(arguments);k.apply(this,a),l()}),g(a,j,b,0,h);else if(Object(a)===a)for(n in m=function(){var b=0,c;for(c in a)a.hasOwnProperty(c)&&b++;return b}(),a)a.hasOwnProperty(n)&&(!c&&!--m&&(d(j)?j=function(){var a=[].slice.call(arguments);k.apply(this,a),l()}:j[n]=function(a){return function(){var b=[].slice.call(arguments);a&&a.apply(this,b),l()}}(k[n])),g(a[n],j,b,n,h))}else!c&&l()}var h=!!a.test,i=a.load||a.both,j=a.callback||f,k=j,l=a.complete||f,m,n;c(h?a.yep:a.nope,!!i),i&&c(i)}var i,j,l=this.yepnope.loader;if(e(a))g(a,0,l,0);else if(w(a))for(i=0;i<a.length;i++)j=a[i],e(j)?g(j,0,l,0):w(j)?B(j):Object(j)===j&&h(j,l);else Object(a)===a&&h(a,l)},B.addPrefix=function(a,b){z[a]=b},B.addFilter=function(a){x.push(a)},B.errorTimeout=1e4,null==b.readyState&&b.addEventListener&&(b.readyState="loading",b.addEventListener("DOMContentLoaded",A=function(){b.removeEventListener("DOMContentLoaded",A,0),b.readyState="complete"},0)),a.yepnope=k(),a.yepnope.executeStack=h,a.yepnope.injectJs=function(a,c,d,e,i,j){var k=b.createElement("script"),l,o,e=e||B.errorTimeout;k.src=a;for(o in d)k.setAttribute(o,d[o]);c=j?h:c||f,k.onreadystatechange=k.onload=function(){!l&&g(k.readyState)&&(l=1,c(),k.onload=k.onreadystatechange=null)},m(function(){l||(l=1,c(1))},e),i?k.onload():n.parentNode.insertBefore(k,n)},a.yepnope.injectCss=function(a,c,d,e,g,i){var e=b.createElement("link"),j,c=i?h:c||f;e.href=a,e.rel="stylesheet",e.type="text/css";for(j in d)e.setAttribute(j,d[j]);g||(n.parentNode.insertBefore(e,n),m(c,0))}}(this,document),Modernizr.load=function(){yepnope.apply(window,[].slice.call(arguments,0))},Modernizr.addTest("emoji",function(){if(!Modernizr.canvastext)return!1;var a=document.createElement("canvas"),b=a.getContext("2d");return b.textBaseline="top",b.font="32px Arial",b.fillText("😃",0,0),b.getImageData(16,16,1,1).data[0]!==0});
+    </script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     
-            <link type="text/css" rel="stylesheet" href="/styles/src/app/styles/vendor/pure.css"/>
-            <link type="text/css" rel="stylesheet" href="/styles/src/app/styles/vendor/pure-extras.css"/>
-            <link type="text/css" rel="stylesheet" href="/styles/src/app/styles/main.css"/>
-        
-    <title>🌎 Download Your TripAdvisor Travel Map  🌎</title>
+        <link type="text/css" rel="stylesheet" href="/styles/src/app/styles/globals.css"/>
+        <link type="text/css" rel="stylesheet" href="/styles/src/app/styles/vendor/pure.css"/>
+        <link type="text/css" rel="stylesheet" href="/styles/src/app/styles/vendor/pure-extras.css"/>
+        <link type="text/css" rel="stylesheet" href="/styles/src/app/styles/svg-sprite.css"/>
+        <link type="text/css" rel="stylesheet" href="/styles/src/app/styles/main.css"/>
+    
+    <title>🌎 Download Your TripAdvisor Travel Map 🌎</title>
 </head>
 <body>
+<svg display="none" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="134" height="14" viewBox="0 0 134 14">
+    <defs>
+        <g id="icon-spinner">
+            <path class="path1"
+                  d="M14 7c-0.017-0.914-0.216-1.825-0.582-2.659-0.365-0.834-0.895-1.589-1.545-2.214s-1.421-1.119-2.256-1.444c-0.834-0.327-1.731-0.483-2.617-0.464-0.886 0.018-1.768 0.21-2.575 0.565-0.807 0.354-1.539 0.868-2.143 1.498s-1.082 1.377-1.397 2.185c-0.316 0.807-0.467 1.675-0.448 2.533 0.018 0.858 0.205 1.711 0.549 2.491 0.343 0.781 0.84 1.488 1.451 2.072s1.333 1.046 2.114 1.35c0.781 0.305 1.619 0.45 2.449 0.431 0.83-0.018 1.654-0.199 2.407-0.532 0.754-0.332 1.437-0.813 2.001-1.403s1.010-1.288 1.302-2.043c0.178-0.457 0.299-0.935 0.363-1.419 0.017 0.001 0.034 0.002 0.051 0.002 0.483 0 0.875-0.392 0.875-0.875 0-0.025-0.001-0.049-0.003-0.073h0.003zM12.61 9.324c-0.321 0.727-0.786 1.386-1.356 1.93s-1.244 0.973-1.972 1.255c-0.728 0.283-1.508 0.416-2.282 0.398s-1.539-0.188-2.24-0.499c-0.701-0.31-1.336-0.759-1.859-1.309s-0.937-1.2-1.208-1.901c-0.272-0.701-0.4-1.452-0.381-2.198s0.182-1.482 0.482-2.156c0.299-0.674 0.731-1.285 1.261-1.788s1.156-0.901 1.83-1.16c0.675-0.261 1.396-0.383 2.114-0.364s1.425 0.177 2.072 0.465c0.647 0.288 1.234 0.704 1.718 1.214s0.864 1.111 1.113 1.759c0.249 0.648 0.366 1.341 0.348 2.030h0.003c-0.002 0.024-0.003 0.048-0.003 0.073 0 0.451 0.342 0.823 0.78 0.87-0.085 0.476-0.226 0.941-0.421 1.381z"></path>
+        </g>
+        <g id="icon-link">
+            <path class="path1"
+                  d="M13.035 1.020l-0.055-0.055c-1.287-1.287-3.393-1.287-4.68 0l-2.982 2.982c-1.287 1.287-1.287 3.393 0 4.68l0.055 0.055c0.107 0.107 0.221 0.204 0.338 0.293l1.092-1.092c-0.127-0.075-0.248-0.165-0.357-0.274l-0.055-0.055c-0.699-0.699-0.699-1.836 0-2.535l2.982-2.982c0.699-0.699 1.836-0.699 2.535 0l0.055 0.055c0.699 0.699 0.699 1.836 0 2.535l-1.349 1.349c0.234 0.578 0.345 1.195 0.335 1.81l2.086-2.086c1.287-1.287 1.287-3.393-0-4.68zM8.628 5.317c-0.107-0.107-0.221-0.204-0.338-0.293l-1.092 1.091c0.127 0.075 0.248 0.165 0.357 0.274l0.055 0.055c0.699 0.699 0.699 1.836 0 2.535l-2.982 2.982c-0.699 0.699-1.836 0.699-2.535 0l-0.055-0.055c-0.699-0.699-0.699-1.836 0-2.535l1.349-1.349c-0.234-0.578-0.345-1.195-0.335-1.81l-2.086 2.086c-1.287 1.287-1.287 3.393 0 4.68l0.055 0.055c1.287 1.287 3.393 1.287 4.68 0l2.982-2.982c1.287-1.287 1.287-3.393 0-4.68l-0.055-0.055z"></path>
+        </g>
+        <g id="icon-wondering">
+            <path class="path1"
+                  d="M7 14c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zM7 1.313c3.141 0 5.688 2.546 5.688 5.688s-2.546 5.688-5.688 5.688-5.688-2.546-5.688-5.688 2.546-5.688 5.688-5.688zM10.196 8.225l0.307 1.050-5.975 1.75-0.307-1.050zM3.5 4.375c0-0.483 0.392-0.875 0.875-0.875s0.875 0.392 0.875 0.875c0 0.483-0.392 0.875-0.875 0.875s-0.875-0.392-0.875-0.875zM8.75 4.375c0-0.483 0.392-0.875 0.875-0.875s0.875 0.392 0.875 0.875c0 0.483-0.392 0.875-0.875 0.875s-0.875-0.392-0.875-0.875z"></path>
+        </g>
+        <g id="icon-checkmark">
+            <path class="path1" d="M11.813 1.75l-6.563 6.563-3.063-3.063-2.188 2.188 5.25 5.25 8.75-8.75z"></path>
+        </g>
+        <g id="icon-newtab">
+            <path class="path1"
+                  d="M2.625 0.875v10.5h10.5v-10.5h-10.5zM12.25 10.5h-8.75v-8.75h8.75v8.75zM1.75 12.25v-8.75l-0.875-0.875v10.5h10.5l-0.875-0.875zM5.869 9.369l2.625-2.625 2.006 2.006v-5.25h-5.25l2.006 2.006-2.625 2.625z"></path>
+        </g>
+        <g id="icon-box-add">
+            <path class="path1"
+                  d="M11.375 0.875h-8.75l-2.625 2.625v9.188c0 0.242 0.196 0.438 0.438 0.438h13.125c0.242 0 0.438-0.196 0.438-0.438v-9.188l-2.625-2.625zM7 11.375l-4.375-3.5h2.625v-2.625h3.5v2.625h2.625l-4.375 3.5zM2.112 2.625l0.875-0.875h8.025l0.875 0.875h-9.775z"></path>
+        </g>
+    </defs>
+</svg>
 <div class="content">
     <header class="welcome">
-        <h1 class="welcome__title">Download Your TripAdvisor Travel Map</h1>
+        <h1 class="welcome__title">Download Your <a href="http://www.tripadvisor.com">TripAdvisor</a> Travel Map</h1>
     </header>
 
     <p class="splash-subhead example">
-        Just enter your TripAdvisor Profile URL <span class="example__hint">e. g. http://www.tripadvisor.com/members/christianhaller (that's me)</span></p>
+        Just enter your <a href="http://www.tripadvisor.com">TripAdvisor<svg class="icon icon--expandable icon-link" viewBox="0 0 14 14"><use xlink:href="#icon-link"></use></svg></a> Profile URL <span class="example__hint">e. g. http://www.tripadvisor.com/members/christianhaller (that's me)</span></p>
 
-    <form class="pure-form url-form mod-url mod" action="/magic"  data-connectors="ajax">
-        <input class="url-form__input" type="text" id="url" value="" name="url">
+    <form class="pure-form url-form mod-url mod" action="/magic" data-connectors="ajax">
+        <input class="url-form__input" type="text" id="url" value="" autofocus name="url">
         <button type="submit" class="pure-button pure-button-primary url-form__submit">go</button>
         <div class="pure-alert-error pure-alert url-form__alert mod mod-message" data-connectors="ajax"></div>
     </form>
@@ -51,25 +85,32 @@
             <div class="mod-map mod"></div>
             <div class="download-bar pure-menu pure-menu-open pure-menu-horizontal">
 
-            <strong class="this-is">This is <span class="js-this-is__city download-bar__city">your travelmap</span></strong>
+                <strong class="this-is">This is <span class="js-this-is__city download-bar__city">your travelmap</span></strong>
                 <ul>
-                    <li><a class="download-bar__button pure-button pure-button-success">
-                      Download</a></li>
-                    </ul>
+                    <li><a class="download-bar__button pure-button pure-button-success">Download<svg class="icon icon-box-add" viewBox="0 0 14 14"><use xlink:href="#icon-box-add"></use></svg></a></li>
+                </ul>
             </div>
 
         </div>
         <div class="tab" id="google-static-map"></div>
     </div>
 </div>
-    <script src="/scripts/src/app/scripts/vendor/jquery.js"></script>
-    <script src="/scripts/src/app/scripts/vendor/terrific-2.1.0.js"></script>
-    <script src="/scripts/src/app/scripts/response/response.js"></script>
-    <script src="/scripts/src/app/scripts/url-form/url-form.js"></script>
-    <script src="/scripts/src/app/scripts/vendor/jquery-jvectormap-1.2.2.min.js"></script>
-    <script src="/scripts/src/app/scripts/vendor/jquery-jvectormap-world-mill-en.js"></script>
-    <script src="/scripts/src/app/scripts/vendor/countUp.js"></script>
-    <script src="/scripts/src/app/scripts/main.js"></script>
+    
+        <script src="/scripts/src/app/scripts/vendor/jquery.js"></script>
+    
+        <script src="/scripts/src/app/scripts/vendor/terrific-2.1.0.js"></script>
+    
+        <script src="/scripts/src/app/scripts/vendor/jquery-jvectormap-1.2.2.min.js"></script>
+    
+        <script src="/scripts/src/app/scripts/vendor/jquery-jvectormap-world-mill-en.js"></script>
+    
+        <script src="/scripts/src/app/scripts/vendor/countUp.js"></script>
+    
+        <script src="/scripts/src/app/scripts/custom/response/response.js"></script>
+    
+        <script src="/scripts/src/app/scripts/custom/url-form/url-form.js"></script>
+    
+        <script src="/scripts/src/app/scripts/custom/main.js"></script>
     
 </body>
 </html>
