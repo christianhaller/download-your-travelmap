@@ -247,6 +247,4 @@ gulp.task('watch', function() {
     livereload.listen();
     gulp.watch('app/**/*', ['dev']);
     livereload.listen();
-
-
 });
