@@ -35,21 +35,21 @@ a {
   display: none;
 
 }
-
+.jvectormap-label {
+  position: absolute;
+  display: none;
+  border: solid 1px #CDCDCD;
+  border-radius: $border-radius;
+  background: #292929;
+  color: white;
+  font-size: smaller;
+  padding: 3px;
+}
 .jvectormap {
   height:450px;
   padding-bottom: 100px;
 
-  .jvectormap-label {
-    position: absolute;
-    display: none;
-    border: solid 1px #CDCDCD;
-    border-radius: $border-radius;
-    background: #292929;
-    color: white;
-    font-size: smaller;
-    padding: 3px;
-  }
+
 
   .jvectormap-zoomin,
   .jvectormap-zoomout {
@@ -82,8 +82,8 @@ a {
   line-height: 1.5em;
 
 
-  color:$font-color;
-
+  color:#fff;
+  font-weight: normal;
   padding: 3px;
 }
 .this-is__icon {
@@ -98,7 +98,7 @@ a {
   top:0;
   padding: 4px;
   z-index: 1;
-  background: rgba(133,133,133,.2);
+  background: rgba(0,0,0,.4);
   width: 100%;
   border-radius: $border-radius;
   box-sizing: border-box;
@@ -139,17 +139,16 @@ a {
 
 
 body {
-  // background: url(../img/bg.jpg) center center no-repeat;
+  background: url(../images/bg.jpg) center center no-repeat;
 }
 
 
 
 
 
-.url-form__alert {
-  margin: 10px 0;
-  display: none;
-}
+
+
+
 
 .example__hint {
   color: #999;
@@ -163,22 +162,7 @@ body {
   margin-top:5px;
 }
 
-.url-form__submit {
-  background-color: $primary-color;
-  font-size: 150%;
-}
 
-.url-form__input {
-  font-size: 150%;
-}
-
-.url-form.success .url-form__input {
-  border-color: $primary-color;
-}
-
-.url-form.error .url-form__input {
-  border-color: $error;
-}
 
 .tab {
 

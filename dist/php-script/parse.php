@@ -64,7 +64,7 @@ try {
     $response['data']['lang'] = parseStr($bodyElement, 'lang_', ' ');
 
     //Bildchen
-    $response['data']['avatar'] = parseStr($str, '<div class="avatar"><img src="', '"');
+    $response['data']['avatar'] = parseStr($str, 'avatarUrl" src="', '"');
 
 
     $placesStr = parseStr($str, '{"store":{', ',"modules.membercenter.model.FriendCount');
@@ -90,16 +90,14 @@ try {
         $country = ltrim($locationArray[sizeof($locationArray) - 1]);
         $city = $locationArray[0];
 
+        $iso = '';
         if(isset($isoArray[$country])){
             $iso = $isoArray[$country];
         }
 
 
-        if ($iso === null) {
-            $iso = '';
-            //throw new Exception($country . ' not in ISO' . "\n");
 
-        }
+
         $places[] = array(
             'country' => $country,
             'name' => $pin['name'],
@@ -131,9 +129,12 @@ try {
         unset($fields['iso']);
         unset($fields['flags']);
         fputcsv($fp, $fields);
+
     }
     fclose($fp);
-    $response['csv'] = $url;
+    $filesize = human_filesize(filesize('../data/'.$url));
+    $response['csv']['url'] = $url;
+    $response['csv']['filesize'] = $filesize;
     response($response);
 
 
@@ -154,7 +155,11 @@ function response($response)
 
 
 
-
+function human_filesize($bytes, $decimals = 2) {
+    $sz = 'BKMGTP';
+    $factor = floor((strlen($bytes) - 1) / 3);
+    return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . @$sz[$factor];
+}
 
 
 

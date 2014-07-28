@@ -18,6 +18,7 @@ var gulp = require('gulp'),
     cssbeautify = require('gulp-cssbeautify'),
     csso = require('gulp-csso'),
     sass = require('gulp-ruby-sass'),
+    replace = require('gulp-replace'),
     clean = require('gulp-clean'),
     plumber = require('gulp-plumber'),
     gzip = require('gulp-gzip'),
@@ -41,8 +42,9 @@ var gulp = require('gulp'),
 
             ],
             'custom': [
-                'app/scripts/custom/response/response.js',
+                'app/scripts/custom/alert/alert.js',
                 'app/scripts/custom/url-form/url-form.js',
+                'app/scripts/custom/response/response.js',
                 'app/scripts/custom/main.js'
             ]
 
@@ -52,6 +54,7 @@ var gulp = require('gulp'),
             'app/styles/vendor/pure.css',
             'app/styles/vendor/pure-extras.css',
             'app/styles/svg-sprite.scss',
+            'app/styles/url-form.scss',
             'app/styles/main.scss'
         ]
     },
@@ -93,10 +96,10 @@ gulp.task('compile', ['rev'], function() {
 
 
 gulp.task('dev', function() {
-    gulp.start('dev-html', 'dev-js', 'dev-sass');
+    gulp.start('dev-html', 'dev-js', 'dev-sass','dev-images');
 });
 
-gulp.task('dev-html', ['dev-sass', 'dev-js'], function() {
+gulp.task('dev-html', ['dev-sass', 'dev-js','php-script'], function() {
     var htmlAssets = {
         'styles': [],
         'scripts': allScripts
@@ -130,8 +133,13 @@ gulp.task('dev-js', function() {
 });
 
 gulp.task('php-script', function() {
-    return gulp.src('app/php-script')
-        .pipe(gulp.dest('./dist/php/script'));
+    return gulp.src('app/php-script/**/*.*')
+        .pipe(gulp.dest('./dist/php-script'));
+});
+
+gulp.task('dev-images', function() {
+    return gulp.src('app/images/**/*.*')
+        .pipe(gulp.dest('./dist/images'));
 });
 
 gulp.task('dev-css', function() {
@@ -143,6 +151,7 @@ gulp.task('dev-css', function() {
             openbrace: 'separate-line',
             autosemicolon: true
         }))
+        .pipe(replace('../images','../../../../images'))
         .pipe(gulp.dest('./dist/styles/src'))
 });
 gulp.task('dev-sass', ['dev-css'], function() {

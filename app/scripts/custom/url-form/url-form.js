@@ -1,6 +1,7 @@
 (function($) {
+    'use strict';
     Tc.Module.Url = Tc.Module.extend({
-        on: function(callback) {
+        on: function() {
             var $ctx = this.$ctx,
                 mod = this,
                 $url = $ctx.find('#url'),
@@ -23,9 +24,9 @@
                 };
             $ctx.on('submit auto', function(e) {
                 var data,
-                    url = $url.val(),
-                    $alert = $ctx.find('.pure-alert-error');
+                    url = $url.val();
                 e.preventDefault();
+
                 if (url === lastUrl) {
                     //return;
                 }
@@ -41,16 +42,19 @@
                     method: 'POST',
                     dataType: 'json',
                     url: $ctx.attr('action')
-                }).error(function() {
-                    //$alert.show().text(response.responseJSON.message);
-                    mod.fire('ondataReceived');
+                }).error(function(response) {
+                    // kaputt
+                    mod.fire('ShowAlert',response);
                 }).success(function(response) {
+
+                    mod.fire('RemoveAlert');
+                    response.url = data.url;
                     mod.fire('DataReceived', response);
                 });
             });
-            callback();
+
             if (window.location.search.indexOf('?url=') === 0) {
-                $url.val(decodeURIComponent(window.location.search.substring(5)));
+                $url.val(window.location.search.substring(5));
                 $ctx.trigger('auto');
             }
         }

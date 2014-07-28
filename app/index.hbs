@@ -56,20 +56,15 @@
     <form class="pure-form url-form mod-url mod" action="/magic" data-connectors="ajax">
         <input class="url-form__input" type="text" id="url" value="" autofocus name="url">
         <button type="submit" class="pure-button pure-button-primary url-form__submit">go</button>
-        <div class="pure-alert-error pure-alert url-form__alert mod mod-message" data-connectors="ajax"></div>
+        <div class="pure-alert-error pure-alert url-form__alert mod mod-alert" data-connectors="ajax"><svg class="icon icon-wondering" viewBox="0 0 14 14"><use xlink:href="#icon-wondering"></use></svg><span></span></div>
     </form>
 
 
     <div class="mod-response mod" data-connectors="ajax">
         <nav class="pure-menu pure-menu-open pure-menu-horizontal main-nav">
-            <!--<ul>
-                <li class="pure-menu-selected"><a href="#jvectormap">Map</a></li>
-                <li><a href="#google-static-map">Google Static Maps</a></li>
-                <li class="csv"><a href="#csv">csv Download</a></li>
-            </ul>-->
         </nav>
         <div class="tab jvectormap" id="map">
-            <table class="pure-table mod mod-stats stats">
+            <!--<table class="pure-table mod mod-stats stats">
                 <tr>
                     <th>Cities</th>
                     <td class="cities"></td>
@@ -78,13 +73,13 @@
                     <th>Countries</th>
                     <td class="countries"></td>
                 </tr>
-            </table>
+            </table>-->
             <div class="mod-map mod"></div>
             <div class="download-bar pure-menu pure-menu-open pure-menu-horizontal">
 
                 <strong class="this-is">This is <span class="js-this-is__city download-bar__city">your travelmap</span></strong>
                 <ul>
-                    <li><a class="download-bar__button pure-button pure-button-success">Download<svg class="icon icon-box-add" viewBox="0 0 14 14"><use xlink:href="#icon-box-add"></use></svg></a></li>
+                    <li><a class="download-bar__button pure-button pure-button-success">Download<svg class="icon icon-box-add" viewBox="0 0 14 14"><use xlink:href="#icon-newtab"></use></svg></a></li>
                 </ul>
             </div>
 

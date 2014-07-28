@@ -89,13 +89,15 @@ try {
         $locationArray = explode(',', $pin['name']);
         $country = ltrim($locationArray[sizeof($locationArray) - 1]);
         $city = $locationArray[0];
-        $iso = $isoArray[$country];
 
-        if ($iso === null) {
-            $iso = '';
-            //throw new Exception($country . ' not in ISO' . "\n");
-
+        $iso = '';
+        if(isset($isoArray[$country])){
+            $iso = $isoArray[$country];
         }
+
+
+
+
         $places[] = array(
             'country' => $country,
             'name' => $pin['name'],
@@ -122,14 +124,17 @@ try {
     $response['status'] = 'success';
 
 
-    $fp = fopen('data/' . $url, 'w');
+    $fp = fopen('../data/' . $url, 'w');
     foreach ($places as $key => $fields) {
         unset($fields['iso']);
         unset($fields['flags']);
         fputcsv($fp, $fields);
+
     }
     fclose($fp);
-    $response['csv'] = $url;
+    $filesize = human_filesize(filesize('../data/'.$url));
+    $response['csv']['url'] = $url;
+    $response['csv']['filesize'] = $filesize;
     response($response);
 
 
@@ -150,7 +155,11 @@ function response($response)
 
 
 
-
+function human_filesize($bytes, $decimals = 2) {
+    $sz = 'BKMGTP';
+    $factor = floor((strlen($bytes) - 1) / 3);
+    return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . @$sz[$factor];
+}
 
 
 
