@@ -14,6 +14,7 @@ var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     prettify = require('gulp-js-prettify'),
     rev = require('gulp-rev'),
+    imagemin = require('gulp-imagemin'),
     htmlmin = require('gulp-htmlmin'),
     cssbeautify = require('gulp-cssbeautify'),
     csso = require('gulp-csso'),
@@ -139,6 +140,11 @@ gulp.task('php-script', function() {
 
 gulp.task('dev-images', function() {
     return gulp.src('app/images/**/*.*')
+    pipe(imagemin({
+                progressive: true,
+                svgoPlugins: [{removeViewBox: false}],
+                use: [pngcrush()]
+            }))
         .pipe(gulp.dest('./dist/images'));
 });
 
@@ -157,7 +163,9 @@ gulp.task('dev-css', function() {
 gulp.task('dev-sass', ['dev-css'], function() {
     return gulp.src('dist/styles/src/app/styles/*.*')
         .pipe(sass())
+        .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
         .pipe(gulp.dest('dist/styles/src/app/styles'))
+
         .pipe(livereload({
             auto: false
         }));

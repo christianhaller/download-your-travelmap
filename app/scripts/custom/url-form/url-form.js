@@ -26,7 +26,6 @@
                 var data,
                     url = $url.val();
                 e.preventDefault();
-
                 if (url === lastUrl) {
                     //return;
                 }
@@ -44,15 +43,13 @@
                     url: $ctx.attr('action')
                 }).error(function(response) {
                     // kaputt
-                    mod.fire('ShowAlert',response);
+                    mod.fire('ShowAlert', response);
                 }).success(function(response) {
-
                     mod.fire('RemoveAlert');
                     response.url = data.url;
                     mod.fire('DataReceived', response);
                 });
             });
-
             if (window.location.search.indexOf('?url=') === 0) {
                 $url.val(window.location.search.substring(5));
                 $ctx.trigger('auto');

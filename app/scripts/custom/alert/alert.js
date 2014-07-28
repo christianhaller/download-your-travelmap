@@ -5,10 +5,8 @@
             var $ctx = this.$ctx;
             $ctx.addClass('url-form__alert--error');
             $ctx.find('span').empty().text(response.responseJSON.message);
-
-
         },
-        onRemoveAlert:function(){
+        onRemoveAlert: function() {
             var $ctx = this.$ctx;
             $ctx.removeClass('url-form__alert--error');
         }

@@ -64,7 +64,7 @@ try {
     $response['data']['lang'] = parseStr($bodyElement, 'lang_', ' ');
 
     //Bildchen
-    $response['data']['avatar'] = parseStr($str, 'avatarUrl" src="', '"');
+    $response['data']['avatar'] = parseStr($str, '<div class="avatar"><img src="', '"');
 
 
     $placesStr = parseStr($str, '{"store":{', ',"modules.membercenter.model.FriendCount');
