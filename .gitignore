@@ -1,7 +1,5 @@
 node_modules
-data
+dist/data
 .idea
 build
 .sass-cache
-dist/scripts/src
-dist/styles/src
