@@ -607,6 +607,7 @@ AddDefaultCharset utf-8
                                       "application/rss+xml" \
                                       "application/vnd.geo+json" \
                                       "application/vnd.ms-fontobject" \
+                                      "application/x-httpd-php" \
                                       "application/x-font-ttf" \
                                       "application/x-web-app-manifest+json" \
                                       "application/xhtml+xml" \
@@ -620,6 +621,7 @@ AddDefaultCharset utf-8
                                       "text/plain" \
                                       "text/vtt" \
                                       "text/x-component" \
+                                      "php" \
                                       "text/xml"
     </IfModule>
 
