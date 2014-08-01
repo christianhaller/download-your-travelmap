@@ -25,6 +25,7 @@ var gulp = require('gulp'),
     plumber = require('gulp-plumber'),
     gzip = require('gulp-gzip'),
     size = require('gulp-size'),
+    cssBase64 = require('gulp-css-base64'),
     buffer = require('gulp-buffer'),
     browserSync = require('browser-sync'),
     livereload = require('gulp-livereload'),
@@ -193,10 +194,11 @@ gulp.task('styles', ['clean'], function () {
     return gulp.src(assets.styles)
         .pipe(sass())
         .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
-
+        .pipe(cssBase64({baseDir: '../images/', verbose: true,'maxWeightResource':70000}))
         .pipe(concat('app.css'))
 
         .pipe(gulp.dest('build/styles'))
+
         .pipe(rename({
             suffix: '.min'
         }))
@@ -207,7 +209,6 @@ gulp.task('styles', ['clean'], function () {
 
 
         .pipe(gulp.dest('build/styles'))
-        .pipe(size());
 });
 
 gulp.task('jshint', function () {
