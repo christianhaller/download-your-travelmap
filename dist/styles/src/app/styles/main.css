@@ -103,9 +103,6 @@ a {
           box-shadow: 3px 3px 3px #333;
   background: #fff; }
 
-body.unfold {
-  background: url(../../../../images/bg.jpg) center center no-repeat; }
-
 html {
   -webkit-perspective: 600px;
           perspective: 600px;
@@ -116,7 +113,8 @@ body {
   -webkit-animation-duration: .2s;
           animation-duration: .2s;
   -webkit-animation-name: slidein;
-          animation-name: slidein; }
+          animation-name: slidein;
+  background: url(../../../../images/bg.jpg) center center no-repeat; }
 
 @-webkit-keyframes slidein {
   from {

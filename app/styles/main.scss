@@ -139,9 +139,6 @@ a {
   background: #fff;
 }
 
-body.unfold {
-  background: url(../images/bg.jpg) center center no-repeat;
-}
 
 
 
@@ -153,6 +150,7 @@ html {
 body {
   animation-duration: .2s;
   animation-name: slidein;
+  background: url(../images/bg.jpg) center center no-repeat;
 
 }
 

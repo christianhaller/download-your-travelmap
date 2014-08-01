@@ -16,7 +16,7 @@
 
 
                 $map.attr('data-zoomlevel', Math.round(number));
-                
+
             };
             jvectormapConfig.onMarkerLabelShow = function (event, label) {
                 $thisIs.text($(label).text());
