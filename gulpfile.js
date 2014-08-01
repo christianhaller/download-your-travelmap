@@ -144,7 +144,7 @@ gulp.task('php-script', function() {
 gulp.task('dev-images', function() {
     return gulp.src('app/images/*.*')
         .pipe(imagemin({
-                progressive: true,
+                progressive: false,
                 svgoPlugins: [{removeViewBox: false}],
                 use: [pngcrush()]
             }))
