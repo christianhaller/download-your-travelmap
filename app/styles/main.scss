@@ -125,7 +125,7 @@ a {
   }
   .download-button__filesize {
     color: #555;
-    margin-left:5px;
+    margin-left: 5px;
   }
 }
 
@@ -139,10 +139,24 @@ a {
   background: #fff;
 }
 
-
-
 body {
   background: url(../images/bg.jpg) center center no-repeat;
+}
+
+html {
+  perspective: 600px;
+  transform-style: preserve-3d
+}
+
+body {
+  opacity: 0;
+  transform: rotateX(-22.5deg) scale(.5)
+}
+
+body.unfold {
+  opacity: 1;
+  transform: rotateX(0deg) scale(1);
+  transition: all 0.5s ease-out
 }
 
 .example__hint {

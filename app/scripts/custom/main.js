@@ -1,8 +1,9 @@
 (function($) {
     'use strict';
     $(document).ready(function() {
-        var $page = $(document.body),
-            config = {
+        var $page = $(document.body);
+            $page.addClass('unfold');
+            var config = {
                 classNames: {
                     'error': 'error',
                     'success': 'success'

@@ -1,5 +1,5 @@
 <?php
-
+ob_start("ob_gzhandler");
 include('iso.php');
 date_default_timezone_set("Europe/Berlin");
 
@@ -151,6 +151,7 @@ function response($response)
     }
     header('Content-Type: application/json');
     echo json_encode($response);
+    ob_end_flush();
 }
 
 
