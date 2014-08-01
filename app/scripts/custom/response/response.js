@@ -25,7 +25,7 @@
             this.setDownloadButton($ctx, response.csv);
             (function () {
                 var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?url=' + response.url;
-                if (history.pushState) {
+                if (window.history && window.history.pushState) {
                     window.history.pushState('', '', newUrl);
                 }
             })()
