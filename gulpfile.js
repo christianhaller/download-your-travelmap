@@ -18,6 +18,7 @@ var gulp = require('gulp'),
     htmlmin = require('gulp-htmlmin'),
     cssbeautify = require('gulp-cssbeautify'),
     csso = require('gulp-csso'),
+    pngcrush = require('imagemin-pngcrush'),
     sass = require('gulp-ruby-sass'),
     replace = require('gulp-replace'),
     clean = require('gulp-clean'),
@@ -139,8 +140,8 @@ gulp.task('php-script', function() {
 });
 
 gulp.task('dev-images', function() {
-    return gulp.src('app/images/**/*.*')
-    pipe(imagemin({
+    return gulp.src('app/images/*.*')
+        .pipe(imagemin({
                 progressive: true,
                 svgoPlugins: [{removeViewBox: false}],
                 use: [pngcrush()]
