@@ -46,8 +46,10 @@ var gulp = require('gulp'),
             ],
             'custom': [
                 'app/scripts/custom/alert/alert.js',
+                'app/scripts/custom/config.js',
                 'app/scripts/custom/url-form/url-form.js',
                 'app/scripts/custom/response/response.js',
+                'app/scripts/custom/config.js',
                 'app/scripts/custom/main.js'
             ]
 
