@@ -1,0 +1,38 @@
+@import "globals";
+
+.url-form__submit
+{
+  background-color: $primary-color;
+  font-size: 150%;
+}
+
+.url-form__input
+{
+  font-size: 150%;
+}
+
+.url-form.success .url-form__input
+{
+  border-color: $primary-color;
+}
+
+.url-form.error .url-form__input
+{
+  border-color: $error;
+}
+
+.url-form__alert
+{
+  margin: 10px 0;
+  opacity: 0;
+  .icon {
+    margin-right: 5px;
+  fill: #fff;
+}
+}
+
+.url-form__alert--error
+{
+  transition: opacity 1s ease-out;
+  opacity: 1;
+}

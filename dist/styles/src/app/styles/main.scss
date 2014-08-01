@@ -1,42 +1,42 @@
 @import "globals";
 
-a {
+a
+{
   color: $link-color;
-
   .icon--expandable {
 
     width: 0;
-    text-align: left;
-    transition: width 0.3s ease;
+  text-align: left;
+  transition: width 0.3s ease;
+}
 
-  }
-
-  &:hover {
-    background: $primary-color;
-    border-radius: $border-radius;
-    color: $white;
-    padding: 3px;
-
-    .icon--expandable {
+  &:hover
+{
+  background: $primary-color;
+  border-radius: $border-radius;
+  color: $white;
+  padding: 3px;
+  .icon--expandable {
       width: 24px;
-      color: $white;
-      fill: $white;
-    }
+  color: $white;
+  fill: $white;
+}
 
   }
 }
 
-.mod-response {
+.mod-response
+{
   display: none;
-
 }
 
-#map circle {
+#map circle
+{
   xtransform: scale(2);
-
 }
 
-.jvectormap-label {
+.jvectormap-label
+{
   position: absolute;
   display: none;
   border: solid 1px #CDCDCD;
@@ -47,54 +47,58 @@ a {
   padding: 3px;
 }
 
-.jvectormap {
+.jvectormap
+{
   height: 450px;
   padding-bottom: 100px;
-
   .jvectormap-zoomin,
   .jvectormap-zoomout {
     position: absolute;
-    left: 0;
-    box-shadow: 2px 2px 2px #333;
-    border-radius: $border-radius;
-    background: $primary-color;
-    padding: 5px;
-    color: white;
-    width: 15px;
-    height: 15px;
-    cursor: pointer;
-    line-height: 15px;
-    text-align: center;
-  }
+  left: 0;
+  box-shadow: 2px 2px 2px #333;
+  border-radius: $border-radius;
+  background: $primary-color;
+  padding: 5px;
+  color: white;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  line-height: 15px;
+  text-align: center;
+}
 
-  .jvectormap-zoomin {
-    top: 50px;
-  }
+.jvectormap-zoomin
+{
+  top: 50px;
+}
 
-  .jvectormap-zoomout {
-    top: 80px;
-  }
+.jvectormap-zoomout
+{
+  top: 80px;
+}
 
 }
 
-.this-is {
+.this-is
+{
   line-height: 1.5em;
-
   color: #fff;
   font-weight: normal;
   padding: 3px;
 }
 
-.this-is__icon {
+.this-is__icon
+{
   display: none;
-
 }
 
-.emoji .this-is__icon {
+.emoji .this-is__icon
+{
   display: inline;
 }
 
-.download-bar.download-bar {
+.download-bar.download-bar
+{
   position: absolute;
   top: 0;
   padding: 4px;
@@ -106,30 +110,35 @@ a {
   text-align: right;
 }
 
-.download-bar__button.download-bar__button {
+.download-bar__button.download-bar__button
+{
   background: $primary-color;
   color: #fff;
 }
 
-.download-bar__button.download-bar__button:hover {
+.download-bar__button.download-bar__button:hover
+{
   background-color: red;
 }
 
-.download-bar__button {
+.download-bar__button
+{
   .icon {
 
     color: #fff;
-    fill: #fff;
-    margin-left: 5px;
-
-  }
-  .download-button__filesize {
-    color: #555;
-    margin-left:5px;
-  }
+  fill: #fff;
+  margin-left: 5px;
 }
 
-.content {
+.download-button__filesize
+{
+  color: #555;
+  margin-left: 5px;
+}
+}
+
+.content
+{
   padding: 1em;
   width: 80%;
   margin: 2em auto;
@@ -139,49 +148,46 @@ a {
   background: #fff;
 }
 
-
-
-body {
-  background: url(../images/bg.jpg) center center no-repeat;
+body
+{
+  background: url(../../../../images/bg.jpg) center center no-repeat;
 }
 
-.example__hint {
+.example__hint
+{
   color: #999;
   -ms-word-break: break-all;
-
   word-break: break-all;
-
   // Non standard for webkit
   word-break: break-word;
   display: block;
   margin-top: 5px;
 }
 
-.tab {
-
+.tab
+{
   position: relative;
-
   .show {
     display: block;
-  }
+}
 
 }
 
-.main-nav {
+.main-nav
+{
   margin: 20px 0;
-
   li {
     background: $grey;
-  }
+}
 }
 
-.stats {
+.stats
+{
   bottom: 0;
   z-index: 1;
   position: absolute;
-
   td {
     width: 50px;
-    text-align: right;
-  }
+  text-align: right;
+}
 }
