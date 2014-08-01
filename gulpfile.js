@@ -58,8 +58,12 @@ var gulp = require('gulp'),
             'app/styles/svg-sprite.scss',
             'app/styles/url-form.scss',
             'app/styles/main.scss'
-        ]
+        ],
+        svg : fs.readFileSync('app/svg/svgsprite.svg'),
+        modernizr : fs.readFileSync('app/scripts/vendor/modernizr.js')
+
     },
+
     allScripts = assets.scripts.vendor.concat(assets.scripts.custom);
 
 
@@ -102,10 +106,8 @@ gulp.task('dev', function() {
 });
 
 gulp.task('dev-html', ['dev-sass', 'dev-js','php-script'], function() {
-    var htmlAssets = {
-        'styles': [],
-        'scripts': allScripts
-    };
+    var htmlAssets = assets;
+        htmlAssets.scripts = allScripts;
     // no sass files in html output
     for (var i = 0, len = assets.styles.length; i < len; i++) {
         htmlAssets.styles[i] = assets.styles[i].replace('scss', 'css');
