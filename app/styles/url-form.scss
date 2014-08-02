@@ -5,8 +5,16 @@
   font-size: 150%;
 }
 
-.url-form__input {
+.url-form .url-form__input[type="text"] {
   font-size: 150%;
+  max-width: 100%;
+  transition: all 0.30s ease-in-out;
+  border: 1px solid #DDDDDD;
+}
+
+.url-form .url-form__input:focus {
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  border: 1px solid rgba(81, 203, 238, 1);
 }
 
 .url-form.success .url-form__input {
@@ -20,10 +28,7 @@
 .url-form__alert {
   margin: 10px 0;
 
-
   opacity: 0;
-
-
 
   .icon {
     margin-right: 5px;
@@ -32,7 +37,6 @@
 }
 
 .url-form__alert--error {
-
 
   transition: opacity 1s ease-out;
   opacity: 1;

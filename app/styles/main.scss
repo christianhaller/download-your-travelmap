@@ -39,12 +39,10 @@ a {
 .jvectormap-label {
   position: absolute;
   display: none;
-  border: solid 1px #CDCDCD;
   border-radius: $border-radius;
   background: #292929;
   color: white;
-  font-size: smaller;
-  padding: 3px;
+  padding: 5px;
 }
 
 .jvectormap {
