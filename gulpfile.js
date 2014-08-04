@@ -36,12 +36,12 @@ var gulp = require('gulp'),
     assets = {
         'scripts': {
             'vendor': [
-
+                'app/scripts/vendor/analytics.js',
                 'app/scripts/vendor/jquery.js',
                 'app/scripts/vendor/terrific-2.1.0.js',
                 'app/scripts/vendor/jquery-jvectormap-1.2.2.min.js',
-                'app/scripts/vendor/jquery-jvectormap-world-mill-en.js',
-                'app/scripts/vendor/countUp.js'
+                'app/scripts/vendor/jquery-jvectormap-world-mill-en.js'
+                //'app/scripts/vendor/countUp.js'
 
             ],
             'custom': [
