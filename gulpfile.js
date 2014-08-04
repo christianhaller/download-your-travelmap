@@ -203,7 +203,6 @@ gulp.task('styles', ['clean'], function () {
             suffix: '.min'
         }))
 
-        .pipe(plumber(onError))
         .pipe(csso())
         .pipe(minifycss())
 
