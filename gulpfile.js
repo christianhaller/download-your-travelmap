@@ -29,10 +29,7 @@ var gulp = require('gulp'),
     buffer = require('gulp-buffer'),
     browserSync = require('browser-sync'),
     livereload = require('gulp-livereload'),
-    onError = function (err) {
-        gutil.beep();
-        console.log(err);
-    },
+
     assets = {
         'scripts': {
             'vendor': [
@@ -63,6 +60,7 @@ var gulp = require('gulp'),
             'app/styles/main.scss'
         ],
         'svg': fs.readFileSync('app/svg/svgsprite.svg'),
+        'buildDate':'dev',
         'modernizr': fs.readFileSync('app/scripts/inline/modernizr.js', 'utf-8'),
         'analytics': fs.readFileSync('app/scripts/inline/analytics.js', 'utf-8')
 
@@ -256,7 +254,11 @@ gulp.task('minifyhtml', ['compile'], function () {
     gulp.src('./dist/index.html')
         .pipe(htmlmin({
             collapseWhitespace: true,
-            'removeComments': true
+            'removeComments': true,
+            'ignoreCustomComments': [
+                /^\s+buildDate/,
+                /buildDate\s+$/
+            ]
         }))
         .pipe(gulp.dest('./dist'))
 });
@@ -267,6 +269,7 @@ gulp.task('default', function () {
 });
 
 gulp.task('build', function () {
+    assets.buildDate = new Date();
     gulp.start('minifyhtml', 'default');
 });
 

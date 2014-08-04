@@ -41,6 +41,7 @@
     "gulp-plumber": "^0.6.3",
     "gulp-replace": "^0.4.0",
     "gulp-ruby-sass": "^0.5.0",
+    "gulp-shell": "^0.2.9",
     "gulp-size": "^0.4.0",
     "gulp-sourcemaps": "~0.4.1",
     "imagemin-pngcrush": "^0.1.0"

@@ -146,31 +146,24 @@ a
   background: #fff;
 }
 
-html
-{
-  perspective: 600px;
-  transform-style: preserve-3d;
-}
-
 body
 {
-  animation-duration: .2s;
-  animation-name: slidein;
+  animation: fade-moment-in .5s ease-out;
   background: url(../../../../images/bg.jpg) center center no-repeat;
 }
 
-@keyframes slidein
+@keyframes fade-moment-in
 {
-  from
+  0%
   {
     opacity: 0;
-    transform: rotateX(-22.5deg) scale(.5);
+    transform: scale(0.9) translate3d(0,-40px,0);
   }
 
-  to
+  100%
   {
-    transform: rotateX(0deg) scale(1);
     opacity: 1;
+    transform: scale(1) translate3d(0,0,0);
   }
 }
 

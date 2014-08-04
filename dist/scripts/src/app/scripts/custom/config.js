@@ -5,7 +5,6 @@ Tc.Config = {
      * @property dependencies
      * @type Object
      */
-
     classNames: {
         'error': 'error',
         'success': 'success'
@@ -41,16 +40,13 @@ Tc.Config = {
             }
         },
         series: {
-            regions: [
-                {
-                    values: [],
-                    scale: ['#F9FCF8', '#68b04d'],
-                    normalizeFunction: 'polynomial'
-                }
-            ]
+            regions: [{
+                values: [],
+                scale: ['#F9FCF8', '#68b04d'],
+                normalizeFunction: 'polynomial'
+            }]
         },
         backgroundColor: '#fff',
         markers: []
     }
-
 };
