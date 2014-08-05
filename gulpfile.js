@@ -4,6 +4,7 @@ var gulp = require('gulp'),
     fs = require('fs'),
     uglify = require('gulp-uglify'),
     jshint = require('gulp-jshint'),
+    spawn = require('child_process').spawn,
     notify = require('gulp-notify'),
     concat = require('gulp-concat'),
     gutil = require('gulp-util'),
@@ -46,6 +47,7 @@ var gulp = require('gulp'),
                 'app/scripts/custom/config.js',
                 'app/scripts/custom/url-form/url-form.js',
                 'app/scripts/custom/response/response.js',
+                'app/scripts/custom/heartbeat/heartbeat.js',
                 'app/scripts/custom/config.js',
                 'app/scripts/custom/main.js'
             ]
@@ -60,7 +62,7 @@ var gulp = require('gulp'),
             'app/styles/main.scss'
         ],
         'svg': fs.readFileSync('app/svg/svgsprite.svg'),
-        'buildDate':'dev',
+        'buildDate': 'dev',
         'modernizr': fs.readFileSync('app/scripts/inline/modernizr.js', 'utf-8'),
         'analytics': fs.readFileSync('app/scripts/inline/analytics.js', 'utf-8')
 
@@ -194,7 +196,7 @@ gulp.task('styles', ['clean'], function () {
     return gulp.src(assets.styles)
         .pipe(sass())
         .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
-        .pipe(cssBase64({baseDir: '../images/', verbose: true,'maxWeightResource':70000}))
+        .pipe(cssBase64({baseDir: '../images/', verbose: true, 'maxWeightResource': 70000}))
         .pipe(concat('app.css'))
 
         .pipe(gulp.dest('build/styles'))
@@ -276,4 +278,22 @@ gulp.task('watch', function () {
     livereload.listen();
     gulp.watch('app/**/*', ['dev']);
     livereload.listen();
+});
+
+gulp.task('test', function () {
+    var tests = ['test','test.js'];
+
+    var casperChild = spawn('casperjs', tests, {
+            'cwd': "./test"}
+    );
+
+    casperChild.stdout.on('data', function (data) {
+        gutil.log('CasperJS:', data.toString().slice(0, -1)); // Remove \n
+    });
+
+    casperChild.on('close', function (code) {
+        var success = code === 0; // Will be 1 in the event of failure
+
+        // Do something with success here
+    });
 });

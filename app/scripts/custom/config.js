@@ -8,8 +8,8 @@ Tc.Config = {
     classNames: {
         'error': 'error',
         'success': 'success',
-        'isHidden':'is-hidden',
-        'block':'block'
+        'isHidden': 'is-hidden',
+        'block': 'block'
     },
     'been': {
         'fill': 'yellow',

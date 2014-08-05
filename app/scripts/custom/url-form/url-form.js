@@ -13,7 +13,6 @@
                 if (url === lastUrl) {
                     return;
                 }
-
                 if (!mod.validateInput($url)) {
                     $url.focus();
                     return;
@@ -48,16 +47,13 @@
                 $ctx.trigger('auto');
             }
         },
-
         validateInput: function($url) {
             var url = $url.val(),
                 config = this.sandbox.getConfig();
             if (this.isUrlValid(url)) {
-
                 $url.removeClass(config.classNames.error).addClass(config.classNames.success);
                 return true;
             } else {
-
                 $url.addClass(config.classNames.error).removeClass(config.classNames.success);
                 return false;
             }
