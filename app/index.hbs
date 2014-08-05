@@ -37,10 +37,8 @@
     </form>
 
 
-    <div class="mod-response mod" data-connectors="ajax">
-        <nav class="pure-menu pure-menu-open pure-menu-horizontal main-nav">
-        </nav>
-        <div class="tab jvectormap" id="map" data-zoomlevel>
+    <div class="mod-response mod is-hidden" data-connectors="ajax">
+        <div class="tab jvectormap" data-zoomlevel>
             <!--<table class="pure-table mod mod-stats stats">
                 <tr>
                     <th>Cities</th>
@@ -51,7 +49,6 @@
                     <td class="countries"></td>
                 </tr>
             </table>-->
-            <div class="mod-map mod"></div>
             <div class="download-bar pure-menu pure-menu-open pure-menu-horizontal">
 
                 <strong class="this-is">This is <span class="js-this-is__city download-bar__city">your travelmap</span></strong>
@@ -61,13 +58,11 @@
                             <use xlink:href="#icon-box-add"></use>
                         </svg>
                         <span>Download<span class="js-filesize download-button__filesize"></span></span>
-
                     </a></li>
                 </ul>
             </div>
-
+            <div id="jvectormap" class="jvectormap__container"></div>
         </div>
-        <div class="tab" id="google-static-map"></div>
     </div>
 </div>{{#if debug}}
     {{#each assets.scripts}}

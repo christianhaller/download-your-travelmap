@@ -1,7 +1,7 @@
 (function($) {
     'use strict';
     Tc.Module.Url = Tc.Module.extend({
-        on: function() {
+        on: function(callback) {
             var $ctx = this.$ctx,
                 mod = this,
                 $url = $ctx.find('#url'),
@@ -13,7 +13,8 @@
                 if (url === lastUrl) {
                     return;
                 }
-                if (!this.validateInput($ctx, $url)) {
+
+                if (!mod.validateInput($url)) {
                     $url.focus();
                     return;
                 }
@@ -28,6 +29,7 @@
                     url: $ctx.attr('action')
                 }).error(function(response) {
                     // kaputt
+                    mod.fire('Error', response);
                     mod.fire('ShowAlert', response);
                 }).success(function(response) {
                     mod.fire('RemoveAlert');
@@ -35,6 +37,7 @@
                     mod.fire('DataReceived', response);
                 });
             });
+            callback();
         },
         after: function() {
             var $ctx = this.$ctx,
@@ -45,14 +48,17 @@
                 $ctx.trigger('auto');
             }
         },
-        validateInput: function($url, $ctx) {
+
+        validateInput: function($url) {
             var url = $url.val(),
                 config = this.sandbox.getConfig();
             if (this.isUrlValid(url)) {
-                $ctx.removeClass(config.classNames.error).addClass(config.classNames.success);
+
+                $url.removeClass(config.classNames.error).addClass(config.classNames.success);
                 return true;
             } else {
-                $ctx.addClass(config.classNames.error).removeClass(config.classNames.success);
+
+                $url.addClass(config.classNames.error).removeClass(config.classNames.success);
                 return false;
             }
         },

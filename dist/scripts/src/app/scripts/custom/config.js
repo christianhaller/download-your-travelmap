@@ -7,7 +7,9 @@ Tc.Config = {
      */
     classNames: {
         'error': 'error',
-        'success': 'success'
+        'success': 'success',
+        'isHidden':'is-hidden',
+        'block':'block'
     },
     'been': {
         'fill': 'yellow',

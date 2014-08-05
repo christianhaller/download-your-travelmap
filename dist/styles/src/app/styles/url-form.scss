@@ -14,20 +14,23 @@
   border: 1px solid #DDDDDD;
 }
 
-.url-form .url-form__input:focus
+.url-form
 {
-  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  .url-form__input: focus {
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
   border: 1px solid rgba(81, 203, 238, 1);
 }
 
-.url-form.success .url-form__input
+input.success[type="text"]
 {
   border-color: $primary-color;
 }
 
-.url-form.error .url-form__input
+input.error[type="text"]
 {
   border-color: $error;
+}
+
 }
 
 .url-form__alert

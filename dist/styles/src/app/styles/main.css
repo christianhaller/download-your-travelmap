@@ -15,11 +15,20 @@ a {
       color: white;
       fill: white; }
 
-.mod-response {
-  display: none; }
+.is-hidden {
+  display: none !important; }
 
-#map circle {
-  xtransform: scale(2); }
+.is-invisible {
+  visibility: none !important; }
+
+.block {
+  display: block        !important; }
+
+.inline {
+  display: inline       !important; }
+
+.inline-block {
+  display: inline-block !important; }
 
 .jvectormap-label {
   position: absolute;
@@ -29,28 +38,28 @@ a {
   color: white;
   padding: 5px; }
 
-.jvectormap {
+.jvectormap .jvectormap__container {
   height: 450px;
   padding-bottom: 100px; }
-  .jvectormap .jvectormap-zoomin,
-  .jvectormap .jvectormap-zoomout {
-    position: absolute;
-    left: 0;
-    -webkit-box-shadow: 2px 2px 2px #333;
-            box-shadow: 2px 2px 2px #333;
-    border-radius: 4px;
-    background: #68b04d;
-    padding: 5px;
-    color: white;
-    width: 15px;
-    height: 15px;
-    cursor: pointer;
-    line-height: 15px;
-    text-align: center; }
-  .jvectormap .jvectormap-zoomin {
-    top: 50px; }
-  .jvectormap .jvectormap-zoomout {
-    top: 80px; }
+.jvectormap .jvectormap-zoomin,
+.jvectormap .jvectormap-zoomout {
+  position: absolute;
+  left: 0;
+  -webkit-box-shadow: 2px 2px 2px #333;
+          box-shadow: 2px 2px 2px #333;
+  border-radius: 4px;
+  background: #68b04d;
+  padding: 5px;
+  color: white;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  line-height: 15px;
+  text-align: center; }
+.jvectormap .jvectormap-zoomin {
+  top: 50px; }
+.jvectormap .jvectormap-zoomout {
+  top: 80px; }
 
 .this-is {
   line-height: 1.5em;

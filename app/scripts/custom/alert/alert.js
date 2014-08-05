@@ -9,6 +9,10 @@
         onRemoveAlert: function() {
             var $ctx = this.$ctx;
             $ctx.removeClass('url-form__alert--error');
+        },
+        on : function(callback){
+            callback();
         }
+
     });
 })(Tc.$);
