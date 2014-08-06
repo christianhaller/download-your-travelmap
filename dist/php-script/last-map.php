@@ -3,7 +3,7 @@ date_default_timezone_set("Europe/Berlin");
 $files = scandir('../data', 1);
 $newest_file = $files[0];
 $newest_file = substr($newest_file,0,19);
-$newest_file = str_replace('#',' ',$newest_file);
+$newest_file = str_replace('----',' ',$newest_file);
 $newest_file = strtotime($newest_file);
 $newest_file = time() - $newest_file;
 $response  = array('ago' => time_since($newest_file));

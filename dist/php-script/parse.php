@@ -114,7 +114,7 @@ try {
 
     $json = json_encode($places);
 
-    $url = date('Y-m-d#H:i:s') . '--' . md5($url) . '.csv';
+    $url = date('Y-m-d----H:i:s') . '--' . md5($url) . '.csv';
 
 
     //file_put_contents('data/' . $url . '/' , $json);

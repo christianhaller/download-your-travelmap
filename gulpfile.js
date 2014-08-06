@@ -26,10 +26,12 @@ var gulp = require('gulp'),
     clean = require('gulp-clean'),
     plumber = require('gulp-plumber'),
     gzip = require('gulp-gzip'),
+    penthouse = require('penthouse'),
     size = require('gulp-size'),
     cssBase64 = require('gulp-css-base64'),
     buffer = require('gulp-buffer'),
     browserSync = require('browser-sync'),
+    path = require('path'),
     livereload = require('gulp-livereload'),
 
     assets = {
@@ -281,6 +283,8 @@ gulp.task('watch', function () {
     livereload.listen();
 });
 
+/*
+
 gulp.task('test', function () {
     var tests = ['test','test.js'];
 
@@ -297,4 +301,21 @@ gulp.task('test', function () {
 
         // Do something with success here
     });
+});
+
+*/
+
+gulp.task('penthouse',function(){
+
+    // not working
+
+    penthouse({
+        url : 'http://localhost',
+        css : path.join('/styles/app.min-28c1f24f.css'),
+        width : 400,   // viewport width
+        height : 240   // viewport height
+    }, function(err, criticalCss) {
+        //console.log(criticalCss);
+    });
+
 });
