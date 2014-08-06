@@ -26,7 +26,7 @@ var gulp = require('gulp'),
     clean = require('gulp-clean'),
     plumber = require('gulp-plumber'),
     gzip = require('gulp-gzip'),
-    penthouse = require('penthouse'),
+    //penthouse = require('penthouse'),
     size = require('gulp-size'),
     svgo = require('gulp-svgo'),
     cssBase64 = require('gulp-css-base64'),
@@ -306,7 +306,7 @@ gulp.task('test', function () {
 
 */
 
-gulp.task('penthouse',function(){
+/*gulp.task('penthouse',function(){
 
     // not working
 
@@ -319,7 +319,7 @@ gulp.task('penthouse',function(){
         //console.log(criticalCss);
     });
 
-});
+});*/
 
 
 

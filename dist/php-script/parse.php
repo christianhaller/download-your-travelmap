@@ -125,10 +125,17 @@ try {
 
 
     $fp = fopen('../data/' . $url, 'w');
+    fputcsv($fp,array('lat','lon','name','been','notes'));
     foreach ($places as $key => $fields) {
         unset($fields['iso']);
-        unset($fields['flags']);
-        fputcsv($fp, $fields);
+        $str = $fields['name'];
+        $flags = implode(',',$fields['flags']);
+        //echo $fields['lat'].$fields['lng'];
+
+        $row = array($fields['lat'],$fields['lng'],$str,$flags);
+
+        //unset($fields['flags']);
+        fputcsv($fp, $row);
 
     }
     fclose($fp);
