@@ -2,7 +2,7 @@
 (function($) {
     'use strict';
     Tc.Module.Heartbeat = Tc.Module.extend({
-        on: function() {
+        on: function(callback) {
             setInterval($.ajax, 2000, {
                 url: '/php-script/last-map.php',
                 success: function(json) {
@@ -10,6 +10,7 @@
                 },
                 error: this.error
             });
+            callback();
         },
         error: function() {}
     });

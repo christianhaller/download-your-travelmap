@@ -28,6 +28,7 @@ var gulp = require('gulp'),
     gzip = require('gulp-gzip'),
     penthouse = require('penthouse'),
     size = require('gulp-size'),
+    svgo = require('gulp-svgo'),
     cssBase64 = require('gulp-css-base64'),
     buffer = require('gulp-buffer'),
     browserSync = require('browser-sync'),
@@ -318,4 +319,15 @@ gulp.task('penthouse',function(){
         //console.log(criticalCss);
     });
 
+});
+
+
+
+gulp.task('svgo', function () {
+    gulp.src('app/svg/svgsprite.svg')
+        .pipe(svgo())
+        .pipe(rename({
+            suffix: '.min'
+        }))
+        .pipe(gulp.dest('app/svg'));
 });
