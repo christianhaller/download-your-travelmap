@@ -1,16 +1,16 @@
+/* global Tc */
 (function($) {
     'use strict';
     Tc.Module.Heartbeat = Tc.Module.extend({
-        on: function(){
-
-            setInterval($.ajax,
-                2000, {url: '/php-script/last-map.php', success: function(json){
-                        console.log(json);
-                }, error: this.error}
-            );
-
+        on: function() {
+            setInterval($.ajax, 2000, {
+                url: '/php-script/last-map.php',
+                success: function(json) {
+                    console.log(json);
+                },
+                error: this.error
+            });
         },
-        error : function(){}
-
+        error: function() {}
     });
 })(Tc.$);

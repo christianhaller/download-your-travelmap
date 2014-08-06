@@ -1,3 +1,4 @@
+/* global require */
 'use strict';
 
 var gulp = require('gulp'),
@@ -103,7 +104,7 @@ gulp.task('compile', ['rev'], function () {
         .pipe(handlebars(templateData, handlebarOpts))
         .pipe(handlebars({assets: assets}))
         .pipe(rename('index.html'))
-        .pipe(gulp.dest('./dist'))
+        .pipe(gulp.dest('./dist'));
 });
 
 
@@ -169,7 +170,7 @@ gulp.task('dev-css', function () {
             autosemicolon: true
         }))
         .pipe(replace('../images', '../../../../images'))
-        .pipe(gulp.dest('./dist/styles/src'))
+        .pipe(gulp.dest('./dist/styles/src'));
 });
 gulp.task('dev-sass', ['dev-css'], function () {
     return gulp.src('dist/styles/src/app/styles/*.*')
@@ -209,7 +210,7 @@ gulp.task('styles', ['clean'], function () {
         .pipe(minifycss())
 
 
-        .pipe(gulp.dest('build/styles'))
+        .pipe(gulp.dest('build/styles'));
 });
 
 gulp.task('jshint', function () {
@@ -261,7 +262,7 @@ gulp.task('minifyhtml', ['compile'], function () {
                 /buildDate\s+$/
             ]
         }))
-        .pipe(gulp.dest('./dist'))
+        .pipe(gulp.dest('./dist'));
 });
 
 
@@ -292,7 +293,7 @@ gulp.task('test', function () {
     });
 
     casperChild.on('close', function (code) {
-        var success = code === 0; // Will be 1 in the event of failure
+        //var success = code === 0; // Will be 1 in the event of failure
 
         // Do something with success here
     });

@@ -1,3 +1,4 @@
+/* global Tc */
 Tc.Config = {
     /**
      * The paths for the different types of dependencies.

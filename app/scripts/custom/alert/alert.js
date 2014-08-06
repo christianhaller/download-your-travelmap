@@ -1,3 +1,4 @@
+/* global Tc */
 (function($) {
     'use strict';
     Tc.Module.Alert = Tc.Module.extend({
