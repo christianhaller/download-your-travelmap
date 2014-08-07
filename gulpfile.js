@@ -324,8 +324,8 @@ gulp.task('penthouse',function(){
 
 
 gulp.task('svgo', function () {
-    gulp.src('app/svg/svgsprite.svg')
-        .pipe(svgo())
+    gulp.src('app/svg/svgsprite.min.svg')
+        .pipe(svgo({cleanupIDs: false }))
         .pipe(rename({
             suffix: '.min'
         }))
