@@ -9,6 +9,7 @@
         },
         onRemoveAlert: function() {
             var $ctx = this.$ctx;
+            $ctx.find('span').empty();
             $ctx.removeClass('url-form__alert--error');
         },
         on: function(callback) {
