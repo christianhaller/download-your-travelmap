@@ -64,7 +64,7 @@
             }
         },
         isUrlValid: function(url) {
-            var re = new RegExp("^(http|https)://www.tripadvisor.[a-z]+/member", "i");
+            var re = new RegExp("^(http|https)://www.tripadvisor.[\.a-z]+/member", "i");
             return re.test(url);
         }
     });
