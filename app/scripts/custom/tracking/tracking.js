@@ -7,7 +7,7 @@
             callback();
         },
         onTrack: function(data) {
-            ga(data.join());
+            ga(data.data.join());
         }
     });
 })(Tc.$);
