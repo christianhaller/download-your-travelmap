@@ -63,5 +63,8 @@
   "bugs": {
     "url": "https://github.com/christianhaller/been/issues"
   },
-  "homepage": "https://github.com/christianhaller/been"
+  "homepage": "https://github.com/christianhaller/been",
+  "directories": {
+    "test": "test"
+  }
 }
