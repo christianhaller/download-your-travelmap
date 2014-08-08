@@ -1,13 +1,13 @@
 /* global Tc,ga */
-(function($) {
+(function ($) {
     'use strict';
     Tc.Module.Url = Tc.Module.extend({
-        on: function(callback) {
+        on: function (callback) {
             var $ctx = this.$ctx,
                 mod = this,
                 $url = $ctx.find('#url'),
                 lastUrl;
-            $ctx.on('submit auto', function(e) {
+            $ctx.on('submit auto', function (e) {
                 var data,
                     url = $.trim($url.val());
                 e.preventDefault();
@@ -27,14 +27,14 @@
                     method: 'POST',
                     dataType: 'json',
                     url: $ctx.attr('action')
-                }).error(function(response) {
+                }).error(function (response) {
                     // kaputt
                     mod.fire('Error', response);
                     mod.fire('ShowAlert', response);
-                    mod.fire('Track', ['send', 'event', 'map', 'error', url]);
-                }).success(function(response) {
+                    mod.fire('Track', {'data': ['send', 'event', 'map', 'error', url]});
+                }).success(function (response) {
                     mod.fire('RemoveAlert');
-                    mod.fire('Track', ['send', 'event', 'map', 'success', url]);
+                    mod.fire('Track', {'data': ['send', 'event', 'map', 'success', url]});
                     response.url = data.url;
                     mod.fire('DataReceived', response);
                 });
@@ -42,7 +42,7 @@
             this.sandbox.subscribe('Tracking', this);
             callback();
         },
-        after: function() {
+        after: function () {
             var $ctx = this.$ctx,
                 $url = $ctx.find('#url');
             if (window.location.search.indexOf('?url=') === 0) {
@@ -51,7 +51,7 @@
                 $ctx.trigger('auto');
             }
         },
-        validateInput: function($url, url) {
+        validateInput: function ($url, url) {
             var config = this.sandbox.getConfig();
             if (this.isUrlValid(url)) {
                 $url.removeClass(config.classNames.error).addClass(config.classNames.success);
@@ -61,7 +61,7 @@
                 return false;
             }
         },
-        isUrlValid: function(url) {
+        isUrlValid: function (url) {
             var re = new RegExp("^(http|https)://www.tripadvisor.", "i");
             return re.test(url);
         }
