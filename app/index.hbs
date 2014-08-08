@@ -3,9 +3,6 @@
 <head>
     <meta charset="utf-8"/>
     <link rel="dns-prefetch" href="//google-analytics.com"/>
-    <!--<script>
-            {{{assets.modernizr}}}
-    </script>-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     {{#if debug}}{{#each assets.styles.css}}
         <link type="text/css" rel="stylesheet" href="/styles/src/{{this}}"/>{{/each}}
@@ -71,7 +68,6 @@
         <script src="/scripts/src/{{this}}"></script>
     {{/each}}{{else}}
     <script src="{{assetPath "scripts/app.min.js"}}"></script>{{/if}}
-    <!--<script>{{{assets.analytics}}}</script>-->
 </body>
 </html>
 <!-- buildDate: {{assets.buildDate}} -->

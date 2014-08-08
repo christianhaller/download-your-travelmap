@@ -46,13 +46,13 @@
                     'app/scripts/custom/response/response.js',
                     'app/scripts/custom/heartbeat/heartbeat.js',
                     'app/scripts/custom/tracking/tracking.js',
-                    'app/scripts/custom/config.js', 'app/scripts/custom/main.js']
+                    'app/scripts/custom/config.js', 'app/scripts/custom/main.js'
+                ]
             },
             'styles': ['app/styles/globals.scss', 'app/styles/vendor/pure.css', 'app/styles/vendor/pure-extras.css', 'app/styles/svg-sprite.scss', 'app/styles/url-form.scss', 'app/styles/main.scss'],
             'svg': fs.readFileSync('app/svg/svgsprite.svg'),
-            'buildDate': 'dev',
-            'modernizr': fs.readFileSync('app/scripts/inline/modernizr.js', 'utf-8'),
-            'analytics': fs.readFileSync('app/scripts/inline/analytics.js', 'utf-8')
+            'buildDate': 'dev'
+            //'modernizr': fs.readFileSync('app/scripts/inline/modernizr.js', 'utf-8')
         },
         prettifyConfig = {
             "indent_size": 4,
@@ -111,7 +111,6 @@
             'assets': assets
         })).pipe(rename('index-dev.html')).pipe(gulp.dest('./dist'));
     });
-
 
 
     gulp.task('dev-js', function() {
