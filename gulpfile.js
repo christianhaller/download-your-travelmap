@@ -34,10 +34,19 @@
         livereload = require('gulp-livereload'),
         assets = {
             'scripts': {
-                'vendor': ['app/scripts/vendor/analytics.js', 'app/scripts/vendor/jquery.js', 'app/scripts/vendor/terrific-2.1.0.js', 'app/scripts/vendor/jquery-jvectormap-1.2.2.min.js', 'app/scripts/vendor/jquery-jvectormap-world-mill-en.js'
+                'vendor': ['app/scripts/vendor/analytics.js',
+                    'app/scripts/vendor/jquery.js',
+                    'app/scripts/vendor/terrific-2.1.0.js',
+                    'app/scripts/vendor/jquery-jvectormap-1.2.2.min.js', 'app/scripts/vendor/jquery-jvectormap-world-mill-en.js'
                     //'app/scripts/vendor/countUp.js'
                 ],
-                'custom': ['app/scripts/custom/alert/alert.js', 'app/scripts/custom/config.js', 'app/scripts/custom/url-form/url-form.js', 'app/scripts/custom/response/response.js', 'app/scripts/custom/heartbeat/heartbeat.js', 'app/scripts/custom/config.js', 'app/scripts/custom/main.js']
+                'custom': ['app/scripts/custom/alert/alert.js',
+                    'app/scripts/custom/config.js',
+                    'app/scripts/custom/url-form/url-form.js',
+                    'app/scripts/custom/response/response.js',
+                    'app/scripts/custom/heartbeat/heartbeat.js',
+                    'app/scripts/custom/tracking/tracking.js',
+                    'app/scripts/custom/config.js', 'app/scripts/custom/main.js']
             },
             'styles': ['app/styles/globals.scss', 'app/styles/vendor/pure.css', 'app/styles/vendor/pure-extras.css', 'app/styles/svg-sprite.scss', 'app/styles/url-form.scss', 'app/styles/main.scss'],
             'svg': fs.readFileSync('app/svg/svgsprite.svg'),
@@ -88,7 +97,7 @@
         })).pipe(rename('index.html')).pipe(gulp.dest('./dist'));
     });
     gulp.task('dev', function() {
-        gulp.start('dev-html', 'dev-js', 'dev-sass', 'jshint-gulpfile' /*, 'dev-images'*/ );
+        gulp.start('dev-html', 'dev-js', 'dev-sass' /*'jshint-gulpfile', 'dev-images'*/ );
     });
     gulp.task('dev-html', ['dev-sass', 'dev-js', 'php-script'], function() {
         assets.styles.css = [];
@@ -104,7 +113,8 @@
     });
 
 
-    gulp.task('dev-js', ['jshint'], function() {
+
+    gulp.task('dev-js', function() {
         return gulp.src(allScripts, {
             'base': './'
         }).pipe(gulp.dest('./dist/scripts/src')).pipe(livereload({
@@ -240,10 +250,10 @@
 
 
     gulp.task('svgo', function() {
-        gulp.src('app/svg/svgsprite.min.svg').pipe(svgo({
+        gulp.src('build/svg/svgsprite.min.svg').pipe(svgo({
             cleanupIDs: false
         })).pipe(rename({
             suffix: '.min'
-        })).pipe(gulp.dest('app/svg'));
+        })).pipe(gulp.dest('build/svg'));
     });
 })();

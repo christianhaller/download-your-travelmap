@@ -31,14 +31,15 @@
                     // kaputt
                     mod.fire('Error', response);
                     mod.fire('ShowAlert', response);
-                    ga('send', 'event', 'map', 'error', url);
+                    mod.fire('Track', ['send', 'event', 'map', 'error', url]);
                 }).success(function(response) {
                     mod.fire('RemoveAlert');
-                    ga('send', 'event', 'map', 'success', url);
+                    mod.fire('Track', ['send', 'event', 'map', 'success', url]);
                     response.url = data.url;
                     mod.fire('DataReceived', response);
                 });
             });
+            this.sandbox.subscribe('Tracking', this);
             callback();
         },
         after: function() {

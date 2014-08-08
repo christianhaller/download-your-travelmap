@@ -78,6 +78,7 @@
                 $fileSize = $a.find('.js-filesize');
             $fileSize.text('(' + csv.filesize + ')');
         },
+
         on: function(callback) {
             var $ctx = this.$ctx,
                 config = this.sandbox.getConfig();
