@@ -6,7 +6,7 @@
         on: function(callback) {
             callback();
         },
-        onTrack:function(data){
+        onTrack: function(data) {
             ga(data.join());
         }
     });
