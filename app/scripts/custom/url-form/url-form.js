@@ -34,9 +34,7 @@
                     ga('send', 'event', 'map', 'error', url);
                 }).success(function(response) {
                     mod.fire('RemoveAlert');
-
                     ga('send', 'event', 'map', 'success', url);
-
                     response.url = data.url;
                     mod.fire('DataReceived', response);
                 });
@@ -64,7 +62,7 @@
             }
         },
         isUrlValid: function(url) {
-            var re = new RegExp("^(http|https)://www.tripadvisor.[\.a-z]+/member", "i");
+            var re = new RegExp("^(http|https)://www.tripadvisor.[.a-z]+/member", "i");
             return re.test(url);
         }
     });
