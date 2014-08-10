@@ -234,11 +234,10 @@
      */
     gulp.task('penthouse', function() {
         // not working
-        var cssPath = JSON.parse(fs.readFileSync('dist/rev-manifest.json', 'utf8'))['styles/app.min.css'];
-        //console.log(cssPath);
+
         penthouse({
-            url: 'http://been',
-            css: path.join(cssPath),
+            url: 'http://cnn.com',
+            css: 'http://z.cdn.turner.com/cnn/tmpl_asset/static/intl_homepage/1293/css/intlhplib-min.css',
             width: 400, // viewport width
             height: 240 // viewport height
         }, function(err, criticalCss) {
