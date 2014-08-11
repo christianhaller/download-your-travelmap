@@ -13,9 +13,9 @@ a {
 
   &:hover {
     background: $primary-color;
-    border-radius: $border-radius;
+
     color: $white;
-    padding: 3px;
+
 
     .icon--expandable {
       width: 24px;
@@ -26,13 +26,25 @@ a {
   }
 }
 
-.is-hidden    { display:    none !important; }
-.is-invisible { visibility: none !important; }
+.is-hidden {
+  display: none !important;
+}
 
-.block        { display: block        !important; }
-.inline       { display: inline       !important; }
-.inline-block { display: inline-block !important; }
+.is-invisible {
+  visibility: none !important;
+}
 
+.block {
+  display: block !important;
+}
+
+.inline {
+  display: inline !important;
+}
+
+.inline-block {
+  display: inline-block !important;
+}
 
 .jvectormap-label {
   position: absolute;
@@ -74,25 +86,13 @@ a {
     top: 80px;
   }
 
-
 }
-
 
 .this-is {
   line-height: 1.5em;
-
   color: #fff;
   font-weight: normal;
   padding: 3px;
-}
-
-.this-is__icon {
-  display: none;
-
-}
-
-.emoji .this-is__icon {
-  display: inline;
 }
 
 .download-bar.download-bar {
@@ -105,6 +105,13 @@ a {
   border-radius: $border-radius;
   box-sizing: border-box;
   text-align: right;
+}
+
+.download-bar.download-bar--bottom {
+  bottom: 0;
+  top: auto;
+  z-index: 1;
+
 }
 
 .download-bar__button.download-bar__button {
@@ -140,32 +147,29 @@ a {
   background: #fff;
 }
 
-
-
-
-
-
 body {
-  animation:fade-moment-in .5s ease-out;
+  animation: fade-moment-in .5s ease-out;
   background: url(../images/bg.jpg) center center no-repeat;
 
 }
 
-
-
 @keyframes fade-moment-in {
   0% {
     opacity: 0;
-   transform: scale(0.9) translate3d(0,-40px,0)
+    transform: scale(0.9) translate3d(0, -40px, 0)
   }
 
   100% {
     opacity: 1;
-    transform: scale(1) translate3d(0,0,0)
+    transform: scale(1) translate3d(0, 0, 0)
   }
 }
-
-
+.example {
+  a {
+    padding: 3px;
+    border-radius: $border-radius;
+  }
+}
 .example__hint {
   color: #999;
   -ms-word-break: break-all;
@@ -176,6 +180,8 @@ body {
   word-break: break-word;
   display: block;
   margin-top: 5px;
+
+
 }
 
 .tab {
@@ -204,5 +210,20 @@ body {
   td {
     width: 50px;
     text-align: right;
+  }
+}
+
+.footer {
+  text-align: center;
+
+  font-size: 12px;
+  color:$font-color;
+
+  margin: 2em auto;
+  padding: .3em 1em;
+  width:80%;
+
+  a {
+    padding: 3px;
   }
 }

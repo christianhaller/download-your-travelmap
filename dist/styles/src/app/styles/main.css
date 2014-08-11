@@ -7,9 +7,7 @@ a {
             transition: width 0.3s ease; }
   a:hover {
     background: #68b04d;
-    border-radius: 4px;
-    color: white;
-    padding: 3px; }
+    color: white; }
     a:hover .icon--expandable {
       width: 24px;
       color: white;
@@ -22,10 +20,10 @@ a {
   visibility: none !important; }
 
 .block {
-  display: block        !important; }
+  display: block !important; }
 
 .inline {
-  display: inline       !important; }
+  display: inline !important; }
 
 .inline-block {
   display: inline-block !important; }
@@ -68,12 +66,6 @@ a {
   font-weight: normal;
   padding: 3px; }
 
-.this-is__icon {
-  display: none; }
-
-.emoji .this-is__icon {
-  display: inline; }
-
 .download-bar.download-bar {
   position: absolute;
   top: 0;
@@ -85,6 +77,11 @@ a {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   text-align: right; }
+
+.download-bar.download-bar--bottom {
+  bottom: 0;
+  top: auto;
+  z-index: 1; }
 
 .download-bar__button.download-bar__button {
   background: #68b04d;
@@ -137,6 +134,10 @@ body {
     opacity: 1;
     -webkit-transform: scale(1) translate3d(0, 0, 0);
             transform: scale(1) translate3d(0, 0, 0); } }
+.example a {
+  padding: 3px;
+  border-radius: 4px; }
+
 .example__hint {
   color: #999;
   -ms-word-break: break-all;
@@ -162,3 +163,13 @@ body {
   .stats td {
     width: 50px;
     text-align: right; }
+
+.footer {
+  text-align: center;
+  font-size: 12px;
+  color: #333333;
+  margin: 2em auto;
+  padding: .3em 1em;
+  width: 80%; }
+  .footer a {
+    padding: 3px; }

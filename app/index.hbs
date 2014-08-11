@@ -21,7 +21,9 @@
 {{{assets.svg}}}
 <div class="content">
     <header class="welcome">
-        <h1 class="welcome__title">Download Your TripAdvisor Travel Map</h1>
+        <h1 class="welcome__title">Download Your <svg display="none" class="icon icon-ta" viewBox="0 0 48 48">
+            <use xlink:href="#webicon-tripadvisor"></use>
+        </svg>TripAdvisor Travel Map</h1>
     </header>
 
     <p class="splash-subhead example">
@@ -63,14 +65,21 @@
                         </svg>
                         <span>Download<span class="js-filesize download-button__filesize"></span></span>
                     </a></li>
+
                 </ul>
+            </div>
+            <div class="download-bar--bottom download-bar">
+                <a class="dropbox-saver" href=""></a>
             </div>
             <div id="jvectormap" class="jvectormap__container"></div>
 
         </div>
-        <div class="mod mod-heartbeat"></div>
+
     </div>
+
 </div>
+<footer class="footer">hallo@christianhaller.com <svg display="none" class="icon icon-github" viewBox="0 0 48 48"> <use xlink:href="#webicon-github"></use>
+</svg><a href="https://github.com/christianhaller/download-your-travelmap">https://github.com/christianhaller/download-your-travelmap</a></footer>
 
 {{#if inline}}
     <script>{{{script}}}</script>

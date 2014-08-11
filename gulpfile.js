@@ -17,6 +17,8 @@
         prettify = require('gulp-js-prettify'),
         rev = require('gulp-rev'),
         imagemin = require('gulp-imagemin'),
+        svgSprite = require("gulp-svg-sprites"),
+
         htmlmin = require('gulp-htmlmin'),
         cssbeautify = require('gulp-cssbeautify'),
         csso = require('gulp-csso'),
@@ -37,7 +39,9 @@
                 'vendor': ['app/scripts/vendor/analytics.js',
                     'app/scripts/vendor/jquery.js',
                     'app/scripts/vendor/terrific-2.1.0.js',
-                    'app/scripts/vendor/jquery-jvectormap-1.2.2.min.js', 'app/scripts/vendor/jquery-jvectormap-world-mill-en.js'
+                    'app/scripts/vendor/jquery-jvectormap-1.2.2.min.js',
+                    'app/scripts/vendor/jquery-jvectormap-world-mill-en.js',
+                    'app/scripts/vendor/dropins.js'
                     //'app/scripts/vendor/countUp.js'
                 ],
                 'custom': ['app/scripts/custom/alert/alert.js',
@@ -50,7 +54,7 @@
                 ]
             },
             'styles': ['app/styles/globals.scss', 'app/styles/vendor/pure.css', 'app/styles/vendor/pure-extras.css', 'app/styles/svg-sprite.scss', 'app/styles/url-form.scss', 'app/styles/main.scss'],
-            'svg': fs.readFileSync('app/svg/svgsprite.svg'),
+            'svg': fs.readFileSync('build/svg/defs.svg'),
             'buildDate': 'dev'
             //'modernizr': fs.readFileSync('app/scripts/inline/modernizr.js', 'utf-8')
         },
@@ -210,6 +214,8 @@
         gulp.src('./dist/index.html').pipe(htmlmin({
             collapseWhitespace: true,
             'removeComments': true,
+            'keepClosingSlash':true,
+            'caseSensitive':true,
             'ignoreCustomComments': [/^\s+buildDate/, /buildDate\s+$/]
         })).pipe(gulp.dest('./dist'));
     });
@@ -275,6 +281,8 @@
     });
 
 
+    /*
+
     gulp.task('svgo', function () {
         gulp.src('build/svg/svgsprite.min.svg').pipe(svgo({
                 cleanupIDs: false
@@ -282,4 +290,14 @@
                 suffix: '.min'
             })).pipe(gulp.dest('build/svg'));
     });
+
+    */
+
+    gulp.task('sprites', function () {
+        return gulp.src('app/svg/*.svg')
+            .pipe(svgSprite({preview: false,mode: "defs"}))
+            .pipe(gulp.dest("build"));
+    });
+
+
 })();

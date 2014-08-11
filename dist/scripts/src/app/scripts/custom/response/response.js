@@ -74,7 +74,7 @@
         },
         setDownloadButton: function($ctx, csv) {
             var path = '/data/' + csv.url,
-                $a = $ctx.find('.js-download-bar__button').attr('href', path),
+                $a = $ctx.find('.js-download-bar__button,.dropbox-saver').attr('href', path),
                 $fileSize = $a.find('.js-filesize');
             $fileSize.text('(' + csv.filesize + ')');
         },
