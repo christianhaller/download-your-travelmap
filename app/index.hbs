@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     {{#if inline}}
         <style>{{{stylesheet}}}</style>
-        <script>{{{script}}}</script>
+
 
     {{else}}
 {{#if debug}}{{#each assets.styles.css}}
@@ -73,6 +73,7 @@
 </div>
 
 {{#if inline}}
+    <script>{{{script}}}</script>
     {{else}}
 {{#if debug}}
     {{#each assets.scripts}}
