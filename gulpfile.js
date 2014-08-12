@@ -126,7 +126,9 @@
         return gulp.src('./app/index.hbs').pipe(handlebars({
             'debug': true,
             'assets': assets
-        })).pipe(rename('index-dev.html')).pipe(gulp.dest('./dist'));
+        }))
+            .pipe(replace('<!-- svg -->', assets.svg))
+            .pipe(rename('index-dev.html')).pipe(gulp.dest('./dist'));
     });
 
 
