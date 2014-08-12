@@ -3,6 +3,7 @@
 .icon {
 	display: inline-block;
 	width: 14px;
+  background: transparent;
 	height: 14px;
 
 }
@@ -12,9 +13,7 @@
   height: auto;
   background: #333;
 }
-.icon-github {
-  width: 24px;
-  vertical-align: middle;
-  height: auto;
 
+.icon-mail {
+  margin-top:6px;
 }

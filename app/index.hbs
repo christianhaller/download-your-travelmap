@@ -18,16 +18,16 @@
     <title>🌎 Download Your TripAdvisor Travel Map 🌎</title>
 </head>
 <body>
-{{{assets.svg}}}
+<!-- svg -->
 <div class="content">
     <header class="welcome">
-        <h1 class="welcome__title">Download Your <svg display="none" class="icon icon-ta" viewBox="0 0 48 48">
+        <h1 class="welcome__title">Download Your <svg class="icon icon-ta" viewBox="0 0 48 48">
             <use xlink:href="#webicon-tripadvisor"></use>
         </svg>TripAdvisor Travel Map</h1>
     </header>
 
     <p class="splash-subhead example">
-        Just enter your <a href="http://www.tripadvisor.com"><span>TripAdvisor</span><svg display="none" class="icon icon--expandable icon-link" viewBox="0 0 14 14">
+        Just enter your <a href="http://www.tripadvisor.com"><span>TripAdvisor</span><svg class="icon icon--expandable icon-link" viewBox="0 0 14 14">
             <use xlink:href="#icon-link"></use>
         </svg></a> Profile URL <span
             class="example__hint">e. g. http://www.tripadvisor.com/members/christianhaller (that's me)</span></p>
@@ -36,7 +36,7 @@
         <input class="url-form__input" type="text" id="url" value="" autofocus name="url">
         <button type="submit" class="pure-button pure-button-primary url-form__submit">go</button>
         <div class="pure-alert-error pure-alert url-form__alert mod mod-alert" data-connectors="ajax">
-            <svg display="none" class="icon icon-wondering" viewBox="0 0 14 14">
+            <svg class="icon icon-wondering" viewBox="0 0 14 14">
                 <use xlink:href="#icon-wondering"></use>
             </svg>
             <span></span></div>
@@ -60,7 +60,7 @@
                 <strong class="this-is">This is <span class="js-this-is__city download-bar__city">your travelmap</span></strong>
                 <ul>
                     <li><a class="js-download-bar__button download-bar__button pure-button pure-button-success">
-                        <svg display="none" class="icon" viewBox="0 0 14 14">
+                        <svg class="icon" viewBox="0 0 14 14">
                             <use xlink:href="#icon-box-add"></use>
                         </svg>
                         <span>Download<span class="js-filesize download-button__filesize"></span></span>
@@ -78,7 +78,7 @@
     </div>
 
 </div>
-<footer class="footer">hallo@christianhaller.com <svg display="none" class="icon icon-github" viewBox="0 0 48 48"> <use xlink:href="#webicon-github"></use>
+<footer class="footer"><svg class="icon icon-mail" viewBox="0 0 48 48"> <use xlink:href="#mail"></use></svg>hallo@christianhaller.com <svg class="icon icon-github" viewBox="0 0 48 48"> <use xlink:href="#webicon-github"></use>
 </svg><a href="https://github.com/christianhaller/download-your-travelmap">https://github.com/christianhaller/download-your-travelmap</a></footer>
 
 {{#if inline}}

@@ -6,6 +6,7 @@ a {
   .icon--expandable {
 
     width: 0;
+
     text-align: left;
     transition: width 0.3s ease;
 
@@ -225,5 +226,12 @@ body {
 
   a {
     padding: 3px;
+  }
+  .icon {
+    width: 24px;
+    vertical-align: middle;
+    height: auto;
+    background: transparent;
+
   }
 }

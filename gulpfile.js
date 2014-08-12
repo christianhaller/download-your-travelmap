@@ -211,32 +211,31 @@
 
 
     gulp.task('minifyhtml', ['compile'], function () {
-        gulp.src('./dist/index.html').pipe(htmlmin({
-            collapseWhitespace: true,
-            'removeComments': true,
-            'keepClosingSlash':true,
-            'caseSensitive':true,
-            'ignoreCustomComments': [/^\s+buildDate/, /buildDate\s+$/]
-        })).pipe(gulp.dest('./dist'));
+        var svg = assets.svg;
+
+        gulp.src('./dist/index.html')
+           .pipe(htmlmin({
+                'collapseWhitespace':true,
+                'removeComments':true,
+                'ignoreCustomComments': [/^\s+buildDate/, /buildDate\s+$/,/^\s+svg/]
+            }))
+            // workaround for https://github.com/kangax/html-minifier/issues/227
+            .pipe(replace('<!-- svg -->', svg))
+            .pipe(gulp.dest('./dist'));
     });
 
     gulp.task('minifyhtml-inline', ['inline'], function () {
         gulp.src('./dist/index-inline.html').pipe(htmlmin({
             collapseWhitespace: true,
-            'removeComments': true,
+
             'ignoreCustomComments': [/^\s+buildDate/, /buildDate\s+$/]
         })).pipe(gulp.dest('./dist'));
     });
 
 
     gulp.task('default', function () {
-        gulp.start('clean', 'styles', 'scripts', 'rev', 'compile');
-    });
-
-
-    gulp.task('build', function () {
         assets.buildDate = new Date();
-        gulp.start('minifyhtml', 'default');
+        gulp.start('clean', 'styles', 'scripts', 'rev', 'compile', 'minifyhtml');
     });
 
 
@@ -283,19 +282,19 @@
 
     /*
 
-    gulp.task('svgo', function () {
-        gulp.src('build/svg/svgsprite.min.svg').pipe(svgo({
-                cleanupIDs: false
-            })).pipe(rename({
-                suffix: '.min'
-            })).pipe(gulp.dest('build/svg'));
-    });
+     gulp.task('svgo', function () {
+     gulp.src('build/svg/svgsprite.min.svg').pipe(svgo({
+     cleanupIDs: false
+     })).pipe(rename({
+     suffix: '.min'
+     })).pipe(gulp.dest('build/svg'));
+     });
 
-    */
+     */
 
     gulp.task('sprites', function () {
         return gulp.src('app/svg/*.svg')
-            .pipe(svgSprite({preview: false,mode: "defs"}))
+            .pipe(svgSprite({ mode: "defs"}))
             .pipe(gulp.dest("build"));
     });
 
