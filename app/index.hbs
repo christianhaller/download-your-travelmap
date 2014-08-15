@@ -26,16 +26,18 @@
     </header>
 
     <p class="splash-subhead example">
-        Just enter your <a href="http://www.tripadvisor.com"><span>TripAdvisor</span><svg class="icon icon--expandable icon-link" viewBox="0 0 14 14">
+        Just enter your <a href="http://www.tripadvisor.com"><span>TripAdvisor</span><svg display="none" class="icon icon--expandable icon-link" viewBox="0 0 14 14">
             <use xlink:href="#icon-link"></use>
         </svg></a> Profile URL <span
             class="example__hint">e. g. http://www.tripadvisor.com/members/christianhaller (that's me)</span></p>
 
     <form class="pure-form url-form mod-url mod" action="/magic" data-connectors="ajax">
         <input class="url-form__input" type="text" id="url" value="" autofocus name="url">
-        <button type="submit" class="pure-button pure-button-primary url-form__submit">go</button>
+        <button type="submit" class="pure-button pure-button-primary url-form__submit">go<svg display="none" class="icon" viewBox="0 0 24 24">
+            <use xlink:href="#clock"></use>
+        </svg></button>
         <div class="pure-alert-error pure-alert url-form__alert mod mod-alert" data-connectors="ajax">
-            <svg class="icon icon-wondering" viewBox="0 0 14 14">
+            <svg display="none" class="icon icon-wondering" viewBox="0 0 14 14">
                 <use xlink:href="#icon-wondering"></use>
             </svg>
             <span></span></div>
@@ -59,7 +61,7 @@
                 <strong class="this-is">This is <span class="js-this-is__city download-bar__city">your travelmap</span></strong>
                 <ul>
                     <li><a class="js-download-bar__button download-bar__button pure-button pure-button-success">
-                        <svg class="icon" viewBox="0 0 14 14">
+                        <svg display="none" class="icon" viewBox="0 0 14 14">
                             <use xlink:href="#icon-box-add"></use>
                         </svg>
                         <span>Download<span class="js-filesize download-button__filesize"></span></span>
@@ -77,7 +79,8 @@
     </div>
 
 </div>
-<footer class="footer"><svg class="icon icon-mail" viewBox="0 0 48 48"> <use xlink:href="#mail"></use></svg>hallo@christianhaller.com <svg class="icon icon-github" viewBox="0 0 48 48"> <use xlink:href="#webicon-github"></use>
+
+<footer class="footer"><svg display="none" class="icon icon-mail" viewBox="0 0 48 48"> <use xlink:href="#mail"></use></svg>hallo@christianhaller.com <svg display="none" class="icon icon-github" viewBox="0 0 48 48"> <use xlink:href="#webicon-github"></use>
 </svg><a href="https://github.com/christianhaller/download-your-travelmap">https://github.com/christianhaller/download-your-travelmap</a></footer>
 
 {{#if inline}}

@@ -1,12 +1,13 @@
 @import "globals";
 
 .icon {
-	display: inline-block;
-	width: 14px;
+  display: inline;
+  width: 14px;
   background: transparent;
-	height: 14px;
+  height: 14px;
 
 }
+
 .icon-ta {
   margin: 0 5px;
   width: 24px;
@@ -15,5 +16,5 @@
 }
 
 .icon-mail {
-  margin-top:6px;
+  margin-top: 6px;
 }

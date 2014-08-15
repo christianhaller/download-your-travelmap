@@ -142,10 +142,12 @@ a {
   padding: 1em;
   width: 80%;
   margin: 2em auto;
+  position: relative;
   border-radius: $border-radius;
   border: .2em solid $primary-color;
   box-shadow: 3px 3px 3px #333;
   background: #fff;
+  box-sizing: border-box;
 }
 
 body {
@@ -229,9 +231,19 @@ body {
   }
   .icon {
     width: 24px;
+    margin-right: 5px;
     vertical-align: middle;
     height: auto;
     background: transparent;
 
   }
+}
+@keyframes spin {
+  from { transform: scale(1) rotate(0deg);}
+  to { transform: scale(1) rotate(360deg);}
+}
+
+.url-form__submit .icon {
+  animation: spin 1.7s infinite linear;
+  margin-left:10px;
 }
