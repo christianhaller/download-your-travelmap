@@ -1,0 +1,273 @@
+@import "globals";
+
+a
+{
+  color: $link-color;
+  .icon--expandable {
+
+    width: 0;
+  text-align: left;
+  transition: width 0.3s ease;
+}
+
+  &:hover
+{
+  background: $primary-color;
+  color: $white;
+  .icon--expandable {
+      width: 24px;
+  color: $white;
+  fill: $white;
+}
+
+  }
+}
+
+.is-hidden
+{
+  display: none !important;
+}
+
+.is-invisible
+{
+  visibility: none !important;
+}
+
+.block
+{
+  display: block !important;
+}
+
+.inline
+{
+  display: inline !important;
+}
+
+.inline-block
+{
+  display: inline-block !important;
+}
+
+.jvectormap-label
+{
+  position: absolute;
+  display: none;
+  border-radius: $border-radius;
+  background: #292929;
+  color: white;
+  z-index: 2;
+  padding: 5px;
+}
+
+.jvectormap
+{
+  .jvectormap__container {
+    height: 450px;
+  padding-bottom: 100px;
+}
+
+.jvectormap-zoomin,
+  .jvectormap-zoomout
+{
+  position: absolute;
+  left: 0;
+  box-shadow: 2px 2px 2px #333;
+  border-radius: $border-radius;
+  background: $primary-color;
+  padding: 5px;
+  color: white;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  line-height: 15px;
+  text-align: center;
+}
+
+.jvectormap-zoomin
+{
+  top: 50px;
+}
+
+.jvectormap-zoomout
+{
+  top: 80px;
+}
+
+}
+
+.this-is
+{
+  line-height: 1.5em;
+  color: #fff;
+  font-weight: normal;
+  padding: 3px;
+}
+
+.download-bar.download-bar
+{
+  position: absolute;
+  top: 0;
+  padding: 4px;
+  z-index: 1;
+  background: rgba(0, 0, 0, .4);
+  width: 100%;
+  border-radius: $border-radius;
+  box-sizing: border-box;
+  text-align: right;
+}
+
+.download-bar.download-bar--bottom
+{
+  bottom: 0;
+  top: auto;
+  z-index: 1;
+}
+
+.download-bar__button.download-bar__button
+{
+  background: $primary-color;
+  color: #fff;
+}
+
+.download-bar__button.download-bar__button:hover
+{
+  background-color: red;
+}
+
+.download-bar__button
+{
+  .icon {
+
+    color: #fff;
+  fill: #fff;
+  margin-left: 5px;
+}
+
+.download-button__filesize
+{
+  color: #555;
+  margin-left: 5px;
+}
+}
+
+.content
+{
+  padding: 1em;
+  width: 80%;
+  margin: 2em auto;
+  position: relative;
+  border-radius: $border-radius;
+  border: .2em solid $primary-color;
+  box-shadow: 3px 3px 3px #333;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+body
+{
+  animation: fade-moment-in .5s ease-out;
+  background: url(../../../../images/bg.jpg) center center no-repeat;
+}
+
+@keyframes fade-moment-in
+{
+  0%
+  {
+    opacity: 0;
+    transform: scale(0.9) translate3d(0, -40px, 0);
+  }
+
+  100%
+  {
+    opacity: 1;
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+}
+
+.example
+{
+  a {
+    padding: 3px;
+  border-radius: $border-radius;
+}
+}
+
+.example__hint
+{
+  color: #999;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  // Non standard for webkit
+  word-break: break-word;
+  display: block;
+  margin-top: 5px;
+}
+
+.tab
+{
+  position: relative;
+  .show {
+    display: block;
+}
+
+}
+
+.main-nav
+{
+  margin: 20px 0;
+  li {
+    background: $grey;
+}
+}
+
+.stats
+{
+  bottom: 0;
+  z-index: 1;
+  position: absolute;
+  td {
+    width: 50px;
+  text-align: right;
+}
+}
+
+.footer
+{
+  text-align: center;
+  font-size: 12px;
+  color: $font-color;
+  margin: 2em auto;
+  padding: .3em 1em;
+  width: 80%;
+  a {
+    padding: 3px;
+}
+
+.icon
+{
+  width: 24px;
+  margin-right: 5px;
+  vertical-align: middle;
+  height: 24px;
+  background: transparent;
+}
+}
+
+@keyframes spin
+{
+  from
+  {
+    transform: scale(1) rotate(0deg);
+  }
+
+  to
+  {
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+.url-form__submit .icon
+{
+  animation: spin 5.7s infinite linear;
+  margin-left: 10px;
+}
