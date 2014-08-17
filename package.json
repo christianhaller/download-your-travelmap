@@ -69,5 +69,8 @@
   "homepage": "https://github.com/christianhaller/been",
   "directories": {
     "test": "test"
-  }
+  },
+  "keywords": [
+    "tripadvisor"
+  ]
 }
