@@ -54,7 +54,7 @@
                 ]
             },
             'styles': ['app/styles/globals.scss', 'app/styles/vendor/pure.css', 'app/styles/vendor/pure-extras.css', 'app/styles/svg-sprite.scss', 'app/styles/url-form.scss', 'app/styles/main.scss'],
-            'svg': fs.readFileSync('build/svg/defs.svg'),
+            'svg': '',
             'buildDate': 'dev'
             //'modernizr': fs.readFileSync('app/scripts/inline/modernizr.js', 'utf-8')
         },
@@ -237,6 +237,7 @@
 
     gulp.task('default', function () {
         assets.buildDate = new Date();
+        assets.svg = fs.readFileSync('build/svg/defs.svg');
         gulp.start('clean', 'styles', 'scripts', 'rev', 'compile', 'minifyhtml');
     });
 
