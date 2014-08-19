@@ -1,8 +1,7 @@
 <!doctype html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 <head>
     <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
     <link rel="dns-prefetch" href="//google-analytics.com"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     {{#if inline}}
@@ -79,18 +78,14 @@
     </div>
 
 </div>
-
 <footer class="footer"><svg display="none" class="icon icon-mail" viewBox="0 0 48 48"> <use xlink:href="#mail"></use></svg>hallo@christianhaller.com <svg display="none" class="icon icon-github" viewBox="0 0 48 48"> <use xlink:href="#webicon-github"></use>
 </svg><a href="https://github.com/christianhaller/download-your-travelmap">https://github.com/christianhaller/download-your-travelmap</a></footer>
-
 {{#if inline}}
     <script>{{{script}}}</script>
     {{else}}
 {{#if debug}}
     {{#each assets.scripts}}
-        <script src="/scripts/src/{{this}}"></script>
-    {{/each}}{{else}}
-    <script src="{{assetPath "scripts/app.min.js"}}"></script>{{/if}}{{/if}}
+        <script src="/scripts/src/{{this}}"></script>{{/each}}{{else}}<script src="{{assetPath "scripts/app.min.js"}}"></script>{{/if}}{{/if}}
 </body>
 </html>
-<!-- buildDate: {{assets.buildDate}} -->
+<!-- buildDate: {{buildDate}} -->

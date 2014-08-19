@@ -1,76 +1,69 @@
 {
-  "name": "been",
-  "version": "0.0.0",
+  "name": "download-your-travelmap",
+  "version": "1.0.0",
+  "description": "",
   "main": "gulpfile.js",
-  "dependencies": {
-    "gulp-autoprefixer": "~0.0.8",
-    "gulp-buffer": "~0.0.2",
-    "gulp-buster": "~0.2.2",
-    "gulp-cache": "~0.2.0",
-    "gulp-clean": "~0.3.1",
-    "gulp-compile-handlebars": "~0.2.0",
-    "gulp-concat": "~2.2.0",
-    "gulp-cssbeautify": "~0.1.3",
-    "gulp-define-module": "~0.1.1",
-    "gulp-freeze": "~0.0.1",
-    "gulp-handlebars": "~2.1.0",
-    "gulp-imagemin": "~0.6.1",
-    "gulp-js-prettify": "~0.1.0",
-    "gulp-jshint": "~1.6.3",
-    "gulp-livereload": "~2.1.0",
-    "gulp-minify-css": "~0.3.6",
-    "gulp-notify": "~1.4.0",
-    "gulp-rename": "~1.2.0",
-    "gulp-rev": "~0.4.1",
-    "gulp-rev-all": "~0.4.3",
-    "gulp-ruby-sass": "~0.5.0",
-    "gulp-uglify": "~0.3.1",
-    "npm-check-updates": "~1.2.0",
-    "gulp": "~3.8.5",
-    "uglify-js": "~2.4.14"
+  "directories": {
+    "test": "test"
   },
-  "devDependencies": {
-    "browser-sync": "^1.1.2",
-    "gulp-concat": "^2.2.0",
-    "gulp-css-base64": "^1.2.4",
+  "dependencies": {
+    "gulp-autoprefixer": "^0.0.8",
+    "gulp": "^3.8.7",
+    "gulp-cache": "^0.2.1",
+    "gulp-buster": "^0.2.2",
+    "gulp-compile-handlebars": "^0.2.0",
+    "gulp-clean": "^0.3.1",
+    "gulp-concat": "^2.3.4",
+    "gulp-css-base64": "^1.2.5",
     "gulp-csso": "^0.2.9",
-    "gulp-gzip": "0.0.8",
-    "gulp-htmlmin": "~0.1.3",
+    "gulp-handlebars": "^2.1.0",
+    "gulp-htmlmin": "^0.1.3",
     "gulp-imagemin": "^0.6.2",
+    "gulp-define-module": "^0.1.1",
+    "gulp-js-prettify": "^0.1.0",
+    "gulp-freeze": "^0.0.1",
+    "gulp-jshint": "^1.6.4",
+    "gulp-minify-css": "^0.3.7",
     "gulp-jasmine": "^0.3.0",
-    "gulp-notify": "^1.4.0",
-    "gulp-plumber": "^0.6.3",
-    "gulp-replace": "^0.4.0",
+    "gulp-gzip": "^0.0.8",
+    "gulp-rename": "^1.2.0",
+    "gulp-cssbeautify": "^0.1.3",
+    "gulp-livereload": "^2.1.0",
     "gulp-ruby-sass": "^0.5.0",
-    "gulp-scss-lint": "^0.1.1",
+
+    "gulp-notify": "^1.4.2",
+    "gulp-plumber": "^0.6.4",
+    "gulp-rev-all": "^0.4.3",
+    "gulp-replace": "^0.4.0",
+    "gulp-size": "^0.4.1",
     "gulp-shell": "^0.2.9",
-    "gulp-size": "^0.4.0",
-    "gulp-sourcemaps": "~0.4.1",
+    "gulp-scss-lint": "^0.1.1",
     "gulp-svg-sprites": "^1.0.2",
-    "gulp-svgo": "^0.1.1",
+
+    "gulp-uglify": "^0.3.1",
     "gulp-util": "^3.0.0",
+    "gulp-zopfli": "^0.1.1",
+    "imagemin-gifsicle": "^0.1.1",
     "imagemin-pngcrush": "^0.1.0",
     "path": "^0.4.9",
+    "npm-check-updates": "^1.2.0",
     "penthouse": "^0.2.5",
-    "phantomjs": "^1.9.7-15"
+    "require-dir": "^0.1.0",
+    "gulp-svgo": "^0.1.1",
+    "uglify-js": "^2.4.15"
   },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/christianhaller/been.git"
+    "url": "https://github.com/christianhaller/download-your-travelmap.git"
   },
   "author": "",
-  "license": "BSD-2-Clause",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/christianhaller/been/issues"
+    "url": "https://github.com/christianhaller/download-your-travelmap/issues"
   },
-  "homepage": "https://github.com/christianhaller/been",
-  "directories": {
-    "test": "test"
-  },
-  "keywords": [
-    "tripadvisor"
-  ]
+  "homepage": "https://github.com/christianhaller/download-your-travelmap"
 }

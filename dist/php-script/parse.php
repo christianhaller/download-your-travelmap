@@ -156,6 +156,7 @@ function response($response)
     if ($response['status'] !== 'success') {
         header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500);
     }
+    header('X-UA-Compatible: IE=edge,chrome=1');
     header('Content-Type: text/json');
     echo json_encode($response);
     ob_end_flush();
