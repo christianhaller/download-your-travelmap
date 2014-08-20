@@ -13,16 +13,20 @@ Tc.Config = {
         'block': 'block'
     },
     'been': {
-        'fill': 'yellow',
-        'r': 3
+        'fill': '#FFD700',
+        'r': 3,
+        'stroke': '#FFD700'
+
     },
     'want': {
         'fill': '#68b04d',
-        'r': 3
+        'r': 3,
+        'stroke': '68b04d'
     },
     'fave': {
         'fill': '#ff0099',
-        'r': 5
+        'r': 5,
+        'stroke': '#ff0099'
     },
     'jvectormap': {
         map: 'world_mill_en',
@@ -30,6 +34,13 @@ Tc.Config = {
         hoverOpacity: 0.7,
         zoomOnScroll: false,
         hoverColor: false,
+        markerStyle: {
+
+            hover: {
+                fill: 'black',
+                r: '5'
+            }
+        },
         regionStyle: {
             initial: {
                 fill: '#eee',
@@ -43,11 +54,13 @@ Tc.Config = {
             }
         },
         series: {
-            regions: [{
-                values: [],
-                scale: ['#F9FCF8', '#68b04d'],
-                normalizeFunction: 'polynomial'
-            }]
+            regions: [
+                {
+                    values: [],
+                    scale: ['#F9FCF8', '#68b04d'],
+                    normalizeFunction: 'polynomial'
+                }
+            ]
         },
         backgroundColor: '#fff',
         markers: []

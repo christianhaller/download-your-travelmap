@@ -13,12 +13,12 @@ a {
       color: white;
       fill: white; }
 
-.jvectormap-container:hover {
-  -webkit-transform: scale(1.2);
-      -ms-transform: scale(1.2);
-          transform: scale(1.2);
-  -webkit-transition: .2s ease-in-out;
-          transition: .2s ease-in-out; }
+.tab circle {
+  -webkit-transition: all .5s ease-in-out;
+          transition: all .5s ease-in-out; }
+.tab:hover circle {
+  -webkit-animation: scale .5s ease-out;
+          animation: scale .5s ease-out; }
 
 .is-hidden {
   display: none !important; }
@@ -206,6 +206,34 @@ body {
   to {
     -webkit-transform: scale(1) rotate(360deg);
             transform: scale(1) rotate(360deg); } }
+@-webkit-keyframes scale {
+  0% {
+    fill: #FF4500;
+    stroke: #FF4500;
+    stroke-width: 0; }
+
+  50% {
+    fill: #FF4500;
+    stroke: #FF4500;
+    stroke-width: 5; }
+
+  100% {
+    fill: #FFD700;
+    stroke-width: 0; } }
+@keyframes scale {
+  0% {
+    fill: #FF4500;
+    stroke: #FF4500;
+    stroke-width: 0; }
+
+  50% {
+    fill: #FF4500;
+    stroke: #FF4500;
+    stroke-width: 5; }
+
+  100% {
+    fill: #FFD700;
+    stroke-width: 0; } }
 .url-form__submit .icon {
   -webkit-animation: spin 5.7s infinite linear;
           animation: spin 5.7s infinite linear;

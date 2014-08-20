@@ -21,9 +21,18 @@ a {
   }
 }
 
-.jvectormap-container:hover svg {
-  transform: scale(1.2);
-  transition: .2s ease-in-out;
+.tab {
+  circle {
+    transition: all .5s ease-in-out;
+  }
+
+  &:hover {
+
+    circle {
+
+      animation: scale .5s ease-out;
+    }
+  }
 }
 
 .is-hidden {
@@ -231,6 +240,24 @@ body {
 
   to {
     transform: scale(1) rotate(360deg);
+  }
+}
+
+@keyframes scale {
+  0% {
+    fill: #FF4500;
+    stroke: #FF4500;
+    stroke-width: 0;
+  }
+
+  50% {
+    fill: #FF4500;
+    stroke: #FF4500;
+    stroke-width: 5;
+  }
+  100% {
+    fill: #FFD700;
+    stroke-width: 0;
   }
 }
 
