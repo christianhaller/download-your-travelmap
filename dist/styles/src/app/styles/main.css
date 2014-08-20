@@ -13,6 +13,13 @@ a {
       color: white;
       fill: white; }
 
+.jvectormap-container:hover {
+  -webkit-transform: scale(1.2);
+      -ms-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition: .2s ease-in-out;
+          transition: .2s ease-in-out; }
+
 .is-hidden {
   display: none !important; }
 
@@ -150,9 +157,8 @@ body {
   margin-top: 5px; }
 
 .tab {
-  position: relative; }
-  .tab .show {
-    display: block; }
+  position: relative;
+  overflow: hidden; }
 
 .main-nav {
   margin: 20px 0; }

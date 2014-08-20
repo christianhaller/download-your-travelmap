@@ -17,11 +17,15 @@ gulp.task('styles', function () {
         // 2. autoprefixing
         .pipe(prefix(config.autoprefixer))
         // 3. replace Images with base64 data-uri
+
+        /*
         .pipe(cssBase64({
             baseDir: '../images/',
             verbose: true,
             'maxWeightResource': 70000
         }))
+
+        */
         // 4. concat them all
         .pipe(concat('app.css'))
         .pipe(gulp.dest('build/styles'))
