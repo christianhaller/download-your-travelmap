@@ -123,6 +123,9 @@ body {
           animation: fade-moment-in .5s ease-out;
   background: url(../../../../images/bg.jpg) center center no-repeat; }
 
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  /* Styles */ }
 @-webkit-keyframes fade-moment-in {
   0% {
     opacity: 0;
@@ -133,7 +136,6 @@ body {
     opacity: 1;
     -webkit-transform: scale(1) translate3d(0, 0, 0);
             transform: scale(1) translate3d(0, 0, 0); } }
-
 @keyframes fade-moment-in {
   0% {
     opacity: 0;

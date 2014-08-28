@@ -1,6 +1,11 @@
 /*global ga,Tc */
 (function($) {
     'use strict';
+
+    var _roost = _roost || [];
+    _roost.push(['appkey','236c5ee7b0514b47bbe6115a83ebafd0']);
+
+
     $(document).ready(function() {
         var $page = $(document.body),
             application = new Tc.Application($page);
