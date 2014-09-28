@@ -13,13 +13,6 @@ a {
       color: white;
       fill: white; }
 
-.tab circle {
-  -webkit-transition: all .5s ease-in-out;
-          transition: all .5s ease-in-out; }
-.tab:hover circle {
-  -webkit-animation: scale .5s ease-out;
-          animation: scale .5s ease-out; }
-
 .is-hidden {
   display: none !important; }
 
@@ -108,6 +101,7 @@ a {
 .content {
   padding: 1em;
   width: 80%;
+  max-width: 800px;
   margin: 2em auto;
   position: relative;
   border-radius: 4px;
@@ -187,6 +181,7 @@ body {
   .footer .icon {
     width: 24px;
     margin-right: 5px;
+    margin-left: 12px;
     vertical-align: middle;
     height: 24px;
     background: transparent; }
@@ -208,34 +203,6 @@ body {
   to {
     -webkit-transform: scale(1) rotate(360deg);
             transform: scale(1) rotate(360deg); } }
-@-webkit-keyframes scale {
-  0% {
-    fill: #FF4500;
-    stroke: #FF4500;
-    stroke-width: 0; }
-
-  50% {
-    fill: #FF4500;
-    stroke: #FF4500;
-    stroke-width: 5; }
-
-  100% {
-    fill: #FFD700;
-    stroke-width: 0; } }
-@keyframes scale {
-  0% {
-    fill: #FF4500;
-    stroke: #FF4500;
-    stroke-width: 0; }
-
-  50% {
-    fill: #FF4500;
-    stroke: #FF4500;
-    stroke-width: 5; }
-
-  100% {
-    fill: #FFD700;
-    stroke-width: 0; } }
 .url-form__submit .icon {
   -webkit-animation: spin 5.7s infinite linear;
           animation: spin 5.7s infinite linear;

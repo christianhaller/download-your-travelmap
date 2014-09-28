@@ -1,6 +1,18 @@
 .url-form__submit {
   background-color: #68b04d;
-  font-size: 150%; }
+  font-size: 150%;
+  border: 1px solid transparent; }
+  .url-form__submit:hover {
+    background: #FFD700;
+    color: #333333;
+    border-color: #333333;
+    text-shadow: 1px 1px #666;
+    -webkit-box-shadow: 0 3px 10px #ccc;
+            box-shadow: 0 3px 10px #ccc;
+    border-radius: 4px; }
+    .url-form__submit:hover svg {
+      -webkit-animation: spin 1.7s infinite linear;
+              animation: spin 1.7s infinite linear; }
 
 .url-form .url-form__input[type="text"] {
   font-size: 150%;
