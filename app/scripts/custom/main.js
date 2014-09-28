@@ -1,24 +1,28 @@
-/*global ga,Tc */
-(function($) {
+/*global ga,Tc,NProgress */
+(function ($) {
     'use strict';
 
 
-
-
-    $(document).ready(function() {
+    $(document).ready(function () {
         var $page = $(document.body),
             application = new Tc.Application($page);
         application.registerModules();
         application.registerModule($page, 'Tracking', null, ['Tracking']);
         application.start();
+
+        NProgress.start();
+        setTimeout(function () {
+            NProgress.done();
+        }, 100);
     });
     ga('create', 'UA-53443219-1', 'auto');
     ga('send', 'pageview');
 })(Tc.$);
 
-(function() {
+(function () {
     'use strict';
-    var trackJavaScriptError = function(e) {
+    NProgress.configure({ showSpinner: false, parent: '.content' });
+    var trackJavaScriptError = function (e) {
         var ie = window.event,
             errMsg = e.message || ie.errorMessage,
             errSrc = (e.filename || ie.errorUrl) + ': ' + (e.lineno || ie.errorLine);

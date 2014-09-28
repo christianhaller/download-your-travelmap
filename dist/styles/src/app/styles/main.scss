@@ -21,19 +21,6 @@ a {
   }
 }
 
-.tab {
-  circle {
-    transition: all .5s ease-in-out;
-  }
-
-  &:hover {
-
-    circle {
-
-      animation: scale .5s ease-out;
-    }
-  }
-}
 
 .is-hidden {
   display: none !important;
@@ -148,12 +135,14 @@ a {
 .content {
   padding: 1em;
   width: 80%;
+  max-width: 800px;
   margin: 2em auto;
   position: relative;
   border-radius: $border-radius;
   border: .2em solid $primary-color;
   box-shadow: 3px 3px 3px #333;
   background: #fff;
+
   box-sizing: border-box;
 }
 
@@ -234,6 +223,7 @@ and (max-device-width : 480px) {
   .icon {
     width: 24px;
     margin-right: 5px;
+    margin-left:12px;
     vertical-align: middle;
     height: 24px;
     background: transparent;
@@ -247,24 +237,6 @@ and (max-device-width : 480px) {
 
   to {
     transform: scale(1) rotate(360deg);
-  }
-}
-
-@keyframes scale {
-  0% {
-    fill: #FF4500;
-    stroke: #FF4500;
-    stroke-width: 0;
-  }
-
-  50% {
-    fill: #FF4500;
-    stroke: #FF4500;
-    stroke-width: 5;
-  }
-  100% {
-    fill: #FFD700;
-    stroke-width: 0;
   }
 }
 

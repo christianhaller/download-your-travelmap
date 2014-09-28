@@ -6,7 +6,8 @@
             "app/scripts/vendor/jquery-jvectormap-1.2.2.min.js",
             "app/scripts/vendor/jquery-jvectormap-world-mill-en.js",
             "app/scripts/vendor/dropins.js",
-            "app/scripts/vendor/roost.js"
+            "app/scripts/vendor/roost.js",
+            "app/scripts/vendor/nprogress.js"
         ],
         "custom": ["app/scripts/custom/alert/alert.js",
             "app/scripts/custom/config.js",
@@ -20,6 +21,7 @@
     "styles": ["app/styles/globals.scss",
         "app/styles/vendor/pure.css",
         "app/styles/vendor/pure-extras.css",
+        "app/styles/vendor/nprogress.css",
         "app/styles/svg-sprite.scss",
         "app/styles/url-form.scss",
         "app/styles/main.scss"]

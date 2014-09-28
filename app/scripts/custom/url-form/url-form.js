@@ -1,4 +1,4 @@
-/* global Tc */
+/* global Tc,NProgress */
 (function($) {
     'use strict';
     Tc.Module.Url = Tc.Module.extend({
@@ -22,6 +22,7 @@
                 data = {
                     'url': url
                 };
+                NProgress.start();
                 $.ajax({
                     data: data,
                     method: 'POST',
@@ -29,12 +30,14 @@
                     url: $ctx.attr('action')
                 }).error(function(response) {
                     // kaputt
+                    NProgress.done();
                     mod.fire('Error', response);
                     mod.fire('ShowAlert', response);
                     mod.fire('Track', {
                         'data': ['send', 'event', 'map', 'error', url]
                     });
                 }).success(function(response) {
+                    NProgress.done();
                     mod.fire('RemoveAlert');
                     mod.fire('Track', {
                         'data': ['send', 'event', 'map', 'success', url]

@@ -3,6 +3,20 @@
 .url-form__submit {
   background-color: $primary-color;
   font-size: 150%;
+  border: 1px solid transparent;
+  &:hover {
+    background: #FFD700;
+    color: $font-color;
+    border-color: $font-color;
+    text-shadow: 1px 1px #666;
+    box-shadow: 0 3px 10px #ccc;
+    border-radius: $border-radius;
+
+    svg {
+      animation: spin 1.7s infinite linear;
+
+    }
+  }
 }
 
 .url-form .url-form__input[type="text"] {
