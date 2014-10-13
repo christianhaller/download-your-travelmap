@@ -14,14 +14,14 @@ Tc.Config = {
     },
     'been': {
         'fill': '#FFD700',
-        'r': 3,
-        'stroke': '#FFD700'
+        'r': 4,
+        'stroke': '#333333'
 
     },
     'want': {
         'fill': '#68b04d',
-        'r': 3,
-        'stroke': '68b04d'
+        'r': 4,
+        'stroke': '#333333'
     },
     'fave': {
         'fill': '#ff0099',
@@ -43,7 +43,7 @@ Tc.Config = {
         },
         regionStyle: {
             initial: {
-                fill: '#eee',
+                fill: '#ccc',
                 "fill-opacity": 1,
                 stroke: 'none',
                 "stroke-width": 0,

@@ -42,6 +42,10 @@ a {
   display: inline-block !important;
 }
 
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
 .jvectormap-label {
   position: absolute;
   display: none;
@@ -112,10 +116,11 @@ a {
 .download-bar__button.download-bar__button {
   background: $primary-color;
   color: #fff;
+
 }
 
 .download-bar__button.download-bar__button:hover {
-  background-color: red;
+  background-color: #FFD700;
 }
 
 .download-bar__button {
@@ -140,7 +145,7 @@ a {
   position: relative;
   border-radius: $border-radius;
   border: .2em solid $primary-color;
-  box-shadow: 3px 3px 3px #333;
+  box-shadow: 3px 3px 3px #111;
   background: #fff;
 
   box-sizing: border-box;
@@ -148,15 +153,10 @@ a {
 
 body {
   animation: fade-moment-in .5s ease-out;
-  background: url(../images/bg.jpg) center center no-repeat;
+  background:         linear-gradient(90deg, #9D50BB 10%, #6E48AA 90%); /* W3C */
 }
 
-/* Smartphones (portrait and landscape) ----------- */
-@media only screen
-and (min-device-width : 320px)
-and (max-device-width : 480px) {
-/* Styles */
-}
+
 
 @keyframes fade-moment-in {
   0% {
