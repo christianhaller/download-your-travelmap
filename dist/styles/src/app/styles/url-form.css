@@ -1,6 +1,7 @@
 .url-form__submit {
   background-color: #68b04d;
-  font-size: 150%;
+  font-size: 135%;
+  vertical-align: bottom;
   border-radius: 5px; }
   .url-form__submit:hover {
     background: #FFD700;

@@ -3,6 +3,7 @@
 .url-form__submit {
   background-color: $primary-color;
   font-size: 135%;
+  height:54px;
   vertical-align: bottom;
   border-radius: $border-radius;
   &:hover {
@@ -21,6 +22,7 @@
 .url-form .url-form__input[type="text"] {
   font-size: 150%;
   max-width: 100%;
+  height:54px;
   transition: all 0.30s ease-in-out;
   border: 1px solid #DDDDDD;
 }
