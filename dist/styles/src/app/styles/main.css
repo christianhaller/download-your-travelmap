@@ -28,10 +28,13 @@ a {
 .inline-block {
   display: inline-block !important; }
 
+body {
+  font-family: 'Roboto', sans-serif; }
+
 .jvectormap-label {
   position: absolute;
   display: none;
-  border-radius: 4px;
+  border-radius: 5px;
   background: #292929;
   color: white;
   z-index: 2;
@@ -46,7 +49,7 @@ a {
   left: 0;
   -webkit-box-shadow: 2px 2px 2px #333;
           box-shadow: 2px 2px 2px #333;
-  border-radius: 4px;
+  border-radius: 5px;
   background: #68b04d;
   padding: 5px;
   color: white;
@@ -73,7 +76,7 @@ a {
   z-index: 1;
   background: rgba(0, 0, 0, 0.4);
   width: 100%;
-  border-radius: 4px;
+  border-radius: 5px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   text-align: right; }
@@ -88,7 +91,7 @@ a {
   color: #fff; }
 
 .download-bar__button.download-bar__button:hover {
-  background-color: red; }
+  background-color: #FFD700; }
 
 .download-bar__button .icon {
   color: #fff;
@@ -104,10 +107,10 @@ a {
   max-width: 800px;
   margin: 2em auto;
   position: relative;
-  border-radius: 4px;
+  border-radius: 5px;
   border: 0.2em solid #68b04d;
-  -webkit-box-shadow: 3px 3px 3px #333;
-          box-shadow: 3px 3px 3px #333;
+  -webkit-box-shadow: 3px 3px 3px #111;
+          box-shadow: 3px 3px 3px #111;
   background: #fff;
   -webkit-box-sizing: border-box;
           box-sizing: border-box; }
@@ -115,11 +118,10 @@ a {
 body {
   -webkit-animation: fade-moment-in .5s ease-out;
           animation: fade-moment-in .5s ease-out;
-  background: url(../../../../images/bg.jpg) center center no-repeat; }
+  background: -webkit-linear-gradient(0deg, #9d50bb 10%, #6e48aa 90%);
+  background: linear-gradient(90deg, #9d50bb 10%, #6e48aa 90%);
+  /* W3C */ }
 
-/* Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-  /* Styles */ }
 @-webkit-keyframes fade-moment-in {
   0% {
     opacity: 0;
@@ -130,6 +132,7 @@ body {
     opacity: 1;
     -webkit-transform: scale(1) translate3d(0, 0, 0);
             transform: scale(1) translate3d(0, 0, 0); } }
+
 @keyframes fade-moment-in {
   0% {
     opacity: 0;
@@ -142,7 +145,7 @@ body {
             transform: scale(1) translate3d(0, 0, 0); } }
 .example a {
   padding: 3px;
-  border-radius: 4px; }
+  border-radius: 5px; }
 
 .example__hint {
   color: #999;
@@ -172,7 +175,7 @@ body {
 .footer {
   text-align: center;
   font-size: 12px;
-  color: #333333;
+  color: #222222;
   margin: 2em auto;
   padding: .3em 1em;
   width: 80%; }

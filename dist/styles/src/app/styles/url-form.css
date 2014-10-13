@@ -1,14 +1,12 @@
 .url-form__submit {
   background-color: #68b04d;
   font-size: 150%;
-  border: 1px solid transparent; }
+  border-radius: 5px; }
   .url-form__submit:hover {
     background: #FFD700;
-    color: #333333;
-    border-color: #333333;
+    color: #222222;
     -webkit-box-shadow: 0 3px 10px #ccc;
-            box-shadow: 0 3px 10px #ccc;
-    border-radius: 4px; }
+            box-shadow: 0 3px 10px #ccc; }
     .url-form__submit:hover svg {
       -webkit-animation: spin 1.7s infinite linear;
               animation: spin 1.7s infinite linear; }

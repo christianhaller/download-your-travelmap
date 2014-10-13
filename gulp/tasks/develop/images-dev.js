@@ -6,6 +6,7 @@ var gulp = require('gulp'),
 
 gulp.task('images-dev', function () {
     return gulp.src('app/images/*.*')
+        /*
         .pipe(imagemin({
             progressive: false,
             svgoPlugins: [
@@ -15,6 +16,7 @@ gulp.task('images-dev', function () {
             ],
             use: [pngcrush()]
         }))
+        */
         .pipe(gulp.dest('./dist/images'));
 });
 
