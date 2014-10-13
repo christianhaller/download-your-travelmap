@@ -20,10 +20,14 @@
             };
             $map.empty().vectorMap(jvectormapConfig);
             this.setDownloadButton($ctx, response.csv);
-            this.pushState(response);
+            this.setUsername($ctx,response.data.username);
+            this.pushState(response.url);
         },
-        pushState: function(response) {
-            var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?url=' + response.url;
+        setUsername : function($ctx,username){
+          $ctx.find('.js-username').text(username);
+        },
+        pushState: function(url) {
+            var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?url=' + url;
             if (window.history && window.history.pushState) {
                 window.history.pushState('', '', newUrl);
             }
