@@ -2,8 +2,9 @@
 
 .url-form__submit {
   background-color: $primary-color;
-  font-size: 150%;
-  border-radius:$border-radius;
+  font-size: 135%;
+  vertical-align: bottom;
+  border-radius: $border-radius;
   &:hover {
     background: #FFD700;
     color: $font-color;
