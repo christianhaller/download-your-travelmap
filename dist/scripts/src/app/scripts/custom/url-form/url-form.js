@@ -1,14 +1,15 @@
 /* global Tc,NProgress */
-(function($) {
+(function ($) {
     'use strict';
     Tc.Module.Url = Tc.Module.extend({
-        on: function(callback) {
+        on: function (callback) {
             var $ctx = this.$ctx,
                 mod = this,
                 $url = $ctx.find('#url'),
                 lastUrl;
-            $ctx.on('submit auto', function(e) {
+            $ctx.on('submit auto', function (e) {
                 var data,
+                    eventType = e.type,
                     url = $.trim($url.val());
                 e.preventDefault();
                 if (url === lastUrl) {
@@ -16,6 +17,9 @@
                 }
                 if (!mod.validateInput($url, url)) {
                     $url.focus();
+                    mod.fire('Track', {
+                        'data': ['send', 'event', 'map', 'error', url, eventType]
+                    });
                     return;
                 }
                 lastUrl = url;
@@ -28,28 +32,29 @@
                     method: 'POST',
                     dataType: 'json',
                     url: $ctx.attr('action')
-                }).error(function(response) {
+                }).error(function (response) {
                     // kaputt
                     NProgress.done();
                     mod.fire('Error', response);
                     mod.fire('ShowAlert', response);
                     mod.fire('Track', {
-                        'data': ['send', 'event', 'map', 'error', url]
+                        'data': ['send', 'event', 'map', 'error', url, eventType]
                     });
-                }).success(function(response) {
+                }).success(function (response) {
                     NProgress.done();
                     mod.fire('RemoveAlert');
                     mod.fire('Track', {
-                        'data': ['send', 'event', 'map', 'success', url]
+                        'data': ['send', 'event', 'map', 'success', url, eventType]
                     });
                     response.url = data.url;
                     mod.fire('DataReceived', response);
                 });
             });
+
             this.sandbox.subscribe('Tracking', this);
             callback();
         },
-        after: function() {
+        after: function () {
             var $ctx = this.$ctx,
                 $url = $ctx.find('#url');
             if (window.location.search.indexOf('?url=') === 0) {
@@ -58,7 +63,7 @@
                 $ctx.trigger('auto');
             }
         },
-        validateInput: function($url, url) {
+        validateInput: function ($url, url) {
             var config = this.sandbox.getConfig();
             if (this.isUrlValid(url)) {
                 $url.removeClass(config.classNames.error).addClass(config.classNames.success);
@@ -68,7 +73,7 @@
                 return false;
             }
         },
-        isUrlValid: function(url) {
+        isUrlValid: function (url) {
             var re = new RegExp("^(http|https)://www.tripadvisor.", "i");
             return re.test(url);
         }
