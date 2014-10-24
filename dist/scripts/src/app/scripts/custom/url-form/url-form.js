@@ -18,7 +18,7 @@
                 if (!mod.validateInput($url, url)) {
                     $url.focus();
                     mod.fire('Track', {
-                        'data': ['send', 'event', 'map', 'error', url, eventType]
+                        'data': ['send', 'event', 'map', 'error (' + eventType + ')', url]
                     });
                     return;
                 }
@@ -38,13 +38,13 @@
                     mod.fire('Error', response);
                     mod.fire('ShowAlert', response);
                     mod.fire('Track', {
-                        'data': ['send', 'event', 'map', 'error', url, eventType]
+                        'data': ['send', 'event', 'map', 'error (' + eventType + ')', url]
                     });
                 }).success(function (response) {
                     NProgress.done();
                     mod.fire('RemoveAlert');
                     mod.fire('Track', {
-                        'data': ['send', 'event', 'map', 'success', url, eventType]
+                        'data': ['send', 'event', 'map', 'success (' + eventType + ')', url]
                     });
                     response.url = data.url;
                     mod.fire('DataReceived', response);
