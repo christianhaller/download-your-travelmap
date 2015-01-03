@@ -6,7 +6,7 @@
   border-radius: 5px; }
   .url-form__submit:hover {
     background: #FFD700;
-    color: #222222;
+    color: #222;
     -webkit-box-shadow: 0 3px 10px #ccc;
             box-shadow: 0 3px 10px #ccc; }
     .url-form__submit:hover svg {

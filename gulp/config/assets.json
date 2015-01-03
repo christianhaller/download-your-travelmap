@@ -1,13 +1,13 @@
 {
     "scripts": {
         "vendor": ["app/scripts/vendor/analytics.js",
-            "app/scripts/vendor/jquery.js",
-            "app/scripts/vendor/terrific-2.1.0.js",
+            "bower_components/jquery/dist/jquery.js",
+            "bower_components/terrificjs/dist/terrific.js",
             "app/scripts/vendor/jquery-jvectormap-1.2.2.min.js",
             "app/scripts/vendor/jquery-jvectormap-world-mill-en.js",
             "app/scripts/vendor/dropins.js",
             "app/scripts/vendor/roost.js",
-            "app/scripts/vendor/nprogress.js"
+            "bower_components/nprogress/nprogress.js"
         ],
         "custom": ["app/scripts/custom/alert/alert.js",
             "app/scripts/custom/config.js",
@@ -21,7 +21,7 @@
     "styles": ["app/styles/globals.scss",
         "app/styles/vendor/pure.css",
         "app/styles/vendor/pure-extras.css",
-        "app/styles/vendor/nprogress.css",
+        "bower_components/nprogress/nprogress.css",
         "app/styles/svg-sprite.scss",
         "app/styles/url-form.scss",
         "app/styles/main.scss"]
