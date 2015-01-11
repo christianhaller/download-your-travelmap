@@ -6,7 +6,6 @@
             "app/scripts/vendor/jquery-jvectormap-1.2.2.min.js",
             "app/scripts/vendor/jquery-jvectormap-world-mill-en.js",
             "app/scripts/vendor/dropins.js",
-            "app/scripts/vendor/roost.js",
             "bower_components/nprogress/nprogress.js"
         ],
         "custom": ["app/scripts/custom/alert/alert.js",
