@@ -6,6 +6,7 @@ Tc.Config = {
      * @property dependencies
      * @type Object
      */
+
     classNames: {
         'error': 'error',
         'success': 'success',
