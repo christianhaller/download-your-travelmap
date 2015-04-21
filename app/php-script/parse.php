@@ -67,11 +67,11 @@ try {
     $response['data']['avatar'] = parseStr($str, 'class="avatarUrl" src="', '"');
 
 
-    $placesStr = parseStr($str, '{"store":{', ',"modules.membercenter.model.FriendCount');
+    $placesStr = parseStr($str, '"store":{"', ',"modules.membercenter.model.FriendCount');
 
 
-    $placesStr = '{' . $placesStr . '}';
-    //echo $placesStr;
+    $placesStr = '{"' . $placesStr . '}';
+
     // könnte schief gehen
     $json_a = json_decode($placesStr, true);
 
@@ -152,7 +152,9 @@ try {
 };
 
 function response($response)
+
 {
+
     if ($response['status'] !== 'success') {
         header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500);
     }
