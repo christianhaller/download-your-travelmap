@@ -1,5 +1,5 @@
-var gulp = require('gulp'),
-    svgSprite = require("gulp-svg-sprites");
+var gulp = require('gulp');
+   // svgSprite = require("gulp-svg-sprites");
 
 gulp.task('svgSprite', function () {
     return gulp.src('app/svg/*.svg')

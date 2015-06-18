@@ -7,7 +7,7 @@ var gulp = require('gulp'),
     assets = require('../../config/assets.json');
 
 
-gulp.task('markup',['svgSprite','styles','scripts'], function () {
+gulp.task('markup',['styles','scripts'], function () {
 
     /*var manifest = JSON.parse(fs.readFileSync('dist/rev-manifest.json', 'utf8')),
 
