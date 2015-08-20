@@ -57,9 +57,12 @@ try {
 		$str .= $line_of_text;
 	}
 	fclose($handle);
+	$urlData = parse_url($url);
+
+	$host = $urlData['host'];
 	$id = parseStr($str,'<li id="TravelMap" class="travelMap"><a href="/TravelMap-a_uid.','">');
 	//echo $id;
-	$handle = @fopen('http://www.tripadvisor.de/TravelMapHome-a_uid.'.$id, "r", false, $context);
+	$handle = @fopen('http://'.$host.'/TravelMapHome-a_uid.'.$id, "r", false, $context);
 	if (!$handle) {
 		throw new Exception('can\'t reach ' . $url);
 	}
