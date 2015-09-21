@@ -29,8 +29,10 @@
   },
   "devDependencies": {
     "gulp-aws-s3": "0.0.10",
+    "gulp-awslambda": "^0.2.2",
     "gulp-s3": "^0.3.0",
-    "gulp-svg-sprites": "^3.0.0"
+    "gulp-svg-sprites": "^3.0.0",
+    "gulp-zip": "^3.0.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

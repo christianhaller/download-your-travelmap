@@ -1,2 +1,2 @@
 var gulp = require('gulp');
-gulp.task('default', ['build','s3']);
+gulp.task('default', ['build']);
