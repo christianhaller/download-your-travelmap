@@ -1,6 +1,7 @@
 exports.handler = function (event, context) {
-	//console.log(event);
-	var fs = require('fs'),
+	console.log(event);
+    //context.succeed(event);
+    var fs = require('fs'),
 
 		http = require('http'),
 		parseTripAdvisorHtml = require('./parseTripAdvisorHtml'),
@@ -15,6 +16,10 @@ exports.handler = function (event, context) {
 				path: urlParts.path
 			};
 		},
+        jsonp = function(){
+
+            return {'data':map};
+        },
 		request = function () {
 			var mapCallback = function(response){
 				var str = '';
@@ -24,7 +29,7 @@ exports.handler = function (event, context) {
 
 				response.on('end', function () {
 					parseMap(str);
-					context.succeed(map);
+					context.succeed(jsonp());
 				});
 
 			},
@@ -44,7 +49,7 @@ exports.handler = function (event, context) {
                     try{
                         map.stats = parseTripAdvisorHtml.getStats(html);
                         map.places = parseTripAdvisorHtml.getPlaces(html);
-                        context.succeed(map);
+                        context.succeed(jsonp());
                     }
                     catch(e){
                         http.request(getRequestOptions((map.mapUrl)),mapCallback).end();

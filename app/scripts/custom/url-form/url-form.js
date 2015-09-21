@@ -30,8 +30,8 @@
                 $.ajax({
                     data: data,
                     method: 'GET',
-                    dataType: 'jsonp',
-                    url:'https://5mrckxqx6c.execute-api.us-east-1.amazonaws.com/prod/'
+                    dataType: 'json',
+                    url:'https://cy54odgy02.execute-api.us-east-1.amazonaws.com/prod/?'
                 }).error(function (response) {
                     // kaputt
                     NProgress.done();
