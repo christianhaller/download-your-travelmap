@@ -7,7 +7,7 @@ var gulp = require('gulp'),
 
 
 gulp.task('lambda', function () {
-	return gulp.src('./app/node-script/*.js')
+	return gulp.src('./app/node-script/**/*')
 		.pipe(zip('archive.zip'))
 		.pipe(lambda(aws.lambda_params, aws))
 });

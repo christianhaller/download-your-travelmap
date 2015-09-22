@@ -1,8 +1,6 @@
 exports.handler = function (event, context) {
-	console.log(event);
-    //context.succeed(event);
     var fs = require('fs'),
-
+        csv = require('./createCsv'),
 		http = require('http'),
 		parseTripAdvisorHtml = require('./parseTripAdvisorHtml'),
 		url = require('url'),
@@ -16,9 +14,15 @@ exports.handler = function (event, context) {
 				path: urlParts.path
 			};
 		},
-        jsonp = function(){
 
-            return {'data':map};
+        getCsv = function(){
+            var date = new Date().toISOString();
+            csv.getCsv(map.username+'-'+date+'.csv',map,function(url, filesize){
+                // Ich habe keine Ahnung, wie ich an die Filesize komme
+                //map.csv = {'url':url,'filesize':filesize};
+                map.csv = {'url':url};
+                context.succeed({'data':map});
+            });
         },
 		request = function () {
 			var mapCallback = function(response){
@@ -29,7 +33,8 @@ exports.handler = function (event, context) {
 
 				response.on('end', function () {
 					parseMap(str);
-					context.succeed(jsonp());
+                    getCsv();
+
 				});
 
 			},
@@ -49,7 +54,8 @@ exports.handler = function (event, context) {
                     try{
                         map.stats = parseTripAdvisorHtml.getStats(html);
                         map.places = parseTripAdvisorHtml.getPlaces(html);
-                        context.succeed(jsonp());
+
+                        getCsv();
                     }
                     catch(e){
                         http.get(getRequestOptions((map.mapUrl)),mapCallback).end();
@@ -59,17 +65,12 @@ exports.handler = function (event, context) {
 				});
 			};
 
-
 			http.get(getRequestOptions(profileUrl), profileCallback).end();
 		},
-
 		parseMap = function (html) {
 			map.stats = parseTripAdvisorHtml.getStats(html);
 			map.places = parseTripAdvisorHtml.getPlaces(html);
 		};
-
-
-
 
 
 	if(!profileUrl){

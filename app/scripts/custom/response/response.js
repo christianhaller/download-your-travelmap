@@ -19,7 +19,7 @@
 				$thisIs.text($(label).text());
 			};
 			$map.empty().vectorMap(jvectormapConfig);
-			//this.setDownloadButton($ctx, response.csv, this);
+			this.setDownloadButton($ctx, response.data.csv, this);
 			this.setUsername($ctx, response.data.username);
 			this.pushState(response.url);
 		},
@@ -77,12 +77,12 @@
 			return coutryList.length;
 		},
 		setDownloadButton: function ($ctx, csv) {
-			var path = '/data/' + csv.url,
-				$a = $ctx.find('.js-download-bar__button,.dropbox-saver').attr('href', path),
-				$fileSize = $a.find('.js-filesize');
+            $ctx.find('.js-download-bar__button,.dropbox-saver').attr('href', csv.url);
+			//var $a = $ctx.find('.js-download-bar__button,.dropbox-saver').attr('href', csv.url),
+				//$fileSize = $a.find('.js-filesize');
 
 
-			$fileSize.text('(' + csv.filesize + ')');
+			//$fileSize.text('(' + csv.filesize + ')');
 
 		},
 

@@ -29,9 +29,9 @@
                 NProgress.start();
                 $.ajax({
                     data: data,
-                    method: 'POST',
+                    method: 'GET',
                     dataType: 'json',
-                    url: $ctx.attr('action')
+                    url:'https://cy54odgy02.execute-api.us-east-1.amazonaws.com/prod/?'
                 }).error(function (response) {
                     // kaputt
                     NProgress.done();
