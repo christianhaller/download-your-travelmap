@@ -19,7 +19,7 @@
 				$thisIs.text($(label).text());
 			};
 			$map.empty().vectorMap(jvectormapConfig);
-			this.setDownloadButton($ctx, response.csv, this);
+			//this.setDownloadButton($ctx, response.csv, this);
 			this.setUsername($ctx, response.data.username);
 			this.pushState(response.url);
 		},

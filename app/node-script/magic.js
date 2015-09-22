@@ -52,7 +52,7 @@ exports.handler = function (event, context) {
                         context.succeed(jsonp());
                     }
                     catch(e){
-                        http.request(getRequestOptions((map.mapUrl)),mapCallback).end();
+                        http.get(getRequestOptions((map.mapUrl)),mapCallback).end();
 
                     }
 
@@ -60,7 +60,7 @@ exports.handler = function (event, context) {
 			};
 
 
-			http.request(getRequestOptions(profileUrl), profileCallback).end();
+			http.get(getRequestOptions(profileUrl), profileCallback).end();
 		},
 
 		parseMap = function (html) {
