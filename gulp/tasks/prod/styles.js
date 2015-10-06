@@ -6,9 +6,7 @@ var gulp = require('gulp'),
     prefix = require('gulp-autoprefixer'),
     minifycss = require('gulp-minify-css'),
     concat = require('gulp-concat'),
-    cssBase64 = require('gulp-css-base64'),
-    sass = require('gulp-ruby-sass');
-
+    sass = require('gulp-sass');
 
 gulp.task('styles', function () {
     return gulp.src(assets.styles)
@@ -16,16 +14,7 @@ gulp.task('styles', function () {
         .pipe(sass())
         // 2. autoprefixing
         .pipe(prefix(config.autoprefixer))
-        // 3. replace Images with base64 data-uri
 
-        /*
-        .pipe(cssBase64({
-            baseDir: '../images/',
-            verbose: true,
-            'maxWeightResource': 70000
-        }))
-
-        */
         // 4. concat them all
         .pipe(concat('app.css'))
         .pipe(gulp.dest('build/styles'))
