@@ -29,6 +29,7 @@
     "del": "^2.0.2",
     "gulp-aws-s3": "0.0.10",
     "gulp-awslambda": "^0.2.2",
+    "gulp-awspublish": "^3.0.1",
     "gulp-s3": "^0.3.0",
     "gulp-sass": "^2.0.4",
     "gulp-svg-sprites": "^3.0.0",

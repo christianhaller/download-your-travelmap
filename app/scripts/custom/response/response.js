@@ -22,6 +22,7 @@
 			this.setDownloadButton($ctx, response.data.csv, this);
 			this.setUsername($ctx, response.data.username);
 			this.pushState(response.url);
+			this.setStats(response.data.stats);
 		},
 		setUsername: function ($ctx, username) {
 			$ctx.find('.js-username').text(username);
@@ -75,6 +76,9 @@
 				}
 			});
 			return coutryList.length;
+		},
+		setStats : function(stats){
+			console.log(stats);
 		},
 		setDownloadButton: function ($ctx, csv) {
             $ctx.find('.js-download-bar__button,.dropbox-saver').attr('href', csv.url);

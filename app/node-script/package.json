@@ -11,5 +11,9 @@
   "dependencies": {
     "aws-sdk": "^2.2.4",
     "json2csv": "^2.12.0"
+  },
+  "devDependencies": {
+    "aws-sdk": "^2.2.7",
+    "json2csv": "^2.12.0"
   }
 }

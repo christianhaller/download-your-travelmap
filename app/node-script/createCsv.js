@@ -5,7 +5,7 @@ var json2csv = require('json2csv'),
 
     upload = function (filename, csv, cb) {
 
-        var params = {Bucket: bucketName, Key: filename, Body: csv, ACL: 'public-read', ContentType: 'text/csv'},
+        var params = {Bucket: bucketName, Key: 'csv/'+filename, Body: csv, ACL: 'public-read', ContentType: 'text/csv'},
 
             upload = new AWS.S3.ManagedUpload({params: params});
         upload.send(function (err, data) {
