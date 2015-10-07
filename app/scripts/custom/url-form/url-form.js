@@ -31,7 +31,7 @@
                     data: data,
                     method: 'GET',
                     dataType: 'json',
-                    url:'https://5mrckxqx6c.execute-api.us-east-1.amazonaws.com/prod?'
+                    url:$ctx.attr('action')
                 }).error(function (response) {
                     // kaputt
                     NProgress.done();

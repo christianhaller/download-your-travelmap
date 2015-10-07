@@ -16,7 +16,6 @@ var json2csv = require('json2csv'),
                 console.log(data);
                 cb(data.Location);
             }
-
         });
 
 

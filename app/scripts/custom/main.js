@@ -5,7 +5,7 @@
 
     $(document).ready(function () {
         var $page = $(document.body),
-            application = new Tc.Application($page);
+        application = new Tc.Application($page);
         application.registerModules();
         application.registerModule($page, 'Tracking', null, ['Tracking']);
         application.start();
@@ -45,7 +45,7 @@ var WebFontConfig = {
 };
 (function(){
     'use strict';
-    var wf = document.createElement("script");
+    var wf = document.createElement('script');
     wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
         '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
     wf.async = 'true';
