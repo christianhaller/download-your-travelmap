@@ -95,7 +95,7 @@ body {
   padding: 3px;
 }
 
-.download-bar.download-bar {
+.download-bar.download-bar,.stats-bar {
   position: absolute;
   top: 0;
   padding: 4px;
@@ -107,11 +107,25 @@ body {
   text-align: right;
 }
 
-.download-bar.download-bar--bottom {
+.stats-bar {
   bottom: 0;
   top: auto;
   z-index: 1;
+  color: #fff;
+
+  .country,.city {
+    font-weight: bold;
+    font-size: 20px;
+    background: #FFCC00;
+    border-radius: 50%;
+    line-height: 32px;
+    width: 36px;
+    height: 36px;
+    text-align: center;
+    display: inline-block;
+  }
 }
+
 
 .download-bar__button.download-bar__button {
   background: $primary-color;
@@ -128,11 +142,6 @@ body {
 
     color: #fff;
     fill: #fff;
-    margin-left: 5px;
-  }
-
-  .download-button__filesize {
-    color: #555;
     margin-left: 5px;
   }
 }

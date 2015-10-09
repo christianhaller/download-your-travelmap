@@ -61,7 +61,6 @@ module.exports = {
                 places.push(place);
             }
 
-
         }
         return places;
 

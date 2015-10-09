@@ -17,7 +17,7 @@ exports.handler = function (event, context) {
 
         getCsv = function(){
             var date = new Date().toISOString();
-            csv.getCsv(map.username+'-'+date+'.csv',map,function(url, filesize){
+            csv.getCsv(map.username+'-'+date+'.csv',map,function(url){
                 // Ich habe keine Ahnung, wie ich an die Filesize komme
                 //map.csv = {'url':url,'filesize':filesize};
                 map.csv = {'url':url};

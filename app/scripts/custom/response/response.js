@@ -22,7 +22,7 @@
 			this.setDownloadButton($ctx, response.data.csv, this);
 			this.setUsername($ctx, response.data.username);
 			this.pushState(response.url);
-			this.setStats(response.data.stats);
+            this.setStats($ctx,response.data.stats);
 		},
 		setUsername: function ($ctx, username) {
 			$ctx.find('.js-username').text(username);
@@ -77,16 +77,15 @@
 			});
 			return coutryList.length;
 		},
-		setStats : function(stats){
-			console.log(stats);
+		setStats : function($ctx,stats){
+
+			$ctx.find('.js-stats-bar .country').text(stats.country);
+            $ctx.find('.js-stats-bar .city').text(stats.city);
+            $ctx.find('.js-stats-bar .percent').text((stats.country/193*100).toFixed(2)+'%');
 		},
 		setDownloadButton: function ($ctx, csv) {
-            $ctx.find('.js-download-bar__button,.dropbox-saver').attr('href', csv.url);
-			//var $a = $ctx.find('.js-download-bar__button,.dropbox-saver').attr('href', csv.url),
-				//$fileSize = $a.find('.js-filesize');
+            $ctx.find('.js-download-bar__button').attr('href', csv.url);
 
-
-			//$fileSize.text('(' + csv.filesize + ')');
 
 		},
 

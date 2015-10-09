@@ -2,20 +2,29 @@ var json2csv = require('json2csv'),
     fields = ['lat', 'lon', 'name', 'been'],
     AWS = require('aws-sdk'),
     bucketName = 'travelmap',
+    compress = require('./compress'),
 
     upload = function (filename, csv, cb) {
+        compress(csv).then(function(data){
+            var params = {
+                    Bucket: bucketName,
+                    Key: 'csv/' + filename,
+                    Body: data,
+                    ACL: 'public-read',
+                    ContentEncoding: 'gzip',
+                    ContentType: 'text/csv'
+                },
 
-        var params = {Bucket: bucketName, Key: 'csv/'+filename, Body: csv, ACL: 'public-read', ContentType: 'text/csv'},
-
-            upload = new AWS.S3.ManagedUpload({params: params});
-        upload.send(function (err, data) {
-            if(err){
-                console.log(err);
-            }
-            else {
-                console.log(data);
-                cb(data.Location);
-            }
+                upload = new AWS.S3.ManagedUpload({params: params});
+            upload.send(function (err, data) {
+                if (err) {
+                    console.log(err);
+                }
+                else {
+                    console.log(data);
+                    cb(data.Location);
+                }
+            });
         });
 
 

@@ -14,6 +14,8 @@
   },
   "devDependencies": {
     "aws-sdk": "^2.2.7",
-    "json2csv": "^2.12.0"
+    "gzip-buffer": "0.0.2",
+    "json2csv": "^2.12.0",
+    "promise": "^7.0.4"
   }
 }
