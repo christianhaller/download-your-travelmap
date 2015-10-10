@@ -33,14 +33,18 @@
                     dataType: 'json',
                     url:$ctx.attr('action')
                 }).error(function (response) {
-                    // kaputt
-                    NProgress.done();
-                    mod.fire('Error', response);
-                    mod.fire('ShowAlert', response);
-                    mod.fire('Track', {
-                        'data': ['send', 'event', 'map', 'error (' + eventType + ')', url]
-                    });
+
                 }).success(function (response) {
+                    if(typeof response.errorMessage!=='undefined'){
+                        // kaputt
+                        NProgress.done();
+                        mod.fire('Error', response.errorMessage);
+                        mod.fire('ShowAlert', response.errorMessage);
+                        mod.fire('Track', {
+                            'data': ['send', 'event', 'map', 'error (' + eventType + ') ' +response.errorMessage, url]
+                        });
+                        return;
+                    }
                     NProgress.done();
                     mod.fire('RemoveAlert');
                     mod.fire('Track', {

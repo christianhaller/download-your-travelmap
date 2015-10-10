@@ -4,7 +4,6 @@ var url = require('url'),
         var left = str.substring(str.indexOf(start) + start.length);
         return left.substring(left.indexOf(end), -left.length);
 
-
     };
 
 module.exports = {
@@ -12,7 +11,13 @@ module.exports = {
 
     getStats: function (html) {
         var str = getStringBetween(html, '"idKeys":["memberId"],"properties":{"country":', '</html>');
-        return JSON.parse('{"country":' + getStringBetween(str, '"idKeys":["memberId"],"properties":{"country":', '}') + '}');
+        try{
+            return JSON.parse('{"country":' + getStringBetween(str, '"idKeys":["memberId"],"properties":{"country":', '}') + '}');
+        }
+        catch(e){
+            throw 'parse error, the URL is not a valid Profile URL';
+        }
+
 
     },
     getLink: function (profileUrl, html) {
@@ -30,10 +35,16 @@ module.exports = {
         return getStringBetween(html, '<title>', ' -');
     },
     getPlaces: function (html) {
-        var places = [],
-
+        var places = [],taPlaces;
+            try{
             taPlaces = JSON.parse('{"' + getStringBetween(html, '"store":{"', ',"modules.membercenter.model.FriendCount') + '}')['modules.unimplemented.entity.LightWeightPin'];
-        for (var key in taPlaces) {
+
+
+        }
+        catch(e){
+            throw 'parse error, the URL is not a valid Profile URL';
+        }
+            for (var key in taPlaces) {
             var taPlace,
                 name,
                 arrayOfStrings,

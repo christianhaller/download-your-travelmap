@@ -16,6 +16,7 @@
     "aws-sdk": "^2.2.7",
     "gzip-buffer": "0.0.2",
     "json2csv": "^2.12.0",
-    "promise": "^7.0.4"
+    "promise": "^7.0.4",
+    "valid-url": "^1.0.9"
   }
 }

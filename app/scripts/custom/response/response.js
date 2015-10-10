@@ -103,10 +103,6 @@
 					$ctx.removeClass(config.classNames.isHidden);
 					$ctx.addClass(config.classNames.block);
 				}
-			}).on('click', '#dropboxjs', function () {
-				mod.fire('Track', {
-					'data': ['send', 'event', 'dropbox', 'clicked']
-				});
 			});
 			callback();
 		},

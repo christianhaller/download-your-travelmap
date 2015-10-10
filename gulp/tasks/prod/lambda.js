@@ -20,10 +20,15 @@ gulp.task('s3', function() {
 		params: {
 			Bucket: 'travelmap'
 		}
-	});
+	}),
+    headers = {
+        'Cache-Control': 'max-age=315360000, no-transform, public',
+        'Content-Encoding':'gzip'
+    };
 
 
 	return gulp.src('./dist/index.html')
-		.pipe(publisher.publish())
+        .pipe(awspublish.gzip())
+        .pipe(publisher.publish(headers))
 		.pipe(awspublish.reporter());
 });
