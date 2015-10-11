@@ -17,8 +17,10 @@ gulp.task('lambda', function () {
 gulp.task('s3', function() {
 	'use strict';
 	var publisher = awspublish.create({
-		params: {
-			Bucket: 'travelmap'
+            region: 'us-west-2',
+            'params': {
+                Bucket: 'download-your-travelmap.christianhaller.com'
+
 		}
 	}),
     headers = {
