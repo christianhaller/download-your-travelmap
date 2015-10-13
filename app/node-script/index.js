@@ -1,19 +1,25 @@
 exports.handler = function (event, context) {
-    console.log(event);
     var fs = require('fs'),
         csv = require('./createCsv'),
         http = require('http'),
         validate = require('./validate'),
         parseTripAdvisorHtml = require('./parseTripAdvisorHtml'),
         url = require('url'),
-
+        kml = require('./kml'),
         map = {},
-        profileUrl = decodeURIComponent(event.url).toLowerCase().trim(),
+        profileUrl = decodeURIComponent(event.url).trim(),
 
     // get host and path
         getRequestOptions = function (str) {
             var urlParts = url.parse(str);
+
             return {
+                headers: {
+                    'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+ 'Accept-Language':'de-DE,de;q=0.8,en-US;q=0.6,en;q=0.4',
+                    'Upgrade-Insecure-Requests':'1',
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'
+                },
                 host: urlParts.host,
                 path: urlParts.path
             };
@@ -21,6 +27,7 @@ exports.handler = function (event, context) {
 
         getCsv = function () {
             var date = new Date().toISOString();
+
             csv.getCsv(map.username + '-' + date + '.csv', map, function (url) {
                 map.csv = {'url': url};
                 context.succeed({'data': map});
@@ -37,11 +44,11 @@ exports.handler = function (event, context) {
                         context.fail(e);
                     });
                     response.on('end', function () {
-                        try{
+                        try {
                             parseMap(str);
                             getCsv();
                         }
-                        catch(e){
+                        catch (e) {
                             context.fail('can\'t parse URI, be sure it\s your profile url like http://www.tripadvisor.com/MemberProfile-a_uid.3E4845AC4C03CEC948467E3B41809B4E?offset=0');
 
                         }
@@ -52,7 +59,6 @@ exports.handler = function (event, context) {
                 },
 
                 profileCallback = function (response) {
-                    console.log('rrrr');
                     var html = '';
                     response.on('data', function (chunk) {
                         html += chunk;
