@@ -1,10 +1,8 @@
 var json2csv = require('json2csv'),
-    fields = ['lat', 'lon', 'name', 'been'],
-    AWS = require('aws-sdk'),
-    bucketName = 'travelmap',
-    compress = require('./compress'),
+    Promise = require('promise'),
+    fields = ['lat', 'lon', 'name', 'been'];
 
-    upload = function (filename, csv, cb) {
+   /* upload = function (filename, csv, cb) {
         compress(csv).then(function(data){
             var params = {
                     Bucket: bucketName,
@@ -28,11 +26,11 @@ var json2csv = require('json2csv'),
         });
 
 
-    };
+    };*/
 
-module.exports = {
-    getCsv: function (filename, data, cb) {
-        var map = [];
+module.exports = function (data) {
+    return new Promise(function (fulfill,reject) {
+    var map = [];
         data.places.forEach(function (item) {
             item.been = item.flags.join(',');
             item.lon = item.lng;
@@ -41,14 +39,18 @@ module.exports = {
 
         json2csv({data: map, fields: fields}, function (err, csv) {
             if (err) {
-                //console.log(err);
+
+                console.log('err');
+                reject(err);
 
             }
-            //console.log(csv);
-            upload(filename, csv, cb);
-        });
-    }
+            else {
+                console.log('ok');
+                fulfill(csv);
+            }
 
+        });
+    });
 };
 
 
