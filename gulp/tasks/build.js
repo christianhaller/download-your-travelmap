@@ -1,5 +1,5 @@
 var gulp = require('gulp');
 
-gulp.task('build', ['scripts', 'styles', 'markup','zopfli']);
+gulp.task('build', ['scripts', 'styles', 'markup']);
 
 

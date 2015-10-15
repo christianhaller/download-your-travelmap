@@ -30,7 +30,7 @@ gulp.task('s3', function() {
 
 
 	return gulp.src('./dist/index.html')
-        .pipe(awspublish.gzip())
+        .pipe(awspublish.gzip({}))
         .pipe(publisher.publish(headers))
-		.pipe(awspublish.reporter());
+		.pipe(awspublish.reporter({}));
 });

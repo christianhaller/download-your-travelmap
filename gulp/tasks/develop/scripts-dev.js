@@ -9,10 +9,4 @@ gulp.task('scripts-dev', function () {
     })
         .pipe(gulp.dest('./dist/scripts/src'));
 
-        /*
-        pipe(livereload({
-
-            auto: false
-        }));
-        */
 });
