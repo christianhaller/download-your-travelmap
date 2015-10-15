@@ -1,5 +1,5 @@
 var gulp = require('gulp'),
-    config = require('../../config/config.json'),
+    config = require('../../../config.json'),
     autoprefixer = require('gulp-autoprefixer'),
 
     concat = require('gulp-concat'),

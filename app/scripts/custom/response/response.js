@@ -19,7 +19,8 @@
 				$thisIs.text($(label).text());
 			};
 			$map.empty().vectorMap(jvectormapConfig);
-			this.setDownloadButton($ctx, response.data.csv, this);
+			this.setCsvDownloadButton($ctx, response.data.csv, this);
+			this.setKmlDownloadButton($ctx, response.data.kml, this);
 			this.setUsername($ctx, response.data.username);
 			this.pushState(response.url);
             this.setStats($ctx,response.data.stats);
@@ -83,9 +84,13 @@
             $ctx.find('.js-stats-bar .city').text(stats.city);
             $ctx.find('.js-stats-bar .percent').text((stats.country/193*100).toFixed(2)+'%');
 		},
-		setDownloadButton: function ($ctx, csv) {
-            $ctx.find('.js-download-bar__button').attr('href', csv.url);
+		setKmlDownloadButton: function ($ctx, kml) {
+            $ctx.find('.js-download-bar__kml').attr('href', kml);
 
+
+		},
+		setCsvDownloadButton: function ($ctx, csv) {
+			$ctx.find('.js-download-bar__csv').attr('href', csv);
 
 		},
 

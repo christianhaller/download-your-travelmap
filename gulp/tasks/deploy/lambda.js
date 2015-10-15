@@ -29,7 +29,7 @@ gulp.task('s3', function() {
     };
 
 
-	return gulp.src('./dist/index.html')
+	return gulp.src('./dist/index.html','./app/robots.txt')
         .pipe(awspublish.gzip({}))
         .pipe(publisher.publish(headers))
 		.pipe(awspublish.reporter({}));

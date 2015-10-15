@@ -26,14 +26,22 @@
     "uglify-js": "^2.4.15"
   },
   "devDependencies": {
+    "aws-sdk": "^2.2.9",
     "del": "^2.0.2",
+    "geojson": "^0.2.1",
     "gulp-aws-s3": "0.0.10",
     "gulp-awslambda": "^0.2.2",
     "gulp-awspublish": "^3.0.1",
     "gulp-s3": "^0.3.0",
     "gulp-sass": "^2.0.4",
     "gulp-svg-sprites": "^3.0.0",
-    "gulp-zip": "^3.0.2"
+    "gulp-zip": "^3.0.2",
+    "gzip-buffer": "0.0.2",
+    "json2csv": "^2.12.0",
+    "promise": "^7.0.4",
+    "sanitize-filename": "^1.4.5",
+    "tokml": "^0.3.0",
+    "valid-url": "^1.0.9"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
