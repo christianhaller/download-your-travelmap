@@ -1,6 +1,5 @@
 /aws-credentials.json
 node_modules
-dist/data
+/dist
 .idea
-build
-.sass-cache
+/build
