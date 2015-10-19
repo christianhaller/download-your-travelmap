@@ -130,17 +130,11 @@ body {
 .download-bar__button.download-bar__button {
   background: $primary-color;
   color: #fff;
-  padding:5px 5px;
-  font-size: 12px;
-  margin-left:5px;
 
 }
 
 .download-bar__button.download-bar__button:hover {
   background-color: #FFD700;
-  transition: all 0.3s ease 0s;
-  color:#333;
-  box-shadow: 0 3px 10px #ccc;
 }
 
 .download-bar__button {

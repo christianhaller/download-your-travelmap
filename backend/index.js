@@ -17,7 +17,7 @@ exports.handler = function (event, context) {
 			kmlData = kml(map);
 			compress(kmlData)
 				.then(function(kmlData){
-					return upload('kml', map.username + '-' + date + '.kml', kmlData, 'kml', 'gzip')
+					return upload('kml', map.username + '-' + date + '.kml', kmlData, 'application/vnd.google-earth.kml+xml', 'gzip')
 				})
 				.then(function (url) {
 					map.kml = url;

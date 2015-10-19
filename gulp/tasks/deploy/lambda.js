@@ -8,7 +8,7 @@ var gulp = require('gulp'),
 
 
 gulp.task('lambda', function () {
-	return gulp.src('./app/node-script/**/*')
+	return gulp.src('./backend/**/*')
 		.pipe(zip('archive.zip'))
 		.pipe(lambda(aws.lambda_params, aws))
 });
@@ -29,7 +29,7 @@ gulp.task('s3', function() {
     };
 
 
-	return gulp.src('./dist/index.html','./app/robots.txt')
+	return gulp.src(['./dist/index.html','./app/robots.txt'])
         .pipe(awspublish.gzip({}))
         .pipe(publisher.publish(headers))
 		.pipe(awspublish.reporter({}));
