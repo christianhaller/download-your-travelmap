@@ -1,12 +1,5 @@
 language: node_js
 node_js:
   - 5.0
-  # gcc 4.8 requires ubuntu-toolchain-r-test
-addons:
-  apt:
-    sources:
-    - ubuntu-toolchain-r-test
-    packages:
-    - g++-4.8
-    - gcc-4.8
-    - clang
+
+script: cd backend && npm install && npm test
