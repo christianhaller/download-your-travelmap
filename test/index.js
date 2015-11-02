@@ -1,5 +1,5 @@
 var app = require('../backend'),
-    expect  = require('../backend/expect.js');
+    expect  = require('../backend/node_modules/expect.js/');
 describe('app', function () {
     it('Be OK https://en.wikipedia.org/wiki/Be_OK_%28Ingrid_Michaelson_song%29', function (done) {
         this.timeout(6000);
