@@ -10,6 +10,7 @@
   "license": "ISC",
   "devDependencies": {
     "aws-sdk": "^2.2.10",
+    "expect.js": "^0.3.1",
     "geojson": "^0.2.1",
     "gzip-buffer": "0.0.2",
     "json2csv": "^2.12.0",
