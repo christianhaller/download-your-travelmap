@@ -14,6 +14,7 @@
     "geojson": "^0.2.1",
     "gzip-buffer": "0.0.2",
     "json2csv": "^2.12.0",
+    "promise": "^7.0.4",
     "sanitize-filename": "^1.4.5",
     "tokml": "^0.3.0",
     "valid-url": "^1.0.9"
