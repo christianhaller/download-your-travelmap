@@ -6,7 +6,7 @@ var AWS = require('aws-sdk'),
 module.exports = function (dir, filename, content, contentType, contentEncoding) {
     filename = dir + '/' + sanitize(filename);
     //AWS.config.loadFromPath('./aws.json');
-    
+
     if(typeof process.env.AccessKey !== 'undefined' && typeof process.env.Secret !== 'undefined'){
         console.log('Eeeeeeee');
         AWS.config.accessKeyId = process.env.AccessKey;
