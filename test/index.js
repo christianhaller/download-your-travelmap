@@ -18,7 +18,7 @@ describe('app', function () {
 
 
     it('map request', function (done) {
-        this.timeout(1000);
+        this.timeout(2000);
         request(' http://www.tripadvisor.com/TravelMap-a_uid.BAE86B9F2C0155C5003524F652DD4719').then(function (data) {
             expect(data.username).to.equal('surefire56');
             done();
@@ -26,7 +26,7 @@ describe('app', function () {
     });
 
     it('wrong url', function (done) {
-        this.timeout(1000);
+        this.timeout(2000);
         request('http://www.tripadvisor.com').catch(function (err) {
             expect(err).to.be.an(Error);
             done();
@@ -42,7 +42,7 @@ describe('app', function () {
     });
 
     it('bad url', function (done) {
-        this.timeout(1000);
+        this.timeout(2000);
         request('http://www.google.com').catch(function (err) {
             expect(err).to.be.an(Error);
             done();
