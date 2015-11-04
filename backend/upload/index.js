@@ -8,12 +8,10 @@ module.exports = function (dir, filename, content, contentType, contentEncoding)
     //AWS.config.loadFromPath('./aws.json');
 
     if(typeof process.env.AccessKey !== 'undefined' && typeof process.env.Secret !== 'undefined'){
-        console.log('Eeeeeeee');
         AWS.config.accessKeyId = process.env.AccessKey;
         AWS.config.secretAccessKey = process.env.Secret;
-        AWS.config.region = 'us-east-1';
+        AWS.config.region = process.env.Region;
     }
-
 
     return new Promise(function (fulfill, reject) {
         'use strict';
