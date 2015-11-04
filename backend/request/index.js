@@ -30,7 +30,7 @@ var http = require('http'),
         return parse.getLink(profileUrl, html);
     };
 
-module.exports = function (profileUrl, cb, err) {
+module.exports = function (profileUrl) {
     return new Promise(function (fullfil, reject) {
         var mapCallback = function (response) {
                 var str = '';
@@ -42,7 +42,7 @@ module.exports = function (profileUrl, cb, err) {
                         fullfil(parseResponse(profileUrl, str));
                     }
                     catch (e) {
-                        reject('can\'t parse '+profileUrl+', please double check your input');
+                        reject(new Error('can\'t parse ' + profileUrl + ', please double check your input'));
 
                     }
                 });
@@ -54,27 +54,29 @@ module.exports = function (profileUrl, cb, err) {
                     html += chunk;
                 });
                 response.on('end', function () {
-                    var mapUrl;
+                    var mapUrl = parseMapLink(profileUrl, html);
                     try {
-                        mapUrl = parseMapLink(profileUrl, html);
                         cb(parseResponse(profileUrl, html));
                     }
                         // second request
                     catch (e) {
                         if (typeof mapUrl !== 'undefined') {
-                            console.log('second request');
                             http.get(getRequestOptions(mapUrl), mapCallback).end();
                         }
                         else {
-                          reject('wtf');
+                            reject('wtf');
                         }
                     }
                 });
-            };
-        if(profileUrl === 'undefined'){
-            reject('please enter your trip advisor profile url');
-            return;
-        }
-        http.get(getRequestOptions(profileUrl), profileCallback).end();
+            },
+            res = http.get(getRequestOptions(profileUrl), function (data) {
+                profileCallback(data);
+
+            });
+            res.on('error',function(err){
+                reject(err)
+            });
+
+
     });
 };

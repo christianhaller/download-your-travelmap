@@ -1,10 +1,13 @@
 var AWS = require('aws-sdk'),
-	sanitize = require('sanitize-filename'),
+    sanitize = require('sanitize-filename'),
     Promise = require('promise'),
     bucketName = 'travelmap';
 
-module.exports = function (dir,filename, content, contentType, contentEncoding) {
-    filename = dir + '/' +sanitize(filename);
+module.exports = function (dir, filename, content, contentType, contentEncoding) {
+    filename = dir + '/' + sanitize(filename);
+    //AWS.config.loadFromPath('./aws.json');
+
+
     return new Promise(function (fulfill, reject) {
         'use strict';
         var params = {
@@ -22,7 +25,7 @@ module.exports = function (dir,filename, content, contentType, contentEncoding) 
                 reject(err);
             }
             else {
-                console.log(data.Location+' uploaded');
+                console.log(data.Location + ' uploaded');
                 fulfill(data.Location);
             }
         });
