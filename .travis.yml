@@ -5,7 +5,7 @@ before_install: cd backend
 install: npm install -g mocha
 env:
   global:
-    secure: "WFcdisE1o9we/fQlrf5ChNZoS0SyWV11PVo6K19ct6tILXRgWHJcVHbX8tY9K65J3O1+aKyQvMl5829A/hJI2O+xjryygIZufDcspKgXg3rxyNr0uikSKK2Vawg5RkZWjLYXK9yatJmTBQTmg8sJV235zq1uVfKVzDcsw85rug0="
-    secure: "Zeshgts5/dFfZEqLELnSWK919O3m1RgHS45lsCTsJ4m66fG7iAxvqP5McPqaf+CkwGy99NJzmfo2zVLkmiB3AsFcpNWu9NxqQ5qDogbj2vh4N6xzcTwlIXiSlYUVCQGW4qD0ZNWq2d/S34zSrxhW6DoHd4fzefYiEt+W9VOwUj0="
+    secure: WFcdisE1o9we/fQlrf5ChNZoS0SyWV11PVo6K19ct6tILXRgWHJcVHbX8tY9K65J3O1+aKyQvMl5829A/hJI2O+xjryygIZufDcspKgXg3rxyNr0uikSKK2Vawg5RkZWjLYXK9yatJmTBQTmg8sJV235zq1uVfKVzDcsw85rug0=
+    secure: Zeshgts5/dFfZEqLELnSWK919O3m1RgHS45lsCTsJ4m66fG7iAxvqP5McPqaf+CkwGy99NJzmfo2zVLkmiB3AsFcpNWu9NxqQ5qDogbj2vh4N6xzcTwlIXiSlYUVCQGW4qD0ZNWq2d/S34zSrxhW6DoHd4fzefYiEt+W9VOwUj0=
 script:
   - npm install && npm test
