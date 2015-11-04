@@ -8,6 +8,7 @@ module.exports = function (dir, filename, content, contentType, contentEncoding)
     //AWS.config.loadFromPath('./aws.json');
 
     console.log('env');
+    console.log(process.env.HELLO;
     console.log(process.env.AccessKey);
     if(typeof process.env.AccessKey !== 'undefined' && typeof process.env.Secret !== 'undefined'){
         console.log('Eeeeeeee');
