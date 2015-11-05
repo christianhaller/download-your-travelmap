@@ -2,4 +2,4 @@
 
 [![GitHub version](https://badge.fury.io/gh/christianhaller%2Fdownload-your-travelmap.svg)](https://badge.fury.io/gh/christianhaller%2Fdownload-your-travelmap)
 
-[![Downloads, lol](https://img.shields.io/github/downloads/christianhaller/download-your-travelmap/latest/total.svg)]
+[![Downloads, lol]](https://img.shields.io/github/downloads/christianhaller/download-your-travelmap/latest/total.svg)
