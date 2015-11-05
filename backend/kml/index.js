@@ -4,7 +4,7 @@ var tokml = require('tokml'),
     var json = GeoJSON.parse(map.places, {Point: ['lat', 'lng'],include: ['name']});
     return tokml(json, {
         name: 'name',
-            documentName: map.username+'\'s travelmap ('+map.date+')',
-            documentDescription: 'I have been to '+ map.places.length+' places'
+            documentName: map.username+'\'s travelmap',
+            documentDescription: 'I have been to '+ map.places.length+' cities'
         });
 };

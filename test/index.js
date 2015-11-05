@@ -25,7 +25,6 @@ describe('app', function () {
 
     it('kml', function (done) {
         var input = {
-                'date': '',
                 'username': 'robiwan',
                 'places': [{
                     city: 'Davos',
@@ -38,7 +37,7 @@ describe('app', function () {
             },
             output = kml(input);
         parser.parseString(output, function (err, result) {
-            expect(result.kml.Document[0].name[0]).to.equal(input.username + '\'s travelmap ('+input.date+')');
+            expect(result.kml.Document[0].name[0]).to.equal(input.username + '\'s travelmap');
             done();
         });
 
