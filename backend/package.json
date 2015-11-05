@@ -17,6 +17,7 @@
     "promise": "^7.0.4",
     "sanitize-filename": "^1.4.5",
     "tokml": "^0.3.0",
-    "valid-url": "^1.0.9"
+    "valid-url": "^1.0.9",
+    "xml2js": "^0.4.15"
   }
 }

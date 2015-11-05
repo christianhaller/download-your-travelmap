@@ -1,21 +1,48 @@
 var app = require('../backend'),
     request = require('../backend/request'),
-    expect = require('../backend/node_modules/expect.js/');
+    xml2js = require('../backend/node_modules/xml2js/'),
+    parser = new xml2js.Parser(),
+    expect = require('../backend/node_modules/expect.js/'),
+    kml = require('../backend/kml');
 describe('app', function () {
-    it('Be OK https://en.wikipedia.org/wiki/Be_OK_%28Ingrid_Michaelson_song%29', function (done) {
-        this.timeout(4000);
-        app.handler({
-            'url': decodeURIComponent('http://www.tripadvisor.com/members/christianhaller')
-        }, {
-            'succeed': function (data) {
-                expect(data.data.username).to.equal('christianhaller');
-                done();
-            }, fail: function (err) {
-                done(err);
-            }
-        });
-    });
 
+
+
+    /*it('Be OK https://en.wikipedia.org/wiki/Be_OK_%28Ingrid_Michaelson_song%29', function (done) {
+     this.timeout(6000);
+     app.handler({
+     'url': decodeURIComponent('http://www.tripadvisor.com/members/christianhaller')
+     }, {
+     'succeed': function (data) {
+     expect(data.data.username).to.equal('christianhaller');
+     done();
+     }, fail: function (err) {
+     done(err);
+     }
+     });
+     });*/
+
+
+    it('kml', function (done) {
+        var input = {
+                'date': '',
+                'username': 'robiwan',
+                'places': [{
+                    city: 'Davos',
+                    county: 'Switzerland',
+                    iso: 'CH',
+                    lat: 46.794476,
+                    lng: 9.823285,
+                    name: 'Davos, Switzerland'
+                }]
+            },
+            output = kml(input);
+        parser.parseString(output, function (err, result) {
+            expect(result.kml.Document[0].name[0]).to.equal(input.username + '\'s travelmap ('+input.date+')');
+            done();
+        });
+
+    });
 
     it('map request', function (done) {
         this.timeout(2000);
