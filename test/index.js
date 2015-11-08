@@ -4,6 +4,18 @@ var app = require('../backend'),
     parser = new xml2js.Parser(),
     expect = require('../backend/node_modules/expect.js/'),
     kml = require('../backend/kml');
+
+
+describe('redirect', function () {
+    it('301', function (done) {
+        this.timeout(9000);
+        request('http://www.tripadvisor.co.uk/MemberProfile-a_uid.F3B46B68117496775EE93A2AB6A9C1DC').then(function (data) {
+            expect(data.username).to.equal('Atanas_GK');
+            done();
+        });
+    });
+});
+
 describe('app', function () {
 
 
@@ -42,6 +54,9 @@ describe('app', function () {
         });
 
     });
+
+
+
 
     it('map request', function (done) {
         this.timeout(2000);

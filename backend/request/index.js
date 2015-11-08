@@ -50,6 +50,7 @@ module.exports = function (profileUrl) {
 
             profileCallback = function (response) {
                 var html = '';
+
                 response.on('data', function (chunk) {
                     html += chunk;
                 });
@@ -70,8 +71,14 @@ module.exports = function (profileUrl) {
                 });
             },
             res = http.get(getRequestOptions(profileUrl), function (data) {
-                profileCallback(data);
-
+                if(data.statusCode === 301){
+                    http.get(getRequestOptions(data.headers.location), function (data) {
+                        profileCallback(data);
+                    });
+                }
+                else {
+                    profileCallback(data);
+                }
             });
             res.on('error',function(err){
                 reject(err)
