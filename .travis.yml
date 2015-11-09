@@ -11,6 +11,7 @@ before_install:
   - cd test
   - npm install
   - cd ../app
+  - npm install -g npm
   - npm install
   - cd ../backend
 install: npm install -g mocha casperjs phantomjs
