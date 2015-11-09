@@ -3,6 +3,12 @@ node_js:
   - "4.0"
   - "5.0"
 
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - g++-4.8
 
 env:
   global:
@@ -16,6 +22,9 @@ before_install:
   - npm install -g npm
   - npm install
   - cd ../backend
-install: npm install -g mocha casperjs phantomjs
+install:
+  - if [[ $TRAVIS_OS_NAME == "linux" ]]; then export CXX=g++-4.8; fi
+  - $CXX --version
+  - npm install -g mocha casperjs phantomjs
 script:
   - npm install && npm test
