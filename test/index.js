@@ -66,10 +66,12 @@ describe('app', function () {
 
 
     it('map request', function (done) {
-        this.timeout(4000);
+        this.timeout(6000);
         request(' http://www.tripadvisor.com/TravelMap-a_uid.BAE86B9F2C0155C5003524F652DD4719').then(function (data) {
             expect(data.username).to.equal('surefire56');
             done();
+        }).catch(function(err){
+            console.log(err);
         });
     });
 
