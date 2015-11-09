@@ -19,20 +19,19 @@ describe('redirect', function () {
 describe('app', function () {
 
 
-
-    /*it('Be OK https://en.wikipedia.org/wiki/Be_OK_%28Ingrid_Michaelson_song%29', function (done) {
-     this.timeout(6000);
-     app.handler({
-     'url': decodeURIComponent('http://www.tripadvisor.com/members/christianhaller')
-     }, {
-     'succeed': function (data) {
-     expect(data.data.username).to.equal('christianhaller');
-     done();
-     }, fail: function (err) {
-     done(err);
-     }
-     });
-     });*/
+    it('Be OK https://en.wikipedia.org/wiki/Be_OK_%28Ingrid_Michaelson_song%29', function (done) {
+        this.timeout(6000);
+        app.handler({
+            'url': decodeURIComponent('http://www.tripadvisor.com/members/christianhaller')
+        }, {
+            'succeed': function (data) {
+                expect(data.data.username).to.equal('christianhaller');
+                done();
+            }, fail: function (err) {
+                done(err);
+            }
+        });
+    });
 
 
     it('kml', function (done) {
@@ -58,7 +57,7 @@ describe('app', function () {
 
     it('404', function (done) {
         this.timeout(4000);
-        request(' http://www.tripadvisor.com/christianhaller').catch(function(err){
+        request(' http://www.tripadvisor.com/christianhaller').catch(function (err) {
             expect(err).to.equal('profile not found');
             done();
         });
@@ -70,7 +69,7 @@ describe('app', function () {
         request(' http://www.tripadvisor.com/TravelMap-a_uid.BAE86B9F2C0155C5003524F652DD4719').then(function (data) {
             expect(data.username).to.equal('surefire56');
             done();
-        }).catch(function(err){
+        }).catch(function (err) {
             console.log(err);
         });
     });
