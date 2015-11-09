@@ -31,3 +31,6 @@ install:
   - npm install -g mocha casperjs phantomjs
 script:
   - npm install && npm test
+
+after_success:
+  - gulp lambda
