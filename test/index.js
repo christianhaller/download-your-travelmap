@@ -1,6 +1,6 @@
 var app = require('../backend'),
     request = require('../backend/request'),
-    xml2js = require('../backend/node_modules/xml2js/'),
+    xml2js = require('xml2js/'),
     parser = new xml2js.Parser(),
     expect = require('../backend/node_modules/expect.js/'),
     kml = require('../backend/kml');
@@ -56,6 +56,13 @@ describe('app', function () {
     });
 
 
+    it('404', function (done) {
+        this.timeout(3000);
+        request(' http://www.tripadvisor.com/christianhaller').catch(function(err){
+            expect(err).to.equal('profile not found');
+            done();
+        });
+    });
 
 
     it('map request', function (done) {

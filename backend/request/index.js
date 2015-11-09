@@ -71,6 +71,12 @@ module.exports = function (profileUrl) {
                 });
             },
             res = http.get(getRequestOptions(profileUrl), function (data) {
+                if(data.statusCode === 404){
+                    reject('profile not found');
+
+
+                }
+
                 if(data.statusCode === 301){
                     http.get(getRequestOptions(data.headers.location), function (data) {
                         profileCallback(data);
@@ -83,7 +89,5 @@ module.exports = function (profileUrl) {
             res.on('error',function(err){
                 reject(err)
             });
-
-
     });
 };
