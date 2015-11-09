@@ -8,7 +8,13 @@ var gulp = require('gulp'),
 
 
 gulp.task('lambda', function () {
-	return gulp.src('./backend/**/*')
+    if(typeof process.env.AccessKey !== 'undefined' && typeof process.env.Secret !== 'undefined'){
+        aws.accessKeyId = process.env.AccessKey;
+        aws.secretAccessKey = process.env.Secret;
+        aws.config.region = process.env.Region;
+    }
+
+    return gulp.src('./backend/**/*')
 		.pipe(zip('archive.zip'))
 		.pipe(lambda(aws.lambda_params, aws))
 });
