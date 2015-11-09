@@ -4,7 +4,7 @@ var gulp = require('gulp'),
 	awspublish = require("gulp-awspublish"),
 	zip = require('gulp-zip'),
 
-	aws = JSON.parse(fs.readFileSync('./aws-credentials.json'));
+	aws = JSON.parse(fs.readFileSync('./aws.json'));
 
 
 gulp.task('lambda', function () {
