@@ -27,7 +27,7 @@ before_install:
 install:
   - if [[ $TRAVIS_OS_NAME == "linux" ]]; then export CXX=g++-4.8; fi
   - $CXX --version
-  - npm install -g mocha casperjs phantomjs
+  - npm install -g mocha casperjs phantomjs gulp
 script:
   - npm install && npm test
 
