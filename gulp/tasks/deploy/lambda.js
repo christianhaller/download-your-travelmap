@@ -8,10 +8,8 @@ var gulp = require('gulp'),
 
 
 gulp.task('lambda', function () {
-    if(typeof process.env.AccessKey !== 'undefined' && typeof process.env.Secret !== 'undefined'){
-        aws.accessKeyId = process.env.AccessKey;
-        aws.secretAccessKey = process.env.Secret;
-        aws.config.region = process.env.Region;
+    if(typeof process.env.Region !== 'undefined'){
+        aws.region = process.env.Region;
     }
 
     return gulp.src('./backend/**/*')
