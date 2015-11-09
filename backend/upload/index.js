@@ -7,9 +7,7 @@ module.exports = function (dir, filename, content, contentType, contentEncoding)
     filename = dir + '/' + sanitize(filename);
     //AWS.config.loadFromPath('./aws.json');
 
-    if(typeof process.env.AccessKey !== 'undefined' && typeof process.env.Secret !== 'undefined'){
-        AWS.config.accessKeyId = process.env.AccessKey;
-        AWS.config.secretAccessKey = process.env.Secret;
+    if(typeof process.env.Region !== 'undefined'){
         AWS.config.region = process.env.Region;
     }
 
