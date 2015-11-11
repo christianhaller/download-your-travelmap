@@ -1,5 +1,5 @@
 /* global Tc,ga */
-(function($) {
+(function() {
     'use strict';
     Tc.Module.Tracking = Tc.Module.extend({
 
@@ -10,4 +10,4 @@
             ga(data.data[0], data.data[1], data.data[2], data.data[3], data.data[4]);
         }
     });
-})(Tc.$);
+})();

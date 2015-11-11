@@ -1,27 +1,27 @@
-/*global ga,Tc,NProgress */
-(function ($) {
+/*global ga,Tc,NProgress,document,window */
+(function ($, document, window, ga) {
     'use strict';
 
 
     $(document).ready(function () {
         var $page = $(document.body),
-        application = new Tc.Application($page);
+            application = new Tc.Application($page);
         application.registerModules();
         application.registerModule($page, 'Tracking', null, ['Tracking']);
         application.start();
 
         NProgress.start();
-        setTimeout(function () {
+        window.setTimeout(function () {
             NProgress.done();
         }, 100);
     });
     ga('create', 'UA-53443219-1', 'auto');
     ga('send', 'pageview');
-})(Tc.$);
+})(Tc.$, document, window, ga);
 
-(function () {
+(function (window, NProgress) {
     'use strict';
-    NProgress.configure({ showSpinner: false, parent: '.content' });
+    NProgress.configure({showSpinner: false, parent: '.content'});
     var trackJavaScriptError = function (e) {
         var ie = window.event,
             errMsg = e.message || ie.errorMessage,
@@ -38,16 +38,16 @@
     } else {
         window.onerror = trackJavaScriptError;
     }
-})();
+})(window, NProgress);
 
 var WebFontConfig = {
-    google: { families: [ 'Roboto:500:latin' ] }
+    google: {families: ['Roboto:500:latin']}
 };
-(function(){
+(function (document) {
     'use strict';
     var wf = document.createElement('script');
     wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
         '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
     wf.async = 'true';
     document.head.appendChild(wf);
-})();
+})(document);

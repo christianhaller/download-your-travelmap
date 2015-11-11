@@ -1,5 +1,5 @@
 /* global Tc */
-(function($) {
+(function() {
     'use strict';
     Tc.Module.Alert = Tc.Module.extend({
         onShowAlert: function(response) {
@@ -16,4 +16,4 @@
             callback();
         }
     });
-})(Tc.$);
+})();

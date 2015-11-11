@@ -1,5 +1,5 @@
-/* global Tc */
-(function ($) {
+/* global Tc,window */
+(function ($,window) {
 	'use strict';
 	Tc.Module.Response = Tc.Module.extend({
 		onDataReceived: function (response) {
@@ -117,4 +117,4 @@
 			this.$ctx.trigger('hide');
 		}
 	});
-})(Tc.$);
+})(Tc.$,window);

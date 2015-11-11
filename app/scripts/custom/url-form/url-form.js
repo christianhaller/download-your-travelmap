@@ -1,5 +1,5 @@
-/* global Tc,NProgress */
-(function ($) {
+/* global Tc,NProgress,window */
+(function ($, window) {
     'use strict';
     Tc.Module.Url = Tc.Module.extend({
         on: function (callback) {
@@ -31,17 +31,17 @@
                     data: data,
                     method: 'GET',
                     dataType: 'json',
-                    url:$ctx.attr('action')
+                    url: $ctx.attr('action')
                 }).error(function (response) {
 
                 }).success(function (response) {
-                    if(typeof response.errorMessage!=='undefined'){
+                    if (typeof response.errorMessage !== 'undefined') {
                         // kaputt
                         NProgress.done();
                         mod.fire('Error', response.errorMessage);
                         mod.fire('ShowAlert', response.errorMessage);
                         mod.fire('Track', {
-                            'data': ['send', 'event', 'map', 'error (' + eventType + ') ' +response.errorMessage, url]
+                            'data': ['send', 'event', 'map', 'error (' + eventType + ') ' + response.errorMessage, url]
                         });
                         return;
                     }
@@ -82,4 +82,4 @@
             return re.test(url);
         }
     });
-})(Tc.$);
+})(Tc.$, window);
