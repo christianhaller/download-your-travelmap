@@ -1,40 +1,37 @@
-var gulp = require('gulp'),
-	lambda = require('gulp-awslambda'),
-	fs = require('fs'),
-	awspublish = require("gulp-awspublish"),
-	zip = require('gulp-zip'),
+/*global require,process */
+(function () {
+    'use strict';
+    var gulp = require('gulp'),
+        lambda = require('gulp-awslambda'),
+        fs = require('fs'),
+        awspublish = require("gulp-awspublish"),
+        zip = require('gulp-zip'),
+        config = require('../../../config.json');
 
-	aws = JSON.parse(fs.readFileSync('./aws.json'));
-
-
-gulp.task('lambda', function () {
-    if(typeof process.env.Region !== 'undefined'){
-        aws.region = process.env.Region;
-    }
-
-    return gulp.src('./backend/**/*')
-		.pipe(zip('archive.zip'))
-		.pipe(lambda(aws.lambda_params, aws))
-});
+    gulp.task('lambda', function () {
 
 
-gulp.task('s3', function() {
-	'use strict';
-	var publisher = awspublish.create({
-            region: 'us-west-2',
-            'params': {
-                Bucket: 'download-your-travelmap.christianhaller.com'
+        return gulp.src('./backend/**/*')
+            .pipe(zip('archive.zip'))
+            .pipe(lambda(config.aws.lambda, config.aws))
+    });
 
-		}
-	}),
-    headers = {
-        'Cache-Control': 'max-age=315360000, no-transform, public',
-        'Content-Encoding':'gzip'
-    };
+    gulp.task('s3', function () {
+        var publisher = awspublish.create({
+                region: config.aws.s3.region,
+                'params': {
+                    Bucket: config.aws.s3.bucketName
 
+                }
+            }),
+            headers = {
+                'Cache-Control': 'max-age=315360000, no-transform, public',
+                'Content-Encoding': 'gzip'
+            };
 
-	return gulp.src(['./dist/index.html','./app/robots.txt'])
-        .pipe(awspublish.gzip({}))
-        .pipe(publisher.publish(headers))
-		.pipe(awspublish.reporter({}));
-});
+        return gulp.src(['./dist/index.html', './app/robots.txt'])
+            .pipe(awspublish.gzip({}))
+            .pipe(publisher.publish(headers))
+            .pipe(awspublish.reporter({}));
+    });
+}());

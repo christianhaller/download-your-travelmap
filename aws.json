@@ -1,7 +1,0 @@
-{
-  "lambda_params": {
-    "FunctionName": "travelmap",
-    "Role": "arn:aws:iam::806424220409:role/invoke",
-    "Timeout":60
-  }
-}

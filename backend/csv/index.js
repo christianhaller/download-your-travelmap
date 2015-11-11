@@ -1,8 +1,10 @@
+/*global module, require */
 var json2csv = require('json2csv'),
     Promise = require('promise'),
     fields = ['lat', 'lon', 'name', 'been'];
 
 module.exports = function (data) {
+    'use strict';
     return new Promise(function (fulfill, reject) {
         var map = [];
         data.places.forEach(function (item) {

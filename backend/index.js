@@ -1,4 +1,6 @@
+/*global exports, require */
 exports.handler = function (event, context) {
+    'use strict';
     var fs = require('fs'),
         request = require('./request'),
         Promise = require('promise'),

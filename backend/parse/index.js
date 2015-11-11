@@ -1,32 +1,40 @@
+/*global module, require */
 var url = require('url'),
 	iso = require('../iso'),
 	getStringBetween = function (str, start, end) {
-		var left = str.substring(str.indexOf(start) + start.length);
+		'use strict';
+        var left = str.substring(str.indexOf(start) + start.length);
 		return left.substring(left.indexOf(end), -left.length);
 	};
 
 module.exports = {
 
 	getStats: function (html) {
-		var str = getStringBetween(html, '"idKeys":["memberId"],"properties":{"country":', '</html>');
+        'use strict';
+        var str = getStringBetween(html, '"idKeys":["memberId"],"properties":{"country":', '</html>');
 		return JSON.parse('{"country":' + getStringBetween(str, '"idKeys":["memberId"],"properties":{"country":', '}') + '}');
 	},
 	getLink: function (profileUrl, html) {
-		var prefix = '/TravelMap-a_uid.',
+        'use strict';
+        var prefix = '/TravelMap-a_uid.',
 			urlParts = url.parse(profileUrl);
 		return urlParts.protocol + '//' + urlParts.hostname + prefix + getStringBetween(html, prefix, '"');
 	},
 	getAvatar: function (html) {
-		return getStringBetween(html, 'class="avatarUrl" src="', '"')
+        'use strict';
+        return getStringBetween(html, 'class="avatarUrl" src="', '"')
 	},
 	getLanguage: function (html) {
-		return getStringBetween(html, 'bingMapsLang = "', '"');
+        'use strict';
+        return getStringBetween(html, 'bingMapsLang = "', '"');
 	},
 	getUserName: function (html) {
-		return getStringBetween(html, '<div class="memberTitle">', '<');
+        'use strict';
+        return getStringBetween(html, '<div class="memberTitle">', '<');
 	},
 	getPlaces: function (html) {
-		var places = [],taPlaces;
+        'use strict';
+        var places = [],taPlaces;
 			taPlaces = JSON.parse('{"' + getStringBetween(html, '"store":{"', ',"modules.membercenter.model.FriendCount') + '}')['modules.unimplemented.entity.LightWeightPin'];
 
 		for (var key in taPlaces) {

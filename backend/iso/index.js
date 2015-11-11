@@ -1,3 +1,4 @@
+/*global module */
 var iso = {
     Afghanistan: 'AF',
     'Aland Islands': 'AX',
@@ -247,6 +248,7 @@ var iso = {
 };
 module.exports = {
     get:function(country){
+        'use strict';
         if (iso.hasOwnProperty(country)) {
             return iso[country]
         }

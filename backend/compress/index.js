@@ -1,4 +1,4 @@
-/*global require */
+/*global require,module */
 var Promise = require('promise'),
     gzip = require('gzip-buffer');
 
