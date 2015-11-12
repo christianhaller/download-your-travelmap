@@ -8,14 +8,31 @@
     "android 4"
   ],
   "aws": {
-    "lambda": {
-      "FunctionName": "travelmap",
-      "Role": "arn:aws:iam::806424220409:role/invoke",
-      "Timeout": 60
+    "prod": {
+      "filename": "index.html",
+      "path": "https://smd2e8ej75.execute-api.us-east-1.amazonaws.com/prod/",
+      "lambda": {
+        "FunctionName": "travelmap",
+        "Role": "arn:aws:iam::806424220409:role/invoke",
+        "Timeout": 60
+      },
+      "s3": {
+        "bucketName": "download-your-travelmap.christianhaller.com",
+        "region": "us-west-2"
+      }
     },
-    "s3": {
-      "bucketName": "download-your-travelmap.christianhaller.com",
-      "region": "us-west-2"
+    "stage": {
+      "filename": "stage.html",
+      "path": "https://eucch0w5pe.execute-api.us-east-1.amazonaws.com/prod",
+      "lambda": {
+        "FunctionName": "travelmap-stage",
+        "Role": "arn:aws:iam::806424220409:role/invoke",
+        "Timeout": 60
+      },
+      "s3": {
+        "bucketName": "stage.download-your-travelmap.christianhaller.com",
+        "region": "us-west-2"
+      }
     }
   }
 }
