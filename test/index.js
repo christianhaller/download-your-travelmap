@@ -1,4 +1,4 @@
-/*global require, describe, it */
+/*global require, describe, it, console */
 (function () {
     'use strict';
     var app = require('../backend'),

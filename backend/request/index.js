@@ -1,3 +1,4 @@
+/*global require, module */
 var http = require('http'),
     url = require('url'),
     Promise = require('promise'),
@@ -5,6 +6,7 @@ var http = require('http'),
 
 // get host and path
     getRequestOptions = function (str) {
+        'use strict';
         var urlParts = url.parse(str);
         return {
             headers: {
@@ -18,6 +20,7 @@ var http = require('http'),
         };
     },
     parseResponse = function (profileUrl, html) {
+        'use strict';
         var map = {};
         map.stats = parse.getStats(html);
         map.places = parse.getPlaces(html);
@@ -27,10 +30,12 @@ var http = require('http'),
         return map;
     },
     parseMapLink = function (profileUrl, html) {
+        'use strict';
         return parse.getLink(profileUrl, html);
     };
 
 module.exports = function (profileUrl) {
+    'use strict';
     return new Promise(function (fullfil, reject) {
         var mapCallback = function (response) {
                 var str = '';
@@ -57,7 +62,7 @@ module.exports = function (profileUrl) {
                 response.on('end', function () {
                     var mapUrl = parseMapLink(profileUrl, html);
                     try {
-                        cb(parseResponse(profileUrl, html));
+                        fullfil(parseResponse(profileUrl, html));
                     }
                         // second request
                     catch (e) {
@@ -71,13 +76,13 @@ module.exports = function (profileUrl) {
                 });
             },
             res = http.get(getRequestOptions(profileUrl), function (data) {
-                if(data.statusCode === 404){
+                if (data.statusCode === 404) {
                     reject('profile not found');
 
 
                 }
 
-                if(data.statusCode === 301){
+                if (data.statusCode === 301) {
                     http.get(getRequestOptions(data.headers.location), function (data) {
                         profileCallback(data);
                     });
@@ -86,8 +91,8 @@ module.exports = function (profileUrl) {
                     profileCallback(data);
                 }
             });
-            res.on('error',function(err){
-                reject(err)
-            });
+        res.on('error', function (err) {
+            reject(err)
+        });
     });
 };

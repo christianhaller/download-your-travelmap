@@ -10,10 +10,10 @@
 
     gulp.task('lambda', function () {
 
-
+        // it's following symlinks \o/
         return gulp.src('./backend/**/*')
             .pipe(zip('archive.zip'))
-            .pipe(lambda(config.aws.lambda, config.aws))
+            .pipe(lambda(config.aws.lambda, config.aws));
     });
 
     gulp.task('s3', function () {
