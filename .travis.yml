@@ -36,4 +36,4 @@ script:
 
 
 after_success:
-  - gulp prod_deploy
+  - gulp deploy_prod
