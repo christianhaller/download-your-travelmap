@@ -15,8 +15,7 @@
             test.assertEvalEquals(function () {
                 return $('.js-username').text();
             }, 'christianhaller', 'correct name');
-            this.echo('redirected to login.html');
-        },10000);
+        },function(){},10000);
 
 
         casper.run(function () {
