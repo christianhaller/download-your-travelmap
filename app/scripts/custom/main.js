@@ -1,4 +1,5 @@
 /*global ga,Tc,NProgress,document,window */
+/*exported WebFontConfig */
 (function ($, document, window, ga) {
     'use strict';
 
@@ -46,7 +47,7 @@ var WebFontConfig = {
 (function (document) {
     'use strict';
     var wf = document.createElement('script');
-    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+    wf.src = ('https:' === document.location.protocol ? 'https' : 'http') +
         '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
     wf.async = 'true';
     document.head.appendChild(wf);

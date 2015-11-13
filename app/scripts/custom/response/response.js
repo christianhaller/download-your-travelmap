@@ -98,8 +98,7 @@
 
 		on: function (callback) {
 			var $ctx = this.$ctx,
-				config = this.sandbox.getConfig(),
-				mod = this;
+				config = this.sandbox.getConfig();
 			this.sandbox.subscribe('Tracking', this);
 			$ctx.on({
 				'hide': function () {

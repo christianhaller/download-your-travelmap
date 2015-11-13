@@ -32,7 +32,7 @@
                     method: 'GET',
                     dataType: 'json',
                     url: $ctx.attr('action')
-                }).error(function (response) {
+                }).error(function () {
 
                 }).success(function (response) {
                     if (typeof response.errorMessage !== 'undefined') {

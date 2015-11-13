@@ -1,9 +1,8 @@
-/*global require,process */
+/*global require */
 (function () {
     'use strict';
     var gulp = require('gulp'),
         lambda = require('gulp-awslambda'),
-        fs = require('fs'),
         awspublish = require("gulp-awspublish"),
         zip = require('gulp-zip'),
         config = require('../../../backend/config.json'),

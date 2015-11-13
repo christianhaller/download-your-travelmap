@@ -69,5 +69,4 @@ module.exports = {
         }
         return places;
     }
-
 };

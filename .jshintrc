@@ -21,6 +21,7 @@
     "latedef": true,
     "loopfunc": false,
     "noarg": true,
+    "unused": true,
     "scripturl": true,
     "shadow": false,
     "supernew": false,

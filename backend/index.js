@@ -1,8 +1,7 @@
 /*global exports, require */
 exports.handler = function (event, context) {
     'use strict';
-    var fs = require('fs'),
-        request = require('./request'),
+    var request = require('./request'),
         Promise = require('promise'),
         csv = require('./csv'),
         compress = require('./compress'),
