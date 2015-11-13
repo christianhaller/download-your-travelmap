@@ -16,7 +16,7 @@
                 return $('.js-username').text();
             }, 'christianhaller', 'correct name');
             this.echo('redirected to login.html');
-        });
+        },10000);
 
 
         casper.run(function () {
