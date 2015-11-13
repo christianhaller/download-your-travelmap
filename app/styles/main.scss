@@ -167,23 +167,11 @@ body {
 }
 
 body {
-  animation: fade-moment-in .5s ease-out;
+
   background:         linear-gradient(90deg, #9D50BB 10%, #6E48AA 90%); /* W3C */
 }
 
 
-
-@keyframes fade-moment-in {
-  0% {
-    opacity: 0;
-    transform: scale(0.9) translate3d(0, -40px, 0);
-  }
-
-  100% {
-    opacity: 1;
-    transform: scale(1) translate3d(0, 0, 0);
-  }
-}
 
 .example {
   a {
@@ -245,18 +233,8 @@ body {
   }
 }
 
-@keyframes spin {
-  from {
-    transform: scale(1) rotate(0deg);
-  }
-
-  to {
-    transform: scale(1) rotate(360deg);
-  }
-}
 
 .url-form__submit .icon {
-  animation: spin 5.7s infinite linear;
   margin-left: 10px;
 }
 .last-change {
