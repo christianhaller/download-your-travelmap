@@ -2,4 +2,4 @@
 
 [![GitHub version](https://badge.fury.io/gh/christianhaller%2Fdownload-your-travelmap.svg)](https://badge.fury.io/gh/christianhaller%2Fdownload-your-travelmap)
 
-Downloads, lol [![Downloads, lol](https://img.shields.io/github/downloads/christianhaller/download-your-travelmap/latest/total.svg)]()
+[![GitHub commits](https://img.shields.io/github/commits-since/SubtitleEdit/subtitleedit/3.4.7.svg)]()
