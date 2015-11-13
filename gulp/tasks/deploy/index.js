@@ -26,7 +26,7 @@
                 .pipe(lambda(config.lambda, config));
 
 
-            return gulp.src(['./dist/'+config.filename, './app/robots.txt'])
+            return gulp.src(['./dist/' + config.filename, './app/robots.txt'])
                 .pipe(awspublish.gzip({}))
                 .pipe(publisher.publish(headers))
                 .pipe(awspublish.reporter({}));

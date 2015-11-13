@@ -12,7 +12,7 @@
         concat = require('gulp-concat'),
         sass = require('gulp-sass');
 
-    gulp.task('styles',['svgSprite'], function () {
+    gulp.task('styles', ['svgSprite'], function () {
         return gulp.src(assets.styles)
             // 1 . SASS
             .pipe(sass())

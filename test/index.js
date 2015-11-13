@@ -19,20 +19,24 @@
         });
     });
 
-    describe('stage okay', function(){
-        it('gateway should send json', function(done){
+    describe('stage okay', function () {
+        it('gateway should send json', function (done) {
             this.timeout(9000);
             https
-                .get('https://eucch0w5pe.execute-api.us-east-1.amazonaws.com/prod/?url=http%3A%2F%2Fwww.tripadvisor.com%2Fmembers%2FCarolinaCoopers',function (res){
+                .get('https://eucch0w5pe.execute-api.us-east-1.amazonaws.com/prod/?url=http%3A%2F%2Fwww.tripadvisor.com%2Fmembers%2FCarolinaCoopers', function (res) {
                     var body = '';
                     expect(res.statusCode).to.equal(200);
 
-                    res.on('data', function(chunk) {
+                    res.on('data', function (chunk) {
                         body += chunk;
                     });
-                    res.on('end', function() {
+                    res.on('error', function (err) {
+                        console.log(err);
+                    });
+                    res.on('end', function () {
+                        console.log(body);
                         expect(JSON.parse(body).data.username).to.equal('CarolinaCoopers');
-                        done()
+                        done();
                     });
 
                 });
@@ -48,7 +52,8 @@
                 'succeed': function (data) {
                     expect(data.data.username).to.equal('christianhaller');
                     done();
-                }, fail: function (err) {
+                },
+                fail: function (err) {
                     done(err);
                 }
             });
@@ -57,14 +62,16 @@
         it('kml', function (done) {
             var input = {
                     'username': 'robiwan',
-                    'places': [{
-                        city: 'Davos',
-                        county: 'Switzerland',
-                        iso: 'CH',
-                        lat: 46.794476,
-                        lng: 9.823285,
-                        name: 'Davos, Switzerland'
-                    }]
+                    'places': [
+                        {
+                            city: 'Davos',
+                            county: 'Switzerland',
+                            iso: 'CH',
+                            lat: 46.794476,
+                            lng: 9.823285,
+                            name: 'Davos, Switzerland'
+                        }
+                    ]
                 },
                 output = kml(input);
             parser.parseString(output, function (err, result) {
@@ -77,7 +84,8 @@
 
         it('404', function (done) {
             this.timeout(4000);
-            requestApp(' http://www.tripadvisor.com/christianhaller').catch(function (err) {
+            requestApp(' http://www.tripadvisor.com/christianhaller')
+            .catch(function (err) {
                 expect(err).to.equal('profile not found');
                 done();
             });
@@ -89,41 +97,46 @@
             requestApp(' http://www.tripadvisor.com/TravelMap-a_uid.BAE86B9F2C0155C5003524F652DD4719').then(function (data) {
                 expect(data.username).to.equal('surefire56');
                 done();
-            }).catch(function (err) {
-                console.log(err);
-            });
+            })
+                .catch(function (err) {
+                    console.log(err);
+                });
         });
 
         it('wrong url', function (done) {
             this.timeout(4000);
-            requestApp('http://www.tripadvisor.com').catch(function (err) {
-                expect(err).to.be.an(Error);
-                done();
-            });
+            requestApp('http://www.tripadvisor.com')
+                .catch(function (err) {
+                    expect(err).to.be.an(Error);
+                    done();
+                });
         });
 
         it('no url', function (done) {
             this.timeout(4000);
-            requestApp('').catch(function (err) {
-                expect(err).to.be.an(Error);
-                done();
-            });
+            requestApp('')
+                .catch(function (err) {
+                    expect(err).to.be.an(Error);
+                    done();
+                });
         });
 
         it('bad url', function (done) {
             this.timeout(4000);
-            requestApp('http://www.google.com').catch(function (err) {
-                expect(err).to.be.an(Error);
-                done();
-            });
+            requestApp('http://www.google.com')
+                .catch(function (err) {
+                    expect(err).to.be.an(Error);
+                    done();
+                });
         });
 
         it('dns error', function (done) {
             this.timeout(4000);
-            requestApp('http://www.google.commmmm').catch(function (err) {
-                expect(err).to.be.an(Error);
-                done();
-            });
+            requestApp('http://www.google.commmmm')
+                .catch(function (err) {
+                    expect(err).to.be.an(Error);
+                    done();
+                });
         });
     });
 }());
