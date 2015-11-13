@@ -23,7 +23,7 @@
         it('gateway should send json', function(done){
             this.timeout(9000);
             https
-                .get('https://eucch0w5pe.execute-api.us-east-1.amazonaws.com/prod?url=http%3A%2F%2Fwww.tripadvisor.com%2Fmembers%2FCarolinaCoopers',function (res){
+                .get('https://eucch0w5pe.execute-api.us-east-1.amazonaws.com/prod/?url=http%3A%2F%2Fwww.tripadvisor.com%2Fmembers%2FCarolinaCoopers',function (res){
                     var body = '';
                     expect(res.statusCode).to.equal(200);
 
