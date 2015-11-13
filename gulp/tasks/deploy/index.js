@@ -6,7 +6,7 @@
         fs = require('fs'),
         awspublish = require("gulp-awspublish"),
         zip = require('gulp-zip'),
-        config = require('../../../config.json'),
+        config = JSON.parse(fs.readFileSync('./backend/config.json')),
         deploy = function (config) {
 
             var publisher = awspublish.create({
@@ -33,12 +33,12 @@
         };
 
 
-    gulp.task('deploy_prod', function () {
+    gulp.task('deploy_prod', ['default'], function () {
         config = config.aws.prod;
         deploy(config);
     });
 
-    gulp.task('deploy_stage', function () {
+    gulp.task('deploy_stage', ['default'], function () {
         config = config.aws.stage;
         deploy(config);
     });

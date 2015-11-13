@@ -8,7 +8,7 @@
         rename = require('gulp-rename'),
         htmlmin = require('gulp-htmlmin'),
         assets = require('../../config/assets.json'),
-        config = require('../../../config.json'),
+        config = JSON.parse(fs.readFileSync('./backend/config.json')),
         markup = function (env) {
             var buildDate = new Date(),
                 fileName = config['aws'][env]['filename'];

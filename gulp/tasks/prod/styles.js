@@ -3,7 +3,8 @@
     'use strict';
     var gulp = require('gulp'),
         assets = require('../../config/assets.json'),
-        config = require('../../../config.json'),
+        fs = require('fs'),
+        config = require('../../../backend/config.json'),
         rename = require('gulp-rename'),
         csso = require('gulp-csso'),
         prefix = require('gulp-autoprefixer'),
