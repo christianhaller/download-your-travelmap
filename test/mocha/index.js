@@ -5,7 +5,7 @@
     var app = require('../../backend'),
         requestApp = require('../../backend/request'),
         https = require('https'),
-        xml2js = require('xml2js/'),
+        xml2js = require('xml2js'),
         parser = new xml2js.Parser(),
         config = require('../../backend/config.json'),
         expect = require('../../backend/node_modules/expect.js/'),
