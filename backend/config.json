@@ -23,7 +23,7 @@
     },
     "stage": {
       "filename": "stage.html",
-      "path": "https://eucch0w5pe.execute-api.us-east-1.amazonaws.com/prod",
+      "path": "https://eucch0w5pe.execute-api.us-east-1.amazonaws.com/prod/",
       "lambda": {
         "FunctionName": "travelmap-stage",
         "Role": "arn:aws:iam::806424220409:role/invoke",

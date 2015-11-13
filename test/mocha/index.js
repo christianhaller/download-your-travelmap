@@ -2,13 +2,14 @@
 
 (function () {
     'use strict';
-    var app = require('../backend'),
-        requestApp = require('../backend/request'),
+    var app = require('../../backend'),
+        requestApp = require('../../backend/request'),
         https = require('https'),
         xml2js = require('xml2js/'),
         parser = new xml2js.Parser(),
-        expect = require('../backend/node_modules/expect.js/'),
-        kml = require('../backend/kml');
+        config = require('../../backend/config.json'),
+        expect = require('../../backend/node_modules/expect.js/'),
+        kml = require('../../backend/kml');
 
     describe('redirect', function () {
         it('301', function (done) {
@@ -26,7 +27,7 @@
         it('gateway should send json', function (done) {
             this.timeout(9000);
             https
-                .get('https://eucch0w5pe.execute-api.us-east-1.amazonaws.com/prod/?url=http%3A%2F%2Fwww.tripadvisor.com%2Fmembers%2FCarolinaCoopers', function (res) {
+                .get(config.aws.stage.path+'?url=http%3A%2F%2Fwww.tripadvisor.com%2Fmembers%2FCarolinaCoopers', function (res) {
                     var body = '';
                     expect(res.statusCode).to.equal(200);
 
@@ -47,7 +48,7 @@
 
     describe('app', function () {
         it('Be OK https://en.wikipedia.org/wiki/Be_OK_%28Ingrid_Michaelson_song%29', function (done) {
-            this.timeout(9000);
+            this.timeout(12000);
             app.handler({
                 'url': decodeURIComponent('http://www.tripadvisor.com/members/christianhaller')
             }, {

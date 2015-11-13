@@ -31,7 +31,8 @@
     "require-dir": "^0.3.0"
   },
   "scripts": {
-    "test": "mocha test/index.js"
+    "test": "mocha test/mocha/index.js",
+      "test-casperjs":"casperjs test test/casperjs/index.js"
   },
   "repository": {
     "type": "git",

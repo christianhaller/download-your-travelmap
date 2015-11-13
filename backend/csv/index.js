@@ -18,7 +18,6 @@ module.exports = function (data) {
                 console.log('err');
                 reject(err);
             } else {
-                console.log('ok');
                 fulfill(csv);
             }
         });
