@@ -1,7 +1,7 @@
 {
   "name": "download-your-travelmap",
   "version": "1.0.0",
-  "description": "hey",
+  "description": "I'm the travelmap description",
   "main": "gulpfile.js",
   "directories": {
     "test": "test"
