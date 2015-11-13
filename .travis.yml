@@ -32,6 +32,7 @@ install:
   - npm install
   - gulp deploy_stage
 script:
+  - ..cd/
   - npm test
 
 
