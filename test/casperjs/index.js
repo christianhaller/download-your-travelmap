@@ -17,7 +17,7 @@
             }, 'christianhaller', 'correct name');
         },function(){
                 test.comment('timeout');
-        },10000);
+        },100000);
 
 
         casper.run(function () {
