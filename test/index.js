@@ -34,7 +34,6 @@
                         console.log(err);
                     });
                     res.on('end', function () {
-                        console.log(body);
                         expect(JSON.parse(body).data.username).to.equal('CarolinaCoopers');
                         done();
                     });
