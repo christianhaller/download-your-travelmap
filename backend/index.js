@@ -4,7 +4,6 @@ exports.handler = function (event, context) {
     var fs = require('fs'),
         request = require('./request'),
         Promise = require('promise'),
-        validate = require('./validate'),
         csv = require('./csv'),
         compress = require('./compress'),
         kml = require('./kml'),
@@ -21,7 +20,7 @@ exports.handler = function (event, context) {
         })
         .then(compress)
         .then(function (kmlData) {
-           return upload('kml', map.username + '-' + map.date + '.kml', kmlData, 'application/vnd.google-earth.kml+xml', 'gzip');
+            return upload('kml', map.username + '-' + map.date + '.kml', kmlData, 'application/vnd.google-earth.kml+xml', 'gzip');
         })
         .then(function (url) {
             map.kml = url;
@@ -37,7 +36,8 @@ exports.handler = function (event, context) {
         .then(function (url) {
             map.csv = url;
             context.succeed({'data': map});
-        }).catch(function (err) {
+        })
+        .catch(function (err) {
             //console.log(err);
             context.fail(err)
 

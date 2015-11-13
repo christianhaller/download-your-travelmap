@@ -1,11 +1,11 @@
-/*global require, module, process */
+/*global require, module, process, console */
 (function () {
     'use strict';
     var AWS = require('aws-sdk'),
         sanitize = require('sanitize-filename'),
         Promise = require('promise'),
         fs = require('fs'),
-        config = JSON.parse(fs.readFileSync('./config.json'));
+        config = require('../config.json');
 
     module.exports = function (dir, filename, content, contentType, contentEncoding) {
 
@@ -30,8 +30,7 @@
             upload.send(function (err, data) {
                 if (err) {
                     reject(err);
-                }
-                else {
+                } else {
                     console.log(data.Location + ' uploaded');
                     fulfill(data.Location);
                 }

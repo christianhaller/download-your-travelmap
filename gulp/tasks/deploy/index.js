@@ -6,7 +6,7 @@
         fs = require('fs'),
         awspublish = require("gulp-awspublish"),
         zip = require('gulp-zip'),
-        config = JSON.parse(fs.readFileSync('./backend/config.json')),
+        config = require('../../../backend/config.json'),
         deploy = function (config) {
 
             var publisher = awspublish.create({

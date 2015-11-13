@@ -1,4 +1,4 @@
-/*global module, require */
+/*global module, require, console */
 var json2csv = require('json2csv'),
     Promise = require('promise'),
     fields = ['lat', 'lon', 'name', 'been'];
@@ -17,8 +17,7 @@ module.exports = function (data) {
             if (err) {
                 console.log('err');
                 reject(err);
-            }
-            else {
+            } else {
                 console.log('ok');
                 fulfill(csv);
             }

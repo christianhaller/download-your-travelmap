@@ -247,10 +247,10 @@ var iso = {
     Zimbabwe: 'ZW'
 };
 module.exports = {
-    get:function(country){
+    get: function (country) {
         'use strict';
         if (iso.hasOwnProperty(country)) {
-            return iso[country]
+            return iso[country];
         }
         return '';
     }

@@ -45,8 +45,7 @@ module.exports = function (profileUrl) {
                 response.on('end', function () {
                     try {
                         fullfil(parseResponse(profileUrl, str));
-                    }
-                    catch (e) {
+                    } catch (e) {
                         reject(new Error('can\'t parse ' + profileUrl + ', please double check your input'));
 
                     }
@@ -63,14 +62,11 @@ module.exports = function (profileUrl) {
                     var mapUrl = parseMapLink(profileUrl, html);
                     try {
                         fullfil(parseResponse(profileUrl, html));
-                    }
-                        // second request
-                    catch (e) {
-                        if (typeof mapUrl !== 'undefined') {
+                    } catch (e) {
+                        if (mapUrl !==  undefined) {
                             http.get(getRequestOptions(mapUrl), mapCallback).end();
-                        }
-                        else {
-                            reject('wtf');
+                        } else {
+                            reject(new Error(e));
                         }
                     }
                 });
@@ -86,13 +82,12 @@ module.exports = function (profileUrl) {
                     http.get(getRequestOptions(data.headers.location), function (data) {
                         profileCallback(data);
                     });
-                }
-                else {
+                } else {
                     profileCallback(data);
                 }
             });
         res.on('error', function (err) {
-            reject(err)
+            reject(err);
         });
     });
 };

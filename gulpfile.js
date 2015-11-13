@@ -1,3 +1,3 @@
-/* default, dev */
+/*global require */
 
 require('./gulp/index');
