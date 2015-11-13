@@ -11,13 +11,13 @@
                 'url': url
             }, true);
 
-        }).waitForUrl('http://stage.download-your-travelmap.christianhaller.com/?url='+url, function () {
+        }).waitForUrl('http://stage.download-your-travelmap.christianhaller.com/?url=', function () {
             test.assertEvalEquals(function () {
                 return $('.js-username').text();
             }, 'christianhaller', 'correct name');
         },function(){
                 test.comment('timeout');
-        },100000);
+        },10000);
 
 
         casper.run(function () {
