@@ -15,7 +15,9 @@
             test.assertEvalEquals(function () {
                 return $('.js-username').text();
             }, 'christianhaller', 'correct name');
-        },function(){},10000);
+        },function(){
+                test.comment('timeout');
+        },10000);
 
 
         casper.run(function () {
