@@ -33,6 +33,7 @@ install:
   - gulp deploy_stage
   - cd ..
   - casperjs --version
+  - phantomjs --version
 script:
   - npm test
 
