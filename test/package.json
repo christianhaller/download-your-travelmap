@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "mocha": "^2.3.3",
     "xml2js": "^0.4.15"
   }
 }
