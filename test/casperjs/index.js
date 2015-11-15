@@ -12,7 +12,7 @@
                 'url': url
             }, true);
 
-            this.wait(10000, function() {
+            this.wait(20000, function() {
                 this.echo("I've waited for ten seconds.");
                 this.echo(this.getCurrentUrl());
                 test.assertEvalEquals(function () {
