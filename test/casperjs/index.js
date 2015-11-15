@@ -12,7 +12,7 @@
                 'url': url
             }, true);
 
-        }).waitForUrl('http://stage.download-your-travelmap.christianhaller.com/?url=', function () {
+        }).waitForUrl('http://stage.download-your-travelmap.christianhaller.com/', function () {
             test.assertEvalEquals(function () {
                 return $('.js-username').text();
             }, 'christianhaller', 'correct name');
