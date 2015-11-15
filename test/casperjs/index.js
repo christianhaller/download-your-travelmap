@@ -8,11 +8,11 @@
 
         casper.start('http://stage.download-your-travelmap.christianhaller.com/', function () {
             this.echo(this.getCurrentUrl());
-            casper.fill('.url-form', {
+            this.fill('.url-form', {
                 'url': url
             }, true);
 
-            this.wait(20000, function() {
+            this.wait(10000, function() {
                 this.echo("I've waited for ten seconds.");
                 this.echo(this.getCurrentUrl());
                 test.assertEvalEquals(function () {
