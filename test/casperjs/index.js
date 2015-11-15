@@ -7,6 +7,7 @@
     casper.test.begin('basic functions', function suite(test) {
 
         casper.start('http://stage.download-your-travelmap.christianhaller.com/', function () {
+            this.echo(this.getCurrentUrl());
             casper.fill('.url-form', {
                 'url': url
             }, true);
@@ -16,6 +17,7 @@
                 return $('.js-username').text();
             }, 'christianhaller', 'correct name');
         },function(){
+                this.echo(this.getCurrentUrl());
                 test.comment('timeout');
         },10000);
 
