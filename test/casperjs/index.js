@@ -4,7 +4,7 @@
     var url = 'http://www.tripadvisor.com/members/christianhaller';
     casper.options.viewportSize = {width: 1600, height: 950};
 
-    casper.test.begin('basic functions', function suite(test) {
+    casper.test.begin('basic functions', function (test) {
 
         casper.start('http://stage.download-your-travelmap.christianhaller.com/', function () {
             this.echo(this.getCurrentUrl());
