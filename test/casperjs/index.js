@@ -12,14 +12,17 @@
                 'url': url
             }, true);
 
-        }).waitForUrl('http://stage.download-your-travelmap.christianhaller.com/', function () {
-            test.assertEvalEquals(function () {
-                return $('.js-username').text();
-            }, 'christianhaller', 'correct name');
-        },function(){
+            this.wait(10000, function() {
+                this.echo("I've waited for ten seconds.");
                 this.echo(this.getCurrentUrl());
-                test.comment('timeout');
-        },10000);
+                test.assertEvalEquals(function () {
+                    return $('.js-username').text();
+                }, 'christianhaller', 'correct name');
+            });
+
+
+
+        });
 
 
         casper.run(function () {
