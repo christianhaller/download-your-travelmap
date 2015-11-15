@@ -28,7 +28,7 @@ before_install:
 install:
   - if [[ $TRAVIS_OS_NAME == "linux" ]]; then export CXX=g++-4.8; fi
   - $CXX --version
-  - npm install -g gulp mocha
+  - npm install -g gulp mocha casperjs
   - npm install
   - gulp deploy_stage
   - cd ..
