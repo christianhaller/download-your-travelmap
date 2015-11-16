@@ -5,6 +5,7 @@
         stageUrl = 'http://stage.download-your-travelmap.christianhaller.com/';
     casper.options.waitTimeout = 20000;
     casper.on('page.resource.requested', function (requestData, request) {
+        console.log(requestData.url);
         // https://github.com/ariya/phantomjs/issues/12181
         var url = requestData.url.replace('https', 'http');
         request.changeUrl(url);
@@ -19,7 +20,7 @@
             }, true);
 
             this.waitForUrl(stageUrl + '?url=' + tripAdvisorProfileUrl, function () {
-                test.comment(this.getCurrentUrl());
+                console.log(this.getCurrentUrl());
                 test.assertEquals(this.fetchText('.js-username'), 'christianhaller', 'name');
             });
 
