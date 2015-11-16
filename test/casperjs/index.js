@@ -3,7 +3,7 @@
     'use strict';
     var tripAdvisorProfileUrl = 'http://www.tripadvisor.com/members/christianhaller',
         stageUrl = 'http://stage.download-your-travelmap.christianhaller.com/';
-
+    casper.options.waitTimeout = 20000;
     casper.on('page.resource.requested', function (requestData, request) {
         // https://github.com/ariya/phantomjs/issues/12181
         var url = requestData.url.replace('https', 'http');
