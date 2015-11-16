@@ -1,30 +1,29 @@
 /*global casper */
 (function (casper) {
     'use strict';
-    var url = 'http://www.tripadvisor.com/members/christianhaller';
-    casper.options.viewportSize = {width: 1600, height: 950};
+    var tripAdvisorProfileUrl = 'http://www.tripadvisor.com/members/christianhaller',
+        stageUrl = 'http://stage.download-your-travelmap.christianhaller.com/';
+
+    casper.on('page.resource.requested', function (requestData, request) {
+        // https://github.com/ariya/phantomjs/issues/12181
+        var url = requestData.url.replace('https', 'http');
+        request.changeUrl(url);
+
+    });
 
     casper.test.begin('basic functions', function (test) {
 
-        casper.start('http://stage.download-your-travelmap.christianhaller.com/', function () {
-            this.echo(this.getCurrentUrl());
+        casper.start(stageUrl, function () {
             this.fill('.url-form', {
-                'url': url
+                'url': tripAdvisorProfileUrl
             }, true);
 
-            this.wait(10000, function() {
-                this.echo("I've waited for ten seconds.");
-                this.echo(this.getCurrentUrl());
-                test.assertEvalEquals(function () {
-                    return $('.js-username').text();
-                }, 'christianhaller', 'correct name');
+            this.waitForUrl(stageUrl + '?url=' + tripAdvisorProfileUrl, function () {
+                test.comment(this.getCurrentUrl());
+                test.assertEquals(this.fetchText('.js-username'), 'christianhaller', 'name');
             });
 
-
-
         });
-
-
         casper.run(function () {
             test.done();
         });
