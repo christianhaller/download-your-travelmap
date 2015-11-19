@@ -25,7 +25,7 @@
 
     describe('stage okay', function () {
         it('gateway should send json', function (done) {
-            this.timeout(9000);
+            this.timeout(15000);
             https
                 .get(config.aws.stage.path + '?url=http%3A%2F%2Fwww.tripadvisor.com%2Fmembers%2FCarolinaCoopers', function (res) {
                     var body = '';
