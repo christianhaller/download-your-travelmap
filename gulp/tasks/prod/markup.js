@@ -9,6 +9,10 @@
         htmlmin = require('gulp-htmlmin'),
         assets = require('../../config/assets.json'),
         config = JSON.parse(fs.readFileSync('./backend/config.json')),
+        getHostname = function(url){
+
+
+        },
         markup = function (env) {
             var buildDate = new Date(),
                 fileName = config['aws'][env]['filename'];
@@ -23,6 +27,7 @@
                     'buildDate': buildDate,
                     'inline': true,
                     'path': config.aws[env].path,
+                    'awsApiGatewayHostname': getHostname(config.aws[env].path),
                     'stylesheet': fs.readFileSync('build/styles/app.min.css', 'utf8'),
                     'script': fs.readFileSync('build/scripts/app.min.js', 'utf8')
                 }))
