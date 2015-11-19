@@ -8,10 +8,11 @@
         rename = require('gulp-rename'),
         htmlmin = require('gulp-htmlmin'),
         assets = require('../../config/assets.json'),
+        url = require('url'),
         config = JSON.parse(fs.readFileSync('./backend/config.json')),
-        getHostname = function(url){
-
-
+        getHostname = function(path){
+            var parts = url.parse(path);
+            return parts['hostname'];
         },
         markup = function (env) {
             var buildDate = new Date(),
