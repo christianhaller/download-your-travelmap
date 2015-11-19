@@ -31,7 +31,7 @@
     "require-dir": "^0.3.0"
   },
   "scripts": {
-    "test": "mocha test/mocha/index.js && casperjs test test/casperjs/index.js"
+    "test": "mocha test/mocha/index.js && casperjs test test/casperjs/index.js --engine=slimerjs"
   },
   "repository": {
     "type": "git",

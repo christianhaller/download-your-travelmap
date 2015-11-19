@@ -27,7 +27,7 @@
         it('gateway should send json', function (done) {
             this.timeout(9000);
             https
-                .get(config.aws.stage.path+'?url=http%3A%2F%2Fwww.tripadvisor.com%2Fmembers%2FCarolinaCoopers', function (res) {
+                .get(config.aws.stage.path + '?url=http%3A%2F%2Fwww.tripadvisor.com%2Fmembers%2FCarolinaCoopers', function (res) {
                     var body = '';
                     expect(res.statusCode).to.equal(200);
 
@@ -108,9 +108,9 @@
         it('wrong url', function (done) {
             this.timeout(4000);
             requestApp('http://www.tripadvisor.com').catch(function (err) {
-                    expect(err).to.be.an(Error);
-                    done();
-                });
+                expect(err).to.be.an(Error);
+                done();
+            });
         });
 
         it('no url', function (done) {
