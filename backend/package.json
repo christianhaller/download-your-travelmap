@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "nodejs backend for download-your-travelmap.christianhaller.com",
   "main": "index.js",
   "scripts": {
     "test": "mocha ../test/index.js"

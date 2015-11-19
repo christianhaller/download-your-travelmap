@@ -1,5 +1,5 @@
-/aws-credentials.json
 node_modules
 /dist
 .idea
 /build
+/bower_components

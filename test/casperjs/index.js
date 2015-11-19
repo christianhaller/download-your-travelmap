@@ -16,15 +16,25 @@
 
         casper.start(stageUrl, function () {
 
+            test.assertResourceExists(function(resource) {
+                return resource.url.match('http://www.google-analytics.com/r/collect');
+            },'Google Analytics');
+
+
+            this.fill('.url-form', { url: 'http://www.google.com' }, true);
+            test.assertExists('#url.error','form validation');
+
+
             this.fill('.url-form', { url: tripAdvisorProfileUrl }, true);
+
             this.waitForUrl(stageUrl + '?url=' + tripAdvisorProfileUrl, function () {
                 console.log(this.getCurrentUrl());
                 test.assertEquals(this.fetchText('.js-username'), 'christianhaller', 'name');
             }, function () {
             }, 9009);
-
-
         });
+
+
 
 
         casper.run(function () {
