@@ -3,3 +3,4 @@ node_modules
 .idea
 /build
 /bower_components
+/app/scripts/vendor/analytics.js
