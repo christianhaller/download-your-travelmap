@@ -36,7 +36,6 @@
             this.fill('.url-form', {url: tripAdvisorProfileUrl}, true);
 
             this.waitForUrl(stageUrl + '?url=' + tripAdvisorProfileUrl, function () {
-                console.log(this.getCurrentUrl());
                 test.assertEquals(this.fetchText('.js-username'), 'christianhaller', 'name');
             }, function () {
             }, 9009);
@@ -44,11 +43,7 @@
 
 
         casper.run(function () {
-            if (jsErrors.length > 0) {
-                this.echo(jsErors.length + ' Javascript errors found', 'WARNING');
-            } else {
-                this.echo(jsErrors.length + ' Javascript errors found', 'INFO');
-            }
+            test.assertEquals(jsErrors.length, 0, 'no js errors');
 
             test.done();
         });
