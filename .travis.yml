@@ -24,7 +24,7 @@ before_install:
   - cd test
   - npm install
   - cd ../app
-  - npm install -g npm slimerjs
+  - npm install -g slimerjs
   - npm install
   - cd ../backend
 install:
