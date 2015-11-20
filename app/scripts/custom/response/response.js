@@ -8,6 +8,7 @@
 				$map = $ctx.find('#jvectormap'),
 				$thisIs = $ctx.find('.js-this-is__city'),
 				jvectormapConfig = config.jvectormap;
+            
 			if (response.data.lang === 'en') {
 				jvectormapConfig.series.regions[0].values = this.getRegions(response.data.places);
 			}
@@ -85,13 +86,11 @@
             $ctx.find('.js-stats-bar .percent').text((stats.country/193*100).toFixed(2)+'%');
 		},
 		setKmlDownloadButton: function ($ctx, kml) {
-			console.log(kml);
             $ctx.find('.js-download-bar__button__kml').attr('href', kml);
 
 
 		},
 		setCsvDownloadButton: function ($ctx, csv) {
-			console.log(csv);
 			$ctx.find('.js-download-bar__button__csv').attr('href', csv);
 
 		},
