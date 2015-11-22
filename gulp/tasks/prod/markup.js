@@ -17,7 +17,7 @@
         },
         markup = function (env) {
             var buildDate = new Date(),
-                jobId = parseInt(argv.buildId,10)- 2,
+                buildId = argv.buildId,
                 fileName = config['aws'][env]['filename'];
             assets.svg = fs.readFileSync('build/svg/defs.svg');
             return gulp.src('./app/index.hbs')
@@ -27,7 +27,7 @@
                     'assets': assets,
                     'buildDate': buildDate,
                     'inline': true,
-                    'who': jobId || '',
+                    'buildId': buildId || '',
                     'path': config.aws[env].path,
                     'awsApiGatewayHostname': getHostname(config.aws[env].path),
                     'stylesheet': fs.readFileSync('build/styles/app.min.css', 'utf8'),
