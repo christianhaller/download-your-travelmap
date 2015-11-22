@@ -17,7 +17,7 @@
         },
         markup = function (env) {
             var buildDate = new Date(),
-                jobId = parseInt(argv.buildId,10)- 1,
+                jobId = parseInt(argv.buildId,10)- 2,
                 fileName = config['aws'][env]['filename'];
             assets.svg = fs.readFileSync('build/svg/defs.svg');
             return gulp.src('./app/index.hbs')
