@@ -34,7 +34,8 @@
     "require-dir": "^0.3.0"
   },
   "scripts": {
-    "test": "mocha test/mocha/index.js && casperjs test test/casperjs/index.js --engine=slimerjs"
+    "test": "mocha test/mocha/index.js && casperjs test test/casperjs/index.js --engine=slimerjs",
+      "test-stage": "gulp deploy_stage && npm test"
   },
   "repository": {
     "type": "git",

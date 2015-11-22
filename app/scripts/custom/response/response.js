@@ -8,7 +8,7 @@
 				$map = $ctx.find('#jvectormap'),
 				$thisIs = $ctx.find('.js-this-is__city'),
 				jvectormapConfig = config.jvectormap;
-            
+
 			if (response.data.lang === 'en') {
 				jvectormapConfig.series.regions[0].values = this.getRegions(response.data.places);
 			}
