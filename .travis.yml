@@ -40,3 +40,4 @@ script:
 
 after_success:
   - gulp deploy_prod
+  - npm backend/invalidate.js
