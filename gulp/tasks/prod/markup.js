@@ -8,6 +8,7 @@
         rename = require('gulp-rename'),
         htmlmin = require('gulp-htmlmin'),
         assets = require('../../config/assets.json'),
+        argv = require('yargs').argv,
         url = require('url'),
         config = JSON.parse(fs.readFileSync('./backend/config.json')),
         getHostname = function(path){
@@ -27,6 +28,7 @@
                     'assets': assets,
                     'buildDate': buildDate,
                     'inline': true,
+                    'who': argv.buildId || '',
                     'path': config.aws[env].path,
                     'awsApiGatewayHostname': getHostname(config.aws[env].path),
                     'stylesheet': fs.readFileSync('build/styles/app.min.css', 'utf8'),
