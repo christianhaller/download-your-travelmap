@@ -40,6 +40,6 @@ script:
 
 after_success:
   - echo $TRAVIS_JOB_ID
-  - gulp --buildId=$TRAVIS_BUILD_ID
+  - gulp --buildId=$TRAVIS_BUILD_ID --buildNumber=$TRAVIS_BUILD_NUMBER
   - gulp deploy_prod
   - node backend/invalidate.js

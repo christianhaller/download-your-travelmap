@@ -1,4 +1,5 @@
 @import "globals";
+@import "../../build/styles/icons";
 
 a {
     color: $link-color;
@@ -10,14 +11,8 @@ a {
     }
 
     &:hover {
-        background: $primary-color;
+        background-color: $primary-color;
         color: $white;
-        .icon--expandable {
-            width: 24px;
-            color: $white;
-            fill: $white;
-        }
-
     }
 }
 
@@ -26,7 +21,7 @@ a {
 }
 
 .is-invisible {
-    visibility: none !important;
+    visibility: visible !important;
 }
 
 .block {
@@ -128,10 +123,9 @@ body {
 .download-bar__button.download-bar__button {
     background: $primary-color;
     color: #fff;
-    padding: 5px 5px;
+    padding: 5px;
     font-size: 12px;
     margin-left: 5px;
-
 }
 
 .download-bar__button.download-bar__button:hover {
@@ -143,10 +137,9 @@ body {
 
 .download-bar__button {
     .icon {
-
-        color: #fff;
-        fill: #fff;
         margin-left: 5px;
+        padding:  5px 20px 5px 0;
+        background-position: 100% 50%;
     }
 }
 
@@ -217,16 +210,19 @@ body {
     width: 80%;
     a {
         padding: 3px;
+
+        &:hover {
+            background-color: transparent;
+            color: $white;
+        }
     }
 
     .icon {
-        width: 24px;
-        margin-right: 5px;
-        margin-left: 12px;
-        vertical-align: middle;
-        height: 24px;
-        background: transparent;
+        background-position: 0% 50%;
+        padding: 5px 5px 5px 30px;
     }
+
+
 }
 
 .url-form__submit .icon {

@@ -9,13 +9,7 @@
   &:hover {
     background: #FFD700;
     color: $font-color;
-
     box-shadow: 0 3px 10px #ccc;
-
-    svg {
-      animation: spin 1.7s infinite linear;
-
-    }
   }
 }
 

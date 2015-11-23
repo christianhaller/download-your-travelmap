@@ -11,7 +11,7 @@
         concat = require('gulp-concat'),
         sass = require('gulp-sass');
 
-    gulp.task('styles', ['svgSprite'], function () {
+    gulp.task('styles', ['svg'], function () {
         return gulp.src(assets.styles)
             // 1 . SASS
             .pipe(sass())
@@ -20,6 +20,7 @@
 
             // 4. concat them all
             .pipe(concat('app.css'))
+
             .pipe(gulp.dest('build/styles'))
             .pipe(rename({
                 suffix: '.min'

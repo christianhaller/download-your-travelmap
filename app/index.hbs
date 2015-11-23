@@ -25,31 +25,23 @@
     <title>Download Your TripAdvisor Travel Map 📍</title>
 </head>
 <body>
-<!-- svg -->
 <div class="content">
     <header class="welcome">
         <h1 class="welcome__title">Download Your TripAdvisor Travel Map</h1>
     </header>
 
     <p class="splash-subhead example">
-        Just enter your <a href="http://www.tripadvisor.com/MemberProfile"><span>TripAdvisor</span>
-        <svg display="none" class="icon icon--expandable icon-link" viewBox="0 0 14 14">
-            <use xlink:href="#icon-link"></use>
-        </svg>
+        Just enter your <a href="http://www.tripadvisor.com/MemberProfile"><span class="icon icon-link">TripAdvisor</span>
     </a> Profile URL, press submit and wait for ~ 5 seconds.<span
             class="example__hint">e. g. http://www.tripadvisor.com/members/christianhaller</span></p>
 
     <form class="pure-form url-form mod-url mod" method="get" action="{{path}}" data-connectors="ajax">
         <input class="url-form__input" type="text" id="url" value="" autofocus name="url">
         <button type="submit" class="pure-button pure-button-primary url-form__submit">submit
-            <svg display="none" class="icon" viewBox="0 0 24 24">
-                <use xlink:href="#clock"></use>
-            </svg>
+
         </button>
         <div class="pure-alert-error pure-alert url-form__alert mod mod-alert" data-connectors="ajax">
-            <svg display="none" class="icon icon-wondering" viewBox="0 0 14 14">
-                <use xlink:href="#icon-wondering"></use>
-            </svg>
+
             <span></span></div>
     </form>
 
@@ -62,16 +54,11 @@
                         class="js-this-is__city download-bar__city">your travelmap</span></strong>
                 <ul>
                     <li><a class="js-download-bar__button__kml download-bar__button pure-button pure-button-success">
-                        <svg display="none" class="icon" viewBox="0 0 14 14">
-                            <use xlink:href="#icon-box-add"></use>
-                        </svg>
-                        <span>Download KML</span>
+                        <span class="icon icon-download">Download KML</span>
                     </a></li>
                     <li><a class="js-download-bar__button__csv pure-button download-bar__button pure-button-success">
-                        <svg display="none" class="icon" viewBox="0 0 14 14">
-                            <use xlink:href="#icon-box-add"></use>
-                        </svg>
-                        <span>Download CSV</span>
+
+                        <span class="icon icon-download">Download CSV</span>
                     </a></li>
 
                 </ul>
@@ -88,14 +75,12 @@
 </div>
 <footer class="footer">
     <a href="http://www.tripadvisor.com/ShowTopic-g1-i12105-k4907156-o20-How_can_I_download_my_travel_map_pins_list-TripAdvisor_Support.html">About</a>
-    <svg display="none" class="icon icon-github" viewBox="0 0 48 48">
-        <use xlink:href="#webicon-github"></use>
-    </svg>
-    <a href="https://github.com/christianhaller/download-your-travelmap">github</a>
+
+    <a class="icon icon-octocat" href="https://github.com/christianhaller/download-your-travelmap">github</a>
     {{#if buildId}}
-        <a href="https://travis-ci.org/christianhaller/download-your-travelmap/builds/{{buildId}}" class="last-change">build: {{buildDate}}</a>
+        <a href="https://travis-ci.org/christianhaller/download-your-travelmap/builds/{{buildId}}" class="icon-travisci icon">build: {{buildNumber}}</a>
     {{else}}
-        <span class="last-change">build: {{buildDate}}</span>
+        <span class="icon-travisci icon">build: 0</span>
     {{/if}}
 </footer>
 <script>{{{script}}}</script>
