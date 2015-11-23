@@ -5,6 +5,7 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   preserveAspectRatio="xMinYMid"
    viewBox="0 0 308.45334 305.95999"
    xml:space="preserve"
    id="svg2"
