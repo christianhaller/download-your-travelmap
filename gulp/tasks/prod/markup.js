@@ -11,14 +11,14 @@
         argv = require('yargs').argv,
         url = require('url'),
         config = JSON.parse(fs.readFileSync('./backend/config.json')),
-        getHostname = function(path){
+        getHostname = function (path) {
             var parts = url.parse(path);
-            return parts['hostname'];
+            return parts.hostname;
         },
         markup = function (env) {
-            var buildDate = new Date(),
+            var buildDate = new Date().toString(),
                 buildId = argv.buildId,
-                fileName = config['aws'][env]['filename'];
+                fileName = config.aws[env].filename;
             assets.svg = fs.readFileSync('build/svg/defs.svg');
             return gulp.src('./app/index.hbs')
 
@@ -51,4 +51,4 @@
         markup('stage');
 
     });
-})();
+}());

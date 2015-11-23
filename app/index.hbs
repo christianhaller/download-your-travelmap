@@ -3,8 +3,10 @@
 <head>
     <meta charset="utf-8"/>
     <!--[if lt IE 9]>
-        <meta http-equiv="refresh" content="0;url=http://browsehappy.com/"/>
-        <style>* {display:none;}</style>
+    <meta http-equiv="refresh" content="0;url=http://browsehappy.com/"/>
+    <style>* {
+        display: none;
+    }</style>
     <![endif]-->
     <link rel="dns-prefetch" href="//www.google-analytics.com"/>
     <link rel="dns-prefetch" href="//ajax.googleapis.com"/>
@@ -14,16 +16,11 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="microid" content="mailto:http:sha1:85a36cacd2230575172266f765d9dfba059906ec">
+    <style>{{{stylesheet}}}</style>
 
-    {{#if inline}}
-        <style>{{{stylesheet}}}</style>
-    {{else}}
-{{#if debug}}{{#each assets.styles.css}}
-        <link type="text/css" rel="stylesheet" href="/styles/src/{{this}}"/>{{/each}}
-{{else}}
-        <link type="text/css" rel="stylesheet" href="{{assetPath "styles/app.min.css"}}"/>{{/if}}
-    {{/if}}
-    <meta name="Description" CONTENT="Download your TripAdvisor Travelmap. You only need your Profile URL, one click and a second waiting time.">
+
+    <meta name="Description"
+          CONTENT="Download your TripAdvisor Travelmap. You only need your Profile URL, one click and a second waiting time.">
     <link rel="author" href="https://plus.google.com/+ChristianHaller1982"/>
     <title>Download Your TripAdvisor Travel Map 📍</title>
 </head>
@@ -35,16 +32,20 @@
     </header>
 
     <p class="splash-subhead example">
-        Just enter your <a href="http://www.tripadvisor.com/MemberProfile"><span>TripAdvisor</span><svg display="none" class="icon icon--expandable icon-link" viewBox="0 0 14 14">
+        Just enter your <a href="http://www.tripadvisor.com/MemberProfile"><span>TripAdvisor</span>
+        <svg display="none" class="icon icon--expandable icon-link" viewBox="0 0 14 14">
             <use xlink:href="#icon-link"></use>
-        </svg></a> Profile URL, press submit and wait for ~ 5 seconds.<span
+        </svg>
+    </a> Profile URL, press submit and wait for ~ 5 seconds.<span
             class="example__hint">e. g. http://www.tripadvisor.com/members/christianhaller</span></p>
 
     <form class="pure-form url-form mod-url mod" method="get" action="{{path}}" data-connectors="ajax">
         <input class="url-form__input" type="text" id="url" value="" autofocus name="url">
-        <button type="submit" class="pure-button pure-button-primary url-form__submit">submit<svg display="none" class="icon" viewBox="0 0 24 24">
-            <use xlink:href="#clock"></use>
-        </svg></button>
+        <button type="submit" class="pure-button pure-button-primary url-form__submit">submit
+            <svg display="none" class="icon" viewBox="0 0 24 24">
+                <use xlink:href="#clock"></use>
+            </svg>
+        </button>
         <div class="pure-alert-error pure-alert url-form__alert mod mod-alert" data-connectors="ajax">
             <svg display="none" class="icon icon-wondering" viewBox="0 0 14 14">
                 <use xlink:href="#icon-wondering"></use>
@@ -57,7 +58,8 @@
         <div class="tab jvectormap" data-zoomlevel>
             <div class="download-bar pure-menu pure-menu-open pure-menu-horizontal">
 
-                <strong class="this-is">Hi <span class="js-username this-is_username">mate</span>, this is <span class="js-this-is__city download-bar__city">your travelmap</span></strong>
+                <strong class="this-is">Hi <span class="js-username this-is_username">mate</span>, this is <span
+                        class="js-this-is__city download-bar__city">your travelmap</span></strong>
                 <ul>
                     <li><a class="js-download-bar__button__kml download-bar__button pure-button pure-button-success">
                         <svg display="none" class="icon" viewBox="0 0 14 14">
@@ -86,18 +88,17 @@
 </div>
 <footer class="footer">
     <a href="http://www.tripadvisor.com/ShowTopic-g1-i12105-k4907156-o20-How_can_I_download_my_travel_map_pins_list-TripAdvisor_Support.html">About</a>
-    <svg display="none" class="icon icon-github" viewBox="0 0 48 48"> <use xlink:href="#webicon-github"></use>
-</svg><a href="https://github.com/christianhaller/download-your-travelmap">github</a>
+    <svg display="none" class="icon icon-github" viewBox="0 0 48 48">
+        <use xlink:href="#webicon-github"></use>
+    </svg>
+    <a href="https://github.com/christianhaller/download-your-travelmap">github</a>
     {{#if buildId}}
-    <a href="https://travis-ci.org/christianhaller/download-your-travelmap/builds/{{buildId}}" class="last-change">last code update: {{buildDate}}</a>
+        <a href="https://travis-ci.org/christianhaller/download-your-travelmap/builds/{{buildId}}" class="last-change">build: {{buildDate}}</a>
+    {{else}}
+        <span class="last-change">build: {{buildDate}}</span>
     {{/if}}
 </footer>
-{{#if inline}}
-    <script>{{{script}}}</script>
-    {{else}}
-{{#if debug}}
-    {{#each assets.scripts}}
-        <script src="/scripts/src/{{this}}"></script>{{/each}}{{else}}<script src="{{assetPath "scripts/app.min.js"}}"></script>{{/if}}{{/if}}
-        <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js" async></script>
+<script>{{{script}}}</script>
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js" async></script>
 </body>
 </html>
