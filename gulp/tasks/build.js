@@ -1,8 +1,8 @@
 /*global require*/
-(function () {
+(function (require) {
     'use strict';
     var gulp = require('gulp');
 
     gulp.task('build', ['scripts', 'styles', 'markup']);
-}());
+}(require));
 

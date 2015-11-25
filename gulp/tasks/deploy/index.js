@@ -1,5 +1,5 @@
 /*global require */
-(function () {
+(function (require) {
     'use strict';
     var gulp = require('gulp'),
         lambda = require('gulp-awslambda'),
@@ -18,10 +18,10 @@
                     'Content-Encoding': 'gzip'
                 },
                 headerIndex = {
-                    'Cache-Control': 'max-age=3600, no-transform, public, must-revalidate',
+                    'Cache-Control': 'max-age=7200, no-transform, public, must-revalidate',
                     'Content-Encoding': 'gzip'
                 };
-            
+
             gulp.src('./backend/**/*')
                 .pipe(zip('archive.zip'))
                 .pipe(lambda(config.lambda, config));
@@ -47,4 +47,4 @@
         config = config.aws.stage;
         deploy(config);
     });
-}());
+}(require));

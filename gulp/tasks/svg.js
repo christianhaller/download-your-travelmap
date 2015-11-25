@@ -1,5 +1,5 @@
 /*global require*/
-(function () {
+(function (require) {
     'use strict';
     var gulp = require('gulp'),
         svgmin = require('gulp-svgmin'),
@@ -16,4 +16,4 @@
             }))
             .pipe(gulp.dest('./build/styles'));
     });
-}());
+}(require));

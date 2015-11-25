@@ -1,5 +1,5 @@
 /*global require*/
-(function () {
+(function (require) {
     'use strict';
     var gulp = require('gulp'),
         fs = require('fs'),
@@ -50,4 +50,4 @@
         markup('stage');
 
     });
-}());
+}(require));

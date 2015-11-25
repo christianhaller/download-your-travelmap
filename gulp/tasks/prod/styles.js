@@ -1,5 +1,5 @@
 /*global require*/
-(function () {
+(function (require) {
     'use strict';
     var gulp = require('gulp'),
         assets = require('../../config.json'),
@@ -32,4 +32,4 @@
             // 7. save to app.min.css
             .pipe(gulp.dest('build/styles'));
     });
-}());
+}(require));

@@ -1,5 +1,5 @@
 /*global require*/
-(function () {
+(function (require) {
     'use strict';
     var gulp = require('gulp'),
         jshint = require('gulp-jshint');
@@ -9,4 +9,4 @@
             .pipe(jshint())
             .pipe(jshint.reporter('jshint-stylish'));
     });
-}());
+}(require));

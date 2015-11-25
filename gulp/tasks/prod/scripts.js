@@ -1,5 +1,5 @@
 /*global require*/
-(function () {
+(function (require) {
     'use strict';
     var gulp = require('gulp'),
         concat = require('gulp-concat'),
@@ -30,4 +30,4 @@
 
             .pipe(gulp.dest('./build/scripts'));
     });
-}());
+}(require));
