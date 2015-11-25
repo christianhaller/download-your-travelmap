@@ -9,9 +9,11 @@
             InvalidationBatch: {
                 CallerReference: '' + Date.now(),
                 Paths: {
-                    Quantity: 1,
+                    Quantity: 3,
                     Items: [
-                        '/index.html'
+                        '/index.html',
+                        '/favicon.ico',
+                        '/robots.txt'
                     ]
                 }
             }
