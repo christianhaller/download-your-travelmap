@@ -18,7 +18,7 @@
                     'Content-Encoding': 'gzip'
                 },
                 headerIndex = {
-                    'Cache-Control': 'max-age=14400, no-transform, public, must-revalidate',
+                    'Cache-Control': 'max-age=3600, no-transform, public, must-revalidate',
                     'Content-Encoding': 'gzip'
                 };
 
