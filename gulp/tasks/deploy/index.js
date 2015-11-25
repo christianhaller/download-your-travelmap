@@ -16,10 +16,13 @@
                 headerForever = {
                     'Cache-Control': 'max-age=31536000, no-transform, public, must-revalidate',
                     'Content-Encoding': 'gzip'
+
                 },
                 headerIndex = {
                     'Cache-Control': 'max-age=3600, no-transform, public, must-revalidate',
-                    'Content-Encoding': 'gzip'
+                    'Content-Encoding': 'gzip',
+                    'Content-Type': 'text/html; charset=UTF-8'
+                   // 'x-frame-options': 'SAMEORIGIN'
                 };
 
             gulp.src('./backend/**/*')
