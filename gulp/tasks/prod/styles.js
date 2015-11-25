@@ -2,11 +2,11 @@
 (function () {
     'use strict';
     var gulp = require('gulp'),
-        assets = require('../../config/assets.json'),
+        assets = require('../../config.json'),
         config = require('../../../backend/config.json'),
         rename = require('gulp-rename'),
         csso = require('gulp-csso'),
-        prefix = require('gulp-autoprefixer'),
+        please = require('gulp-pleeease'),
         minifycss = require('gulp-minify-css'),
         concat = require('gulp-concat'),
         sass = require('gulp-sass');
@@ -16,7 +16,7 @@
             // 1 . SASS
             .pipe(sass())
             // 2. autoprefixing
-            .pipe(prefix(config.autoprefixer))
+            .pipe(please(config.please))
 
             // 4. concat them all
             .pipe(concat('app.css'))

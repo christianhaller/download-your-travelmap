@@ -3,18 +3,20 @@
 
 a {
     color: $link-color;
-    .icon--expandable {
 
-        width: 0;
-        text-align: left;
-        transition: width 0.3s ease;
-    }
 
     &:hover {
         background-color: $primary-color;
         color: $white;
     }
 }
+
+
+.icon {
+    background-repeat: no-repeat;
+
+}
+
 
 .is-hidden {
     display: none !important;
@@ -60,7 +62,6 @@ body {
     .jvectormap-zoomout {
         position: absolute;
         left: 0;
-        box-shadow: 2px 2px 2px #333;
         border-radius: $border-radius;
         background: $primary-color;
         padding: 5px;
@@ -167,6 +168,11 @@ body {
         padding: 3px;
         border-radius: $border-radius;
     }
+    .icon-link {
+        background-position: 100% 50%;
+        padding-right: 20px;
+    }
+
 }
 
 .example__hint {

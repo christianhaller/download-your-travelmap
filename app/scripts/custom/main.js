@@ -1,8 +1,6 @@
-/*global ga,Tc,NProgress,document,window */
-/*exported WebFontConfig */
-(function ($, document, window, ga) {
+/*global ga,Tc,NProgress,document,window, jQuery */
+(function (window, document, $, ga, NProgress, Tc) {
     'use strict';
-
 
     $(document).ready(function () {
         var $page = $(document.body),
@@ -16,31 +14,43 @@
             NProgress.done();
         }, 100);
     });
+
     ga('create', 'UA-53443219-1', 'auto');
     ga('send', 'pageview');
-})(Tc.$, document, window, ga);
 
-(function (window, NProgress) {
-    'use strict';
-    NProgress.configure({showSpinner: false, parent: '.content'});
-    var trackJavaScriptError = function (e) {
-        var ie = window.event,
-            errMsg = e.message || ie.errorMessage,
-            errSrc = (e.filename || ie.errorUrl) + ': ' + (e.lineno || ie.errorLine);
-        ga('send', 'event', 'JavaScript Error', errMsg, errSrc, {
-            'nonInteraction': 1
-        });
-    };
 
-    if (window.addEventListener) {
-        window.addEventListener('error', trackJavaScriptError, false);
-    } else if (window.attachEvent) {
-        window.attachEvent('onerror', trackJavaScriptError);
-    } else {
-        window.onerror = trackJavaScriptError;
-    }
-})(window, NProgress);
+    (function () {
+        window.NProgress.configure({showSpinner: false, parent: '.content'});
+        var trackJavaScriptError = function (e) {
+            var ie = window.event,
+                errMsg = e.message || ie.errorMessage,
+                errSrc = (e.filename || ie.errorUrl) + ': ' + (e.lineno || ie.errorLine);
+            ga('send', 'event', 'JavaScript Error', errMsg, errSrc, {
+                'nonInteraction': 1
+            });
+        };
 
-var WebFontConfig = {
-    google: {families: ['Roboto:500:latin']}
-};
+        if (window.addEventListener) {
+            window.addEventListener('error', trackJavaScriptError, false);
+        } else if (window.attachEvent) {
+            window.attachEvent('onerror', trackJavaScriptError);
+        } else {
+            window.onerror = trackJavaScriptError;
+        }
+    }());
+
+
+    window.requestAnimationFrame(function () {
+        var elementToInsertLinkBefore = document.getElementsByTagName('script')[0],
+            linkElement = document.createElement('link');
+        linkElement.rel = 'stylesheet';
+        linkElement.media = 'all';
+        linkElement.href = 'https://fonts.googleapis.com/css?family=Roboto:400';
+        elementToInsertLinkBefore.parentNode.insertBefore(linkElement, elementToInsertLinkBefore);
+
+    });
+
+}(window, document, jQuery, ga, NProgress, Tc));
+
+
+
