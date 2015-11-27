@@ -37,9 +37,8 @@ install:
 script:
   - npm test
 
-
 after_success:
-  - echo $TRAVIS_JOB_ID
+  - if [[ "$TRAVIS_BRANCH" != "master" ]]; then echo "Deployments are only done for the master branch. Current branch is $TRAVIS_BRANCH"; exit 0; fi
   - gulp --buildId=$TRAVIS_BUILD_ID --buildNumber=$TRAVIS_BUILD_NUMBER
   - gulp deploy_prod
   - node backend/invalidate.js
