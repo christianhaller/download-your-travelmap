@@ -19,7 +19,7 @@ exports.handler = function (event, context) {
         })
         .then(compress)
         .then(function (kmlData) {
-            return upload('kml', map.username + '-' + map.date + '.kml', kmlData, 'application/vnd.google-earth.kml+xml', 'gzip');
+            return upload('kml', map.username + '.kml', kmlData, 'application/vnd.google-earth.kml+xml', 'gzip');
         })
         .then(function (url) {
             map.kml = url;
@@ -29,7 +29,7 @@ exports.handler = function (event, context) {
         .then(compress)
         .then(function (csvData) {
             //filename, content, contentType, contentEncoding
-            return upload('csv', map.username + '-' + map.date + '.csv', csvData, 'text/csv', 'gzip');
+            return upload('csv', map.username + '.csv', csvData, 'text/csv', 'gzip');
 
         })
         .then(function (url) {
