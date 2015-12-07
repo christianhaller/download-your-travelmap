@@ -19,7 +19,7 @@ env:
 
 
 before_install:
-  - cd test
+  #- cd test
   - npm install slimerjs
   - export SLIMERJS="./node_modules/slimerjs/bin/slimerjs"
   - npm install
