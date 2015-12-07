@@ -28,6 +28,8 @@ before_install:
   - "sh -e /etc/init.d/xvfb start"
   - cd test
   - npm install
+  - cd ../backend
+  - npm install
 
 
 install:
