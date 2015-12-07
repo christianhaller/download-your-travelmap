@@ -19,6 +19,7 @@ env:
 
 before_install:
   #- cd test
+  - node --version
   - npm install slimerjs
   - export SLIMERJS="./node_modules/slimerjs/bin/slimerjs"
   - npm install
@@ -34,6 +35,7 @@ install:
   - $CXX --version
   - npm install -g gulp mocha casperjs
   - npm install
+
   - gulp deploy_stage
 
 script:
