@@ -19,17 +19,17 @@ env:
 
 before_install:
   #- cd test
-  - node --version
   - npm install slimerjs
   - export SLIMERJS="./node_modules/slimerjs/bin/slimerjs"
   - npm install
   - export DISPLAY=:99.0
   - "sh -e /etc/init.d/xvfb start"
-  - cd ../app
+  - cd test
   - npm install
 
 
 install:
+  - cd ..
   - if [[ $TRAVIS_OS_NAME == "linux" ]]; then export CXX=g++-4.8; fi
   - $CXX --version
   - npm install -g gulp mocha casperjs
