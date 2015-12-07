@@ -1,6 +1,5 @@
-language: node_js
 node_js:
-  - 5.0
+  - "5.0"
  # - 0.10.36
 
 
@@ -18,7 +17,7 @@ env:
     - secure: "osVaedMpR96FXOML+rb/6ZA43u5Kmc+5b+boivlKrSZ0G4CUiB8aNXVcsm9OrggAE3S+aBjN3GOkul/UmQpZL6Uv1mtDpp2/kVRs8dAlWKFC39KALX1e4YMYQRN5Xj+4y/dKW+xmxIuXLLnpWi+iQJvkD55U1AuY5N7zmvkogaTBs4X5Fj800WG1RirT7oprA4UMaBsqFctOcnZn09pb7cgYHAndgmBPprPzONckekMgG9gCRDvVE3ACi4f5QdZpf1u3gMh3O9N0lbfkiFiAR87vkbHHcPUd5rem1fJJG+M5GQCK651pGTd4JVmGwkee/FIVi5EQa3Ttx6JRVPVWIFAzhKv1tYgqYrvBBSNQriJrxvJ7nZpPpZGFlEd0jltF9IDwT8YGXrKsVOZX3GdyDu2e1WQKq9R+aaz/Q77pCGsQMIRngpBMF68rj4zhx/7uINk4Fb7LSb0eJer5hQP/86ZMuixZlw1zQFdxlM4gHzyBmwm6GdqaY5IbbSypqUkH5dsE7EGUK8UaV5cT443B1s/tzvIqEkqEXlYZLTPFaaVK6KCw0XZJxR8joDwJxvAOKlCBrYABbCvA7TGZ9GMwXm8F6d+cHnORffr1BEBFWr9tY4xpFQtYMhR2FkaFt60EirUM6B02C11p3DuHbCcFj7+7o5yjlc4LVvqu/j5tx3c="
 
 
-before_install:
+before_script:
   #- cd test
   - npm install slimerjs
   - export SLIMERJS="./node_modules/slimerjs/bin/slimerjs"
