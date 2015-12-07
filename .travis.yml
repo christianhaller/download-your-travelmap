@@ -24,11 +24,6 @@ before_install:
   - cd ../app
   - npm install
 
-before_script:
-  - export DISPLAY=:99.0
-  - "sh -e /etc/init.d/xvfb start"
-  - npm install slimerjs
-  - export SLIMERJS="./node_modules/slimerjs/bin/slimerjs"
 
 install:
   - if [[ $TRAVIS_OS_NAME == "linux" ]]; then export CXX=g++-4.8; fi
@@ -36,7 +31,13 @@ install:
   - npm install -g gulp mocha casperjs
   - npm install
   - gulp deploy_stage
-  - cd ..
+
+before_script:
+  - export DISPLAY=:99.0
+  - "sh -e /etc/init.d/xvfb start"
+  - npm install slimerjs
+  - export SLIMERJS="./node_modules/slimerjs/bin/slimerjs"
+
 script:
   - npm test
 
