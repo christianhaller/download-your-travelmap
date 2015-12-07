@@ -31,7 +31,8 @@
     "gulp-zip": "^3.0.2",
     "jshint": "^2.8.0",
     "jshint-stylish": "^2.1.0",
-    "require-dir": "^0.3.0"
+    "require-dir": "^0.3.0",
+    "yargs": "^3.31.0"
   },
   "scripts": {
     "test": "mocha test/mocha/index.js && casperjs test test/casperjs/index.js --engine=slimerjs",
