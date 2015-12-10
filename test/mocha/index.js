@@ -8,7 +8,7 @@
         xml2js = require('xml2js'),
         parser = new xml2js.Parser(),
         config = require('../../backend/config.json'),
-        expect = require('../../backend/node_modules/expect.js/'),
+        expect = require('expect.js/'),
         kml = require('../../backend/kml');
 
     describe('redirect', function () {
@@ -41,7 +41,6 @@
                         expect(JSON.parse(body).data.username).to.equal('CarolinaCoopers');
                         done();
                     });
-
                 });
         });
     });

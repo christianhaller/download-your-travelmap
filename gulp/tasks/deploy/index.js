@@ -25,7 +25,13 @@
                    // 'x-frame-options': 'SAMEORIGIN'
                 };
 
-            gulp.src('./backend/**/*')
+            gulp.src(['./backend/**/*',
+                './node_modules/gzip-buffer',
+                './node_modules/sanitize-filename',
+                './node_modules/json2csv',
+                './node_modules/geojson',
+                './node_modules/tokml'
+            ])
                 .pipe(zip('archive.zip'))
                 .pipe(lambda(config.lambda, config));
 
