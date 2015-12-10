@@ -5,6 +5,6 @@
         del = require('del');
 
     gulp.task('clean', function () {
-        return del(['./dist/styles', './dist/scripts']);
+        return del(['./build','./bower_components', './dist/styles', './dist/scripts']);
     });
 }(require));
