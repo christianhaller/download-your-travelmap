@@ -19,30 +19,18 @@ env:
 
 
 before_install:
-  #- cd test
-  - node --version
   - npm install slimerjs
   - export SLIMERJS="./node_modules/slimerjs/bin/slimerjs"
-  - npm install
   - export DISPLAY=:99.0
   - "sh -e /etc/init.d/xvfb start"
-  - cd test
-  - npm install
-  - cd ../backend
-  - npm install
 
 
 install:
-  - cd ..
   - if [[ $TRAVIS_OS_NAME == "linux" ]]; then export CXX=g++-4.8; fi
   - $CXX --version
   - npm install -g gulp mocha casperjs
   - npm install
-
   - gulp deploy_stage
-
-script:
-  - npm test
 
 after_success:
   - if [[ "$TRAVIS_BRANCH" != "master" ]]; then echo "Deployments are only done for the master branch. Current branch is $TRAVIS_BRANCH"; exit 0; fi
