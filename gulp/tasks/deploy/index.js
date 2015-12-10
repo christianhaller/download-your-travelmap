@@ -24,7 +24,7 @@
                     'Content-Type': 'text/html; charset=UTF-8'
                    // 'x-frame-options': 'SAMEORIGIN'
                 };
-            
+
 
             gulp.src('./backend/**/*'
 

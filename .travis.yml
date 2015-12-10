@@ -20,7 +20,7 @@ env:
 
 before_install:
   - cd backend && npm install
-  - cd ../npm install slimerjs
+  - cd ../ && npm install slimerjs
   - export SLIMERJS="./node_modules/slimerjs/bin/slimerjs"
   - export DISPLAY=:99.0
   - "sh -e /etc/init.d/xvfb start"
