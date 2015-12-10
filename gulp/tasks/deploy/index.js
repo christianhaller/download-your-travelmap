@@ -25,15 +25,21 @@
                    // 'x-frame-options': 'SAMEORIGIN'
                 };
 
-            gulp.src(['./backend/**/*',
-                './node_modules/gzip-buffer',
-                './node_modules/aws-sdk',
-                './node_modules/sanitize-filename',
-                './node_modules/json2csv',
-                './node_modules/geojson',
-                './node_modules/tokml'
-            ])
+
+            gulp.src(['./node_modules/gzip-buffer/**/*',
+                './node_modules/aws-sdk/**/*',
+                './node_modules/sanitize-filename/**/*',
+                './node_modules/json2csv/**/*',
+                './node_modules/geojson/**/*',
+                './node_modules/tokml/**/*'
+               ],{'base':'node_modules'})
+                .pipe(gulp.dest('./backend/node_modules'));
+
+            gulp.src('./backend/**/*'
+
+            )
                 .pipe(zip('archive.zip'))
+                //.pipe(gulp.dest('xxx'))
                 .pipe(lambda(config.lambda, config));
 
             gulp.src(['./app/robots.txt', './app/favicon.ico'])
