@@ -34,11 +34,10 @@
     "json2csv": "^3.0.1",
     "promise": "^7.0.4",
     "require-dir": "^0.3.0",
-
     "tokml": "^0.3.0",
-
+    "xml2js": "^0.4.15",
     "yargs": "^3.31.0"
-},
+  },
   "scripts": {
     "test": "mocha test/mocha/index.js && casperjs test test/casperjs/index.js --engine=slimerjs",
     "test-stage": "gulp deploy_stage && npm test"
