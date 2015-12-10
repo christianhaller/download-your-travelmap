@@ -32,6 +32,7 @@
     "jshint": "^2.8.0",
     "jshint-stylish": "^2.1.0",
     "json2csv": "^3.0.1",
+    "promise": "^7.0.4",
     "require-dir": "^0.3.0",
     "sanitize-filename": "^1.5.3",
     "tokml": "^0.3.0",
