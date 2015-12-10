@@ -27,6 +27,7 @@
 
             gulp.src(['./backend/**/*',
                 './node_modules/gzip-buffer',
+                './node_modules/aws-sdk',
                 './node_modules/sanitize-filename',
                 './node_modules/json2csv',
                 './node_modules/geojson',
