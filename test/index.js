@@ -2,7 +2,7 @@
 (function (casper) {
     'use strict';
     var tripAdvisorProfileUrl = 'http://www.tripadvisor.com/members/christianhaller',
-        stageUrl = 'http://stage.download-your-travelmap.christianhaller.com/',
+        url = casper.cli.get('url'),
         jsErrors = [];
 
     casper.options.viewportSize = {width: 1600, height: 950};
@@ -22,7 +22,7 @@
     casper.test.begin('basic functions', function (test) {
 
 
-        casper.start(stageUrl, function () {
+        casper.start(url, function () {
 
             test.assertResourceExists(function (resource) {
                 return resource.url.match('http://www.google-analytics.com/r/collect');
@@ -35,7 +35,7 @@
 
             this.fill('.url-form', {url: tripAdvisorProfileUrl}, true);
 
-            this.waitForUrl(stageUrl + '?url=' + tripAdvisorProfileUrl, function () {
+            this.waitForUrl(url + '?url=' + tripAdvisorProfileUrl, function () {
                 test.assertEquals(this.fetchText('.js-username'), 'christianhaller', 'name');
             }, function () {
             }, 9009);

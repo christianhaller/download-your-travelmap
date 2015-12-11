@@ -28,10 +28,11 @@
     "gzip-buffer": "0.0.2",
     "jshint": "^2.8.0",
     "jshint-stylish": "^2.1.0",
-    "require-dir": "^0.3.0"
+    "require-dir": "^0.3.0",
+    "yargs": "^3.31.0"
   },
   "scripts": {
-    "test": "casperjs test test/ --engine=slimerjs",
+    "test": "casperjs test test/ --engine=slimerjs --url=localhost:88888 && casperjs test test/ --engine=slimerjs --url=http://stage.download-your-travelmap.christianhaller.com",
     "test-stage": "gulp deploy_stage && npm test"
   },
   "repository": {
