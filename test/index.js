@@ -11,7 +11,7 @@
         console.log('Error code: ' + resourceError.errorCode + '. Description: ' + resourceError.errorString);
     });
 
-    casper.on("page.error", function (msg, trace) {
+    casper.on('page.error', function (msg, trace) {
         this.echo('Error:    ' + msg, 'ERROR');
         this.echo('file:     ' + trace[0].file, 'WARNING');
         this.echo('line:     ' + trace[0].line, 'WARNING');

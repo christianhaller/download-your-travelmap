@@ -8,7 +8,7 @@
         htmlmin = require('gulp-htmlmin'),
         argv = require('yargs').argv,
         url = require('url'),
-        config = require('../../../backend/config.json'),
+        config = require('../../../config.json'),
         getHostname = function (path) {
             var parts = url.parse(path);
             return parts.hostname;

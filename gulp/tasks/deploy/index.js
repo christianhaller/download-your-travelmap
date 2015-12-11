@@ -2,10 +2,8 @@
 (function (require) {
     'use strict';
     var gulp = require('gulp'),
-        lambda = require('gulp-awslambda'),
-        awspublish = require("gulp-awspublish"),
-        zip = require('gulp-zip'),
-        config = require('../../../backend/config.json'),
+        awspublish = require('gulp-awspublish'),
+        config = require('../../config.json'),
         deploy = function (config) {
             var publisher = awspublish.create({
                     region: config.s3.region,
@@ -26,11 +24,6 @@
                 };
 
 
-            gulp.src('./backend/**/*'
-
-            )
-                .pipe(zip('archive.zip'))
-                .pipe(lambda(config.lambda, config));
 
             gulp.src(['./app/robots.txt', './app/favicon.ico'])
                 .pipe(awspublish.gzip({}))
