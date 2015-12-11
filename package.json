@@ -10,6 +10,7 @@
     "del": "^2.2.0",
     "gulp": "^3.9.0",
     "gulp-awslambda": "^0.2.3",
+    "gulp-awspublish": "^3.0.1",
     "gulp-bower": "0.0.11",
     "gulp-compile-handlebars": "^0.6.0",
     "gulp-concat": "^2.6.0",
