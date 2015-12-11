@@ -19,7 +19,7 @@
         jsErrors.push(msg);
     });
 
-    casper.test.begin('basic functions', function (test) {
+    casper.test.begin('basic functions '+ url, function (test) {
 
 
         casper.start(url, function () {

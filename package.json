@@ -7,6 +7,7 @@
     "test": "test"
   },
   "devDependencies": {
+    "connect": "^3.4.0",
     "del": "^2.2.0",
     "gulp": "^3.9.0",
     "gulp-awslambda": "^0.2.3",
@@ -29,10 +30,11 @@
     "jshint": "^2.8.0",
     "jshint-stylish": "^2.1.0",
     "require-dir": "^0.3.0",
+    "serve-static": "^1.10.0",
     "yargs": "^3.31.0"
   },
   "scripts": {
-    "test": "casperjs test test/ --engine=slimerjs --url=localhost:88888 && casperjs test test/ --engine=slimerjs --url=http://stage.download-your-travelmap.christianhaller.com",
+    "test": "casperjs test test/ --engine=slimerjs --url=localhost:8080 && casperjs test test/ --engine=slimerjs --url=http://stage.download-your-travelmap.christianhaller.com",
     "test-stage": "gulp deploy_stage && npm test"
   },
   "repository": {

@@ -3,7 +3,7 @@
     'use strict';
     var gulp = require('gulp'),
         awspublish = require('gulp-awspublish'),
-        config = require('../../config.json'),
+        config = require('../../../config.json'),
         deploy = function (config) {
             var publisher = awspublish.create({
                     region: config.s3.region,
