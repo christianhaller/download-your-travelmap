@@ -1,22 +1,20 @@
 /*global require, module */
-var http = require('http'),
-    url = require('url'),
+var request = require('request'),
     Promise = require('promise'),
     parse = require('../parse'),
 
 // get host and path
     getRequestOptions = function (str) {
         'use strict';
-        var urlParts = url.parse(str);
+
         return {
+            'url': str,
             headers: {
                 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
                 'Accept-Language': 'de-DE,de;q=0.8,en-US;q=0.6,en;q=0.4',
                 'Upgrade-Insecure-Requests': '1',
                 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36'
-            },
-            host: urlParts.host,
-            path: urlParts.path
+            }
         };
     },
     parseResponse = function (profileUrl, html) {
@@ -38,56 +36,49 @@ module.exports = function (profileUrl) {
     'use strict';
     return new Promise(function (fullfil, reject) {
         var mapCallback = function (response) {
-                var str = '';
-                response.on('data', function (chunk) {
-                    str += chunk;
-                });
-                response.on('end', function () {
-                    try {
-                        fullfil(parseResponse(profileUrl, str));
-                    } catch (e) {
-                        reject(new Error('can\'t parse ' + profileUrl + ', please double check your input'));
 
-                    }
-                });
+                try {
+                    fullfil(parseResponse(profileUrl, response));
+                } catch (e) {
+                    reject(new Error('can\'t parse ' + profileUrl + ', please double check your input'));
+
+                }
+
             },
 
             profileCallback = function (response) {
-                var html = '';
-
-                response.on('data', function (chunk) {
-                    html += chunk;
-                });
-                response.on('end', function () {
-                    var mapUrl = parseMapLink(profileUrl, html);
-                    try {
-                        fullfil(parseResponse(profileUrl, html));
-                    } catch (e) {
-                        if (mapUrl !==  undefined) {
-                            http.get(getRequestOptions(mapUrl), mapCallback).end();
-                        } else {
-                            reject(new Error(e));
-                        }
+                var mapUrl = parseMapLink(profileUrl, response);
+                try {
+                    fullfil(parseResponse(profileUrl, response));
+                } catch (e) {
+                    if (mapUrl !== undefined) {
+                        request(getRequestOptions(mapUrl), function (err, response) {
+                            mapCallback(response.body);
+                        });
+                    } else {
+                        reject(new Error(e));
                     }
+                }
+
+            };
+        request(getRequestOptions(profileUrl), function (error, response) {
+            if (error) {
+                reject(new Error(error));
+                return;
+            }
+
+            if (response.statusCode === 404) {
+                reject('profile not found');
+            }
+            if (response.statusCode === 301) {
+                request(getRequestOptions(response.headers.location), function (error, response) {
+                    profileCallback(response.body);
                 });
-            },
-            res = http.get(getRequestOptions(profileUrl), function (data) {
-                if (data.statusCode === 404) {
-                    reject('profile not found');
+            } else {
 
-
-                }
-
-                if (data.statusCode === 301) {
-                    http.get(getRequestOptions(data.headers.location), function (data) {
-                        profileCallback(data);
-                    });
-                } else {
-                    profileCallback(data);
-                }
-            });
-        res.on('error', function (err) {
-            reject(err);
+                profileCallback(response.body);
+            }
         });
+
     });
 };

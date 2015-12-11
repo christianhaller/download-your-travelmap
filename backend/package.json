@@ -13,7 +13,9 @@
     "tokml": "^0.3.0",
     "xml2js": "^0.4.15"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "request": "^2.67.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
