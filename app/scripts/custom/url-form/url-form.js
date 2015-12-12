@@ -36,6 +36,7 @@
 
                 }).success(function (response) {
                     if (typeof response.errorMessage !== 'undefined') {
+
                         // kaputt
                         NProgress.done();
                         mod.fire('Error', response.errorMessage);
