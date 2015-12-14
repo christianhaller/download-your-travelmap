@@ -34,7 +34,7 @@ casper.test.begin('basic functions ' + url, function (test) {
 
         this.fill('.url-form', {url: tripAdvisorProfileUrl}, true);
 
-        test.assertEquals(jsErrors.length, 0, 'no js errors');
+
         this.waitForUrl(url + '?url=' + tripAdvisorProfileUrl, function () {
             test.assertEquals(this.fetchText('.js-username'), 'christianhaller', 'name');
         }, function () {
@@ -42,9 +42,10 @@ casper.test.begin('basic functions ' + url, function (test) {
 
 
     }).run(function () {
-
+        test.assertEquals(jsErrors.length, 0, 'no js errors');
 
         test.done();
+
     });
 });
 

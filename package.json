@@ -34,9 +34,9 @@
         "yargs": "^3.31.0"
     },
     "scripts": {
-        "test": "npm run test-local && npm run test-stage",
-        "test-local": "casperjs test test/ --engine=slimerjs --url=localhost:8080",
-        "test-stage": "casperjs test test/ --engine=slimerjs --url=http://stage.download-your-travelmap.christianhaller.com"
+        "test": "npm run test-local",
+        "test-local": "casperjs test test/ --url=http://localhost:8080",
+        "test-stage": "casperjs test test/ --url=http://stage.download-your-travelmap.christianhaller.com"
     },
     "repository": {
         "type": "git",

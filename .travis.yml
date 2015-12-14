@@ -32,6 +32,7 @@ install:
   - npm install -g gulp casperjs
   - npm install
   - gulp deploy_stage
+  - node webserver
 script:
   - npm run test-local
 
