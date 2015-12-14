@@ -19,7 +19,7 @@
         jsErrors.push(msg);
     });
 
-    casper.test.begin('basic functions '+ url, function (test) {
+    casper.test.begin('basic functions ' + url, function (test) {
 
 
         casper.start(url, function () {
@@ -38,7 +38,18 @@
             this.waitForUrl(url + '?url=' + tripAdvisorProfileUrl, function () {
                 test.assertEquals(this.fetchText('.js-username'), 'christianhaller', 'name');
             }, function () {
-            }, 9009);
+            }, 4000);
+
+
+        });
+
+        casper.thenOpen(url, function () {
+            this.fill('.url-form', {url: tripAdvisorProfileUrl + 'rrrrrr'}, true);
+            this.wait(4000, function () {
+                test.assertEquals(this.fetchText('.pure-alert-error span'), 'profile not found', 'error message');
+            }, function () {
+            });
+
         });
 
 
