@@ -45,7 +45,7 @@
 
         casper.thenOpen(url, function () {
             this.fill('.url-form', {url: tripAdvisorProfileUrl + 'rrrrrr'}, true);
-            this.wait(4000, function () {
+            this.wait(8000, function () {
                 test.assertEquals(this.fetchText('.pure-alert-error span'), 'profile not found', 'error message');
             }, function () {
             });
