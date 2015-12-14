@@ -32,9 +32,6 @@ install:
   - npm install -g gulp casperjs
   - npm install
   - gulp deploy_stage
-  - node webserver
-script:
-  - npm run test-local
 
 after_success:
   - if [[ "$TRAVIS_BRANCH" != "master" ]]; then echo "Deployments are only done for the master branch. Current branch is $TRAVIS_BRANCH"; exit 0; fi
