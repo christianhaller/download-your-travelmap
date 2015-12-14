@@ -18,8 +18,7 @@
                     'date': new Date().toString(),
                     'id': argv.buildId,
                     'number': argv.buildNumber
-                },
-                fileName = config.aws[env].filename;
+                };
             return gulp.src('./app/index.hbs')
 
 
@@ -35,11 +34,10 @@
                 }))
                 .pipe(htmlmin({
                     'collapseWhitespace': true,
-                    'removeComments': true,
-                    'ignoreCustomComments': [/^\s+buildDate/, /buildDate\s+$/, /^\s+svg/]
+                    'removeComments': true
                 }))
 
-                .pipe(rename(fileName))
+                .pipe(rename('index.html'))
                 .pipe(gulp.dest('./dist'));
 
         };

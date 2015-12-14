@@ -2,7 +2,6 @@
     "aws": {
         "prod": {
             "DistributionId": "E33JEMH8GO92ER",
-            "filename": "index.html",
             "path": "https://smd2e8ej75.execute-api.us-east-1.amazonaws.com/prod",
             "s3": {
                 "bucketName": "download-your-travelmap.christianhaller.com",
@@ -10,7 +9,6 @@
             }
         },
         "stage": {
-            "filename": "stage.html",
             "path": "https://aec25p3wm5.execute-api.us-east-1.amazonaws.com/prod/",
             "s3": {
                 "bucketName": "stage.download-your-travelmap.christianhaller.com",

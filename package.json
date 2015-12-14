@@ -34,8 +34,8 @@
     "yargs": "^3.31.0"
   },
   "scripts": {
-    "test": "casperjs test test/ --engine=slimerjs --url=localhost:8080 && casperjs test test/ --engine=slimerjs --url=http://stage.download-your-travelmap.christianhaller.com",
-    "test-stage": "gulp deploy_stage && npm test"
+    "test": "casperjs test test/ --engine=slimerjs --url=localhost:8080 && casperjs test test/ --engine=slimerjs --url=http://stage.download-your-travelmap.christianhaller.com"
+
   },
   "repository": {
     "type": "git",
