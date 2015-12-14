@@ -36,7 +36,7 @@
     "scripts": {
         "test": "npm run test-stage",
         "test-local": "casperjs test test/ --url=http://localhost:8080",
-        "test-stage": "casperjs test test/ --url=http://stage.download-your-travelmap.christianhaller.com"
+        "test-stage": "casperjs test test/ --ignore-ssl-errors=yes --ssl-protocol=any --url=http://stage.download-your-travelmap.christianhaller.com"
     },
     "repository": {
         "type": "git",
