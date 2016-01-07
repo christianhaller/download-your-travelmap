@@ -35,17 +35,17 @@ casper.test.begin('basic functions ' + url, function (test) {
         this.fill('.url-form', {url: tripAdvisorProfileUrl}, true);
 
 
-        this.waitForUrl(url + '?url=' + tripAdvisorProfileUrl, function () {
+    })
+        .thenOpen(url + '?url=' + tripAdvisorProfileUrl, function () {
             test.assertEquals(this.fetchText('.js-username'), 'christianhaller', 'name');
-        }, function () {
-        }, 4000);
 
 
-    }).run(function () {
-        test.assertEquals(jsErrors.length, 0, 'no js errors');
+        })
+        .run(function () {
+            test.assertEquals(jsErrors.length, 0, 'no js errors');
 
-        test.done();
+            test.done();
 
-    });
+        });
 });
 

@@ -30,7 +30,7 @@
                 .pipe(publisher.publish(headerForever))
                 .pipe(awspublish.reporter({}));
 
-            return gulp.src(['./dist/' + config.filename])
+            return gulp.src(['./dist/index.html'])
                 .pipe(awspublish.gzip({}))
                 .pipe(publisher.publish(headerIndex))
                 .pipe(awspublish.reporter({}));
