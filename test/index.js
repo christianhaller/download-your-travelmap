@@ -36,11 +36,11 @@ casper.test.begin('basic functions ' + url, function (test) {
 
 
     })
-        .thenOpen(url + '?url=' + tripAdvisorProfileUrl, function () {
+        /*.thenOpen(url + '?url=' + tripAdvisorProfileUrl, function () {
             test.assertEquals(this.fetchText('.js-username'), 'christianhaller', 'name');
 
 
-        })
+        })*/
         .run(function () {
             test.assertEquals(jsErrors.length, 0, 'no js errors');
 
