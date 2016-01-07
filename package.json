@@ -10,7 +10,7 @@
     "connect": "^3.4.0",
     "del": "^2.2.0",
     "gulp": "^3.9.0",
-    "gulp-awslambda": "^0.2.3",
+    "gulp-awslambda": "^0.3.0",
     "gulp-awspublish": "^3.0.1",
     "gulp-bower": "0.0.11",
     "gulp-compile-handlebars": "^0.6.1",
