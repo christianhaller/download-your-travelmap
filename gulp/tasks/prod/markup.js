@@ -29,8 +29,8 @@
                     'buildId': build.id || '',
                     'path': config.aws[env].path,
                     'awsApiGatewayHostname': getHostname(config.aws[env].path),
-                    'stylesheet': fs.readFileSync('build/styles/app.min.css', 'utf8'),
-                    'script': fs.readFileSync('build/scripts/app.min.js', 'utf8')
+                    'stylesheet': fs.readFileSync('build/styles/app.min.css', 'utf8')
+                   // 'script': fs.readFileSync('build/scripts/app.min.js', 'utf8')
                 }))
                 .pipe(htmlmin({
                     'collapseWhitespace': true,

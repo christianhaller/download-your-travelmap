@@ -1,26 +1,32 @@
-/*global ga,Tc,NProgress,document,window, jQuery */
-(function (window, document, $, ga, NProgress, Tc) {
+/*global require, window, document, jQuery, ga */
+
+var NProgress = require('nprogress');
+    require('./url-form/url-form');
+
+require('ga');
+(function(window, document, $, ga, NProgress) {
     'use strict';
 
     $(document).ready(function () {
-        var $page = $(document.body),
-            application = new Tc.Application($page);
-        application.registerModules();
-        application.registerModule($page, 'Tracking', null, ['Tracking']);
-        application.start();
+        //var $page = $(document.body);
 
         NProgress.start();
         window.setTimeout(function () {
-            NProgress.done();
+             NProgress.done();
         }, 100);
+
+
     });
+
+
+
 
     ga('create', 'UA-53443219-1', 'auto');
     ga('send', 'pageview');
 
 
     (function () {
-        window.NProgress.configure({showSpinner: false, parent: '.content'});
+        //window.NProgress.configure({showSpinner: false, parent: '.content'});
         var trackJavaScriptError = function (e) {
             var ie = window.event,
                 errMsg = e.message || ie.errorMessage,
@@ -40,7 +46,7 @@
     }());
 
 
-    if (typeof window.requestAnimationFrame !== 'undefined'){
+    if (typeof window.requestAnimationFrame !== 'undefined') {
         window.requestAnimationFrame(function () {
             var elementToInsertLinkBefore = document.getElementsByTagName('script')[0],
                 linkElement = document.createElement('link');
@@ -52,7 +58,7 @@
         });
     }
 
-}(window, document, jQuery, ga, NProgress, Tc));
 
+})(window, document, jQuery, ga, NProgress);
 
 

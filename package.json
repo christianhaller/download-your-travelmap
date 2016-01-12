@@ -9,6 +9,7 @@
   "devDependencies": {
     "connect": "^3.4.0",
     "del": "^2.2.0",
+    "expose-loader": "^0.7.1",
     "gulp": "^3.9.0",
     "gulp-awslambda": "^0.3.0",
     "gulp-awspublish": "^3.0.1",
@@ -26,11 +27,14 @@
     "gulp-svg-css": "^1.0.1",
     "gulp-svgmin": "^1.2.0",
     "gulp-uglify": "^1.5.1",
+    "gulp-util": "^3.0.7",
     "gzip-buffer": "0.0.2",
     "jshint": "^2.8.0",
     "jshint-stylish": "^2.1.0",
+    "path": "^0.12.7",
     "require-dir": "^0.3.0",
     "serve-static": "^1.10.0",
+    "webpack": "^1.12.10",
     "yargs": "^3.31.0"
   },
   "scripts": {

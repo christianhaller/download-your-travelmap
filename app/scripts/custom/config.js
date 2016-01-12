@@ -1,5 +1,5 @@
-/* global Tc */
-Tc.Config = {
+/* global module */
+module.exports = {
     /**
      * The paths for the different types of dependencies.
      *
