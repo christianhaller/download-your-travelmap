@@ -39,7 +39,7 @@
                 alias: {
                     jquery: path.join(__dirname + '../../../../bower_components/jquery/dist/jquery.js') ,
                     nprogress: path.join(__dirname + '../../../../bower_components/nprogress/nprogress.js') ,
-                    ga : path.join(__dirname + '../../../../app/scripts/vendor/analytics.js'),
+                    vendor : path.join(__dirname + '../../../../app/scripts/vendor'),
                     config : path.join(__dirname + '../../../../app/scripts/custom/config.js')
             } },
             output: {

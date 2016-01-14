@@ -1,64 +1,19 @@
-/*global require, window, document, jQuery, ga */
+/*global require, window, document, jQuery */
 
 var NProgress = require('nprogress');
-    require('./url-form/url-form');
+require('expose?$!jquery');
+require('./url-form');
+require('./fontLoader')();
+require('./tracking').init();
 
-require('ga');
-(function(window, document, $, ga, NProgress) {
+(function(window, document, $, NProgress) {
     'use strict';
-
     $(document).ready(function () {
-        //var $page = $(document.body);
-
         NProgress.start();
         window.setTimeout(function () {
              NProgress.done();
         }, 100);
-
-
     });
-
-
-
-
-    ga('create', 'UA-53443219-1', 'auto');
-    ga('send', 'pageview');
-
-
-    (function () {
-        //window.NProgress.configure({showSpinner: false, parent: '.content'});
-        var trackJavaScriptError = function (e) {
-            var ie = window.event,
-                errMsg = e.message || ie.errorMessage,
-                errSrc = (e.filename || ie.errorUrl) + ': ' + (e.lineno || ie.errorLine);
-            ga('send', 'event', 'JavaScript Error', errMsg, errSrc, {
-                'nonInteraction': 1
-            });
-        };
-
-        if (window.addEventListener) {
-            window.addEventListener('error', trackJavaScriptError, false);
-        } else if (window.attachEvent) {
-            window.attachEvent('onerror', trackJavaScriptError);
-        } else {
-            window.onerror = trackJavaScriptError;
-        }
-    }());
-
-
-    if (typeof window.requestAnimationFrame !== 'undefined') {
-        window.requestAnimationFrame(function () {
-            var elementToInsertLinkBefore = document.getElementsByTagName('script')[0],
-                linkElement = document.createElement('link');
-            linkElement.rel = 'stylesheet';
-            linkElement.media = 'all';
-            linkElement.href = 'https://fonts.googleapis.com/css?family=Roboto:400';
-            elementToInsertLinkBefore.parentNode.insertBefore(linkElement, elementToInsertLinkBefore);
-
-        });
-    }
-
-
-})(window, document, jQuery, ga, NProgress);
+})(window, document, jQuery, NProgress);
 
 

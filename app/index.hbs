@@ -11,13 +11,13 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com"/>
     <link rel="dns-prefetch" href="//{{awsApiGatewayHostname}}"/>
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta id="theme-color" name="theme-color" content="#4527A0">
-    <meta name="microid" content="mailto:http:sha1:85a36cacd2230575172266f765d9dfba059906ec">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta id="theme-color" name="theme-color" content="#4527A0"/>
+    <meta name="microid" content="mailto:http:sha1:85a36cacd2230575172266f765d9dfba059906ec"/>
     <style>{{{stylesheet}}}</style>
     <meta name="Description"
-          CONTENT="Download your TripAdvisor Travelmap. You only need your Profile URL, one click and a second waiting time.">
+          CONTENT="Download your TripAdvisor Travelmap. You only need your Profile URL, one click and a second waiting time."/>
     <link rel="author" href="https://plus.google.com/+ChristianHaller1982"/>
     <title>Download Your TripAdvisor Travel Map 📍</title>
 </head>
@@ -33,18 +33,16 @@
     </a> Profile URL, press submit and wait for ~ 5 seconds.<span
             class="example__hint">e. g. http://www.tripadvisor.com/members/christianhaller</span></p>
 
-    <form class="pure-form url-form mod-url mod" method="get" action="{{path}}" data-connectors="ajax">
+    <form class="pure-form url-form" method="get" action="{{path}}">
         <input class="url-form__input" type="text" id="url" value="" autofocus name="url">
-        <button type="submit" class="pure-button pure-button-primary url-form__submit">submit
-
-        </button>
-        <div class="pure-alert-error pure-alert url-form__alert mod mod-alert" data-connectors="ajax">
+        <button type="submit" class="pure-button pure-button-primary url-form__submit">submit</button>
+        <div class="js-notification pure-alert-error pure-alert url-form__alert">
 
             <span></span></div>
     </form>
 
 
-    <div class="mod-response mod is-hidden" data-connectors="ajax">
+    <div class="js-map is-hidden">
         <div class="tab jvectormap" data-zoomlevel>
             <div class="download-bar pure-menu pure-menu-open pure-menu-horizontal">
 
@@ -82,10 +80,6 @@
         <span class="icon-travisci icon">build: 0</span>
     {{/if}}
 </footer>
-<!--<script>{{{script}}}</script>-->
+
 <script src="/scripts/app.min.js"></script>
-<noscript>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400" rel="stylesheet" property="stylesheet" media="all">
-</noscript>
-</body>
-</html>
+</body></html>

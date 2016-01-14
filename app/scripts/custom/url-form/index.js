@@ -1,10 +1,14 @@
 /* global module, require, window, jQuery */
 
 var NProgress = require('nprogress'),
-    config = require('config');
+    config = require('config'),
+    notification = require('../notification'),
+    tracking = require('../tracking'),
+    map = require('../map');
 
 module.exports = (function (window, $, NProgress, config) {
     'use strict';
+    console.log('Rrr');
     var $ctx = $('.url-form'),
         $url = $ctx.find('#url'),
         mod = {
@@ -45,9 +49,7 @@ module.exports = (function (window, $, NProgress, config) {
         }
         if (!mod.validateInput($url, url)) {
             $url.focus();
-            /*mod.fire('Track', {
-                'data': ['send', 'event', 'map', 'error (' + eventType + ')', url]
-            });*/
+            tracking.trackEvent({data: ['send', 'event', 'map', 'error (' + eventType + ')', url]});
             return;
         }
         lastUrl = url;
@@ -64,24 +66,19 @@ module.exports = (function (window, $, NProgress, config) {
         }).error(function () {
 
         }).success(function (response) {
+            var $notification = $('.js-notification');
+            NProgress.done();
             if (typeof response.errorMessage !== 'undefined') {
-
                 // kaputt
-                NProgress.done();
-                //mod.fire('Error', response.errorMessage);
-                //mod.fire('ShowAlert', response.errorMessage);
-                /*mod.fire('Track', {
-                    'data': ['send', 'event', 'map', 'error (' + eventType + ') ' + response.errorMessage, url]
-                });*/
+                notification.show($notification, response.errorMessage);
+                tracking.trackEvent({data: ['send', 'event', 'map', 'error (' + eventType + ') ' + response.errorMessage, url]});
                 return;
             }
-            NProgress.done();
-            mod.fire('RemoveAlert');
-            //mod.fire('Track', {
-            //     'data': ['send', 'event', 'map', 'success (' + eventType + ')', url]
-            // });
+
+            notification.remove($notification);
+            tracking.trackEvent({data: ['send', 'event', 'map', 'success (' + eventType + ')', url]});
             response.url = data.url;
-            //mod.fire('DataReceived', response);
+            map.showResponse(response);
         });
     });
 })(window, jQuery, NProgress, config);
