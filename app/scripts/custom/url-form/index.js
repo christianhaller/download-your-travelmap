@@ -8,7 +8,6 @@ var NProgress = require('nprogress'),
 
 module.exports = (function (window, $, NProgress, config) {
     'use strict';
-    console.log('Rrr');
     var $ctx = $('.url-form'),
         $url = $ctx.find('#url'),
         mod = {
@@ -82,4 +81,3 @@ module.exports = (function (window, $, NProgress, config) {
         });
     });
 })(window, jQuery, NProgress, config);
-

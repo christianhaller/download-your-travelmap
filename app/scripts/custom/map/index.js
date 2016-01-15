@@ -70,15 +70,13 @@ module.exports = (function (window, $, config) {
             }
         },
         setStats = function ($ctx, stats) {
-
-            $ctx.find('.js-stats-bar .country').text(stats.country);
-            $ctx.find('.js-stats-bar .city').text(stats.city);
-            $ctx.find('.js-stats-bar .percent').text((stats.country / 193 * 100).toFixed(2) + '%');
+            var $bar = $ctx.find('.js-stats-bar');
+            $bar.find('.country').text(stats.country);
+            $bar.find('.city').text(stats.city);
+            $bar.find('.percent').text((stats.country / 193 * 100).toFixed(2) + '%');
         },
         setKmlDownloadButton = function ($ctx, kml) {
             $ctx.find('.js-download-bar__button__kml').attr('href', kml);
-
-
         };
     return {
         hideMap : hideMap,
@@ -88,6 +86,7 @@ module.exports = (function (window, $, config) {
                 $thisIs = $ctx.find('.js-this-is__city'),
                 jvectormapConfig = config.jvectormap;
             showMap($ctx);
+
             if (response.data.lang === 'en') {
                 jvectormapConfig.series.regions[0].values = getRegions(response.data.places);
             }

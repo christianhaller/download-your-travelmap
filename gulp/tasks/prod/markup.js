@@ -20,8 +20,6 @@
                     'number': argv.buildNumber
                 };
             return gulp.src('./app/index.hbs')
-
-
                 .pipe(handlebars({
                     'buildDate': build.date,
                     'buildNumber': build.number || '',
@@ -29,19 +27,17 @@
                     'buildId': build.id || '',
                     'path': config.aws[env].path,
                     'awsApiGatewayHostname': getHostname(config.aws[env].path),
-                    'stylesheet': fs.readFileSync('build/styles/app.min.css', 'utf8')
-                   // 'script': fs.readFileSync('build/scripts/app.min.js', 'utf8')
+                    'stylesheet': fs.readFileSync('build/styles/app.min.css', 'utf8'),
+                    'script': fs.readFileSync('build/scripts/app.min.js', 'utf8')
                 }))
                 .pipe(htmlmin({
                     'collapseWhitespace': true,
                     'removeComments': true
                 }))
-
                 .pipe(rename('index.html'))
                 .pipe(gulp.dest('./dist'));
 
         };
-
 
     gulp.task('markup', ['styles', 'scripts'], function () {
         markup('prod');

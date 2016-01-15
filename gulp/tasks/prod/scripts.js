@@ -2,10 +2,8 @@
 (function (require) {
     'use strict';
     var gulp = require('gulp'),
-        concat = require('gulp-concat'),
         gutil = require("gulp-util"),
         webpack = require("webpack"),
-        assets = require('../../config.json'),
         rename = require('gulp-rename'),
         download = require('gulp-download'),
         path = require('path'),
@@ -22,7 +20,7 @@
     });
 
 
-    gulp.task('scripts', function (callback) {
+    gulp.task('webpack',['download', 'bower'], function (callback) {
         // run webpack
         webpack({
 
@@ -37,13 +35,14 @@
             entry: './app/scripts/custom/main.js',
             resolve: {
                 alias: {
-                    jquery: path.join(__dirname + '../../../../bower_components/jquery/dist/jquery.js') ,
-                    nprogress: path.join(__dirname + '../../../../bower_components/nprogress/nprogress.js') ,
-                    vendor : path.join(__dirname + '../../../../app/scripts/vendor'),
-                    config : path.join(__dirname + '../../../../app/scripts/custom/config.js')
-            } },
+                    jquery: path.join(__dirname + '../../../../bower_components/jquery/dist/jquery.js'),
+                    nprogress: path.join(__dirname + '../../../../bower_components/nprogress/nprogress.js'),
+                    vendor: path.join(__dirname + '../../../../app/scripts/vendor'),
+                    config: path.join(__dirname + '../../../../app/scripts/custom/config.js')
+                }
+            },
             output: {
-                filename: path.join(__dirname + '../../../../dist/scripts/app.min.js')
+                filename: path.join(__dirname + '../../../../build/scripts/app.js')
             }
 
         }, function (err, stats) {
@@ -58,11 +57,8 @@
     });
 
 
-    gulp.task('old_scripts', ['download', 'bower'], function () {
-        var allScripts = assets.scripts.vendor.concat(assets.scripts.custom);
-
-        return gulp.src(allScripts)
-            .pipe(concat('app.js')).pipe(gulp.dest('./build/scripts'))
+    gulp.task('scripts', ['webpack'], function () {
+        return gulp.src('./build/scripts/app.js')
             .pipe(rename({
                 suffix: '.min'
             }))
