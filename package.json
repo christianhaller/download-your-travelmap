@@ -7,6 +7,7 @@
     "test": "test"
   },
   "devDependencies": {
+    "aws-sdk": "^2.2.31",
     "connect": "^3.4.0",
     "del": "^2.2.0",
     "expose-loader": "^0.7.1",
@@ -39,7 +40,7 @@
   },
   "scripts": {
     "test": "npm run test-stage",
-    "test-local": "casperjs test test/ --url=http://localhost:8080",
+    "test-local": "casperjs test test/ --url=http://localhost:8080 --web-security=no --ssl-protocol=any --ignore-ssl-errors=yes",
     "test-stage": "casperjs test test/ --ignore-ssl-errors=yes --ssl-protocol=any --url=http://stage.download-your-travelmap.christianhaller.com"
   },
   "repository": {
