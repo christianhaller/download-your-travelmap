@@ -3,6 +3,7 @@
     'use strict';
     var gulp = require('gulp'),
         awspublish = require('gulp-awspublish'),
+        zopfli = require("gulp-zopfli"),
         config = require('../../../config.json'),
         deploy = function (config) {
             var publisher = awspublish.create({
@@ -26,12 +27,13 @@
 
 
             gulp.src(['./app/robots.txt', './app/favicon.ico'])
-                .pipe(awspublish.gzip({}))
+                .pipe(zopfli({'append':false}))
                 .pipe(publisher.publish(headerForever))
                 .pipe(awspublish.reporter({}));
 
             return gulp.src(['./dist/index.html'])
-                .pipe(awspublish.gzip({}))
+                .pipe(zopfli({'append':false}))
+
                 .pipe(publisher.publish(headerIndex))
                 .pipe(awspublish.reporter({}));
         };
