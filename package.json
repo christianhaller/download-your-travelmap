@@ -7,7 +7,7 @@
     "test": "test"
   },
   "devDependencies": {
-    "aws-sdk": "^2.2.32",
+    "aws-sdk": "^2.2.33",
     "connect": "^3.4.0",
     "del": "^2.2.0",
     "expose-loader": "^0.7.1",
