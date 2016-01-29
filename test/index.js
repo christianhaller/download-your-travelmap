@@ -33,6 +33,7 @@ casper.test.begin('basic functions ' + url, function (test) {
 
 
         this.fill('.url-form', {url: tripAdvisorProfileUrl}, true);
+        //test.assertEquals(jsErrors.length, 0, 'no js errors');
 
 
     })
@@ -42,9 +43,13 @@ casper.test.begin('basic functions ' + url, function (test) {
 
         })*/
         .run(function () {
-            test.assertEquals(jsErrors.length, 0, 'no js errors');
 
-            test.done();
+            setTimeout(function(){
+                test.done();
+                phantom.exit()
+
+            },0);
+
 
         });
 });
