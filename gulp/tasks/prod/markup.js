@@ -40,8 +40,11 @@
         };
 
     gulp.task('markup', ['styles', 'scripts'], function () {
-        markup('prod');
-        markup('stage');
-
+        if(argv._.indexOf('prod')!== -1){
+            markup('prod');
+        }
+        else {
+            markup('stage');
+        }
     });
 }(require));
