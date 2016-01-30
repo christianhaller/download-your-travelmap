@@ -1,5 +1,5 @@
 /*global casper, console */
-
+'use strict';
 var tripAdvisorProfileUrl = 'http://www.tripadvisor.com/members/christianhaller',
     url = casper.cli.get('url'),
     jsErrors = [];
@@ -28,27 +28,27 @@ casper.test.begin('basic functions ' + url, function (test) {
         }, 'Google Analytics');
 
 
-        this.fill('.url-form', {url: 'http://www.google.com'}, true);
-        test.assertExists('#url.error', 'form validation');
+        /*this.fill('.url-form', {url: 'http://www.google.com'}, true);
+         test.assertExists('#url.error', 'form validation');
 
 
-        this.fill('.url-form', {url: tripAdvisorProfileUrl}, true);
-        //test.assertEquals(jsErrors.length, 0, 'no js errors');
+         this.fill('.url-form', {url: tripAdvisorProfileUrl}, true);*/
+        test.assertEquals(jsErrors.length, 0, 'no js errors');
 
 
     })
         /*.thenOpen(url + '?url=' + tripAdvisorProfileUrl, function () {
-            test.assertEquals(this.fetchText('.js-username'), 'christianhaller', 'name');
+         test.assertEquals(this.fetchText('.js-username'), 'christianhaller', 'name');
 
 
-        })*/
+         })*/
         .run(function () {
 
-            setTimeout(function(){
+            setTimeout(function () {
                 test.done();
                 phantom.exit()
 
-            },0);
+            }, 0);
 
 
         });
