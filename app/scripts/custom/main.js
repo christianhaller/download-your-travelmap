@@ -8,6 +8,7 @@ require('./tracking').init();
 
 (function(window, document, $, NProgress) {
     'use strict';
+    NProgress.configure({showSpinner: false, parent: '.content'});
     $(document).ready(function () {
         NProgress.start();
         window.setTimeout(function () {

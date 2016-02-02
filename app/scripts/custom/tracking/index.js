@@ -11,15 +11,12 @@ module.exports = (function (window, ga) {
             var ie = window.event,
                 errMsg = e.message || ie.errorMessage,
                 errSrc = (e.filename || ie.errorUrl) + ': ' + (e.lineno || ie.errorLine);
-            trackEvent('send', 'event', 'JavaScript Error', errMsg, errSrc, {
-                'nonInteraction': 1
-            });
+            trackEvent({'data': ['send', 'event', 'JavaScript Error', errMsg, errSrc]});
         },
-        init = function(){
+        init = function () {
             ga('create', 'UA-53443219-1', 'auto');
             ga('send', 'pageview');
         };
-
 
 
     if (window.addEventListener) {
@@ -30,8 +27,9 @@ module.exports = (function (window, ga) {
         window.onerror = trackJavaScriptError;
     }
 
+
     return {
-        init : init,
+        init: init,
         trackEvent: trackEvent
     };
 })(window, ga);
