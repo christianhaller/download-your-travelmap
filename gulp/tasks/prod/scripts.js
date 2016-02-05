@@ -1,4 +1,4 @@
-/*global require, __dirname*/
+/*global require */
 (function (require) {
     'use strict';
     var gulp = require('gulp'),
@@ -6,7 +6,6 @@
         webpack = require("webpack"),
         rename = require('gulp-rename'),
         download = require('gulp-download'),
-        path = require('path'),
         bower = require('gulp-bower'),
         webpackConfig = require('../../../webpack.config.js'),
         uglify = require('gulp-uglify');
