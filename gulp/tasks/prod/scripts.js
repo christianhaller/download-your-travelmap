@@ -8,6 +8,7 @@
         download = require('gulp-download'),
         path = require('path'),
         bower = require('gulp-bower'),
+        webpackConfig = require('../../../webpack.config.js'),
         uglify = require('gulp-uglify');
 
     gulp.task('download', function () {
@@ -22,30 +23,7 @@
 
     gulp.task('webpack',['download', 'bower'], function (callback) {
         // run webpack
-        webpack({
-
-            plugins: [
-                new webpack.ProvidePlugin({
-                    jQuery: 'jquery'
-
-
-                })
-            ],
-
-            entry: './app/scripts/custom/main.js',
-            resolve: {
-                alias: {
-                    jquery: path.join(__dirname + '../../../../bower_components/jquery/dist/jquery.js'),
-                    nprogress: path.join(__dirname + '../../../../bower_components/nprogress/nprogress.js'),
-                    vendor: path.join(__dirname + '../../../../app/scripts/vendor'),
-                    config: path.join(__dirname + '../../../../app/scripts/custom/config.js')
-                }
-            },
-            output: {
-                filename: path.join(__dirname + '../../../../build/scripts/app.js')
-            }
-
-        }, function (err, stats) {
+        webpack(webpackConfig, function (err, stats) {
             if (err) {
                 throw new gutil.PluginError("webpack", err);
             }
