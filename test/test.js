@@ -1,13 +1,13 @@
-/*global console */
+/*global casper, phantom, console */
 (function (casper, phantom) {
     'use strict';
     var tripAdvisorProfileUrl = 'http://www.tripadvisor.com/members/christianhaller',
         url = casper.cli.get('url'),
         jsErrors = [];
 
-
+    console.log(url);
     casper.options.viewportSize = {width: 1600, height: 950};
-    casper.on("resource.error", function (resourceError) {
+    casper.on('resource.error', function (resourceError) {
         console.log('Unable to load resource (#' + resourceError.id + 'URL:' + resourceError.url + ')');
         console.log('Error code: ' + resourceError.errorCode + '. Description: ' + resourceError.errorString);
     });
