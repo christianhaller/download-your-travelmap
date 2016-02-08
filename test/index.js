@@ -1,56 +1,28 @@
-/*global casper, console */
-'use strict';
-var tripAdvisorProfileUrl = 'http://www.tripadvisor.com/members/christianhaller',
-    url = casper.cli.get('url'),
-    jsErrors = [];
+/*global require, process*/
+(function (require, process) {
+    'use strict';
+    var childProcess = require('child_process'),
+        ls,
+        failure = [];
 
-casper.options.viewportSize = {width: 1600, height: 950};
-casper.on("resource.error", function (resourceError) {
-    console.log('Unable to load resource (#' + resourceError.id + 'URL:' + resourceError.url + ')');
-    console.log('Error code: ' + resourceError.errorCode + '. Description: ' + resourceError.errorString);
-});
-
-casper.on('page.error', function (msg, trace) {
-    this.echo('Error:    ' + msg, 'ERROR');
-    this.echo('file:     ' + trace[0].file, 'WARNING');
-    this.echo('line:     ' + trace[0].line, 'WARNING');
-    this.echo('function: ' + trace[0]['function'], 'WARNING');
-    jsErrors.push(msg);
-});
-
-casper.test.begin('basic functions ' + url, function (test) {
+    ls = childProcess.exec('casperjs test test/test.js --jsconsole --engine=slimerjs --url=http://localhost:8080 --web-security=no --ssl-protocol=any --ignore-ssl-errors=yes');
+    ls.stdout.on('data', function (data) {
+        if (data.indexOf('FAIL') === 10) {
+            console.log(data);
+            failure.push(data);
+        }
+    });
 
 
-    casper.start(url, function () {
-
-        test.assertResourceExists(function (resource) {
-            return resource.url.match('http://www.google-analytics.com/r/collect');
-        }, 'Google Analytics');
-
-
-        /*this.fill('.url-form', {url: 'http://www.google.com'}, true);
-         test.assertExists('#url.error', 'form validation');
-
-
-         this.fill('.url-form', {url: tripAdvisorProfileUrl}, true);*/
-        test.assertEquals(jsErrors.length, 0, 'no js errors');
-
-
-    })
-        /*.thenOpen(url + '?url=' + tripAdvisorProfileUrl, function () {
-         test.assertEquals(this.fetchText('.js-username'), 'christianhaller', 'name');
-
-
-         })*/
-        .run(function () {
-
-            setTimeout(function () {
-                test.done();
-                phantom.exit()
-
-            }, 0);
-
-
-        });
-});
+    ls.on('exit', function () {
+        if (failure.length > 0) {
+            console.log('💩💩💩💩💩💩')
+            process.exit(1);
+        }
+        else {
+            console.log('🎉🎉🎉🎉🎉🎉');
+            process.exit();
+        }
+    });
+})(require, process);
 

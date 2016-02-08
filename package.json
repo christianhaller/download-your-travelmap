@@ -40,9 +40,7 @@
     "yargs": "^3.31.0"
   },
   "scripts": {
-    "test": "npm run test-stage",
-    "test-local": "casperjs test test/ --url=http://localhost:8080 --web-security=no --ssl-protocol=any --ignore-ssl-errors=yes",
-    "test-stage": "casperjs test test/ --ignore-ssl-errors=yes --ssl-protocol=any --url=http://stage.download-your-travelmap.christianhaller.com"
+    "test": "node test/index.js"
   },
   "repository": {
     "type": "git",

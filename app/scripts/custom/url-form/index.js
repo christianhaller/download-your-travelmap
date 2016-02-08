@@ -11,15 +11,7 @@ module.exports = (function (window, $, NProgress, config) {
     var $ctx = $('.url-form'),
         $url = $ctx.find('#url'),
         mod = {
-            after: function () {
-                var $ctx = this.$ctx,
-                    $url = $ctx.find('#url');
-                if (window.location.search.indexOf('?url=') === 0) {
-                    $url = $ctx.find('#url');
-                    $url.val(window.location.search.substring(5));
-                    $ctx.trigger('auto');
-                }
-            },
+
             validateInput: function ($url, url) {
                 if (mod.isUrlValid(url)) {
                     $url.removeClass(config.classNames.error).addClass(config.classNames.success);
@@ -30,11 +22,14 @@ module.exports = (function (window, $, NProgress, config) {
                 }
             },
             isUrlValid: function (url) {
-                var re = new RegExp("^(http|https)://www.tripadvisor.", "i");
+                var re = new RegExp('^(http|https)://www.tripadvisor.', 'i');
                 return re.test(url);
             }
         },
         lastUrl;
+
+
+
 
     $ctx.on('submit auto', function (e) {
         var data,
@@ -80,4 +75,11 @@ module.exports = (function (window, $, NProgress, config) {
             map.showResponse(response);
         });
     });
+
+    if (window.location.search.indexOf('?url=') === 0) {
+
+        $url.val(window.location.search.substring(5));
+        $ctx.trigger('auto');
+    }
+
 })(window, jQuery, NProgress, config);

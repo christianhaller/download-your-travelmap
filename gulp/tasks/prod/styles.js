@@ -2,8 +2,7 @@
 (function (require) {
     'use strict';
     var gulp = require('gulp'),
-        assets = require('../../config.json'),
-        config = require('../../../config.json'),
+        config = require('../../config'),
         rename = require('gulp-rename'),
         csso = require('gulp-csso'),
         please = require('gulp-pleeease'),
@@ -12,7 +11,7 @@
         sass = require('gulp-sass');
 
     gulp.task('styles', ['svg'], function () {
-        return gulp.src(assets.styles)
+        return gulp.src(config.styles)
             // 1 . SASS
             .pipe(sass())
             // 2. autoprefixing

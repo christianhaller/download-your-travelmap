@@ -64,7 +64,7 @@ module.exports = (function (window, $, config) {
             return coutryList.length;
         },*/
         pushState = function (url) {
-            var newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?url=' + url;
+            var newUrl = window.location.protocol + '//' + window.location.host + window.location.pathname + '?url=' + url;
             if (window.history && window.history.pushState) {
                 window.history.pushState('', '', newUrl);
             }

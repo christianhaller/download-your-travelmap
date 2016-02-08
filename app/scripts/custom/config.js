@@ -45,10 +45,10 @@ module.exports = {
         regionStyle: {
             initial: {
                 fill: '#ccc',
-                "fill-opacity": 1,
+                'fill-opacity': 1,
                 stroke: 'none',
-                "stroke-width": 0,
-                "stroke-opacity": 1
+                'stroke-width': 0,
+                'stroke-opacity': 1
             },
             hover: {
                 fill: '#ccc'

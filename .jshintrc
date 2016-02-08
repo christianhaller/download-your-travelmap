@@ -8,6 +8,7 @@
     "strict": true,
     "globalstrict": false,
     "asi": true,
+    "quotmark": "single",
     "laxbreak": true,
     "bitwise": true,
     "boss": false,
