@@ -40,10 +40,12 @@
         };
 
     gulp.task('markup', ['styles', 'scripts'], function () {
-        if(argv.indexOf('prod')!== -1){
+        if(argv._.indexOf('prod')!== -1){
+            console.log('prod');
             markup('prod');
         }
         else {
+            console.log('stage');
             markup('stage');
         }
     });
