@@ -40,8 +40,7 @@
         };
 
     gulp.task('markup', ['styles', 'scripts'], function () {
-        console.log(argv._);
-        if(argv._.indexOf('prod')!== -1){
+        if(argv._[0].indexOf('prod')!== -1){
             console.log('prod');
             markup('prod');
         }

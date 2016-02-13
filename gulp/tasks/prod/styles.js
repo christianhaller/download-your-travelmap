@@ -14,11 +14,11 @@
     gulp.task('styles', ['svg'], function () {
         return gulp.src(config.styles)
             // 1 . SASS
-            /*.pipe(sassLint({
+            .pipe(sassLint({
                 'config':'.scss-lint.yml'
             }))
             .pipe(sassLint.format())
-            .pipe(sassLint.failOnError())*/
+            .pipe(sassLint.failOnError())
             .pipe(sass())
             // 2. autoprefixing
             .pipe(please(config.please))
