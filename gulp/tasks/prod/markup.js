@@ -1,4 +1,4 @@
-/*global require*/
+/*global require, console*/
 (function (require) {
     'use strict';
     var gulp = require('gulp'),
@@ -15,10 +15,10 @@
         },
         markup = function (env) {
             var build = {
-                    'date': new Date().toString(),
-                    'id': argv.buildId,
-                    'number': argv.buildNumber
-                };
+                'date': new Date().toString(),
+                'id': argv.buildId,
+                'number': argv.buildNumber
+            };
             return gulp.src('./app/index.hbs')
                 .pipe(handlebars({
                     'buildDate': build.date,
@@ -40,7 +40,7 @@
         };
 
     gulp.task('markup', ['styles', 'scripts'], function () {
-        if(argv._[0].indexOf('prod')!== -1){
+        if (argv._[0] && argv._[0].indexOf('prod') !== -1) {
             console.log('prod');
             markup('prod');
         }
