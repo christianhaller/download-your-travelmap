@@ -69,6 +69,10 @@ module.exports = (function (window, $, config) {
                 window.history.pushState('', '', newUrl);
             }
         },
+        setAvatar = function(src){
+            $('.js-avatar').attr('src',src).removeClass(config.classNames.fadedout)
+
+        },
         setStats = function ($ctx, stats) {
             var $bar = $ctx.find('.js-stats-bar');
             $bar.find('.country').text(stats.country);
@@ -98,8 +102,10 @@ module.exports = (function (window, $, config) {
                 $thisIs.text($(label).text());
             };
             $map.empty().vectorMap(jvectormapConfig);
+
             setCsvDownloadButton($ctx, response.data.csv);
             setKmlDownloadButton($ctx, response.data.kml);
+            setAvatar(response.data.avatar);
             setUsername($ctx, response.data.username);
             pushState(response.url);
             setStats($ctx, response.data.stats);

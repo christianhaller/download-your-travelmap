@@ -11,8 +11,10 @@ module.exports = {
         'error': 'error',
         'success': 'success',
         'isHidden': 'is-hidden',
-        'block': 'block'
+        'block': 'block',
+        'fadedout': 'is-fadedout'
     },
+
     'been': {
         'fill': '#FFD700',
         'r': 4,
