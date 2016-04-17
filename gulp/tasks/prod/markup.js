@@ -19,6 +19,7 @@
                 'id': argv.buildId,
                 'number': argv.buildNumber
             };
+            console.log(getHostname(config.aws[env].path));
             return gulp.src('./app/index.hbs')
                 .pipe(handlebars({
                     'buildDate': build.date,
