@@ -35,7 +35,7 @@
                     'collapseWhitespace': true,
                     'removeComments': true
                 }))
-                .pipe(rename('index.html'))
+                .pipe(rename('rrindex.html'))
                 .pipe(gulp.dest('./dist'));
 
         };

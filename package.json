@@ -53,5 +53,8 @@
   "bugs": {
     "url": "https://github.com/christianhaller/download-your-travelmap/issues"
   },
-  "homepage": "https://github.com/christianhaller/download-your-travelmap#readme"
+  "homepage": "https://github.com/christianhaller/download-your-travelmap#readme",
+  "dependencies": {
+    "letsencrypt": "^1.4.3"
+  }
 }
