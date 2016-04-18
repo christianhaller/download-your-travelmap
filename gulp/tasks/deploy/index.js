@@ -43,7 +43,7 @@
                 .pipe(awspublish.reporter({}));
         };
 
-    gulp.task('deploy_prod', ['default'], function () {
+    gulp.task('deploy_prod', ['clean', 'default'], function () {
         config = config.aws.prod;
         deploy(config);
 

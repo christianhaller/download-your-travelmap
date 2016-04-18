@@ -8,7 +8,7 @@
         please = require('gulp-pleeease'),
         minifycss = require('gulp-minify-css'),
         concat = require('gulp-concat'),
-        sassLint = require('gulp-sass-lint'),
+        //sassLint = require('gulp-sass-lint'),
     sass = require('gulp-sass');
 
     gulp.task('styles', ['svg'], function () {
