@@ -28,13 +28,18 @@
 
             gulp.src(['./app/robots.txt', './app/favicon.ico'])
                 .pipe(zopfli({'append':false}))
-                .pipe(publisher.publish(headerForever))
+                .pipe(publisher.publish(headerForever,
+                    {
+                        'force':true
+                    }))
                 .pipe(awspublish.reporter({}));
 
             return gulp.src(['./dist/index.html'])
                 .pipe(zopfli({'append':false}))
 
-                .pipe(publisher.publish(headerIndex))
+                .pipe(publisher.publish(headerIndex,{
+                    'force':true
+                }))
                 .pipe(awspublish.reporter({}));
         };
 
