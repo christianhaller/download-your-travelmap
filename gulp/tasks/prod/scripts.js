@@ -20,7 +20,7 @@
     });
 
 
-    gulp.task('webpack',['download', 'bower'], function (callback) {
+    gulp.task('webpack', ['download', 'bower'], function (callback) {
         // run webpack
         webpack(webpackConfig, function (err, stats) {
             if (err) {

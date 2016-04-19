@@ -5,7 +5,7 @@
         jshint = require('gulp-jshint');
 
     gulp.task('jshint', function () {
-        return gulp.src(['test/*.js','gulp/**/*','backend/**/*','!backend/node_modules/**','app/scripts/custom/**/*'])
+        return gulp.src(['test/*.js', 'gulp/**/*', 'backend/**/*', '!backend/node_modules/**', 'app/scripts/custom/**/*'])
             .pipe(jshint())
             .pipe(jshint.reporter('jshint-stylish'));
     });

@@ -21,24 +21,22 @@
                     'Cache-Control': 'max-age=3600, no-transform, public, must-revalidate',
                     'Content-Encoding': 'gzip',
                     'Content-Type': 'text/html; charset=UTF-8'
-                   // 'x-frame-options': 'SAMEORIGIN'
+                    // 'x-frame-options': 'SAMEORIGIN'
                 };
 
 
-
             gulp.src(['./app/robots.txt', './app/favicon.ico'])
-                .pipe(zopfli({'append':false}))
-                .pipe(publisher.publish(headerForever,
-                    {
-                        'force':true
-                    }))
+                .pipe(zopfli({'append': false}))
+                .pipe(publisher.publish(headerForever, {
+                    'force': true
+                }))
                 .pipe(awspublish.reporter({}));
 
-            return gulp.src(['./dist/x.html'])
-                .pipe(zopfli({'append':false}))
+            return gulp.src(['./dist/index.html'])
+                .pipe(zopfli({'append': false}))
 
-                .pipe(publisher.publish(headerIndex,{
-                    'force':true
+                .pipe(publisher.publish(headerIndex, {
+                    'force': true
                 }))
                 .pipe(awspublish.reporter({}));
         };
@@ -48,7 +46,6 @@
         deploy(config);
 
     });
-
 
 
     gulp.task('deploy_stage', ['default'], function () {

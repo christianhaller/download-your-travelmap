@@ -9,13 +9,13 @@
         minifycss = require('gulp-minify-css'),
         concat = require('gulp-concat'),
         sassLint = require('gulp-sass-lint'),
-    sass = require('gulp-sass');
+        sass = require('gulp-sass');
 
     gulp.task('styles', ['svg'], function () {
         return gulp.src(config.styles)
             // 1 . SASS
             .pipe(sassLint({
-                'config':'.scss-lint.yml'
+                'config': '.scss-lint.yml'
             }))
             .pipe(sassLint.format())
             .pipe(sassLint.failOnError())
