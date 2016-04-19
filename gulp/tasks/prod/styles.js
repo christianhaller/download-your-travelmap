@@ -18,7 +18,7 @@
                 'config': '.scss-lint.yml'
             }))
             .pipe(sassLint.format())
-            .pipe(sassLint.failOnError())
+            //.pipe(sassLint.failOnError())
             .pipe(sass())
             // 2. autoprefixing
             .pipe(please(config.please))
