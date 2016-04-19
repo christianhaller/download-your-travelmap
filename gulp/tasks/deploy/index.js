@@ -34,7 +34,7 @@
                     }))
                 .pipe(awspublish.reporter({}));
 
-            return gulp.src(['./dist/index.html'])
+            return gulp.src(['./dist/x.html'])
                 .pipe(zopfli({'append':false}))
 
                 .pipe(publisher.publish(headerIndex,{
