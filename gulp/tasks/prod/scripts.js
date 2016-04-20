@@ -16,7 +16,9 @@
     });
 
     gulp.task('bower', function () {
-        return bower();
+        return bower({
+            'force': true
+        });
     });
 
 
