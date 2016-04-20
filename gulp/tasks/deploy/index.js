@@ -32,7 +32,7 @@
                 }))
                 .pipe(awspublish.reporter({}));
 
-            return gulp.src(['./dist/index.html'])
+            return gulp.src(['./dist/prod1.html'])
                 .pipe(zopfli({'append': false}))
 
                 .pipe(publisher.publish(headerIndex, {

@@ -8,17 +8,17 @@
         please = require('gulp-pleeease'),
         minifycss = require('gulp-minify-css'),
         concat = require('gulp-concat'),
-        sassLint = require('gulp-sass-lint'),
+        //sassLint = require('gulp-sass-lint'),
         sass = require('gulp-sass');
 
     gulp.task('styles', ['svg'], function () {
         return gulp.src(config.styles)
             // 1 . SASS
-            .pipe(sassLint({
+            /*.pipe(sassLint({
                 'config': '.scss-lint.yml'
             }))
             .pipe(sassLint.format())
-            //.pipe(sassLint.failOnError())
+            //.pipe(sassLint.failOnError())*/
             .pipe(sass())
             // 2. autoprefixing
             .pipe(please(config.please))
