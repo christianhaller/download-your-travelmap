@@ -38,7 +38,7 @@
     "require-dir": "^0.3.0",
     "serve-static": "^1.10.2",
     "webpack": "^1.12.12",
-    "yargs": "^4.1.0"
+    "yargs": "^4.6.0"
   },
   "scripts": {
     "test": "node test/index.js",
