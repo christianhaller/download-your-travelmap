@@ -1,5 +1,4 @@
-/*global require, module, ga, window */
-require('vendor/analytics');
+/*global module, ga, window */
 module.exports = (function (window, ga) {
     'use strict';
     var trackEvent = function (data) {
@@ -9,12 +8,9 @@ module.exports = (function (window, ga) {
             var ie = window.event,
                 errMsg = e.message || ie.errorMessage,
                 errSrc = (e.filename || ie.errorUrl) + ': ' + (e.lineno || ie.errorLine);
-            console.log('rrrr');
             trackEvent({'data': ['send', 'event', 'JavaScript Error', errMsg, errSrc]});
         },
         init = function () {
-            ga('create', 'UA-53443219-1', 'auto');
-            ga('send', 'pageview');
 
             if (window.addEventListener) {
                 window.addEventListener('error', trackJavaScriptError, false);

@@ -5,7 +5,7 @@
         fs = require('fs'),
         handlebars = require('gulp-compile-handlebars'),
         rename = require('gulp-rename'),
-        //htmlmin = require('gulp-htmlmin'),
+        htmlmin = require('gulp-htmlmin'),
         argv = require('yargs').argv,
         url = require('url'),
         config = require('../../../config.json'),
@@ -31,10 +31,10 @@
                     'stylesheet': fs.readFileSync('build/styles/app.min.css', 'utf8'),
                     'script': fs.readFileSync('build/scripts/app.min.js', 'utf8')
                 }))
-                /*.pipe(htmlmin({
+                .pipe(htmlmin({
                     'collapseWhitespace': true,
                     'removeComments': true
-                }))*/
+                }))
                 .pipe(rename('index.html'))
                 .pipe(gulp.dest('./dist'));
 
