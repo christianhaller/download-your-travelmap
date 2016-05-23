@@ -26,7 +26,7 @@
         casper.start(url, function () {
 
             test.assertResourceExists(function (resource) {
-                return resource.url.match('http://www.google-analytics.com/r/collect');
+                return resource.url.match('https://www.google-analytics.com/r/collect');
             }, 'Google Analytics');
 
 
