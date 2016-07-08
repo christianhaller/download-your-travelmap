@@ -13,7 +13,7 @@
     "expose-loader": "^0.7.1",
     "gulp": "^3.9.1",
     "gulp-awslambda": "^0.4.0",
-    "gulp-awspublish": "^3.2.0",
+    "gulp-awspublish": "^3.3.0",
     "gulp-bower": "0.0.13",
     "gulp-compile-handlebars": "^0.6.1",
     "gulp-concat": "^2.6.0",
