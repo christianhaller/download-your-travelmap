@@ -54,6 +54,6 @@
   },
   "homepage": "https://github.com/christianhaller/download-your-travelmap#readme",
   "dependencies": {
-    "letsencrypt": "^1.4.4"
+    "letsencrypt": "^2.1.1"
   }
 }
