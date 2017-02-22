@@ -2,14 +2,14 @@
     "aws": {
         "prod": {
             "DistributionId": "E33JEMH8GO92ER",
-            "path": "https://vcevge3mra.execute-api.us-east-1.amazonaws.com/prod",
+            "path": "https://vcevge3mra.execute-api.us-east-1.amazonaws.com/prod/",
             "s3": {
                 "bucketName": "download-your-travelmap.christianhaller.com",
                 "region": "us-west-2"
             }
         },
         "stage": {
-            "path": "https://aec25p3wm5.execute-api.us-east-1.amazonaws.com/prod/",
+            "path": "https://vcevge3mra.execute-api.us-east-1.amazonaws.com/prod",
             "s3": {
                 "bucketName": "stage.download-your-travelmap.christianhaller.com",
                 "region": "us-west-2"
