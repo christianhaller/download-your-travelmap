@@ -19,7 +19,7 @@
     "gulp-concat": "^2.6.0",
     "gulp-csso": "^2.0.0",
     "gulp-htmlmin": "^2.0.0",
-    "gulp-jshint": "^2.0.1",
+    "gulp-jshint": "^2.0.2",
     "gulp-minify-css": "^1.2.4",
     "gulp-pleeease": "^2.0.2",
     "gulp-rename": "^1.2.2",
