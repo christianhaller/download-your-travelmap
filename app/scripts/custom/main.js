@@ -1,7 +1,7 @@
 /*global require, window, document, jQuery */
 
 var NProgress = require('nprogress');
-require('expose?$!jquery');
+require('expose-loader?$!jquery');
 require('./url-form');
 require('./fontLoader')();
 require('./tracking').init();
