@@ -31,7 +31,7 @@
     "gulp-util": "^3.0.7",
     "gulp-zopfli": "^1.0.0",
     "gzip-buffer": "0.0.2",
-    "jshint": "^2.9.2",
+    "jshint": "^2.9.3",
     "jshint-stylish": "^2.2.0",
     "path": "^0.12.7",
     "require-dir": "^0.3.0",
