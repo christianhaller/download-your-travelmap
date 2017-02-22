@@ -16,7 +16,7 @@
     "gulp-awspublish": "^3.2.0",
     "gulp-bower": "0.0.13",
     "gulp-compile-handlebars": "^0.6.1",
-    "gulp-concat": "^2.6.0",
+    "gulp-concat": "^2.6.1",
     "gulp-csso": "^2.0.0",
     "gulp-htmlmin": "^2.0.0",
     "gulp-jshint": "^2.0.1",
