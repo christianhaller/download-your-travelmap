@@ -38,5 +38,6 @@
             }))
 
             .pipe(gulp.dest('./build/scripts'));
+
     });
 }(require));
