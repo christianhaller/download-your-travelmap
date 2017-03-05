@@ -5,12 +5,15 @@
         awspublish = require('gulp-awspublish'),
         zopfli = require('gulp-zopfli'),
         config = require('../../../config'),
-        deploy = function (config) {
-            var publisher = awspublish.create({
-                    region: config.s3.region,
+        deploy = function (env) {
+            var conf = config.aws[env],
+                publisher = awspublish.create({
+                    region: conf.s3.region,
                     'params': {
-                        Bucket: config.s3.bucketName
+                        Bucket: conf.s3.bucketName
                     }
+                },{
+                    cacheFileName: 's3cache/'+env+'.json'
                 }),
                 headerForever = {
                     'Cache-Control': 'max-age=31536000, no-transform, public, must-revalidate',
@@ -38,18 +41,17 @@
                 .pipe(publisher.publish(headerIndex, {
                     'force': true
                 }))
+                .pipe(publisher.cache())
                 .pipe(awspublish.reporter({}));
         };
 
     gulp.task('deploy_prod', ['clean', 'default'], function () {
-        config = config.aws.prod;
-        deploy(config);
+        deploy('prod');
 
     });
 
 
     gulp.task('deploy_stage', ['default'], function () {
-        config = config.aws.stage;
-        deploy(config);
+        deploy('stage');
     });
 }(require));
