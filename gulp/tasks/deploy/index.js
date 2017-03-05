@@ -33,6 +33,7 @@
                 .pipe(publisher.publish(headerForever, {
                     'force': true
                 }))
+                
                 .pipe(awspublish.reporter({}));
 
             return gulp.src(['./dist/index.html'])
