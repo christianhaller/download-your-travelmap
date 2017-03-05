@@ -30,7 +30,7 @@ cache:
 install:
   - if [[ $TRAVIS_OS_NAME == "linux" ]]; then export CXX=g++-4.8; fi
   - $CXX --version
-  - npm install -g gulp casperjs slimerjs
+  - npm install -g gulp casperjs
   - npm install
   - gulp deploy_stage
 
