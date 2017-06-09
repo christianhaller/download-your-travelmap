@@ -9,7 +9,7 @@
   "devDependencies": {
     "aws-sdk": "^2.22.0",
     "connect": "^3.6.0",
-    "del": "^2.2.2",
+    "del": "^3.0.0",
     "expose-loader": "^0.7.3",
     "gulp": "^3.9.1",
     "gulp-awslambda": "^0.4.0",
