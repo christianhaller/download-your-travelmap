@@ -4,7 +4,6 @@ var NProgress = require('nprogress');
 require('expose-loader?$!jquery');
 require('./url-form');
 require('./fontLoader')();
-require('./tracking').init();
 
 (function(window, document, $, NProgress) {
     'use strict';

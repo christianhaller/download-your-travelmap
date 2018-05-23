@@ -3,7 +3,6 @@
 var NProgress = require('nprogress'),
     config = require('config'),
     notification = require('../notification'),
-    tracking = require('../tracking'),
     map = require('../map');
 
 module.exports = (function (window, $, NProgress, config) {
@@ -43,7 +42,6 @@ module.exports = (function (window, $, NProgress, config) {
         }
         if (!mod.validateInput($url, url)) {
             $url.focus();
-            tracking.trackEvent({data: ['send', 'event', 'map', 'error (' + eventType + ')', url]});
             return;
         }
         lastUrl = url;
