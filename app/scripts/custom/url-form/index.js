@@ -32,7 +32,6 @@ module.exports = (function (window, $, NProgress, config) {
 
     $ctx.on('submit auto', function (e) {
         var data,
-            eventType = e.type,
             url = $.trim($url.val());
 
         e.preventDefault();
@@ -63,12 +62,10 @@ module.exports = (function (window, $, NProgress, config) {
             if (typeof response.errorMessage !== 'undefined') {
                 // kaputt
                 notification.show($notification, response.errorMessage);
-                tracking.trackEvent({data: ['send', 'event', 'map', 'error (' + eventType + ') ' + response.errorMessage, url]});
                 return;
             }
 
             notification.remove($notification);
-            tracking.trackEvent({data: ['send', 'event', 'map', 'success (' + eventType + ')', url]});
             response.url = data.url;
             map.showResponse(response);
         });
