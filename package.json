@@ -1,56 +1,20 @@
 {
-  "name": "download-your-travelmap",
+  "name": "deno-vercel",
   "version": "1.0.0",
-  "description": "I'm the travelmap description",
-  "main": "gulpfile.js",
-  "directories": {
-    "test": "test"
-  },
-  "devDependencies": {
-    "aws-sdk": "^2.22.0",
-    "connect": "^3.6.0",
-    "del": "^2.2.2",
-    "expose-loader": "^0.7.3",
-    "gulp": "^3.9.1",
-    "gulp-awslambda": "^0.4.0",
-    "gulp-awspublish": "^3.3.0",
-    "gulp-bower": "0.0.13",
-    "gulp-compile-handlebars": "^0.6.1",
-    "gulp-concat": "^2.6.1",
-    "gulp-csso": "^3.0.0",
-    "gulp-htmlmin": "^3.0.0",
-    "gulp-jshint": "^2.0.4",
-    "gulp-minify-css": "^1.2.4",
-    "gulp-pleeease": "^2.0.2",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.1.0",
-    "gulp-sass-lint": "^1.3.2",
-    "gulp-svg-css": "^1.3.0",
-    "gulp-svgmin": "^1.2.3",
-    "gulp-uglify": "^2.0.1",
-    "gulp-util": "^3.0.8",
-    "gulp-zopfli": "^1.0.0",
-    "gzip-buffer": "0.0.2",
-    "jshint": "^2.9.4",
-    "jshint-stylish": "^2.2.1",
-    "path": "^0.12.7",
-    "require-dir": "^0.3.1",
-    "serve-static": "^1.12.1",
-    "webpack": "^2.2.1",
-    "yargs": "^7.0.1"
-  },
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "test": "node test/index.js",
-    "local": "node test/index.js local"
+    "login": "npm run vercel -- login",
+    "vercel": "$(npm bin)/vercel",
+    "deploy": "npm run vercel -- deploy",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/christianhaller/download-your-travelmap.git"
-  },
+  "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/christianhaller/download-your-travelmap/issues"
-  },
-  "homepage": "https://github.com/christianhaller/download-your-travelmap#readme"
+  "devDependencies": {
+    "typescript": "^3.9.6",
+    "typescript-deno-plugin": "^1.31.0",
+    "vercel": "^19.1.1"
+  }
 }
