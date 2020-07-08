@@ -3,7 +3,7 @@ const request = async (url: URL): Promise<string> => {
   console.log(`fetch url ${href}`);
   const res = await fetch(href);
   if (!res.ok) {
-    throw Error(`url ${href} is not ok`);
+    throw new Error(`url ${href} is not ok`);
   }
   return res.text();
 };

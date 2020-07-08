@@ -5,7 +5,7 @@ const getUrl = (req: ServerRequest): URL => {
 
   const url = new URLSearchParams(query).get("url");
   if (!url) {
-    throw Error("no url set");
+    throw new Error("no url set");
   }
 
   return new URL(url);

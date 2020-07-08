@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "deno test src --unstable --allow-read --allow-net",
+    "fmt": "deno fmt src",
+    "build": "deno bundle src/index.ts api/index.js",
     "login": "npm run vercel -- login",
     "vercel": "$(npm bin)/vercel",
-    "deploy": "npm run vercel -- deploy",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "deploy": "npm run vercel -- deploy"
   },
   "keywords": [],
   "author": "",

@@ -9,7 +9,7 @@ const validate = (url: URL): void => {
   ) {
     console.log("valid hostame");
   } else {
-    throw Error(`${hostname} is not a valid tripadvisor url`);
+    throw new Error(`${hostname} is not a valid tripadvisor url`);
   }
 };
 
