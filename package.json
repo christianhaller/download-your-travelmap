@@ -1,12 +1,12 @@
 {
-  "name": "deno-vercel",
+  "name": "download-your-travelmap",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "deno test src --unstable --allow-read --allow-net",
     "fmt": "deno fmt src",
-    "build": "deno bundle src/index.ts api/index.js",
+    "build": "deno bundle src/index.ts api/index.js -c tsconfig.json",
     "login": "npm run vercel -- login",
     "vercel": "$(npm bin)/vercel",
     "deploy": "npm run vercel -- deploy"
@@ -15,6 +15,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "prettier": "^2.0.5",
     "typescript": "^3.9.6",
     "typescript-deno-plugin": "^1.31.0",
     "vercel": "^19.1.1"

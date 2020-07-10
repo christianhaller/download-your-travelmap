@@ -31,7 +31,7 @@ const parseMap = (str: String): EnhancedPin[] => {
       };
     });
   } catch (e) {
-    throw new Error("can't parse map url");
+    throw new Error("can't parse map");
   }
 };
 export { parseMap };

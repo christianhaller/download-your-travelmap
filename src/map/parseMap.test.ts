@@ -22,6 +22,6 @@ Deno.test("parseMap with exception", async () => {
       parseMap(str);
     },
     Error,
-    "can't parseMap url",
+    "can't parse map",
   );
 });
