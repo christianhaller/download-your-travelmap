@@ -7,6 +7,7 @@
     "test": "deno test src --unstable --allow-read --allow-net",
     "fmt": "deno fmt src",
     "build": "deno bundle src/index.ts api/index.js -c tsconfig.json",
+    "ci": "curl -fsSL https://deno.land/x/install/install.sh | sh && npm run build",
     "login": "npm run vercel -- login",
     "vercel": "$(npm bin)/vercel",
     "deploy": "npm run vercel -- deploy"
