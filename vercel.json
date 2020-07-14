@@ -1,6 +1,6 @@
 {
   "version": 2,
   "functions": {
-    "api/**/*.js": { "runtime": "vercel-deno@0.4.2" }
+    "api/**/*.js": { "runtime": "vercel-deno@0.4.4" }
   }
 }

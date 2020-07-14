@@ -6,7 +6,8 @@
   "scripts": {
     "test": "deno test src --unstable --allow-read --allow-net",
     "fmt": "deno fmt src",
-    "build": "deno bundle ./src/index.ts ./api/index.js -c tsconfig.json",
+    "build:local": "deno bundle ./src/index.ts ./api/index.js -c tsconfig.json",
+    "build": "echo hi",
     "login": "npm run vercel -- login",
     "vercel": "$(npm bin)/vercel",
     "deploy": "npm run vercel -- deploy"
