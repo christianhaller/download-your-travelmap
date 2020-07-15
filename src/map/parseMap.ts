@@ -21,7 +21,7 @@ const parseMap = (str: String): EnhancedPin[] => {
       [key]: Pin[];
     } = JSON.parse(`{${firstMatched}}`);
     return Object.values(pins[key]).map(({ lat, lng, flags, name }) => {
-      const [city, country = "unknown"] = name.split(",");
+      const [city, state, country = state || "unknown"] = name.split(",");
       return {
         lat,
         lng,
