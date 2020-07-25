@@ -1,7 +1,7 @@
 {
   "version": 2,
   "functions": {
-    "api/**/*.ts": { "runtime": "vercel-deno@0.4.4" }
+    "api/**/*.ts": { "runtime": "vercel-deno@0.5.0" }
   },
   "public": true
 }

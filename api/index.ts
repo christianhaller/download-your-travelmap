@@ -1,4 +1,4 @@
-import { ServerRequest } from "https://deno.land/std@0.61.0/http/server.ts";
+import { ServerRequest } from "https://deno.land/http/server.ts";
 import { getUrl } from "../src/url.ts";
 import { validate } from "../src/validate.ts";
 import { getMap } from "../src/map/index.ts";
