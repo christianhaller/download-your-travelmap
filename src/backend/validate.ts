@@ -8,7 +8,7 @@ const validate = (url: URL): void => {
     validHostnames.includes(hostname) ||
     validHostnames.includes(hostnameWithoutWww)
   ) {
-    log.debug("valid hostame");
+    log.debug("valid hostname");
   } else {
     throw new Error(`${hostname} is not a valid tripadvisor url`);
   }
