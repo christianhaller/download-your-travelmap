@@ -2,13 +2,12 @@ import tokml from "tokml";
 import GeoJSON from "geojson";
 
 export function kml(data: any) {
-  var json = GeoJSON.parse(data.places, {
+  const json = GeoJSON.parse(data, {
     Point: ["lat", "lng"],
-    include: ["name"],
   });
   return tokml(json, {
     name: "name",
-    documentName: data.username + "'s travelmap",
-    documentDescription: "I have been to " + data.places.length + " cities",
+    documentName: "44",
+    documentDescription: "rrr",
   });
 }
