@@ -10,6 +10,7 @@ const fn = async () => {
   const kmlres = kml(json);
   const csvres = csv(json);
   console.log(csvres);
+  console.log(kmlres);
 
   var zip = new JSZip();
   zip.file("Hello.txt", "Hello World\n");
