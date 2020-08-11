@@ -10,9 +10,7 @@ const success = (req: ServerRequest, b: Object) => {
   const headers = getHeaders();
   const body = JSON.stringify(b);
   // todo: correct length with buffer byteLength
-  headers.append("cache-control", "s-maxage=60, maxage=60");
-  headers.append("Access-Control-Allow-Credentials", "true");
-  headers.append("Access-Control-Allow-Origin", "*");
+  headers.append("cache-control", "s-maxage=3600, maxage=3600");
 
   req.respond({ body, headers });
 };
