@@ -3,5 +3,11 @@
   "functions": {
     "api/**/*.ts": { "runtime": "vercel-deno@0.6.3" }
   },
-  "public": true
+  "public": true,
+  "build": {
+    "env": {
+      "DENO_TSCONFIG": "tsconfig.json"
+    }
+  }
+
 }

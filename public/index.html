@@ -3,9 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <title>title</title>
+    <link rel="stylesheet" href="/styles.css"/>
 </head>
 <body>
-<script src="index.js"></script>
+<div class="min-w-screen min-h-screen bg-gray-200 flex items-center justify-center px-5 py-5">
+
+    <div class="w-full max-w-xs lg:max-w-md">
+        <h1 class="block text-gray-700 text-xl mb-2">Download Your TripAdvisor Travel Map</h1>
+        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <legend class="space-y-6">
+                <p class="text-text-md">Please enter your tripadvisor profile url.</p>
+            </legend>
+            <div class="mb-4">
+
+                <label class="block text-gray-700 text-sm font-bold mb-2" for="url">
+                    URL
+                </label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                       id="url" type="text" placeholder="Url">
+
+            </div>
+
+            <div class="flex items-center justify-between">
+                <button class="inline-flex right px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700 transition ease-in-out duration-150 cursor-not-allowed"
+                        type="submit">
+                    <svg class="js-spinner hidden animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <svg class="js-submit-icon ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><path d="M36.9 506.2c-37.1 19.5-35.6 48 3.3 63.4l115.3 45.6c38.9 15.4 97.9 7 130.9-18.8L787 201.6c32.9-25.9 36.4-22.1 7.8 8.5L399.1 633.7c-28.7 30.5-20.2 68 18.8 83.1l13.5 5.3c39.1 15.1 102.8 40.5 141.6 56.3l127.9 52.1c38.8 15.7 70.6 28.8 70.7 29.1 0 .2.2 1 .4 1 .2.1 9.4-33 20.3-73.4L987.1 70.9c11-40.4-10.3-57.6-47.4-38.1L36.9 506.2zM353.3 975c-2.3 6.8 78.8-117.5 78.8-117.5 23-35 10-76.8-28.8-92.6l-88.5-36.3c-38.7-15.9-57.3 2.7-41.3 41.5 0 .1 82.1 197.9 79.8 204.9z"/><path d="M36.9 506.2c-37.1 19.5-35.6 48 3.3 63.4l115.3 45.6c38.9 15.4 97.9 7 130.9-18.8L787 201.6c32.9-25.9 36.4-22.1 7.8 8.5L399.1 633.7c-28.7 30.5-20.2 68 18.8 83.1l13.5 5.3c39.1 15.1 102.8 40.5 141.6 56.3l127.9 52.1c38.8 15.7 70.6 28.8 70.7 29.1 0 .2.2 1 .4 1 .2.1 9.4-33 20.3-73.4L987.1 70.9c11-40.4-10.3-57.6-47.4-38.1L36.9 506.2zM353.3 975c-2.3 6.8 78.8-117.5 78.8-117.5 23-35 10-76.8-28.8-92.6l-88.5-36.3c-38.7-15.9-57.3 2.7-41.3 41.5 0 .1 82.1 197.9 79.8 204.9z"/></svg>
+                    Submit
+                </button>
+            </div>
+        </form>
+        <div class="hidden bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md"
+             role="alert">
+            <div class="flex justify-center">
+
+                <a id="blob" class="cursor-not-allowed bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded inline-flex items-center">
+                    <svg class="animate-bounce fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/>
+                    </svg>
+                    <span>Download</span>
+                </a>
+            </div>
+        </div>
+        <p class="m-8 text-center text-gray-500 text-xs">
+            &copy;2020 Acme Corp. All rights reserved.
+        </p>
+    </div>
+</div>
+<script async src="/index.js"></script>
 
 </body>
 </html>

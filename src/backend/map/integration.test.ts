@@ -1,6 +1,9 @@
 import { getMap } from "./index.ts";
 
-import { assertArrayContains } from "https://deno.land/std/testing/asserts.ts";
+import {
+  assertArrayContains,
+  assertStrictEquals,
+} from "https://deno.land/std/testing/asserts.ts";
 
 const hotWaterBeachNewZeeland = {
   lat: -36.88819,
@@ -21,8 +24,9 @@ const newYorkCityUSA = {
 Deno.test("getMap from profile page", async () => {
   const url = new URL("https://www.tripadvisor.com/Profile/christianhaller");
 
-  const actual = await getMap(url);
-  assertArrayContains(actual, [hotWaterBeachNewZeeland, newYorkCityUSA]);
+  const { places, username } = await getMap(url);
+  assertArrayContains(places, [hotWaterBeachNewZeeland, newYorkCityUSA]);
+  assertStrictEquals(username, "christianhaller");
 });
 
 Deno.test("getMap from map page", async () => {
@@ -30,6 +34,7 @@ Deno.test("getMap from map page", async () => {
     "https://www.tripadvisor.com/TravelMap-a_uid.F16A76DBDC7075B786CC2C71B9198693"
   );
 
-  const actual = await getMap(url);
-  assertArrayContains(actual, [hotWaterBeachNewZeeland]);
+  const { places, username } = await getMap(url);
+  assertArrayContains(places, [hotWaterBeachNewZeeland]);
+  assertStrictEquals(username, "christianhaller");
 });

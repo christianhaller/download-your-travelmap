@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "bytes": "^3.1.0",
     "geojson": "^0.5.0",
     "json2csv": "^5.0.1",
     "jszip": "^3.5.0",
+    "pretty-bytes": "^5.3.0",
     "tokml": "^0.4.0"
   },
   "devDependencies": {
@@ -15,13 +17,15 @@
     "prettier": "^2.0.5",
     "rollup": "^2.23.1",
     "rollup-plugin-terser": "^7.0.0",
+    "tailwindcss": "^1.6.2",
     "tslib": "^2.0.1",
     "typescript": "^3.9.7"
   },
   "scripts": {
+    "tailwind": "NODE_ENV=production tailwindcss build src/frontend/styles.css -o public/styles.css",
     "test": "npm run test:backend",
-    "build": "rollup -c ./rollup.config.js",
-    "test:backend": "deno test src/backend --allow-read --allow-net --unstable"
+    "build": "rollup -c ./rollup.config.js && npm run tailwind",
+    "test:backend": "deno test src/backend --allow-read --allow-net --unstable --log-level info"
   },
   "repository": {
     "type": "git",

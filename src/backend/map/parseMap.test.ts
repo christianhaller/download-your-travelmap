@@ -7,10 +7,10 @@ import {
 
 Deno.test("parseMap", async () => {
   const str = await readFileStr("./fixtures/map.html", { encoding: "utf8" });
-  const actual = parseMap(str);
+  const { places } = parseMap(str);
 
   const expected = await readJson("./fixtures/expectedMap.json");
-  assertEquals(actual, expected);
+  assertEquals(places, expected);
 });
 
 Deno.test("parseMap with exception", async () => {
@@ -22,6 +22,6 @@ Deno.test("parseMap with exception", async () => {
       parseMap(str);
     },
     Error,
-    "can't parse map",
+    "can't parse map"
   );
 });

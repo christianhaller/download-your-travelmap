@@ -1,20 +1,32 @@
-import JSZip from "jszip/dist/jszip";
 import { kml } from "./kml";
 import { csv } from "./csv";
+import { zip } from "./zip";
+import { downloadButton } from "./downloadButton";
 
-const fn = async () => {
-  const res = await fetch(
-    "/api?url=http://www.tripadvisor.com/members/christianhaller"
-  );
-  const json = await res.json();
-  const kmlres = kml(json);
-  const csvres = csv(json);
-  console.log(csvres);
-  console.log(kmlres);
+const fn = async (e) => {
+  e.preventDefault();
+  submitIcon.classList.add("hidden");
+  spinnerIcon.classList.remove("hidden");
 
-  var zip = new JSZip();
-  zip.file("Hello.txt", "Hello World\n");
-  const zipres = await zip.generateAsync({ type: "blob" });
-  console.log(zipres);
+  const url = input.value;
+  const res = await fetch(`/api?url=${url}`);
+  const dl = form.nextElementSibling;
+  spinnerIcon.classList.add("hidden");
+  submitIcon.classList.remove("hidden");
+  if (res.ok) {
+    dl.classList.remove("hidden");
+
+    const { places, username } = await res.json();
+    const blob = await zip({ csv: csv(places), kml: kml(places), username });
+    downloadButton(blob, username);
+  } else {
+    dl.classList.add("hidden");
+  }
 };
-fn();
+
+const form = document.querySelector("form");
+const input = form.querySelector("#url") as HTMLInputElement;
+const submitIcon = form.querySelector(".js-submit-icon");
+const spinnerIcon = form.querySelector(".js-spinner");
+form.addEventListener("submit", fn);
+form.querySelector("button").classList.remove("cursor-not-allowed");

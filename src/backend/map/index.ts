@@ -3,7 +3,9 @@ import { parseProfile } from "./parseProfile.ts";
 import { parseMap, EnhancedPin } from "./parseMap.ts";
 import { request } from "../request.ts";
 
-const getMap = async (url: URL): Promise<EnhancedPin[]> => {
+const getMap = async (
+  url: URL
+): Promise<{ username: string; places: EnhancedPin[] }> => {
   const res = await request(url);
   log.debug("url %s", url.href);
 
