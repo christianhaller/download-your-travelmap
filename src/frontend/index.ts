@@ -20,8 +20,13 @@ const fn = async (e) => {
     if (res.ok) {
       dl.classList.remove("hidden");
 
-      const { places, username, language }: Response = await res.json();
-      const blob = await zip({ csv: csv(places), kml: kml(places), username });
+      const response: Response = await res.json();
+      const { username, places, language } = response;
+      const blob = await zip({
+        csv: csv(places),
+        kml: kml(response),
+        username,
+      });
       downloadButton(blob, username);
       flags(places, language);
     } else {

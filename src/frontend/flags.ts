@@ -5,13 +5,18 @@ export function flags(places: EnhancedPin[], language: string) {
   const been = document.querySelector(".been") as any;
   let flags = "";
   if (language === "en") {
-    flags = [
+    const unique = [
       ...new Set(
         places.map(({ country }) => {
-          return flag(country);
+          return country;
         })
       ),
-    ].join("");
+    ];
+    flags = `${unique
+      .map((country) => {
+        return flag(country);
+      })
+      .join(" ")}(${unique.length})`;
   }
   been.innerText = flags;
 }

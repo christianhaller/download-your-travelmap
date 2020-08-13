@@ -1,2 +1,3 @@
 .vercel
 public/*.js
+public/*.css
