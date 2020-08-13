@@ -1,17 +1,8 @@
 import { validHostnames } from "./validHostnames.ts";
-import * as log from "https://deno.land/std/log/mod.ts";
+import { validateFn } from "./validateFn.ts";
 
 const validate = (url: URL): void => {
-  const { hostname } = url;
-  const hostnameWithoutWww = hostname.replace("www.", "");
-  if (
-    validHostnames.includes(hostname) ||
-    validHostnames.includes(hostnameWithoutWww)
-  ) {
-    log.debug("valid hostname");
-  } else {
-    throw new Error(`${hostname} is not a valid tripadvisor url`);
-  }
+  validateFn(url, validHostnames);
 };
 
 export { validate };

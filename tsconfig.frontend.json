@@ -1,5 +1,5 @@
 {
-  "include": ["src/frontend/**/*"],
+  "include": ["src/frontend/**/*","src/backend/validateFn.ts","src/backend/validHostnames.ts"],
   "compilerOptions": {
     "target": "ES6",
     "lib": ["es5","es6", "dom"],

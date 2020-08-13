@@ -1,11 +1,10 @@
 import * as log from "https://deno.land/std/log/mod.ts";
 import { parseProfile } from "./parseProfile.ts";
-import { parseMap, EnhancedPin } from "./parseMap.ts";
+import { parseMap } from "./parseMap.ts";
 import { request } from "../request.ts";
+import type { Response } from "../interace.ts";
 
-const getMap = async (
-  url: URL
-): Promise<{ username: string; places: EnhancedPin[] }> => {
+const getMap = async (url: URL): Promise<Response> => {
   const res = await request(url);
   log.debug("url %s", url.href);
 

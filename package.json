@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "bytes": "^3.1.0",
+    "country-emoji": "^1.5.4",
     "geojson": "^0.5.0",
     "json2csv": "^5.0.1",
     "jszip": "^3.5.0",
@@ -13,6 +14,7 @@
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^14.0.0",
+    "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-typescript": "^5.0.2",
     "prettier": "^2.0.5",
     "rollup": "^2.23.1",
@@ -25,7 +27,7 @@
     "tailwind": "NODE_ENV=production tailwindcss build src/frontend/styles.css -o public/styles.css",
     "test": "npm run test:backend",
     "build": "rollup -c ./rollup.config.js && npm run tailwind",
-    "test:backend": "deno test src/backend --allow-read --allow-net --unstable --log-level info"
+    "test:backend": "deno test src/backend --allow-read --allow-net --unstable --log-level info --allow-write"
   },
   "repository": {
     "type": "git",
