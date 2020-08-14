@@ -1,6 +1,6 @@
 module.exports = {
   theme: {},
-  purge: ["./public/*.html"],
+  purge: ["./src/frontend/templates/*.html"],
   variants: {},
   plugins: [],
 };

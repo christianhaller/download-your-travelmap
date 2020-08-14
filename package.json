@@ -7,6 +7,7 @@
     "bytes": "^3.1.0",
     "country-emoji": "^1.5.4",
     "geojson": "^0.5.0",
+    "html-minifier": "^4.0.0",
     "json2csv": "^5.0.1",
     "jszip": "^3.5.0",
     "pretty-bytes": "^5.3.0",
@@ -26,10 +27,11 @@
     "typescript": "^3.9.7"
   },
   "scripts": {
-    "tailwind": "NODE_ENV=production tailwindcss build src/frontend/styles.css -o public/styles.css",
+    "templates":"html-minifier --collapse-whitespace --input-dir src/frontend/templates --output-dir public",
+    "tailwind": "NODE_ENV=production tailwindcss build src/frontend/styles/styles.css -o public/styles.css",
     "test": "npm run test:backend",
     "postcss": "postcss public/styles.css > public/styles.min.css",
-    "build": "rollup -c ./rollup.config.js && npm run tailwind && npm run postcss",
+    "build": "npm run test:backend && rollup -c ./rollup.config.js && npm run tailwind && npm run postcss && npm run templates",
     "test:backend": "deno test src/backend --allow-read --allow-net --unstable --log-level info --allow-write"
   },
   "repository": {
