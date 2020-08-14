@@ -31,7 +31,7 @@
     "tailwind": "NODE_ENV=production tailwindcss build src/frontend/styles/styles.css -o public/styles.css",
     "test": "npm run test:backend",
     "postcss": "postcss public/styles.css > public/styles.min.css",
-    "build": "npm run test:backend && rollup -c ./rollup.config.js && npm run tailwind && npm run postcss && npm run templates",
+    "build": "rollup -c ./rollup.config.js && npm run tailwind && npm run postcss && npm run templates",
     "test:backend": "deno test src/backend --allow-read --allow-net --unstable --log-level info --allow-write"
   },
   "repository": {
