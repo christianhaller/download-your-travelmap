@@ -1,3 +1,4 @@
+// @ts-ignore
 import { getMap } from "./index.ts";
 
 import {

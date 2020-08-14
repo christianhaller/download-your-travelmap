@@ -1,7 +1,12 @@
+// @ts-ignore
 import { ServerRequest } from "https://deno.land/std@0.62.0/http/server.ts";
+// @ts-ignore
 import { getUrl } from "../src/backend/url.ts";
+// @ts-ignore
 import { validate } from "../src/backend/validate.ts";
+// @ts-ignore
 import { getMap } from "../src/backend/map/index.ts";
+// @ts-ignore
 import { success, failure } from "../src/backend/response.ts";
 
 export default async (req: ServerRequest) => {

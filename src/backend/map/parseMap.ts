@@ -1,5 +1,8 @@
+// @ts-ignore
 import { parseUser } from "./parseUser.ts";
+// @ts-ignore
 import type { Response, Pin } from "../interace.ts";
+// @ts-ignore
 import { parseLanguage } from "./parseLanguage.ts";
 
 const parseMap = (str: string): Response => {
