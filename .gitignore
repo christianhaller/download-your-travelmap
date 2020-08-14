@@ -1,3 +1,4 @@
 .vercel
 public/*
+!public/*.jpg
 !public/favicon.ico

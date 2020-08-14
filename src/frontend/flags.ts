@@ -14,6 +14,11 @@ export function flags(places: EnhancedPin[], language: string) {
     ];
     flags = `${unique
       .map((country) => {
+        if(country === "Republic of North Macedonia"){
+          // remap to old country name https://github.com/meeDamian/country-emoji/blob/master/countries.json#L143
+          country = "Macedonia";
+        }
+        
         return flag(country);
       })
       .join(" ")}(${unique.length})`;
