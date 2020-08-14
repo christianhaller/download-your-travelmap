@@ -22,13 +22,15 @@ const fn = async (e) => {
 
       const response: Response = await res.json();
       const { username, places, language } = response;
+      const emojis = flags(places, language);
       const blob = await zip({
         csv: csv(places),
         kml: kml(response),
         username,
+        emojis,
       });
       downloadButton(blob, username);
-      flags(places, language);
+ 
     } else {
       dl.classList.add("hidden");
     }
