@@ -1,3 +1,4 @@
+// @ts-ignore
 import * as log from "https://deno.land/std/log/mod.ts";
 
 const request = async (url: URL): Promise<string> => {

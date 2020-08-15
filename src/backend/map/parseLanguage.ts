@@ -1,3 +1,4 @@
+// @ts-ignore
 import * as log from "https://deno.land/std/log/mod.ts";
 const parseLanguage = (str: string) => {
   const re = new RegExp(
