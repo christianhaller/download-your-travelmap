@@ -21,7 +21,7 @@
     "cssnano": "^4.1.10",
     "postcss-cli": "^7.1.1",
     "prettier": "^2.0.5",
-    "rollup": "^2.26.2",
+    "rollup": "^2.26.3",
     "rollup-plugin-terser": "^7.0.0",
     "tailwindcss": "^1.6.2",
     "tslib": "^2.0.1",
