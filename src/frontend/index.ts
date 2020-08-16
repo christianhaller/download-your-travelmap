@@ -21,23 +21,21 @@ const fn = async (e) => {
     if (res.ok) {
       dl.classList.remove("hidden");
 
-      
       const response: Response = await res.json();
       const { username, places, language } = response;
       const emojis = flags(places, language);
-      const png =  await chart(places);
+      const png = await chart(places);
       console.log(png);
-      
+
       const blob = await zip({
         csv: csv(places),
         kml: kml(response),
         username,
         emojis,
-        png
+        png,
       });
       downloadButton(blob, username);
       chart(places);
- 
     } else {
       dl.classList.add("hidden");
     }
@@ -55,5 +53,3 @@ const spinnerIcon = form.querySelector(".js-spinner");
 const dl = form.nextElementSibling;
 form.addEventListener("submit", fn);
 form.querySelector("button").classList.remove("cursor-not-allowed");
-
-

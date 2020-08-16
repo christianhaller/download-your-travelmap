@@ -1,6 +1,5 @@
 import { parseMap } from "./parseMap.ts";
 import {
-  readFileStr,
   readJson,
   //  writeJsonSync,
 } from "https://deno.land/std/fs/mod.ts";
@@ -10,7 +9,7 @@ import {
 } from "https://deno.land/std/testing/asserts.ts";
 
 Deno.test("parseMap", async () => {
-  const str = await readFileStr("./fixtures/map.html", { encoding: "utf8" });
+  const str = await Deno.readTextFile("./fixtures/map.html");
   const { places } = parseMap(str);
 
   // update snapshot
@@ -20,9 +19,7 @@ Deno.test("parseMap", async () => {
 });
 
 Deno.test("parseMap with exception", async () => {
-  const str = await readFileStr("./fixtures/homepage.html", {
-    encoding: "utf8",
-  });
+  const str = await Deno.readTextFile("./fixtures/homepage.html");
   assertThrows(
     (): void => {
       parseMap(str);
