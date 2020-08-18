@@ -1,3 +1,4 @@
+//@ts-ignore
 import { Form } from "./Form/Form.ts";
 import { Success } from "./response/success/Success";
 
