@@ -1,9 +1,8 @@
 {
-  "include": ["src/frontend/**/*","src/backend/validateFn.ts","src/backend/validHostnames.ts"],
+  "include": ["src/frontend/**/*","src/backend/validateFn*","src/backend/validHostnames*"],
   "compilerOptions": {
     "target": "ES6",
     "lib": ["es5","es6", "dom"],
-    "allowSyntheticDefaultImports": true,
     "moduleResolution": "node"
   }
 

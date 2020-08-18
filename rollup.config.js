@@ -11,7 +11,7 @@ export default {
     dir: "public",
     format: "iife",
   },
- 
+
   plugins: [
     typescript({
       tsconfig: "./tsconfig.frontend.json",

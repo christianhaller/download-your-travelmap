@@ -12,5 +12,6 @@ export interface EnhancedPin extends Omit<Pin, "name"> {
 export interface Response {
   language: string;
   username: string;
-  places: EnhancedPin[];
+  places: EnhancedPinList;
 }
+export interface EnhancedPinList extends Array<EnhancedPin> {}
