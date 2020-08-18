@@ -23,7 +23,7 @@
     "prettier": "^2.0.5",
     "rollup": "^2.26.2",
     "rollup-plugin-terser": "^7.0.0",
-    "tailwindcss": "^1.6.2",
+    "tailwindcss": "^1.6.3",
     "tslib": "^2.0.1",
     "typescript": "^3.9.7"
   },
