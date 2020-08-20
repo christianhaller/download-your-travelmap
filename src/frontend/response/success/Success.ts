@@ -1,5 +1,4 @@
 import { Zip } from "../../Zip/Zip";
-// import { downloadButton } from "./DownloadButton";
 import { Flags } from "./Flags";
 import { Chart } from "./Chart";
 import type { Response } from "../../../backend/interace";
@@ -7,20 +6,15 @@ import { DownloadButton } from "./DownloadButton";
 
 export class Success {
   private data: Response;
-  private selector: string;
   private el: HTMLElement | undefined;
   private doc: HTMLDocument;
-  private chart: Chart;
-  private flags: Flags;
-  // private downloadButton;
 
-  constructor(selector: string, doc: HTMLDocument) {
+  constructor(doc: HTMLDocument) {
     this.doc = doc;
-    this.selector = selector;
   }
 
   init(data: Response) {
-    this.el = this.doc.querySelector(this.selector);
+    this.el = this.doc.querySelector(".success");
     this.data = data;
     return this;
   }

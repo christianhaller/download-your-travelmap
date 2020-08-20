@@ -12,6 +12,10 @@ export class Zip {
     const { username } = data;
     const zip = new JSZip();
 
+    zip.file(
+      "hi_" + username + ".txt",
+      "wanna say thanks? https://www.paypal.com/paypalme/christianhaller/2"
+    );
     zip.file(`${username}.csv`, csv(data.places));
     zip.file(`${username}.kml`, kml(data));
     zip.file(`${username}.png`, png);

@@ -1,5 +1,3 @@
-//@ts-ignore
-import { Form } from "./Form/Form";
-import { Success } from "./response/success/Success";
+import { Form } from "./form/Form";
 
-new Form(document, new Success(".success", document)).init();
+new Form(document).init();
