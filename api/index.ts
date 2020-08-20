@@ -1,5 +1,5 @@
 // @ts-ignore
-import { ServerRequest } from "https://deno.land/std@0.62.0/http/server.ts";
+import { ServerRequest } from "https://deno.land/std/http/server.ts";
 // @ts-ignore
 import { getUrl } from "../src/backend/url.ts";
 // @ts-ignore
