@@ -28,7 +28,7 @@
     "rollup-plugin-terser": "^7.0.0",
     "tailwindcss": "^1.7.2",
     "tslib": "^2.0.1",
-    "typescript": "^3.9.7"
+    "typescript": "^4.0.2"
   },
   "scripts": {
     "templates": "html-minifier --collapse-whitespace --input-dir src/frontend/templates --output-dir public",
