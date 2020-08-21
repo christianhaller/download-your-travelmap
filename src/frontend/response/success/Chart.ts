@@ -30,7 +30,7 @@ export class Chart {
     data.addColumn({ type: "string", role: "tooltip" });
 
     this.places.forEach(({ lat, lng, city, flags }) => {
-      data.addRows([[lat, lng, flags.includes("been") ? 100 : 200, city]]);
+      data.addRows([[lat, lng, flags.includes("been") ? 1 : 10, city]]);
     });
 
     const options = {
@@ -46,7 +46,7 @@ export class Chart {
       legend: "none",
       keepAspectRatio: true,
       width: this.el.offsetWidth - 40,
-      colorAxis: { minValue: 1, maxValue: 2, colors: ["#ff0099", "#000"] },
+      colorAxis: { minValue: 1, maxValue: 10, colors: ["#ff0099", "#000"] },
     };
 
     this.chart = new google.visualization.GeoChart(this.el);

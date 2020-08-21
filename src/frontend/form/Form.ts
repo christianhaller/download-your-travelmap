@@ -33,8 +33,8 @@ export class Form {
         const data: Response = await res.json();
         this.success.init(data).show();
         const newURL = new URL(window.location.href);
-        newURL.searchParams.set('url',url.href);
-        window.history.replaceState(null, "fff",newURL.href);
+        newURL.searchParams.set("url", url.href);
+        window.history.replaceState(null, "fff", newURL.href);
       } else {
         throw Error("profile not found");
       }

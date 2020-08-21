@@ -42,7 +42,7 @@ export class Flags {
       country = "Macedonia";
     }
 
-    return flag(country) || "";
+    return `${flag(country) || ""} `;
   }
   private render() {
     this.el.innerText = this.flagString || "";

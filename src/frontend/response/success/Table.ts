@@ -12,6 +12,7 @@ export class Table {
     this.el = parent.querySelector("table tbody") as HTMLTableElement;
 
     const new_tbody = document.createElement("tbody");
+    const classes = ["lg:px-4", "border", "px-1", "py-2"].join(" ");
 
     data.places.forEach(({ country, city, flags }, index) => {
       const beenWantFave: string = flags
@@ -27,9 +28,10 @@ export class Table {
           }
         })
         .join(" ");
-      const html = `<td class="border px-4 py-2">${country} ${this.flags.getFlag(
+
+      const html = `<td class="${classes}">${this.flags.getFlag(
         country
-      )}</td><td class="border px-4 py-2">${city}</td><td class="border px-4 py-2">${beenWantFave}</td>`;
+      )}${country}</td><td class="${classes}">${city}</td><td class="${classes}">${beenWantFave}</td>`;
       const row = new_tbody.insertRow();
       row.innerHTML = html;
       let className = "bg-gray-100";
