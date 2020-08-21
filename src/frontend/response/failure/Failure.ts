@@ -1,6 +1,7 @@
 export class Failure {
   private el: HTMLElement | undefined;
   private doc: HTMLDocument;
+  private hiddenClassName = "hidden";
 
   constructor(doc: HTMLDocument) {
     this.doc = doc;
@@ -13,9 +14,9 @@ export class Failure {
 
   async show(msg: string) {
     this.el.querySelector("p").innerText = msg;
-    this.el?.classList.remove("hidden");
+    this.el?.classList.remove(this.hiddenClassName);
   }
   hide() {
-    this.el?.classList.add("hidden");
+    this.el?.classList.add(this.hiddenClassName);
   }
 }

@@ -28,8 +28,9 @@
             <input
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="url"
-              type="text"
+              type="url"
               placeholder="https://www.tripadvisor.com/members/christianhaller"
+              required
             />
           </div>
           <div class="flex items-center justify-between">
@@ -75,10 +76,14 @@
         </form>
 
         <div class="hidden failure">
-          <div class="bg-red-500 text-white font-bold rounded-t px-4 py-3 shadow-md">
+          <div
+            class="bg-red-500 text-white font-bold rounded-t px-4 py-3 shadow-md"
+          >
             Oh no!
           </div>
-          <div class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+          <div
+            class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700"
+          >
             <p></p>
           </div>
         </div>
@@ -103,9 +108,20 @@
           </div>
           <p class="been mt-2 mb-2"></p>
           <div id="chart" style="width: 100%; height: 200px;"></div>
+          <table class="table-auto mb-4 mt-4">
+            <thead>
+              <tr class="bg-white">
+                <th class="border px-4 py-2">Country</th>
+                <th class="border px-4 py-2">City</th>
+                <th class="border px-4 py-2">Been | Want | Favorite</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
         </div>
         <p class="m-8 text-center text-gray-200 text-xs">
-          <a href="https://www.tripadvisor.com/ShowTopic-g1-i12105-k4907156-How_can_I_download_my_travel_map_pins_list-Tripadvisor_Support.html"
+          <a
+            href="https://www.tripadvisor.com/ShowTopic-g1-i12105-k4907156-How_can_I_download_my_travel_map_pins_list-Tripadvisor_Support.html"
             >Why?</a
           >
           |
@@ -113,8 +129,10 @@
             >How?</a
           >
           |
-          <a href="https://www.paypal.com/paypalme/christianhaller/2">Say thanks! 🙏</a>
-          | &copy;2020
+          <a href="https://www.paypal.com/paypalme/christianhaller/2"
+            >Say thanks!</a
+          >
+          🙏 | &copy;2020
         </p>
       </div>
     </div>

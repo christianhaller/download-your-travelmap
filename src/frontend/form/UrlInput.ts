@@ -10,6 +10,10 @@ export class UrlInput {
     this.el.focus();
   }
 
+  public setValue(val: string): void {
+    this.el.value = val;
+  }
+
   public getValue(): string {
     return this.el.value;
   }

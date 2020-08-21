@@ -3,11 +3,13 @@ import { Flags } from "./Flags";
 import { Chart } from "./Chart";
 import type { Response } from "../../../backend/interace";
 import { DownloadButton } from "./DownloadButton";
+import { Table } from "./Table";
 
 export class Success {
   private data: Response;
   private el: HTMLElement | undefined;
   private doc: HTMLDocument;
+  private hiddenClassName = "hidden";
 
   constructor(doc: HTMLDocument) {
     this.doc = doc;
@@ -20,7 +22,7 @@ export class Success {
   }
 
   async show() {
-    this.el?.classList.remove("hidden");
+    this.el?.classList.remove(this.hiddenClassName);
     const chart = await new Chart().init(this.el, this.data.places);
 
     const flags = new Flags().init(this.el, this.data);
@@ -28,9 +30,10 @@ export class Success {
     const zip = await new Zip().create(this.data, flags.getString(), png);
 
     new DownloadButton().init(this.el, zip, this.data.username);
+    new Table(flags).init(this.el, this.data);
   }
 
   hide() {
-    this.el?.classList.add("hidden");
+    this.el?.classList.add(this.hiddenClassName);
   }
 }

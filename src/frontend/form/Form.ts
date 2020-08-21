@@ -32,6 +32,9 @@ export class Form {
       if (res.ok) {
         const data: Response = await res.json();
         this.success.init(data).show();
+        const newURL = new URL(window.location.href);
+        newURL.searchParams.set('url',url.href);
+        window.history.replaceState(null, "fff",newURL.href);
       } else {
         throw Error("profile not found");
       }
@@ -46,9 +49,25 @@ export class Form {
   init() {
     this.el = this.doc.querySelector("form");
     this?.el.addEventListener("submit", (e: Event) => this.submit(e));
+    this.doc.addEventListener(
+      "invalid",
+      (() => {
+        return (e) => {
+          e.preventDefault();
+          this.urlInput.setFocus();
+        };
+      })(),
+      true
+    );
+
     this.urlInput = new UrlInput().init(this.el);
     this.submitButton = new SubmitButton().init(this.el);
     this.success = new Success(this.doc);
     this.failure = new Failure(this.doc).init();
+    return this;
+  }
+  autoSubmit(url: string): void {
+    this.urlInput.setValue(url);
+    this.el.dispatchEvent(new Event("submit"));
   }
 }

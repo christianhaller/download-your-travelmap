@@ -10,6 +10,6 @@ export class DownloadButton {
     this.el.download = `${username}.zip`;
 
     this.el.classList.remove("cursor-not-allowed");
-    this.el.querySelector("span").innerText = `download (${bytes(blob.size)})`;
+    this.el.querySelector("span").innerText = `Download (${bytes(blob.size)})`;
   }
 }

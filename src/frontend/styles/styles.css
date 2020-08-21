@@ -11,3 +11,8 @@ a {
 #download {
   text-decoration: none;
 }
+
+table tr:hover td {
+  background: #333;
+  color: #fff;
+}

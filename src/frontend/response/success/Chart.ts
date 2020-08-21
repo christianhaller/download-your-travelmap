@@ -46,7 +46,7 @@ export class Chart {
       legend: "none",
       keepAspectRatio: true,
       width: this.el.offsetWidth - 40,
-      colorAxis: { minValue: 1, maxValue: 2, colors: ["#ff0099", "#000"] }, // orange to blue
+      colorAxis: { minValue: 1, maxValue: 2, colors: ["#ff0099", "#000"] },
     };
 
     this.chart = new google.visualization.GeoChart(this.el);

@@ -31,21 +31,20 @@ export class Flags {
       ),
     ];
     console.table(unique);
-    return `${unique
-      .map((country) => {
-        if (country === "Republic of North Macedonia") {
-          // remap to old country name https://github.com/meeDamian/country-emoji/blob/master/countries.json#L143
-          country = "Macedonia";
-        }
-
-        return flag(country);
-      })
-      .join(" ")}(${unique.length})`;
+    return `${unique.map(this.getFlag).join(" ")}(${unique.length})`;
   }
   getString(): string | undefined {
     return this.flagString;
   }
+  getFlag(country: string): string {
+    if (country === "Republic of North Macedonia") {
+      // remap to old country name https://github.com/meeDamian/country-emoji/blob/master/countries.json#L143
+      country = "Macedonia";
+    }
+
+    return flag(country) || "";
+  }
   private render() {
-    this.el.innerText = this.flagString;
+    this.el.innerText = this.flagString || "";
   }
 }
