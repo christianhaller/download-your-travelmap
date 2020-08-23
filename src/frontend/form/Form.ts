@@ -20,6 +20,7 @@ export class Form {
 
   async submit(e: Event) {
     e.preventDefault();
+    
     this.success.hide();
     this.failure.hide();
 
@@ -34,7 +35,9 @@ export class Form {
         this.success.init(data).show();
         const newURL = new URL(window.location.href);
         newURL.searchParams.set("url", url.href);
-        window.history.replaceState(null, "fff", newURL.href);
+        if (window.location.href !== newURL.href) {
+          window.history.replaceState(null, "", newURL.href);
+        }
       } else {
         throw Error("profile not found");
       }
@@ -68,6 +71,6 @@ export class Form {
   }
   autoSubmit(url: string): void {
     this.urlInput.setValue(url);
-    this.el.dispatchEvent(new Event("submit"));
+    this.el.dispatchEvent(new Event("submit",{ cancelable: true }));
   }
 }
