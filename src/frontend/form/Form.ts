@@ -20,7 +20,7 @@ export class Form {
 
   async submit(e: Event) {
     e.preventDefault();
-    
+
     this.success.hide();
     this.failure.hide();
 
@@ -39,7 +39,9 @@ export class Form {
           window.history.replaceState(null, "", newURL.href);
         }
       } else {
-        throw Error("profile not found");
+        throw Error(
+          "profile not found. try something like https://www.tripadvisor.com/Profile/Paradise11749811342"
+        );
       }
     } catch (e) {
       this.success.hide();
@@ -71,6 +73,6 @@ export class Form {
   }
   autoSubmit(url: string): void {
     this.urlInput.setValue(url);
-    this.el.dispatchEvent(new Event("submit",{ cancelable: true }));
+    this.el.dispatchEvent(new Event("submit", { cancelable: true }));
   }
 }

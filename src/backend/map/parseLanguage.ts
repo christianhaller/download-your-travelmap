@@ -6,7 +6,7 @@ const parseLanguage = (str: string) => {
   );
 
   const [firstMatched] = str.match(re) || [];
-  log.info(`user: ${firstMatched}`);
+  log.info(`language: ${firstMatched}`);
   if (!firstMatched) {
     throw new Error("language not found");
   }
