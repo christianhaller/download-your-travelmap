@@ -22,7 +22,7 @@
     "cssnano": "^4.1.10",
     "html-minifier": "^4.0.0",
     "postcss-cli": "^7.1.1",
-    "prettier": "^2.0.5",
+    "prettier": "^2.1.0",
     "rollup": "^2.26.5",
     "rollup-plugin-sri": "^1.2.6",
     "rollup-plugin-terser": "^7.0.0",
