@@ -3,6 +3,11 @@ export class UrlInput {
 
   public init(parent: HTMLElement) {
     this.el = parent.querySelector("#url");
+    this.el.addEventListener("paste", () => {
+      setTimeout(() => {
+        parent.dispatchEvent(new Event("submit"));
+      }, 1);
+    });
     return this;
   }
 

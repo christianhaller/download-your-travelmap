@@ -57,7 +57,7 @@ export class Form {
     this.doc.addEventListener(
       "invalid",
       (() => {
-        return (e) => {
+        return (e: Event) => {
           e.preventDefault();
           this.urlInput.setFocus();
         };
