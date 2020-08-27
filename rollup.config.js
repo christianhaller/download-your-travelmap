@@ -5,16 +5,16 @@ import json from "@rollup/plugin-json";
 
 export default {
   input: "src/frontend/index.ts",
-  external: ['google'],
+  external: ["google"],
   output: {
-    sourcemap:true,
+    sourcemap: true,
     dir: "public",
     format: "iife",
   },
 
   plugins: [
     typescript({
-      tsconfig: "./tsconfig.frontend.json",
+      tsconfig: "./src/frontend/tsconfig.json",
     }),
     commonjs(),
     json(),

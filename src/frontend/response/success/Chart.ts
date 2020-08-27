@@ -1,4 +1,5 @@
 import type { EnhancedPinList } from "../../../backend/interace";
+import loadjs from "loadjs";
 
 export class Chart {
   private places: EnhancedPinList;
@@ -6,7 +7,12 @@ export class Chart {
   private chart: google.visualization.GeoChart;
 
   async load() {
-    return new Promise((resolve) => {
+    return new Promise(async (resolve) => {
+      await loadjs("https://www.gstatic.com/charts/loader.js", {
+        returnPromise: true,
+        async: true,
+      });
+
       google.charts.load("current", {
         packages: ["geochart"],
         mapsApiKey: "AIzaSyCsIs5SJoutxcR0Pla5bq7lFVcAW_rr17Q",
@@ -16,9 +22,6 @@ export class Chart {
   }
 
   async init(parent: HTMLElement, places: EnhancedPinList) {
-    if (!google) {
-      throw "lib not loaded";
-    }
     this.el = parent.querySelector("#chart");
     this.places = places;
     await this.load();

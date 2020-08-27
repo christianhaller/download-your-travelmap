@@ -9,6 +9,7 @@
     "geojson": "^0.5.0",
     "json2csv": "^5.0.1",
     "jszip": "^3.5.0",
+    "loadjs": "^4.2.0",
     "tokml": "^0.4.0"
   },
   "devDependencies": {
@@ -20,10 +21,11 @@
     "@types/json2csv": "^5.0.1",
     "@types/jszip": "^3.4.1",
     "cssnano": "^4.1.10",
+    "execa": "^4.0.3",
     "html-minifier": "^4.0.0",
     "postcss-cli": "^7.1.1",
     "prettier": "^2.1.1",
-    "rollup": "^2.26.5",
+    "rollup": "^2.26.6",
     "rollup-plugin-sri": "^1.2.6",
     "rollup-plugin-terser": "^7.0.0",
     "tailwindcss": "^1.7.5",
@@ -35,7 +37,8 @@
     "tailwind": "NODE_ENV=production tailwindcss build src/frontend/styles/styles.css -o public/styles.css",
     "test": "npm run test:backend",
     "postcss": "postcss public/styles.css > public/styles.min.css",
-    "build": "rollup -c ./rollup.config.js && npm run tailwind && npm run postcss && npm run templates",
+    "rollup": "rollup -c ./rollup.config.js",
+    "build": "node ./build",
     "test:backend": "deno test src/backend --allow-read --allow-net --unstable --log-level info --allow-write"
   },
   "repository": {
