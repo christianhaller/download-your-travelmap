@@ -36,7 +36,7 @@
     "templates": "html-minifier --collapse-whitespace --input-dir src/frontend/templates --output-dir public",
     "tailwind": "NODE_ENV=production tailwindcss build src/frontend/styles/styles.css -o public/styles.css",
     "test": "npm run test:backend",
-    "postcss": "postcss public/styles.css > public/styles.min.css",
+    "postcss": "postcss src/frontend/styles/styles.css > public/styles.min.css",
     "rollup": "rollup -c ./rollup.config.js",
     "build": "node ./build",
     "test:backend": "deno test src/backend --allow-read --allow-net --unstable --log-level info --allow-write"
