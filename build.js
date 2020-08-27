@@ -2,12 +2,14 @@ const execa = require("execa");
 
 (async () => {
   try {
-    const res = await Promise.all([
-      execa("npm", ["run", "tailwind"]),
-      execa("npm", ["run", "rollup"]),
-      execa("npm", ["run", "templates"]),
-    ]);
-    res.forEach(({ stdout }) => {
+    const res = await Promise.all(
+      ["js", "html", "css"].map((task) => {
+        console.log(`running: ${task}`);
+        return execa("npm", ["run", `build:${task}`]);
+      })
+    );
+    res.forEach(({ stdout, stderr }) => {
+      console.log(stderr);
       console.log(stdout);
     });
   } catch (e) {
