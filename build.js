@@ -4,7 +4,6 @@ const execa = require("execa");
   try {
     const res = await Promise.all([
       execa("npm", ["run", "tailwind"]),
-      execa("npm", ["run", "postcss"]),
       execa("npm", ["run", "rollup"]),
       execa("npm", ["run", "templates"]),
     ]);
