@@ -28,6 +28,7 @@
     "postcss-import": "^12.0.1",
     "prettier": "^2.1.1",
     "rollup": "^2.26.8",
+    "rollup-plugin-sizes": "^1.0.3",
     "rollup-plugin-terser": "^7.0.0",
     "tailwindcss": "^1.7.6",
     "tslib": "^2.0.1",
