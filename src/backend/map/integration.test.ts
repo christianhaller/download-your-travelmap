@@ -32,7 +32,7 @@ Deno.test("getMap from profile page", async () => {
 
 Deno.test("getMap from map page", async () => {
   const url = new URL(
-    "https://www.tripadvisor.com/TravelMap-a_uid.F16A76DBDC7075B786CC2C71B9198693"
+    "https://www.tripadvisor.com/TravelMap-a_uid.F16A76DBDC7075B786CC2C71B9198693",
   );
 
   const { places, username } = await getMap(url);
