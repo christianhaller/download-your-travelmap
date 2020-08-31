@@ -24,7 +24,7 @@ Deno.test({
     } catch (e) {
       assertEquals(
         e.message,
-        "christianhaller.com is not a valid tripadvisor url",
+        "christianhaller.com is not a valid tripadvisor url"
       );
     }
   },

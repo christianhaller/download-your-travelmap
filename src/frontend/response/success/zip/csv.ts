@@ -1,5 +1,5 @@
 import json2csv from "json2csv/dist/json2csv.umd";
-import type { EnhancedPin } from "../../backend/interace";
+import type { EnhancedPin } from "../../../../backend/interace";
 
 export function csv(data: EnhancedPin[]) {
   const fields = ["lat", "lon", "country", "city", "been"];

@@ -3,6 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "scripts": {
+    "build:html": "html-minifier --collapse-whitespace --input-dir src/frontend/templates --output-dir public",
+    "test": "npm run test:backend",
+    "build:css": "postcss src/frontend/styles/styles.css > public/styles.min.css",
+    "build:js": "rollup -c ./rollup.config.js",
+    "build": "NODE_ENV=production node ./build",
+    "test:backend": "deno test src/backend --allow-read --allow-net --unstable --log-level info --allow-write"
+  },
   "dependencies": {
     "bytes": "^3.1.0",
     "country-emoji": "^1.5.4",
@@ -32,14 +40,6 @@
     "tailwindcss": "^1.7.6",
     "tslib": "^2.0.1",
     "typescript": "^4.0.2"
-  },
-  "scripts": {
-    "build:html": "html-minifier --collapse-whitespace --input-dir src/frontend/templates --output-dir public",
-    "test": "npm run test:backend",
-    "build:css": "NODE_ENV=production postcss src/frontend/styles/styles.css > public/styles.min.css",
-    "build:js": "rollup -c ./rollup.config.js",
-    "build": "node ./build",
-    "test:backend": "deno test src/backend --allow-read --allow-net --unstable --log-level info --allow-write"
   },
   "repository": {
     "type": "git",

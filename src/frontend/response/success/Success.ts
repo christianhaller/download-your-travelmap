@@ -1,4 +1,4 @@
-import { Zip } from "../../Zip/Zip";
+import { Zip } from "./zip/Zip";
 import { Flags } from "./Flags";
 import { Chart } from "./Chart";
 import type { Response } from "../../../backend/interace";
