@@ -1,6 +1,6 @@
+import loadjs from "loadjs";
 import { validate } from "./validate";
 import { UrlInput } from "./UrlInput";
-import loadjs from "loadjs";
 import { SubmitButton } from "./SubmitButton";
 import type { Response } from "../../backend/interace";
 import { Failure } from "../response/failure/Failure";
@@ -8,7 +8,6 @@ import { Failure } from "../response/failure/Failure";
 export class Form {
   private submitButton: SubmitButton;
   private urlInput: UrlInput;
-
   private el: HTMLFormElement;
   private doc: HTMLDocument;
   private failure: Failure;
@@ -20,6 +19,7 @@ export class Form {
   async submit(e: Event) {
     e.preventDefault();
 
+    window?.success?.hide();
     this.failure.hide();
 
     try {
@@ -47,7 +47,7 @@ export class Form {
         );
       }
     } catch (e) {
-      window.success.hide();
+      window?.success?.hide();
       this.urlInput.setFocus();
       this.failure.show(e.message);
       console.log(e.stack);

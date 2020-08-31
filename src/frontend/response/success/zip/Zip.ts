@@ -1,7 +1,7 @@
 import JSZip from "jszip/dist/jszip";
 import { kml } from "./kml";
 import { csv } from "./csv";
-import type { Response } from "../../backend/interace";
+import type { Response } from "../../../../backend/interace";
 
 export class Zip {
   async create(

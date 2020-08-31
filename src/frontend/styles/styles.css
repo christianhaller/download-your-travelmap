@@ -12,6 +12,10 @@ a {
   text-decoration: none;
 }
 
+table {
+  width: 100%;
+}
+
 table tr:hover td {
   background: #333;
   color: #fff;

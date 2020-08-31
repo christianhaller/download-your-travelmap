@@ -15,7 +15,6 @@ export class Chart {
 
       google.charts.load("current", {
         packages: ["geochart"],
-        mapsApiKey: "AIzaSyCsIs5SJoutxcR0Pla5bq7lFVcAW_rr17Q",
       });
       google.charts.setOnLoadCallback(resolve);
     });

@@ -2,7 +2,6 @@ import typescript from "@rollup/plugin-typescript";
 import { terser } from "rollup-plugin-terser";
 import commonjs from "@rollup/plugin-commonjs";
 import json from "@rollup/plugin-json";
-import sizes from "rollup-plugin-sizes";
 
 export default ["initial", "success"].map((name) => ({
   input: `src/frontend/${name}.ts`,
@@ -19,6 +18,5 @@ export default ["initial", "success"].map((name) => ({
     commonjs(),
     json(),
     terser(),
-    sizes(),
   ],
 }));
