@@ -3,15 +3,14 @@ import type { ServerRequest } from "https://deno.land/std/http/server.ts";
 
 const getHeaders = (): Headers => {
   const headers = new Headers();
-  headers.append("Content-Type", "application/json");
+  headers.append("cache-control", "s-maxage=3600, maxage=3600");
+  headers.append("content-type", "application/json");
   return headers;
 };
 
 const success = (req: ServerRequest, b: Object) => {
   const headers = getHeaders();
   const body = JSON.stringify(b);
-  // todo: correct length with buffer byteLength
-  headers.append("cache-control", "s-maxage=3600, maxage=3600");
 
   req.respond({ body, headers });
 };

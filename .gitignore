@@ -1,4 +1,6 @@
 .vercel
-public/*
-!public/*.jpg
-!public/favicon.ico
+public/*.html
+public/*.css
+public/*.js
+public/*.map
+

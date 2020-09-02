@@ -20,3 +20,9 @@ table tr:hover td {
   background: #333;
   color: #fff;
 }
+
+.bg {
+  background-size:cover;
+  background-color: #000;
+  background-image: url('nasa-1lfI7wkGWZ4-unsplash.jpg');
+}
