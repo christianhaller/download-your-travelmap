@@ -13,6 +13,5 @@ jobs:
       - name: Use Deno
         uses: denolib/setup-deno@v2
         with:
-          deno-version: 1.2.2
-      - run: make typedoc
-      - run: deno --version
+          deno-version: 1.x
+      - run: deno test src/backend --allow-read --allow-net --unstable --log-level info
