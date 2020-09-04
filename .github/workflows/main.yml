@@ -1,0 +1,18 @@
+name: test backend
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Deno
+        uses: denolib/setup-deno@v2
+        with:
+          deno-version: 1.2.2
+      - run: make typedoc
+      - run: deno --version
