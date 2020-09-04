@@ -6,7 +6,6 @@ import { DownloadButton } from "./DownloadButton";
 import { Table } from "./Table";
 
 export class Success {
-  private data: Response;
   private el: HTMLElement | undefined;
   private doc: HTMLDocument;
   private hiddenClassName = "hidden";
@@ -15,25 +14,29 @@ export class Success {
     this.doc = doc;
   }
 
-  init(data: Response) {
+  init() {
     this.el = this.doc.querySelector(".success");
-    this.data = data;
-    return this;
+    this.doc.addEventListener("success.show", (async (event: CustomEvent) => {
+      const { detail }: { detail: Response } = event;
+      await this.show(detail);
+    }) as EventListener);
+
+    this.doc.addEventListener("success.hide", () => {
+      this.hide();
+    });
   }
 
-  async show() {
+  private async show(data: Response): Promise<void> {
     this.el?.classList.remove(this.hiddenClassName);
-    const chart = await new Chart().init(this.el, this.data.places);
-
-    const flags = new Flags().init(this.el, this.data);
+    const chart = await new Chart().init(this.el, data.places);
+    const flags = new Flags().init(this.el, data);
     const png = await chart.getImage();
-    const zip = await new Zip().create(this.data, flags.getString(), png);
-
-    new DownloadButton().init(this.el, zip, this.data.username);
-    new Table(flags).init(this.el, this.data);
+    const zip = await new Zip().create(data, flags.getString(), png);
+    new DownloadButton().init(this.el, zip, data.username);
+    new Table(flags).init(this.el, data);
   }
 
-  hide() {
+  private hide(): void {
     this.el?.classList.add(this.hiddenClassName);
   }
 }

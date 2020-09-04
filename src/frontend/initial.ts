@@ -1,5 +1,4 @@
 import { Form } from "./form/Form";
-import type { Success } from "./response/success/Success";
 
 (() => {
   const form = new Form(document).init();
@@ -14,9 +13,3 @@ import type { Success } from "./response/success/Success";
     form.autoSubmit(url);
   }
 })();
-
-declare global {
-  interface Window {
-    success: Success;
-  }
-}

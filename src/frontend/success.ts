@@ -1,3 +1,5 @@
 import { Success } from "./response/success/Success";
 
-window.success = new Success(document);
+(() => {
+  new Success(document).init();
+})();

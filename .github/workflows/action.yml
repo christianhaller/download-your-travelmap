@@ -1,0 +1,13 @@
+- name: deno test
+  uses: denolib/setup-deno@v2.2.0
+
+on: [push,pull_request]
+
+steps:
+  - uses: actions/checkout@v2
+  - uses: denolib/setup-deno@v2
+    with:
+      deno-version: v1.x
+  - run: |
+      deno --version
+      deno test src/backend --allow-read --allow-net --unstable --log-level info

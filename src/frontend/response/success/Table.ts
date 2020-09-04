@@ -2,7 +2,6 @@ import { Response } from "../../../backend/interace";
 import type { Flags } from "./Flags";
 
 export class Table {
-  private Flags: Flags;
   private el: HTMLTableElement | undefined;
   private flags: Flags;
   constructor(flags: Flags) {

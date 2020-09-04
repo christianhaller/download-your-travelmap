@@ -19,7 +19,7 @@ export class Form {
   async submit(e: Event) {
     e.preventDefault();
 
-    window?.success?.hide();
+    this.doc.dispatchEvent(new CustomEvent("success.hide"));
     this.failure.hide();
 
     try {
@@ -33,21 +33,20 @@ export class Form {
 
       this.submitButton.loadingStop();
       if (res.ok) {
-        const data: Response = await res.json();
+        const detail: Response = await res.json();
 
-        window.success.init(data).show();
+        this.doc.dispatchEvent(new CustomEvent("success.show", { detail }));
         const newURL = new URL(window.location.href);
         newURL.searchParams.set("url", url.href);
         if (window.location.href !== newURL.href) {
           window.history.replaceState(null, "", newURL.href);
         }
       } else {
-        throw Error(
-          "profile not found. try something like https://www.tripadvisor.com/Profile/Paradise11749811342"
+        throw new Error(
+          "profile not found. try something like https://www.tripadvisor.com/Profile/theplanetd"
         );
       }
     } catch (e) {
-      window?.success?.hide();
       this.urlInput.setFocus();
       this.failure.show(e.message);
       console.log(e.stack);

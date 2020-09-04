@@ -22,7 +22,11 @@ table tr:hover td {
 }
 
 .bg {
-  background-size:cover;
-  background-color: #000;
-  background-image: url('nasa-1lfI7wkGWZ4-unsplash.jpg');
+  background: #59c173; /* fallback for old browsers */
+  background: linear-gradient(
+    to right,
+    #59c173,
+    #a17fe0,
+    #5d26c1
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }

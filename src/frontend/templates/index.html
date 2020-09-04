@@ -6,7 +6,10 @@
     <link rel="stylesheet" href="/styles.min.css" />
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="content-security-policy" content="default-src 'self'; script-src 'report-sample' 'self' https://www.gstatic.com/charts/; style-src 'report-sample' 'self' https://www.gstatic.com/charts/; object-src 'none'; base-uri 'self'; connect-src 'self' data: https://www.gstatic.com/charts/; font-src 'self'; frame-src 'self'; img-src 'self'; manifest-src 'self'; media-src 'self'; report-uri https://5f4fe9ef05045ea4d75e4a4d.endpoint.csper.io/; worker-src 'none';">
+    <meta
+      http-equiv="content-security-policy"
+      content="default-src 'self'; script-src 'self' https://www.gstatic.com/charts/; style-src 'unsafe-inline' 'self' https://www.gstatic.com/charts/; object-src 'none'; base-uri 'self'; connect-src 'self' data: https://www.gstatic.com/charts/; font-src 'self'; frame-src 'self'; img-src 'self' data:; manifest-src 'self'; media-src 'self'; worker-src 'none';"
+    />
     <link
       rel="canonical"
       href="https://download-your-travelmap.christianhaller.com"
@@ -19,7 +22,6 @@
   </head>
   <body>
     <div
-
       class="bg min-w-screen min-h-screen bg-gray-200 flex items-start justify-center px-5 py-5"
     >
       <div class="w-full max-w-xs lg:max-w-lg">
@@ -141,7 +143,7 @@
           <a href="https://www.paypal.com/paypalme/christianhaller/2"
             >Say thanks!</a
           >
-          <span class="js-rendered-in"></span>
+          | <span class="js-rendered-in"></span>
           🙏 | &copy;2020
         </p>
       </div>

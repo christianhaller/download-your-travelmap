@@ -30,7 +30,6 @@ export class Flags {
           })
       ),
     ];
-    console.table(unique);
     return `${unique.map(this.getFlag).join(" ")}(${unique.length})`;
   }
   getString(): string | undefined {
