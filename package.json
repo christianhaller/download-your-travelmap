@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "build:html": "html-minifier --collapse-whitespace --input-dir src/frontend/templates --output-dir public",
-    "test": "jest",
+    "test": "npm run test:backend && npm run test:frontend",
     "build:css": "postcss src/frontend/styles/styles.css > public/styles.min.css",
     "build:js": "rollup -c ./rollup.config.js",
     "build": "NODE_ENV=production node ./build",
+    "test:frontend": "jest",
     "test:backend": "deno test src/backend --allow-read --allow-net --unstable --log-level info --allow-write"
   },
   "dependencies": {
