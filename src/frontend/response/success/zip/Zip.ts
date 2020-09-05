@@ -19,6 +19,7 @@ export class Zip {
     zip.file(`${username}.csv`, csv(data.places));
     zip.file(`${username}.kml`, kml(data));
     zip.file(`${username}.png`, png);
+    /* istanbul ignore else*/
     if (flags) {
       zip.file(`${username}.txt`, flags);
     }

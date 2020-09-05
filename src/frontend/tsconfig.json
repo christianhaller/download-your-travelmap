@@ -7,6 +7,7 @@
   "compilerOptions": {
     "target": "ES6",
     "lib": ["es5", "es6", "dom"],
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node"
   }

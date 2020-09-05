@@ -32,10 +32,10 @@ export class Flags {
     ];
     return `${unique.map(this.getFlag).join(" ")}(${unique.length})`;
   }
-  getString(): string | undefined {
+  public getString(): string | undefined {
     return this.flagString;
   }
-  getFlag(country: string): string {
+  public getFlag(country: string): string {
     if (country === "Republic of North Macedonia") {
       // remap to old country name https://github.com/meeDamian/country-emoji/blob/master/countries.json#L143
       country = "Macedonia";

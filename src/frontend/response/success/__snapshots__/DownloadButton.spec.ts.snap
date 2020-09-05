@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DownloadButton init 1`] = `
+<a
+  class=""
+  download="christian.zip"
+  href="x"
+  id="download"
+>
+  <span />
+</a>
+`;

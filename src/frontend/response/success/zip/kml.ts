@@ -2,7 +2,7 @@ import tokml from "tokml";
 import GeoJSON from "geojson";
 import type { Response } from "../../../../backend/interace";
 
-export function kml(data: Response) {
+export function kml(data: Response): any {
   const json = GeoJSON.parse(
     data.places.map((place) => {
       return {
