@@ -8,11 +8,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2-beta
-        with:
-          node-version: '14'
       - name: Use Deno
         uses: denolib/setup-deno@v2
         with:
           deno-version: 1.x
-      - run: npm t
+      - run: npm run test:backend
