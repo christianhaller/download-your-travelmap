@@ -8,7 +8,7 @@
     <img src="./badges/coverage-functions.svg" />
     <img src="./badges/coverage-lines.svg" />
     <img src="./badges/coverage-statements.svg" />
-    <img src="./https://img.shields.io/github/last-commit/christianhaller/download-your-travelmap?labelColor=black">
+    <img src="https://img.shields.io/github/last-commit/christianhaller/download-your-travelmap?labelColor=black">
     <a href="https://github.com/christianhaller/download-your-travelmap/issues/"><img src="https://img.shields.io/github/issues/christianhaller/download-your-travelmap" alt="issues" /></a>
     <img src="https://img.shields.io/github/stars/christianhaller/download-your-travelmap" alt="stars" />
     <img src="https://img.shields.io/github/forks/christianhaller/download-your-travelmap" alt="forks" />
