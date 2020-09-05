@@ -35,7 +35,9 @@ export class Form {
       if (res.ok) {
         const detail: Response = await res.json();
 
-        this.doc.dispatchEvent(new CustomEvent("success.show", { detail }));
+        this.doc.dispatchEvent(
+          <Event>new CustomEvent("success.show", { detail })
+        );
         const newURL = new URL(window.location.href);
         newURL.searchParams.set("url", url.href);
         if (window.location.href !== newURL.href) {
@@ -53,7 +55,7 @@ export class Form {
     }
   }
 
-  init() {
+  public init() {
     this.el = this.doc.querySelector("form");
     this?.el.addEventListener("submit", (e: Event) => this.submit(e));
     this.doc.addEventListener(
@@ -72,7 +74,7 @@ export class Form {
     this.failure = new Failure(this.doc).init();
     return this;
   }
-  autoSubmit(url: string): void {
+  public autoSubmit(url: string): void {
     this.urlInput.setValue(url);
     this.el.dispatchEvent(new Event("submit", { cancelable: true }));
   }

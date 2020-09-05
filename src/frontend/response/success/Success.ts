@@ -12,6 +12,7 @@ export class Success {
 
   constructor(doc: HTMLDocument) {
     this.doc = doc;
+    return this;
   }
 
   init() {

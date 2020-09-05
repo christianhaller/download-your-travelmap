@@ -6,7 +6,7 @@ export class Chart {
   private el: HTMLElement;
   private chart: google.visualization.GeoChart;
 
-  async load() {
+  private async load() {
     return new Promise(async (resolve) => {
       await loadjs("https://www.gstatic.com/charts/loader.js", {
         returnPromise: true,

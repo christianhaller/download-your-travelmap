@@ -4,7 +4,11 @@
     <img src="https://img.shields.io/badge/deno-^1.3.0-lightgrey?logo=deno">
     <img src="https://img.shields.io/badge/language-TypeScript-007ACC.svg?logo=typescript&logoColor=007ACC">
     <img src="https://img.shields.io/badge/tailwindcss%20-%2338B2AC.svg?logo=tailwind-css&logoColor=white"/>
-    <img src="https://img.shields.io/github/last-commit/christianhaller/download-your-travelmap?labelColor=black">
+    <img src="./badges/coverage-branches.svg" />
+    <img src="./badges/coverage-functions.svg" />
+    <img src="./badges/coverage-lines.svg" />
+    <img src="./badges/coverage-statements.svg" />
+    <img src="./https://img.shields.io/github/last-commit/christianhaller/download-your-travelmap?labelColor=black">
     <a href="https://github.com/christianhaller/download-your-travelmap/issues/"><img src="https://img.shields.io/github/issues/christianhaller/download-your-travelmap" alt="issues" /></a>
     <img src="https://img.shields.io/github/stars/christianhaller/download-your-travelmap" alt="stars" />
     <img src="https://img.shields.io/github/forks/christianhaller/download-your-travelmap" alt="forks" />
