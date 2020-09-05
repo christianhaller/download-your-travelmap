@@ -3,7 +3,7 @@ import bytes from "bytes";
 export class DownloadButton {
   private el: HTMLAnchorElement;
 
-  init(parent: HTMLElement, blob: Blob, username: string) {
+  public init(parent: HTMLElement, blob: Blob, username: string) {
     this.el = parent.querySelector("#download");
 
     this.el.href = window.URL.createObjectURL(blob);

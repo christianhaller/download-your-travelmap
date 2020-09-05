@@ -12,4 +12,4 @@ jobs:
         uses: denolib/setup-deno@v2
         with:
           deno-version: 1.x
-      - run: deno test src/backend --allow-read --allow-net --unstable --log-level info
+      - run: npm run test:backend

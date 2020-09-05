@@ -12,11 +12,11 @@ export class Failure {
     return this;
   }
 
-  async show(msg: string) {
-    this.el.querySelector("p").innerText = msg;
-    this.el?.classList.remove(this.hiddenClassName);
+  public show(msg: string): void {
+    this.el.querySelector("p").innerHTML = msg;
+    this.el.classList.remove(this.hiddenClassName);
   }
-  hide() {
-    this.el?.classList.add(this.hiddenClassName);
+  public hide(): void {
+    this.el.classList.add(this.hiddenClassName);
   }
 }

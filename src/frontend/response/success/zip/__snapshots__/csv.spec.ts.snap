@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`csv 1`] = `
+"lat;lon;country;city;been
+50.444885;30.536667;Ukraine;Kyiv(Kiev);been
+-34.45451;-57.83755;Uruguay;Colonia del Sacramento;been"
+`;

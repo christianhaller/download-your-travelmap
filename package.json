@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "build:html": "html-minifier --collapse-whitespace --input-dir src/frontend/templates --output-dir public",
-    "test": "npm run test:backend",
+    "test": "npm run test:backend && npm run test:frontend",
     "build:css": "postcss src/frontend/styles/styles.css > public/styles.min.css",
     "build:js": "rollup -c ./rollup.config.js",
     "build": "NODE_ENV=production node ./build",
+    "test:frontend": "jest",
     "test:backend": "deno test src/backend --allow-read --allow-net --unstable --log-level info --allow-write"
   },
   "dependencies": {
@@ -32,12 +33,14 @@
     "cssnano": "^4.1.10",
     "execa": "^4.0.3",
     "html-minifier": "^4.0.0",
+    "jest": "^26.4.2",
     "postcss-cli": "^7.1.2",
     "postcss-import": "^12.0.1",
     "prettier": "^2.1.1",
     "rollup": "^2.26.9",
     "rollup-plugin-terser": "^7.0.1",
     "tailwindcss": "^1.7.6",
+    "ts-jest": "^26.3.0",
     "tslib": "^2.0.1",
     "typescript": "^4.0.2"
   },

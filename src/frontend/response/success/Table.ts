@@ -7,7 +7,7 @@ export class Table {
   constructor(flags: Flags) {
     this.flags = flags;
   }
-  init(parent: HTMLElement, data: Response) {
+  init(parent: HTMLElement, data: Response): void {
     this.el = parent.querySelector("table tbody") as HTMLTableElement;
 
     const new_tbody = document.createElement("tbody");
@@ -22,6 +22,7 @@ export class Table {
           if (flag === "want") {
             return "💡";
           }
+          /* istanbul ignore else*/
           if (flag === "fave") {
             return "❤️";
           }

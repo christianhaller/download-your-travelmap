@@ -16,7 +16,7 @@ export class Form {
     this.doc = document;
   }
 
-  async submit(e: Event) {
+  private async submit(e: Event) {
     e.preventDefault();
 
     this.doc.dispatchEvent(new CustomEvent("success.hide"));
