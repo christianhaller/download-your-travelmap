@@ -11,6 +11,7 @@ describe("Success", () => {
   });
 
   test("show", () => {
+    // @ts-ignore
     const spy = jest.spyOn(sut, "show");
 
     document.dispatchEvent(

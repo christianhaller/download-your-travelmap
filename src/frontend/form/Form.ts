@@ -24,22 +24,27 @@ export class Form {
 
     try {
       const url = new URL(this.urlInput.getValue());
+
       validate(url);
       this.submitButton.loadingStart();
+
       const [res] = await Promise.all([
         fetch(`/api?url=${url}`),
         loadjs("/success.js", { returnPromise: true, async: true }),
       ]);
 
       this.submitButton.loadingStop();
+
       if (res.ok) {
         const detail: Response = await res.json();
 
         this.doc.dispatchEvent(
           <Event>new CustomEvent("success.show", { detail })
         );
+
         const newURL = new URL(window.location.href);
         newURL.searchParams.set("url", url.href);
+
         if (window.location.href !== newURL.href) {
           window.history.replaceState(null, "", newURL.href);
         }
@@ -57,7 +62,7 @@ export class Form {
 
   public init() {
     this.el = this.doc.querySelector("form");
-    this?.el.addEventListener("submit", (e: Event) => this.submit(e));
+    this.el.addEventListener("submit", (e: Event) => this.submit(e));
     this.doc.addEventListener(
       "invalid",
       (() => {

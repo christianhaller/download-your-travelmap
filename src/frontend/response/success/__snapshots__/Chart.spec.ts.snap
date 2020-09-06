@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Chart draw 1`] = `
+Array [
+  Object {
+    "addColumn": [MockFunction] {
+      "calls": Array [
+        Array [
+          "number",
+          "Lat",
+        ],
+        Array [
+          "number",
+          "Long",
+        ],
+        Array [
+          "number",
+          "Value",
+        ],
+        Array [
+          Object {
+            "role": "tooltip",
+            "type": "string",
+          },
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    },
+    "addRows": [MockFunction] {
+      "calls": Array [
+        Array [
+          Array [
+            Array [
+              50.444885,
+              30.536667,
+              1,
+              "Kyiv(Kiev)",
+            ],
+          ],
+        ],
+        Array [
+          Array [
+            Array [
+              -34.45451,
+              -57.83755,
+              1,
+              "Colonia del Sacramento",
+            ],
+          ],
+        ],
+      ],
+      "results": Array [
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+        Object {
+          "type": "return",
+          "value": undefined,
+        },
+      ],
+    },
+  },
+  Object {
+    "backgroundColor": Object {
+      "fill": "transparent",
+      "stroke": "#FFF",
+      "strokeWidth": 0,
+    },
+    "colorAxis": Object {
+      "colors": Array [
+        "#ff0099",
+        "#000",
+      ],
+      "maxValue": 10,
+      "minValue": 1,
+    },
+    "datalessRegionColor": "#f5f5f5",
+    "displayMode": "markers",
+    "keepAspectRatio": true,
+    "legend": "none",
+    "resolution": "countries",
+    "sizeAxis": Object {
+      "maxValue": 200,
+      "minValue": 1,
+    },
+    "width": -40,
+  },
+]
+`;
