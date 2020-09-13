@@ -1,8 +1,5 @@
 import { parseMap } from "./parseMap.ts";
-import {
-  readJson,
-  //  writeJsonSync,
-} from "https://deno.land/std/fs/mod.ts";
+
 import {
   assertEquals,
   assertThrows,
@@ -14,7 +11,10 @@ Deno.test("parseMap", async () => {
 
   // update snapshot
   //writeJsonSync("./fixtures/expectedMap.json", places);
-  const expected = await readJson("./fixtures/expectedMap.json");
+
+  const expected = JSON.parse(
+    await Deno.readTextFile("./fixtures/expectedMap.json")
+  );
   assertEquals(places, expected);
 });
 

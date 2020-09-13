@@ -10,7 +10,7 @@
     "build:js": "rollup -c ./rollup.config.js",
     "build": "NODE_ENV=production node ./build",
     "test:frontend": "jest",
-    "test:backend": "deno test src/backend --allow-read --allow-net --unstable --log-level info",
+    "test:backend": "deno test src/backend --allow-read --allow-net --unstable --log-level info --coverage",
     "badges": "ts-node --transpile-only coverage"
   },
   "dependencies": {
@@ -40,7 +40,7 @@
     "prettier": "^2.1.1",
     "rollup": "^2.26.11",
     "rollup-plugin-terser": "^7.0.2",
-    "tailwindcss": "^1.8.7",
+    "tailwindcss": "^1.8.9",
     "ts-jest": "^26.3.0",
     "ts-node": "^9.0.0",
     "tslib": "^2.0.1",
