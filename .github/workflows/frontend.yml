@@ -13,3 +13,4 @@ jobs:
           node-version: '14'
       - run: npm ci
       - run: npm run test:frontend
+      - run: npm run test:e2e
