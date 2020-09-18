@@ -4,11 +4,7 @@ let sub;
 describe("homepage", () => {
   beforeAll(async () => {
     console.log("startin vercel dev");
-    sub = execa("npm", ["run", "vercel:dev"], {
-      preferLocal: true,
-      forceKillAfterTimeout: 10,
-    });
-    await delay(15000);
+    await delay(30000);
   }, 35000);
 
   it('form submit should respond with a map"', async () => {
@@ -26,6 +22,6 @@ describe("homepage", () => {
     expect(found).toBe(true);
   });
   afterAll(() => {
-    sub.cancel();
+    // sub.cancel();
   });
 });
