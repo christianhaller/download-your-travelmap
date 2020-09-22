@@ -1,4 +1,4 @@
-name: test frontend
+name: test e2e
 
 on: [push, pull_request]
 
