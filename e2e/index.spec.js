@@ -4,8 +4,8 @@ let sub;
 describe("homepage", () => {
   beforeAll(async () => {
     console.log("startin vercel dev");
-    await delay(30000);
-  }, 35000);
+    await delay(40000);
+  }, 45000);
 
   it('form submit should respond with a map"', async () => {
     await page.goto("http://localhost:3000");
@@ -20,8 +20,5 @@ describe("homepage", () => {
 
     const found = await page.evaluate(() => window.find("Paris"));
     expect(found).toBe(true);
-  });
-  afterAll(() => {
-    // sub.cancel();
   });
 });
