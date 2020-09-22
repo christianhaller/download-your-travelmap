@@ -20,5 +20,5 @@ describe("homepage", () => {
 
     const found = await page.evaluate(() => window.find("Paris"));
     expect(found).toBe(true);
-  });
+  }, 10000);
 });
