@@ -4,8 +4,8 @@ let sub;
 describe("homepage", () => {
   beforeAll(async () => {
     console.log("wait for vercel dev");
-    await delay(30000);
-  }, 45000);
+    await delay(40000);
+  }, 65000);
 
   it('form submit should respond with a map"', async () => {
     await page.goto("http://localhost:3000");

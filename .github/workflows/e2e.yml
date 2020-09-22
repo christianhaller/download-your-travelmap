@@ -13,5 +13,4 @@ jobs:
           node-version: '14'
       - run: npm ci
       - run: __VERCEL_SKIP_DEV_CMD=true npm run vercel:dev &
-      - run: npx wait-on http://localhost:3000
       - run: npm run test:e2e
