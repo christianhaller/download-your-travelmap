@@ -32,7 +32,7 @@
     "@types/google.visualization": "0.0.53",
     "@types/json2csv": "^5.0.1",
     "@types/jszip": "^3.4.1",
-    "autoprefixer": "^10.0.0",
+    "autoprefixer": "^9.8.6",
     "cssnano": "^4.1.10",
     "delay": "^4.4.0",
     "execa": "^4.0.3",
