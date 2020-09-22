@@ -13,12 +13,13 @@ jobs:
           node-version: '14'
       - run: npm ci
       - run: npm run test:frontend
-      - run: 'mkdir .vercel && echo {"projectId":"&PROJECTID","orgId":"ORGID"}
-" > .vercel/project.json'
-            shell: bash
-            env:
-              ORGID: ${{secrets.ORGID}}
-              PROJECTID: ${{secrets.PROJECTID}}
+      - shell: bash
+      env:
+        ORGID: ${{secrets.ORGID}}
+        PROJECTID: ${{secrets.PROJECTID}}
+      - run: |
+          mkdir .vercel
+          echo "{\"projectId\":\"$PROJECTID\","org:\"$ORGID\"}" > .vercel/project.json
       - run: npm run vercel:dev &
       - run: npx wait-on http://localhost:3000
       - run: npm run test:e2e
