@@ -3,12 +3,12 @@ const delay = require("delay");
 let sub;
 describe("homepage", () => {
   beforeAll(async () => {
-    console.log("startin vercel dev");
-    await delay(40000);
+    console.log("wait for vercel dev");
+    await delay(10000);
   }, 45000);
 
   it('form submit should respond with a map"', async () => {
-    await page.goto("http://127.0.0.1:3000");
+    await page.goto("http://localhost:3000");
 
     await expect(page.title()).resolves.toMatch(
       "Download Your TripAdvisor Travel Map (kml/csv)"
