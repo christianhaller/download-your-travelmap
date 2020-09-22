@@ -14,10 +14,10 @@ jobs:
       - run: npm ci
       - run: npm run test:frontend
       - shell: bash
-      env:
-        ORGID: ${{secrets.ORGID}}
-        PROJECTID: ${{secrets.PROJECTID}}
-      - run: |
+        env:
+          ORGID: ${{secrets.ORGID}}
+          PROJECTID: ${{secrets.PROJECTID}}
+        run: |
           mkdir .vercel
           echo "{\"projectId\":\"$PROJECTID\","org:\"$ORGID\"}" > .vercel/project.json
       - run: npm run vercel:dev &
