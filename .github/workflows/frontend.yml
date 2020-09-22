@@ -13,4 +13,6 @@ jobs:
           node-version: '14'
       - run: npm ci
       - run: npm run test:frontend
+      - run: npm run vercel:dev
+      - npx wait-on http://localhost:3000
       - run: npm run test:e2e
