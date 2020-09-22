@@ -10,7 +10,7 @@
     "build:js": "rollup -c ./rollup.config.js",
     "build": "NODE_ENV=production node ./build",
     "test:frontend": "jest",
-    "test:e2e": "jest -c e2e/jest.config.js --forceExit",
+    "test:e2e": "jest -c e2e/jest.config.js",
     "vercel:dev": "vercel dev",
     "test:backend": "deno test src/backend --allow-read --allow-net --unstable --log-level info --coverage",
     "badges": "ts-node --transpile-only coverage"
