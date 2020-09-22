@@ -12,5 +12,4 @@ jobs:
         with:
           node-version: '14'
       - run: npm ci
-      - run: __VERCEL_SKIP_DEV_CMD=true npm run vercel:dev &
-      - run: npm run test:e2e
+      - run: __VERCEL_SKIP_DEV_CMD=true npm run vercel:dev & npm run test:e2e
