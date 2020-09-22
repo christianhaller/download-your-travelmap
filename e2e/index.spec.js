@@ -8,7 +8,7 @@ describe("homepage", () => {
   }, 45000);
 
   it('form submit should respond with a map"', async () => {
-    await page.goto("http://localhost:3000");
+    await page.goto("http://127.0.0.1:3000");
 
     await expect(page.title()).resolves.toMatch(
       "Download Your TripAdvisor Travel Map (kml/csv)"
