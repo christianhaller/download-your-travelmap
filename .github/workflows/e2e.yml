@@ -15,4 +15,5 @@ jobs:
           TOKEN: ${{ secrets.TOKEN }}
         run: |
           npm ci
+          npm run vercel:dev &
           npm run test:e2e
