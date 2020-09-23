@@ -4,11 +4,7 @@ const execa = require("execa");
 describe("homepage", () => {
   let sub;
   beforeAll(async () => {
-    sub = execa("npm", ["run", "vercel:dev"], {
-      env: {
-        __VERCEL_SKIP_DEV_CMD: true,
-      },
-    });
+    sub = execa("npm", ["run", "vercel:dev"]);
     await delay(20000);
   }, 65000);
 
