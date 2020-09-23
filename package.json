@@ -35,7 +35,6 @@
     "autoprefixer": "^9.8.6",
     "cssnano": "^4.1.10",
     "delay": "^4.4.0",
-    "execa": "^4.0.3",
     "html-minifier": "^4.0.0",
     "jest": "^26.4.2",
     "jest-puppeteer": "^4.4.0",

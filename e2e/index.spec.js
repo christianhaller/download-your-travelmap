@@ -1,6 +1,5 @@
-const execa = require("execa");
 const delay = require("delay");
-let sub;
+
 describe("homepage", () => {
   beforeAll(async () => {
     console.log("wait for vercel dev");
