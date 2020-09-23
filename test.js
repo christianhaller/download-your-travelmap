@@ -4,6 +4,7 @@ const fn = async () => {
     headless: false,
   });
   const page = await browser.newPage();
+  console.log(process.env.__VERCEL_SKIP_DEV_CMD);
   await page.goto("http://localhost:3000");
 
   console.log(await page.title());
