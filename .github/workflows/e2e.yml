@@ -11,8 +11,8 @@ jobs:
         with:
           node-version: '14'
       - shell: bash
-          env:
-            TOKEN: ${{ secrets.TOKEN }}
-          run: |
-            npm ci
-            npm run test:e2e
+        env:
+          TOKEN: ${{ secrets.TOKEN }}
+        run: |
+          npm ci
+          npm run test:e2e
