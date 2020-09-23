@@ -10,8 +10,9 @@ jobs:
       - uses: actions/setup-node@v2-beta
         with:
           node-version: '14'
-      - run: npm ci
       - shell: bash
           env:
             TOKEN: ${{ secrets.TOKEN }}
-          run: npm run test:e2e
+          run: |
+            npm ci
+            npm run test:e2e
