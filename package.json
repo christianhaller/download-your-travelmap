@@ -10,8 +10,8 @@
     "build:js": "rollup -c ./rollup.config.js",
     "build": "NODE_ENV=production node ./build",
     "test:frontend": "jest",
-    "test:e2e": "__VERCEL_SKIP_DEV_CMD=true npm run vercel:dev & jest -c e2e/jest.config.js --no-cache",
-    "vercel:dev": "vercel dev",
+    "test:e2e": "jest -c e2e/jest.config.js --no-cache --forceExit",
+    "vercel:dev": "vercel dev --debug &",
     "test:backend": "deno test src/backend --allow-read --allow-net --unstable --log-level info --coverage",
     "badges": "ts-node --transpile-only coverage"
   },
@@ -35,6 +35,7 @@
     "autoprefixer": "^9.8.6",
     "cssnano": "^4.1.10",
     "delay": "^4.4.0",
+    "execa": "^4.0.3",
     "html-minifier": "^4.0.0",
     "jest": "^26.4.2",
     "jest-puppeteer": "^4.4.0",

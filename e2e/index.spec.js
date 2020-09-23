@@ -1,8 +1,14 @@
 const delay = require("delay");
+const execa = require("execa");
 
 describe("homepage", () => {
+  let sub;
   beforeAll(async () => {
-    console.log("wait for vercel dev");
+    sub = execa("npm", ["run", "vercel:dev"], {
+      env: {
+        __VERCEL_SKIP_DEV_CMD: true,
+      },
+    });
     await delay(20000);
   }, 65000);
 
@@ -20,4 +26,7 @@ describe("homepage", () => {
     const found = await page.evaluate(() => window.find("Paris"));
     expect(found).toBe(true);
   }, 10000);
+  afterAll(() => {
+    sub.cancel();
+  });
 });
