@@ -1,6 +1,6 @@
 module.exports = {
   server: {
-    command: "__VERCEL_SKIP_DEV_CMD=true npm run vercel:dev &",
+    command: "echo 'hi'",
     port: 3000,
   },
 };
