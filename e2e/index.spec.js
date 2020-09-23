@@ -3,9 +3,9 @@ const execa = require("execa");
 
 describe("homepage", () => {
   beforeAll(async () => {
-    execa("npm", ["run", "vercel:dev"]);
+    execa("npm", ["run", "vercel:dev"]).stdout.pipe(process.stdout);
     console.log("done");
-    await delay(30000);
+    await delay(35000);
     console.log("waited 30 seconds");
   }, 65000);
 
