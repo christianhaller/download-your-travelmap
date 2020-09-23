@@ -10,6 +10,10 @@ jobs:
       - uses: actions/setup-node@v2-beta
         with:
           node-version: '14'
+      - name: Use Deno
+          uses: denolib/setup-deno@v2
+          with:
+            deno-version: 1.x
       - shell: bash
         env:
           TOKEN: ${{ secrets.TOKEN }}
