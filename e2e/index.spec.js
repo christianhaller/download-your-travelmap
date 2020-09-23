@@ -2,10 +2,11 @@ const delay = require("delay");
 const execa = require("execa");
 
 describe("homepage", () => {
-  let sub;
   beforeAll(async () => {
-    sub = execa("npm", ["run", "vercel:dev"]);
-    await delay(20000);
+    execa("npm", ["run", "vercel:dev"]);
+    console.log("done");
+    await delay(30000);
+    console.log("waited 30 seconds");
   }, 65000);
 
   it('form submit should respond with a map"', async () => {
@@ -22,7 +23,4 @@ describe("homepage", () => {
     const found = await page.evaluate(() => window.find("Paris"));
     expect(found).toBe(true);
   }, 10000);
-  afterAll(() => {
-    sub.cancel();
-  });
 });
