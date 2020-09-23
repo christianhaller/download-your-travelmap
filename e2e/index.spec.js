@@ -5,8 +5,8 @@ describe("homepage", () => {
   beforeAll(async () => {
     execa("npm", ["run", "vercel:dev"]).stdout.pipe(process.stdout);
     console.log("done");
-    await delay(35000);
-    console.log("waited 30 seconds");
+    await delay(55000);
+    console.log("waited 55 seconds");
   }, 65000);
 
   it('form submit should respond with a map"', async () => {
