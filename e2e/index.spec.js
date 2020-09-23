@@ -5,9 +5,9 @@ describe("homepage", () => {
   beforeAll(async () => {
     execa("npm", ["run", "vercel:dev"]).stdout.pipe(process.stdout);
     console.log("done");
-    await delay(55000);
-    console.log("waited 55 seconds");
-  }, 65000);
+    await delay(120000);
+    console.log("waited 120 seconds");
+  }, 130000);
 
   it('form submit should respond with a map"', async () => {
     await page.goto("http://127.0.0.1:3000");
