@@ -1,6 +1,6 @@
 name: test e2e
 
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   test:
@@ -10,13 +10,10 @@ jobs:
       - uses: actions/setup-node@v2-beta
         with:
           node-version: '14'
-      - uses: denolib/setup-deno@v2
-        with:
-          deno-version: v1.x
-      - shell: bash
-        env:
-          TOKEN: ${{ secrets.TOKEN }}
-        run: |
-          npm ci
-          npm run vercel:dev &
-          npm run test:e2e
+      - name: Waiting for 200 from the Vercel Preview
+        uses: patrickedqvist/wait-for-vercel-preview@master
+        id: waitFor200
+          with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          max_timeout: 60
+      run: URL=${{ output.url }} npm run test:e2e
