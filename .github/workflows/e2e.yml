@@ -16,7 +16,6 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           max_timeout: 60
-      - run: npm run test:e2e
-      env:
-        URL: ${{ output.url }}
+        run: URL=${{ output.url }} npm run test:e2e
+     
 
