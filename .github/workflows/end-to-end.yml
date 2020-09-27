@@ -10,6 +10,7 @@ jobs:
       - uses: actions/setup-node@v2-beta
         with:
           node-version: '14'
+      - run: npm ci
       - name: Waiting for 200 from the Vercel Preview
         uses: patrickedqvist/wait-for-vercel-preview@master
         id: waitFor200
