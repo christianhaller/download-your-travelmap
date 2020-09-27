@@ -13,7 +13,7 @@ jobs:
       - name: Waiting for 200 from the Vercel Preview
         uses: patrickedqvist/wait-for-vercel-preview@master
         id: waitFor200
-          with:
+        with:
           token: ${{ secrets.GITHUB_TOKEN }}
           max_timeout: 60
       run: URL=${{ output.url }} npm run test:e2e
