@@ -1,7 +1,7 @@
 const execa = require("execa");
 
-(async () => {
-  try {
+const run = async() => {
+
     const res = await Promise.all(
       ["js", "html", "css"].map((task) => {
         console.log(`running: ${task}`);
@@ -12,17 +12,7 @@ const execa = require("execa");
       console.log(stderr);
       console.log(stdout);
     });
-  } catch (e) {
-    console.log(e);
-    throw e;
-  }
-})();
 
-process.on("unhandledRejection", function (reason, p) {
-  console.log(
-    "Possibly Unhandled Rejection at: Promise ",
-    p,
-    " reason: ",
-    reason
-  );
-});
+};
+
+run().catch((e) => { console.error(e.message) ,process.exit(1)})
