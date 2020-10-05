@@ -12,7 +12,7 @@
     "test:frontend": "jest",
     "test:e2e": "jest -c e2e/jest.config.js",
     "vercel:dev": "vercel dev --debug --confirm -t $TOKEN",
-    "test:backend": "deno test src/backend --allow-read --allow-net --unstable --log-level info --coverage",
+    "test:backend": "deno test src/backend --allow-read --allow-net --unstable --log-level info --coverage --no-check --allow-env",
     "badges": "ts-node --transpile-only coverage"
   },
   "dependencies": {

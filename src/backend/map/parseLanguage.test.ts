@@ -21,6 +21,6 @@ Deno.test("cant parseLanguage and throws", async () => {
       parseLanguage(str);
     },
     Error,
-    "language not found"
+    "language not found",
   );
 });

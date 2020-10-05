@@ -1,5 +1,8 @@
 {
   "include": ["src/backend/**/*"],
+  "compilerOptions": {
+    "downlevelIteration":true
+  },
   "plugins": [
     {
       "name": "typescript-deno-plugin",

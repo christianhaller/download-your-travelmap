@@ -3,4 +3,4 @@ public/*.html
 public/*.css
 public/*.js
 public/*.map
-
+.env
