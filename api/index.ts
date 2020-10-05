@@ -8,8 +8,6 @@ import { validate } from "../src/backend/validate.ts";
 import { getMap } from "../src/backend/map/index.ts";
 // @ts-ignore
 import { success, failure } from "../src/backend/response.ts";
-// @ts-ignore
-import "https://deno.land/x/dotenv/load.ts";
 
 // @ts-ignore
 import { stats, put } from "../src/backend/lastUsers.ts";

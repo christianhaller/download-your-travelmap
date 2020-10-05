@@ -10,16 +10,20 @@ import * as log from "https://deno.land/std/log/mod.ts";
 // @ts-ignore
 import type { EnhancedPinList } from "./interace.ts";
 
+// @ts-ignore
+import "https://deno.land/x/dotenv/load.ts";
+
 const credentials: Credentials = {
   accessKeyId: Deno.env.get("APP_AWS_ACCESS_KEY_ID") as string,
   secretAccessKey: Deno.env.get("APP_AWS_SECRET_ACCESS_KEY") as string,
 };
-const dyno = createClient({ credentials });
+
+const dyno = createClient({ credentials, region: "eu-central-1" });
 
 const put = async (
   userId: string,
   countries: number,
-  cities: number,
+  cities: number
 ): Promise<void> => {
   const params = {
     TableName: "download-your-travelmap",
@@ -41,7 +45,7 @@ const put = async (
 };
 
 const stats = (
-  data: EnhancedPinList,
+  data: EnhancedPinList
 ): {
   countries: number;
   cities: number;
