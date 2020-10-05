@@ -6,7 +6,6 @@ import {
 // @ts-ignore
 import { getUrl } from "./url.ts";
 import type { ServerRequest } from "https://deno.land/std/http/server.ts";
-import { parseProfile } from "./map/parseProfile.ts";
 
 Deno.test({
   name: "responds with url",
@@ -19,7 +18,7 @@ Deno.test({
     const sut = getUrl(req);
     assertEquals(
       sut.href,
-      "http://www.tripadvisor.com/members/christianhaller"
+      "http://www.tripadvisor.com/members/christianhaller",
     );
   },
 });
@@ -36,7 +35,7 @@ Deno.test({
         getUrl(req);
       },
       Error,
-      "no url set"
+      "no url set",
     );
   },
 });

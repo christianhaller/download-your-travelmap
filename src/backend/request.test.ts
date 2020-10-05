@@ -38,7 +38,7 @@ Deno.test({
         await request(new URL("https://christianhaller.com"));
       },
       Error,
-      "url https://christianhaller.com/ is not ok"
+      "url https://christianhaller.com/ is not ok",
     );
     s.restore();
   },

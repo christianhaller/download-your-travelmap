@@ -19,6 +19,6 @@ Deno.test("cant parse user and throws", async () => {
       parseUser(str);
     },
     Error,
-    "user name not found"
+    "user name not found",
   );
 });

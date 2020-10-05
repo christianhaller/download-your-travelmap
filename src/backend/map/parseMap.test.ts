@@ -13,7 +13,7 @@ Deno.test("parseMap", async () => {
   //writeJsonSync("./fixtures/expectedMap.json", places);
 
   const expected = JSON.parse(
-    await Deno.readTextFile("./fixtures/expectedMap.json")
+    await Deno.readTextFile("./fixtures/expectedMap.json"),
   );
   assertEquals(places, expected);
 });
@@ -25,6 +25,6 @@ Deno.test("parseMap with exception", async () => {
       parseMap(str);
     },
     Error,
-    "can't parse map"
+    "can't parse map",
   );
 });
