@@ -1,9 +1,5 @@
-const delay = require("delay");
-const execa = require("execa");
-
 describe("homepage", () => {
-  const url = process.env.URL || "http://127.0.0.1:3000";
-  console.log(url);
+  const url = process.env.URL || "http://127.0.0.1:3000";
 
   it('form submit should respond with a map"', async () => {
     await page.goto(url);
