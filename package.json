@@ -4,15 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build:html": "html-minifier --collapse-whitespace --input-dir src/frontend/templates --output-dir public",
-    "test": "npm run test:backend && npm run test:frontend",
+    "badges": "ts-node --transpile-only coverage",
     "build:css": "postcss src/frontend/styles/styles.css > public/styles.min.css",
+    "build:html": "html-minifier --collapse-whitespace --input-dir src/frontend/templates --output-dir public",
     "build:js": "rollup -c ./rollup.config.js",
     "build": "NODE_ENV=production node ./build",
-    "test:frontend": "jest",
+    "test": "npm run test:backend && npm run test:frontend",
     "test:e2e": "jest -c e2e/jest.config.js",
+    "test:frontend": "jest",
     "test:backend": "deno test --allow-read --allow-net --unstable --log-level info --coverage --allow-env src/backend",
-    "badges": "ts-node --transpile-only coverage"
+    "fmt":"deno fmt src/backend api && prettier 'src/frontend/**/*' '!**/*.snap' --write"
   },
   "dependencies": {
     "bytes": "^3.1.0",

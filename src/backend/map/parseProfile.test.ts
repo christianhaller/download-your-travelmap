@@ -1,7 +1,7 @@
 import { parseProfile } from "./parseProfile.ts";
 import {
-  assertThrows,
   assertEquals,
+  assertThrows,
 } from "https://deno.land/std/testing/asserts.ts";
 
 Deno.test("parseProfile", async () => {

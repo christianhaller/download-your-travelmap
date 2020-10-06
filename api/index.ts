@@ -7,10 +7,10 @@ import { validate } from "../src/backend/validate.ts";
 // @ts-ignore
 import { getMap } from "../src/backend/map/index.ts";
 // @ts-ignore
-import { success, failure } from "../src/backend/response.ts";
+import { failure, success } from "../src/backend/response.ts";
 
 // @ts-ignore
-import { stats, put } from "../src/backend/lastUsers.ts";
+import { put, stats } from "../src/backend/lastUsers.ts";
 
 export default async (req: ServerRequest) => {
   try {

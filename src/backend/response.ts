@@ -24,4 +24,4 @@ const failure = (req: ServerRequest, body: string): void => {
     body,
   });
 };
-export { success, failure };
+export { failure, success };

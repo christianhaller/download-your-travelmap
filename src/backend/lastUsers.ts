@@ -2,6 +2,7 @@
 import {
   createClient,
   Credentials,
+  Doc,
 } from "https://denopkg.com/chiefbiiko/dynamodb/mod.ts";
 
 // @ts-ignore
@@ -19,14 +20,15 @@ const credentials: Credentials = {
 };
 
 const dyno = createClient({ credentials, region: "eu-central-1" });
+const TableName = "download-your-travelmap";
 
 const put = async (
   userId: string,
   countries: number,
-  cities: number
+  cities: number,
 ): Promise<void> => {
   const params = {
-    TableName: "download-your-travelmap",
+    TableName,
     Item: {
       userId,
       countries,
@@ -45,7 +47,7 @@ const put = async (
 };
 
 const stats = (
-  data: EnhancedPinList
+  data: EnhancedPinList,
 ): {
   countries: number;
   cities: number;
@@ -57,4 +59,21 @@ const stats = (
   };
 };
 
-export { put, stats };
+const list = async (): Promise<Record<string, string>[]> => {
+  // @ts-ignore
+  const { Items } = await dyno.scan({ TableName });
+  return Items.sort(
+    // @ts-ignore
+    ({ countries: countriesA }, { countries: countriesB }) => {
+      if (countriesA < countriesB) {
+        return 1;
+      }
+      if (countriesA > countriesB) {
+        return -1;
+      }
+      return 0;
+    },
+  );
+};
+
+export { list, put, stats };

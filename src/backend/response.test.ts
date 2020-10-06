@@ -1,7 +1,7 @@
 // @ts-ignore
 import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
 // @ts-ignore
-import { success, failure } from "./response.ts";
+import { failure, success } from "./response.ts";
 import type { ServerRequest } from "https://deno.land/std/http/server.ts";
 import { spy } from "https://deno.land/x/mock/spy.ts";
 
