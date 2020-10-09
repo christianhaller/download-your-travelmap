@@ -3,7 +3,7 @@ import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
 // @ts-ignore
 import { failure, success } from "./response.ts";
 import type { ServerRequest } from "https://deno.land/std/http/server.ts";
-import { spy } from "https://deno.land/x/mock/spy.ts";
+import { spy } from "https://deno.land/x/mock/mod.ts";
 
 Deno.test({
   name: "sends success response",

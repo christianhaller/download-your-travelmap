@@ -12,9 +12,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@master
       - name: Use Deno
-        uses: denolib/setup-deno@v2
+        uses: denolib/setup-deno@master
         with:
           deno-version: 1.x
       - run: npm run test:backend

@@ -3,6 +3,7 @@
   "compilerOptions": {
     "downlevelIteration":true
   },
+  "isolatedModules":true,
   "plugins": [
     {
       "name": "typescript-deno-plugin",
