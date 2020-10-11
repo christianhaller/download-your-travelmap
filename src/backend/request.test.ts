@@ -6,7 +6,7 @@ import {
 // @ts-ignore
 import { request } from "./request.ts";
 // @ts-ignore
-import { stub } from "https://deno.land/x/mock@v0.7.0/stub.ts";
+import { stub } from "https://deno.land/x/mock/mod.ts";
 
 Deno.test({
   name: "sends response",
@@ -29,7 +29,7 @@ Deno.test({
 
 Deno.test({
   name: "throws",
-  fn: async () => {
+  fn: () => {
     const s = stub(self, "fetch");
     s.returns = [{ ok: false, text: () => {} }];
 

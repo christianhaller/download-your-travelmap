@@ -8,17 +8,19 @@ import { validate } from "../src/backend/validate.ts";
 import { getMap } from "../src/backend/map/index.ts";
 // @ts-ignore
 import { failure, success } from "../src/backend/response.ts";
-
 // @ts-ignore
-import { put, stats } from "../src/backend/lastUsers.ts";
+import { LastUsers } from "../src/backend/lastUsers.ts";
+// @ts-ignore
+import { createClient } from "https://denopkg.com/chiefbiiko/dynamodb/mod.ts";
 
 export default async (req: ServerRequest) => {
   try {
     const url = getUrl(req);
     validate(url);
     const map = await getMap(url);
-    const { countries, cities } = stats(map.places);
-    await put(map.username, countries, cities);
+    const l = new LastUsers(createClient);
+    const { countries, cities } = l.stats(map.places);
+    await l.put(map.username, countries, cities);
     success(req, map);
   } catch (error) {
     failure(req, error.message);

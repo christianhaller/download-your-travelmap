@@ -1,8 +1,8 @@
 // @ts-ignore
-import {
-  createClient,
+import type {
   Credentials,
   Doc,
+  DynamoDBClient,
 } from "https://denopkg.com/chiefbiiko/dynamodb/mod.ts";
 
 // @ts-ignore
@@ -14,66 +14,79 @@ import type { EnhancedPinList } from "./interace.ts";
 // @ts-ignore
 import "https://deno.land/x/dotenv/load.ts";
 
-const credentials: Credentials = {
-  accessKeyId: Deno.env.get("APP_AWS_ACCESS_KEY_ID") as string,
-  secretAccessKey: Deno.env.get("APP_AWS_SECRET_ACCESS_KEY") as string,
-};
-
-const dyno = createClient({ credentials, region: "eu-central-1" });
-const TableName = "download-your-travelmap";
-
-const put = async (
-  userId: string,
-  countries: number,
-  cities: number,
-): Promise<void> => {
-  const params = {
-    TableName,
-    Item: {
-      userId,
-      countries,
-      cities,
-      date: +new Date(),
-    },
-  };
-  try {
-    await dyno.putItem(params);
-    log.info("saved to db");
-  } catch (e) {
-    log.info(e);
-    log.info("problems with dynamodb");
-    log.info(params);
+class LastUsers {
+  private tableName: string;
+  private db: DynamoDBClient;
+  constructor(createClient: Function) {
+    this.tableName = "download-your-travelmap";
+    const credentials: Credentials = {
+      accessKeyId: Deno.env.get("APP_AWS_ACCESS_KEY_ID") as string,
+      secretAccessKey: Deno.env.get("APP_AWS_SECRET_ACCESS_KEY") as string,
+    };
+    this.db = createClient({ credentials, region: "eu-central-1" });
   }
-};
 
-const stats = (
-  data: EnhancedPinList,
-): {
-  countries: number;
-  cities: number;
-} => {
-  const countries = [...new Set(data.map(({ country }) => country))];
-  return {
-    countries: countries.length,
-    cities: data.length,
-  };
-};
+  private error(e: Error, params?: Doc) {
+    log.info("problems with dynamodb");
+    log.error(e);
+    log.info(params);
+    throw e;
+  }
+  async put(
+    userId: string,
+    countries: number,
+    cities: number,
+  ): Promise<void> {
+    const params: Doc = {
+      TableName: this.tableName,
+      Item: {
+        userId,
+        countries,
+        cities,
+        date: +new Date(),
+      },
+    };
+    try {
+      await this.db.putItem(params);
+      log.info("saved to db");
+    } catch (e) {
+      this.error(e, params);
+    }
+  }
 
-const list = async (): Promise<Record<string, string>[]> => {
-  // @ts-ignore
-  const { Items } = await dyno.scan({ TableName });
-  return Items.sort(
-    // @ts-ignore
-    ({ countries: countriesA }, { countries: countriesB }) => {
-      if (countriesA < countriesB) {
-        return 1;
-      }
-      if (countriesA > countriesB) {
-        return -1;
-      }
-      return 0;
-    },
-  );
-};
+  stats(
+    data: EnhancedPinList,
+  ): {
+    countries: number;
+    cities: number;
+  } {
+    const countries = [...new Set(data.map(({ country }) => country))];
+    return {
+      countries: countries.length,
+      cities: data.length,
+    };
+  }
 
-export { list, put, stats };
+  async list(): Promise<Record<string, string>[] | undefined> {
+    try {
+      // @ts-ignore
+      const { Items = [] } = await this.db.scan({ TableName: this.tableName });
+      return Items.sort(
+        // @ts-ignore
+        ({ countries: countriesA }, { countries: countriesB }) => {
+          if (countriesA < countriesB) {
+            return 1;
+          }
+          if (countriesA > countriesB) {
+            return -1;
+          }
+          return 0;
+        },
+      );
+    } catch (e) {
+      this.error(e);
+    }
+  }
+}
+
+export { LastUsers };

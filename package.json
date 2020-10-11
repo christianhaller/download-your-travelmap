@@ -12,7 +12,7 @@
     "test": "npm run test:backend && npm run test:frontend",
     "test:e2e": "jest -c e2e/jest.config.js",
     "test:frontend": "jest",
-    "test:backend": "deno test --allow-read --allow-net --unstable --log-level info --coverage --allow-env src/backend",
+    "test:backend": "deno test --allow-read --allow-net --log-level info --allow-env src/backend",
     "fmt": "deno fmt src/backend api && prettier 'src/frontend/**/*' '!**/*.snap' --write"
   },
   "dependencies": {
