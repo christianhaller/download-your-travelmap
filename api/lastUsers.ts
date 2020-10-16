@@ -9,7 +9,7 @@ export default async (req: ServerRequest) => {
     success(
       req,
       (await new LastUsers(new Timestamp(), new S3()).list()) || {},
-      60,
+      "60"
     );
   } catch (error) {
     failure(req, error.message);
