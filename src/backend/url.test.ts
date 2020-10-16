@@ -5,6 +5,7 @@ import {
 } from "https://deno.land/std/testing/asserts.ts";
 // @ts-ignore
 import { getUrl } from "./url.ts";
+// @ts-ignore
 import type { ServerRequest } from "https://deno.land/std/http/server.ts";
 
 Deno.test({

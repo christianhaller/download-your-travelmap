@@ -14,4 +14,13 @@ export interface Response {
   username: string;
   places: EnhancedPinList;
 }
+
+export interface Stat {
+  username: string;
+  countries: number;
+  cities: number;
+}
+
+export interface StatList extends Array<Stat> {}
+
 export interface EnhancedPinList extends Array<EnhancedPin> {}

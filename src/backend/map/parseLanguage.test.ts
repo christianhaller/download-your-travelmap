@@ -5,7 +5,6 @@ import {
 } from "https://deno.land/std/testing/asserts.ts";
 // @ts-ignore
 import { parseLanguage } from "./parseLanguage.ts";
-import { parseMap } from "./parseMap.ts";
 
 Deno.test("parseLanguage", async () => {
   const str = await Deno.readTextFile("./fixtures/map.html");
@@ -21,6 +20,6 @@ Deno.test("cant parseLanguage and throws", async () => {
       parseLanguage(str);
     },
     Error,
-    "language not found",
+    "language not found"
   );
 });
