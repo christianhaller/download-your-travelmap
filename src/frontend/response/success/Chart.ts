@@ -1,8 +1,8 @@
-import type { EnhancedPinList } from "../../../backend/interace";
+import type { EnhancedPin } from "../../../backend/interace";
 import loadjs from "loadjs";
 
 export class Chart {
-  private places: EnhancedPinList;
+  private places: EnhancedPin[];
   private el: HTMLElement;
   private chart: google.visualization.GeoChart;
 
@@ -20,7 +20,7 @@ export class Chart {
     });
   }
 
-  async init(parent: HTMLElement, places: EnhancedPinList) {
+  async init(parent: HTMLElement, places: EnhancedPin[]) {
     this.el = parent.querySelector("#chart");
     this.places = places;
     await this.load();
