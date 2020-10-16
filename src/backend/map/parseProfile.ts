@@ -1,4 +1,3 @@
-// @ts-ignore
 import * as log from "https://deno.land/std/log/mod.ts";
 const parseProfile = (str: string) => {
   const key = "/TravelMap-a_uid";

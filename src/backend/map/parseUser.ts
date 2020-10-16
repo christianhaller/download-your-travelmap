@@ -1,4 +1,3 @@
-// @ts-ignore
 import * as log from "https://deno.land/std/log/mod.ts";
 const parseUser = (str: string) => {
   const re = new RegExp(`(?<=<div class="memberTitle">)(.*?)(?=</div>)`);

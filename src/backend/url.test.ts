@@ -1,10 +1,10 @@
-// @ts-ignore
 import {
   assertEquals,
   assertThrows,
 } from "https://deno.land/std/testing/asserts.ts";
-// @ts-ignore
+
 import { getUrl } from "./url.ts";
+
 import type { ServerRequest } from "https://deno.land/std/http/server.ts";
 
 Deno.test({

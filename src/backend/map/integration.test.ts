@@ -1,7 +1,5 @@
-// @ts-ignore
 import { getMap } from "./index.ts";
 
-// @ts-ignore
 import {
   assertArrayContains,
   assertStrictEquals,
