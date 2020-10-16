@@ -1,8 +1,7 @@
-// @ts-ignore
 import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
-// @ts-ignore
+
 import { validateFn } from "./validateFn.ts";
-// @ts-ignore
+
 import { validHostnames } from "./validHostnames.ts";
 
 Deno.test({

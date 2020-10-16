@@ -1,12 +1,12 @@
-// @ts-ignore
 import {
   AWSSignerV4,
   Credentials,
 } from "https://deno.land/x/aws_sign_v4@0.1.4/mod.ts";
-// @ts-ignore
+
 import * as log from "https://deno.land/std/log/mod.ts";
-// @ts-ignore
+
 import { createHash } from "https://deno.land/std@0.71.0/hash/mod.ts";
+import { TransformedStat } from "./interace.ts";
 
 export class S3 {
   private key: string;
@@ -26,7 +26,7 @@ export class S3 {
       "x-amz-content-sha256": S3.sha256Hex(body),
     };
   }
-  private async signedRequest(body, method: "PUT" | "GET") {
+  private async signedRequest(body: string | undefined, method: "PUT" | "GET") {
     const headers = await S3.headers(body);
     const request = new Request(
       `https://download-your-travelmap.s3.eu-central-1.amazonaws.com/${this.key}`,
@@ -39,20 +39,20 @@ export class S3 {
     return this.signer.sign("s3", request);
   }
 
-  async putObject(data: any): Promise<void> {
+  async putObject(data: unknown): Promise<void> {
     const body = JSON.stringify(data);
     const req = await this.signedRequest(body, "PUT");
     await fetch(req);
   }
 
-  async getObject(): Promise<Record<string, {}>> {
+  async getObject(): Promise<Record<string, TransformedStat>> {
     const req = await this.signedRequest(undefined, "GET");
     const response = await fetch(req);
     if (!response.ok) {
       log.error(response.statusText);
       return {};
     }
-    return (await response.json()) as any;
+    return (await response.json()) as Record<string, TransformedStat>;
   }
 
   private static sha256Hex(data: string | Uint8Array): string {

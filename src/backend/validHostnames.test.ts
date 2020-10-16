@@ -1,6 +1,5 @@
-// @ts-ignore
 import { validHostnames } from "./validHostnames.ts";
-// @ts-ignore
+
 import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
 
 Deno.test({

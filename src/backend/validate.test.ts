@@ -1,6 +1,5 @@
-// @ts-ignore
 import { validate } from "./validate.ts";
-// @ts-ignore
+
 import { assertThrows } from "https://deno.land/std/testing/asserts.ts";
 
 Deno.test({

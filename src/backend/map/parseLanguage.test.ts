@@ -1,9 +1,8 @@
-// @ts-ignore
 import {
   assertEquals,
   assertThrows,
 } from "https://deno.land/std/testing/asserts.ts";
-// @ts-ignore
+
 import { parseLanguage } from "./parseLanguage.ts";
 
 Deno.test("parseLanguage", async () => {
@@ -20,6 +19,6 @@ Deno.test("cant parseLanguage and throws", async () => {
       parseLanguage(str);
     },
     Error,
-    "language not found"
+    "language not found",
   );
 });

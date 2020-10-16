@@ -1,4 +1,3 @@
-// @ts-ignore
 import type { ServerRequest } from "https://deno.land/std/http/server.ts";
 
 const getUrl = (req: ServerRequest): URL => {

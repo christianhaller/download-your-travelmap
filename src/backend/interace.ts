@@ -12,7 +12,7 @@ export interface EnhancedPin extends Omit<Pin, "name"> {
 export interface Response {
   language: string;
   username: string;
-  places: EnhancedPinList;
+  places: EnhancedPin[];
 }
 
 export interface Stat {
@@ -21,6 +21,12 @@ export interface Stat {
   cities: number;
 }
 
-export interface StatList extends Array<Stat> {}
+export interface TransformedStat {
+  date: number;
+  countries: number;
+  cities: number;
+}
 
-export interface EnhancedPinList extends Array<EnhancedPin> {}
+export interface RecordStat {
+  string: TransformedStat;
+}

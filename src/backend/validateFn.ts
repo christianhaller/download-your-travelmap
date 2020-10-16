@@ -1,11 +1,10 @@
 export function validateFn(url: URL, validHostnames: string[]) {
   const { hostname } = url;
-  const hostnameWithtWww = `www.${hostname}`;
+  const hostnameWithWww = `www.${hostname}`;
   if (
-    validHostnames.includes(hostname) ||
-    validHostnames.includes(hostnameWithtWww)
+    !validHostnames.includes(hostname) &&
+    !validHostnames.includes(hostnameWithWww)
   ) {
-  } else {
     throw new Error(`${hostname} is not a valid tripadvisor url`);
   }
 }

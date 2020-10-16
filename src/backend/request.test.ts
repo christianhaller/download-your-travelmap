@@ -1,11 +1,10 @@
-// @ts-ignore
 import {
   assertEquals,
   assertThrowsAsync,
 } from "https://deno.land/std/testing/asserts.ts";
-// @ts-ignore
+
 import { request } from "./request.ts";
-// @ts-ignore
+
 import { stub } from "https://deno.land/x/mock/mod.ts";
 
 Deno.test({

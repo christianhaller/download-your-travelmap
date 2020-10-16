@@ -1,23 +1,18 @@
-// @ts-ignore
-import * as log from "https://deno.land/std/log/mod.ts";
+import type { EnhancedPin, Stat } from "./interace.ts";
 
-// @ts-ignore
-import type { EnhancedPinList, Stat, StatList } from "./interace.ts";
-
-// @ts-ignore
 import "https://deno.land/x/dotenv/load.ts";
-// @ts-ignore
+
 import type { Timestamp } from "./timeStamp30DaysAgo.ts";
-// @ts-ignore
+
 import { S3 } from "./s3.ts";
 
 class LastUsers {
   private timestamp: Timestamp;
   private s3: S3;
 
-  constructor(timestamp: Timestamp) {
+  constructor(timestamp: Timestamp, s3: S3) {
     this.timestamp = timestamp;
-    this.s3 = new S3();
+    this.s3 = s3;
   }
 
   async save({ username, countries, cities }: Stat): Promise<void> {
@@ -26,12 +21,12 @@ class LastUsers {
     data[username] = {
       countries,
       cities,
-      date: +new Date(),
+      date: new Date().getTime(),
     };
     await this.s3.putObject(data);
   }
   stats(
-    data: EnhancedPinList,
+    data: EnhancedPin[],
   ): {
     countries: number;
     cities: number;
@@ -43,16 +38,16 @@ class LastUsers {
     };
   }
 
-  async list(): Promise<StatList | undefined> {
+  async list(): Promise<Stat[] | undefined> {
     const timeStamp30DaysAgo = this.timestamp.getT();
     const last30Days = Object.entries(await this.s3.getObject())
       .map(([key, values]) => {
         return {
           username: key,
           ...values,
-        } as Stat;
+        };
       })
-      .filter(({ date }: any) => {
+      .filter(({ date }) => {
         return date > timeStamp30DaysAgo;
       });
     return last30Days.sort(

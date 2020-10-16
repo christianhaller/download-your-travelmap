@@ -1,4 +1,3 @@
-// @ts-ignore
 import type { ServerRequest } from "https://deno.land/std/http/server.ts";
 
 const getHeaders = (ttl = "3600"): Headers => {
@@ -8,7 +7,7 @@ const getHeaders = (ttl = "3600"): Headers => {
   return headers;
 };
 
-const success = (req: ServerRequest, b: Object, ttl = "3600"): void => {
+const success = (req: ServerRequest, b: unknown, ttl = "3600"): void => {
   const headers = getHeaders(ttl);
   const body = JSON.stringify(b);
 
