@@ -19,12 +19,14 @@ export interface Stat {
   username: string;
   countries: number;
   cities: number;
+  url: string;
 }
 
 export interface TransformedStat {
   date: number;
   countries: number;
   cities: number;
+  url: string;
 }
 
 export interface RecordStat {

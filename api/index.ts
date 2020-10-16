@@ -18,6 +18,7 @@ export default async (req: ServerRequest) => {
       username: map.username,
       cities,
       countries,
+      url: url.href,
     });
     success(req, map);
   } catch (error) {

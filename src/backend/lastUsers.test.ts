@@ -23,16 +23,19 @@ Deno.test({
         cities: 582,
         date: 1602073736895,
         countries: 83,
+        url: "http://",
       },
       Andres74: {
         cities: 585,
         date: 1602215549067,
         countries: 78,
+        url: "http://",
       },
       ich: {
         cities: 585,
         date: 1502255549067,
         countries: 78,
+        url: "http://",
       },
     } as Record<string, TransformedStat>;
 
@@ -43,12 +46,14 @@ Deno.test({
         date: 1602073736895,
         countries: 83,
         username: "theplanetd",
+        url: "http://",
       },
       {
         cities: 585,
         date: 1602215549067,
         countries: 78,
         username: "Andres74",
+        url: "http://",
       },
     ]);
   },

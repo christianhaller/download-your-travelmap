@@ -15,18 +15,19 @@ class LastUsers {
     this.s3 = s3;
   }
 
-  async save({ username, countries, cities }: Stat): Promise<void> {
+  async save({ username, countries, cities, url }: Stat): Promise<void> {
     const data = await this.s3.getObject();
 
     data[username] = {
       countries,
       cities,
+      url,
       date: new Date().getTime(),
     };
     await this.s3.putObject(data);
   }
   stats(
-    data: EnhancedPin[],
+    data: EnhancedPin[]
   ): {
     countries: number;
     cities: number;
@@ -59,7 +60,7 @@ class LastUsers {
           return -1;
         }
         return 0;
-      },
+      }
     );
   }
 }
