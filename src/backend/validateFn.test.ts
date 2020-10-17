@@ -23,7 +23,7 @@ Deno.test({
     } catch (e) {
       assertEquals(
         e.message,
-        "christianhaller.com is not a valid tripadvisor url",
+        "christianhaller.com is not a valid tripadvisor url"
       );
     }
   },
@@ -40,5 +40,15 @@ Deno.test({
   name: "tripadvisor.de",
   fn: async () => {
     validateFn(new URL("https://www.tripadvisor.de"), validHostnames);
+  },
+});
+
+Deno.test({
+  name: "profile",
+  fn: async () => {
+    validateFn(
+      new URL("https://www.tripadvisor.com/members/GermanR"),
+      validHostnames
+    );
   },
 });

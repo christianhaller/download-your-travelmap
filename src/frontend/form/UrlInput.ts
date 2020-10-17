@@ -5,7 +5,7 @@ export class UrlInput {
     this.el = parent.querySelector("#url");
     this.el.addEventListener("paste", () => {
       setTimeout(() => {
-        parent.dispatchEvent(new Event("submit"));
+        parent.dispatchEvent(new Event("submit", { cancelable: true }));
       }, 1);
     });
     return this;

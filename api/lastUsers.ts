@@ -6,11 +6,7 @@ import { S3 } from "../src/backend/s3.ts";
 
 export default async (req: ServerRequest) => {
   try {
-    success(
-      req,
-      (await new LastUsers(new Timestamp(), new S3()).list()) || {},
-      "60"
-    );
+    success(req, await new LastUsers(new Timestamp(), new S3()).list(), "60");
   } catch (error) {
     failure(req, error.message);
   }
