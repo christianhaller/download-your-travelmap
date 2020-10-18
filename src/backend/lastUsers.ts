@@ -6,6 +6,8 @@ import type { Timestamp } from "./timeStamp30DaysAgo.ts";
 
 import { S3 } from "./s3.ts";
 
+import * as log from "https://deno.land/std/log/mod.ts";
+
 class LastUsers {
   private timestamp: Timestamp;
   private s3: S3;
@@ -32,7 +34,15 @@ class LastUsers {
     countries: number;
     cities: number;
   } {
-    const countries = [...new Set(data.map(({ country }) => country))];
+    const countries = [
+      ...new Set(
+        data
+          .filter(({ flags }) => {
+            return flags.includes("been") || flags.includes("fave");
+          })
+          .map(({ country }) => country)
+      ),
+    ];
     return {
       countries: countries.length,
       cities: data.length,

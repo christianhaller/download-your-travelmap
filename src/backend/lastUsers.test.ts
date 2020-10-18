@@ -85,10 +85,17 @@ Deno.test({
         city: "Paris",
         country: "France",
       },
+      {
+        lat: 42.55383,
+        lng: 1.59044,
+        flags: ["want"],
+        city: "want",
+        country: "want",
+      },
     ]);
 
     assertEquals(res, {
-      cities: 3,
+      cities: 4,
       countries: 2,
     });
   },
