@@ -95,7 +95,7 @@ Deno.test({
     ]);
 
     assertEquals(res, {
-      cities: 4,
+      cities: 3,
       countries: 2,
     });
   },

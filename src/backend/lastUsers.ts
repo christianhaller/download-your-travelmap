@@ -16,6 +16,9 @@ class LastUsers {
     this.timestamp = timestamp;
     this.s3 = s3;
   }
+  private static isFaveOrBeen({ flags }: { flags: string[] }) {
+    return flags.includes("been") || flags.includes("fave");
+  }
 
   async save({ username, countries, cities, url }: Stat): Promise<void> {
     const data = await this.s3.getObject();
@@ -36,16 +39,12 @@ class LastUsers {
   } {
     const countries = [
       ...new Set(
-        data
-          .filter(({ flags }) => {
-            return flags.includes("been") || flags.includes("fave");
-          })
-          .map(({ country }) => country)
+        data.filter(LastUsers.isFaveOrBeen).map(({ country }) => country)
       ),
     ];
     return {
       countries: countries.length,
-      cities: data.length,
+      cities: data.filter(LastUsers.isFaveOrBeen).length,
     };
   }
 
