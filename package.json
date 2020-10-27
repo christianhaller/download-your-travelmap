@@ -28,7 +28,7 @@
     "@rollup/plugin-commonjs": "^15.1.0",
     "@rollup/plugin-html": "^0.2.0",
     "@rollup/plugin-json": "^4.1.0",
-    "@rollup/plugin-typescript": "^6.0.0",
+    "@rollup/plugin-typescript": "^6.1.0",
     "@types/google.visualization": "0.0.54",
     "@types/json2csv": "^5.0.1",
     "@types/jszip": "^3.4.1",
