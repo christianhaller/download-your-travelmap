@@ -4,3 +4,6 @@ public/*.css
 public/*.js
 public/*.map
 .env
+.idea
+node_modules
+tmp
