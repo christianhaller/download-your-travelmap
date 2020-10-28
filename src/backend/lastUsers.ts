@@ -1,6 +1,6 @@
 import type { EnhancedPin, Stat } from "./interace.ts";
 import type { Timestamp } from "./timeStamp30DaysAgo.ts";
-import { S3 } from "./s3.ts";
+import type { S3 } from "./s3.ts";
 
 class LastUsers {
   private timestamp: Timestamp;

@@ -3,8 +3,8 @@ import { AWSSignerV4, createHash, log } from "../../deps.ts";
 import type { Credentials } from "../../deps.ts";
 
 export class S3 {
-  private key: string;
-  private signer: AWSSignerV4;
+  public key: string;
+  public signer: AWSSignerV4;
 
   constructor() {
     const credentials: Credentials = {
@@ -20,7 +20,7 @@ export class S3 {
       "x-amz-content-sha256": S3.sha256Hex(body),
     };
   }
-  private async signedRequest(body: string | undefined, method: "PUT" | "GET") {
+  public async signedRequest(body: string | undefined, method: "PUT" | "GET") {
     const headers = await S3.headers(body);
     const request = new Request(
       `https://download-your-travelmap.s3.eu-central-1.amazonaws.com/${this.key}`,

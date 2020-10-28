@@ -1,6 +1,5 @@
 import { getUrl } from "./url.ts";
-import { assertEquals, assertThrows } from "../../deps.ts";
-// import {ServerRequest} from './deps.ts'
+import { assertEquals, assertThrows, ServerRequest } from "../../deps.ts";
 
 Deno.test({
   name: "responds with url",
@@ -8,7 +7,7 @@ Deno.test({
     const req = ({
       url:
         "https://download-your-travelmap.christianhaller.com?url=http://www.tripadvisor.com/members/christianhaller",
-    } as unknown) as any;
+    } as unknown) as ServerRequest;
 
     const sut = getUrl(req);
     assertEquals(
@@ -23,7 +22,7 @@ Deno.test({
   fn: async () => {
     const req = ({
       url: "https://download-your-travelmap.christianhaller.com",
-    } as unknown) as any;
+    } as unknown) as ServerRequest;
 
     assertThrows(
       (): void => {

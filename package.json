@@ -14,7 +14,7 @@
     "test:frontend": "jest",
     "test:backend": "deno test --reload --unstable --coverage --allow-read --allow-net --log-level info --allow-env src/backend",
     "fmt": "deno fmt src/backend api && prettier 'src/frontend/**/*' '!**/*.snap' --write",
-    "check": "deno run --allow-net --allow-read https://deno.land/x/dmm@v1.1.5/mod.ts check"
+    "deps": "ncu && deno run --allow-net --allow-read https://deno.land/x/dmm@v1.1.5/mod.ts check"
   },
   "dependencies": {
     "bytes": "^3.1.0",
@@ -38,6 +38,7 @@
     "html-minifier": "^4.0.0",
     "jest": "^26.6.1",
     "jest-puppeteer": "^4.4.0",
+    "npm-check-updates": "^9.2.3",
     "postcss": "^8.1.4",
     "postcss-cli": "^8.1.0",
     "postcss-import": "^13.0.0",

@@ -1,6 +1,6 @@
-// import { ServerRequest } from "./deps.ts";
+import { ServerRequest } from "../../deps.ts";
 
-const getUrl = (req: any): URL => {
+const getUrl = (req: ServerRequest): URL => {
   const [, query] = req.url.split("?");
 
   const url = new URLSearchParams(query).get("url");

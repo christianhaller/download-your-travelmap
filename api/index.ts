@@ -6,8 +6,9 @@ import { failure, success } from "../src/backend/response.ts";
 import { LastUsers } from "../src/backend/lastUsers.ts";
 import { Timestamp } from "../src/backend/timeStamp30DaysAgo.ts";
 import { S3 } from "../src/backend/s3.ts";
+import { ServerRequest } from "../deps.ts";
 
-export default async (req: any) => {
+export default async (req: ServerRequest) => {
   try {
     const url = getUrl(req);
     validate(url);
