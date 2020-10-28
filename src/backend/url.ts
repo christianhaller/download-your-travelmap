@@ -1,4 +1,4 @@
-import type { ServerRequest } from "https://deno.land/std/http/server.ts";
+import { ServerRequest } from "../../deps.ts";
 
 const getUrl = (req: ServerRequest): URL => {
   const [, query] = req.url.split("?");

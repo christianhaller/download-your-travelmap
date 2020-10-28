@@ -1,4 +1,4 @@
-import type { ServerRequest } from "https://deno.land/std/http/server.ts";
+import { ServerRequest } from "../../deps.ts";
 
 const getHeaders = (ttl = "3600"): Headers => {
   const headers = new Headers();

@@ -1,9 +1,5 @@
 import { parseUser } from "./parseUser.ts";
-
-import {
-  assertEquals,
-  assertThrows,
-} from "https://deno.land/std/testing/asserts.ts";
+import { assertEquals, assertThrows } from "../../../deps.ts";
 
 Deno.test("parseUser", async () => {
   const str = await Deno.readTextFile("./fixtures/map.html");

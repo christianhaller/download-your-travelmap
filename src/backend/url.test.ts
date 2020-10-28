@@ -1,11 +1,5 @@
-import {
-  assertEquals,
-  assertThrows,
-} from "https://deno.land/std/testing/asserts.ts";
-
 import { getUrl } from "./url.ts";
-
-import type { ServerRequest } from "https://deno.land/std/http/server.ts";
+import { assertEquals, assertThrows, ServerRequest } from "../../deps.ts";
 
 Deno.test({
   name: "responds with url",

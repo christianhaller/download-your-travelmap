@@ -1,6 +1,5 @@
 import { validate } from "./validate.ts";
-
-import { assertThrows } from "https://deno.land/std/testing/asserts.ts";
+import { assertThrows } from "../../deps.ts";
 
 Deno.test({
   name: "validate url",

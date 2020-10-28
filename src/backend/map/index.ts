@@ -1,12 +1,8 @@
-import * as log from "https://deno.land/std/log/mod.ts";
-
 import { parseProfile } from "./parseProfile.ts";
-
 import { parseMap } from "./parseMap.ts";
-
 import { request } from "../request.ts";
-
 import type { Response } from "../interace.ts";
+import { log } from "../../../deps.ts";
 
 const getMap = async (url: URL): Promise<Response> => {
   const res = await request(url);

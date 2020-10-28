@@ -1,12 +1,6 @@
 import type { EnhancedPin, Stat } from "./interace.ts";
-
-import "https://deno.land/x/dotenv/load.ts";
-
 import type { Timestamp } from "./timeStamp30DaysAgo.ts";
-
-import { S3 } from "./s3.ts";
-
-import * as log from "https://deno.land/std/log/mod.ts";
+import type { S3 } from "./s3.ts";
 
 class LastUsers {
   private timestamp: Timestamp;
@@ -32,14 +26,14 @@ class LastUsers {
     await this.s3.putObject(data);
   }
   stats(
-    data: EnhancedPin[]
+    data: EnhancedPin[],
   ): {
     countries: number;
     cities: number;
   } {
     const countries = [
       ...new Set(
-        data.filter(LastUsers.isFaveOrBeen).map(({ country }) => country)
+        data.filter(LastUsers.isFaveOrBeen).map(({ country }) => country),
       ),
     ];
     return {
@@ -69,7 +63,7 @@ class LastUsers {
           return -1;
         }
         return 0;
-      }
+      },
     );
   }
 }

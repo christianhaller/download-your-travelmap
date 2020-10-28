@@ -1,4 +1,4 @@
-import * as log from "https://deno.land/std/log/mod.ts";
+import { log } from "../../deps.ts";
 
 const request = async (url: URL): Promise<string> => {
   const { href } = url;

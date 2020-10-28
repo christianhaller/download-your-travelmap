@@ -1,8 +1,5 @@
 import { parseProfile } from "./parseProfile.ts";
-import {
-  assertEquals,
-  assertThrows,
-} from "https://deno.land/std/testing/asserts.ts";
+import { assertEquals, assertThrows } from "../../../deps.ts";
 
 Deno.test("parseProfile", async () => {
   const str = await Deno.readTextFile("./fixtures/profile.html");
