@@ -1,12 +1,6 @@
-import {
-  AWSSignerV4,
-  Credentials,
-} from "https://deno.land/x/aws_sign_v4@0.1.4/mod.ts";
-
-import * as log from "https://deno.land/std/log/mod.ts";
-
-import { createHash } from "https://deno.land/std@0.71.0/hash/mod.ts";
 import { TransformedStat } from "./interace.ts";
+import { AWSSignerV4, createHash, log } from "../../deps.ts";
+import type { Credentials } from "../../deps.ts";
 
 export class S3 {
   private key: string;

@@ -1,4 +1,4 @@
-import { ServerRequest } from "https://deno.land/std/http/server.ts";
+// import { ServerRequest } from "../src/backend/deps.ts";
 import { getUrl } from "../src/backend/url.ts";
 import { validate } from "../src/backend/validate.ts";
 import { getMap } from "../src/backend/map/index.ts";
@@ -7,7 +7,7 @@ import { LastUsers } from "../src/backend/lastUsers.ts";
 import { Timestamp } from "../src/backend/timeStamp30DaysAgo.ts";
 import { S3 } from "../src/backend/s3.ts";
 
-export default async (req: ServerRequest) => {
+export default async (req: any) => {
   try {
     const url = getUrl(req);
     validate(url);

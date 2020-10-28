@@ -12,8 +12,9 @@
     "test": "npm run test:backend && npm run test:frontend",
     "test:e2e": "jest -c e2e/jest.config.js",
     "test:frontend": "jest",
-    "test:backend": "deno test --allow-read --allow-net --log-level info --allow-env --coverage --unstable src/backend",
-    "fmt": "deno fmt src/backend api && prettier 'src/frontend/**/*' '!**/*.snap' --write"
+    "test:backend": "deno test --reload --unstable --coverage --allow-read --allow-net --log-level info --allow-env src/backend",
+    "fmt": "deno fmt src/backend api && prettier 'src/frontend/**/*' '!**/*.snap' --write",
+    "check": "deno run --allow-net --allow-read https://deno.land/x/dmm@v1.1.5/mod.ts check"
   },
   "dependencies": {
     "bytes": "^3.1.0",

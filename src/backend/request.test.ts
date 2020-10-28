@@ -1,11 +1,5 @@
-import {
-  assertEquals,
-  assertThrowsAsync,
-} from "https://deno.land/std/testing/asserts.ts";
-
 import { request } from "./request.ts";
-
-import { stub } from "https://deno.land/x/mock/mod.ts";
+import { assertEquals, assertThrowsAsync, stub } from "../../deps.ts";
 
 Deno.test({
   name: "sends response",

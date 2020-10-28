@@ -1,8 +1,7 @@
-import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
-
 import { validateFn } from "./validateFn.ts";
 
 import { validHostnames } from "./validHostnames.ts";
+import { assertEquals } from "../../deps.ts";
 
 Deno.test({
   name: "invalid url",

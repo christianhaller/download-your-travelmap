@@ -1,12 +1,8 @@
 import { LastUsers } from "./lastUsers.ts";
 import { Timestamp } from "./timeStamp30DaysAgo.ts";
 
-import {
-  assertEquals,
-  assertThrowsAsync,
-} from "https://deno.land/std/testing/asserts.ts";
+import { assertEquals, stub } from "../../deps.ts";
 
-import { Spy, spy, stub } from "https://deno.land/x/mock/mod.ts";
 import { TransformedStat } from "./interace.ts";
 import { S3 } from "./s3.ts";
 
@@ -16,7 +12,7 @@ Deno.test({
     const t: Timestamp = new Timestamp();
     stub(t, "getT", () => 1502255549068);
     const s3: S3 = new S3();
-    const s3Stub = stub(s3, "getObject", () => expected);
+    stub(s3, "getObject", () => expected);
 
     const expected = {
       theplanetd: {

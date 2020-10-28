@@ -1,6 +1,5 @@
 import { validHostnames } from "./validHostnames.ts";
-
-import { assertEquals } from "https://deno.land/std/testing/asserts.ts";
+import { assertEquals } from "../../deps.ts";
 
 Deno.test({
   name: "is array",
