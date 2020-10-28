@@ -8,3 +8,4 @@
 !tsconfig*.json
 !*.config.js
 !build.js
+!deps.ts
