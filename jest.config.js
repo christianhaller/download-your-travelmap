@@ -42,7 +42,7 @@ module.exports = {
   // An object that configures minimum threshold enforcement for coverage results
   coverageThreshold: {
     global: {
-      branches: 69,
+      branches: 60,
       functions: 80,
       lines: 70,
       statements: 70,
@@ -102,7 +102,7 @@ module.exports = {
   globals: {
     "ts-jest": {
       isolatedModules: true,
-      tsConfig: "src/frontend/tsconfig.json",
+      tsconfig: "src/frontend/tsconfig.json",
     },
   },
   // Run tests from one or more projects
