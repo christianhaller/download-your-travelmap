@@ -20,18 +20,19 @@
       href="data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAA3cWnABV/NgDHml4AyZpeAMyfZABDrWQA1biTAMCMRwDKo3AACnUrADaZVgDXvZkAR7hqACaKRQDDlFYAwpVZAD+lXwDYr3kA5cScAErMcADHm2IALpBOAEXbcADesXYAv4xIAAh0KQDUuZcARrRoAM6mcQC+kVcAw5NUANGrdwDRrHoAzq2GAErFbgAtj0wAxZxmAEnPcQDeyawAPeluANS0iQDfy7IA7+HPANi3iQDry6AA7+PVAEWwZgDpz6wAvo5PADJ3MgBHt2kAw5JSAGuYXQDbxKcAxphbAMWaYQAAbiIA4cakAFGUWwDTtIoAjYdOAMyeZAAtdjAAzqFkALeOWQDHxaIAzqJnAOfStgBEjVAAwpFQAMKTVgDAlVwA3MGfAMWWVgDYq3AA6tvIAEjOcADbsHYA7uDOAO/gzgDIn2gA48urAMigawDizbEARK9lAOHOtADOoWUAvoxLACuoUQDXu5cA59K3AMGRUQDq07EA06ZrAMORUQDXqm4A2sSpAMaXWgDfxaMAIHgvAMmcYADKnGAARN1xAN7KsgDgs3cA2LaJANa5kgAueC8AmopHANKmbADbvpgAwZJVANrBoQDfwZgAC4cwAMOZYQDarnIA1K9+AN7HqgDJm14A5MikANK0jQDs4NAAA3ElAD7obwDhzLAA37R7AOHOtgAKcigARbJnALi0jgDk07wA5tK5AMKQUADZvpkAc41JANjBogDFlVYA6drIAEyTXABKynAAQapiAOXPsQDl0roAwJBRAL+RVADGkUsA6Lt/AMOUVADWqW4AxJZaAIiEQQCtiUYA6NrJAObfzwDIml0A7d7MAEXccQAEdCcA5cypADOVUgDVupgAwI5MADaZVQDFkEkAxJRVAMWUVQDOq34A59jEAM2thADDl14ASsNvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAApZOTpQAAAAAAAAAAAAAsOo9bRDmBagAAAAAAAAAhHQOnX4ZtOTkgAAAAAACjRh+mikqVNDk5OQgAAACjXA9inHgEbCShpAs5GQAAkUc3ZgVXQAKOLxyCBpkAMXCXZUNeYJaIIxQmjZhYWKtTFT5udWkYS54ofZ+SOBAlayl2En+UZE45c1EJqDx0SAFJY3k1OS0Tcm+HDFpxHgAHfoU5Ql0woFJUkFYnegAAIndFOTtQK0+dTKmENqoAAACiDhYaOQqMLnuLKhsAAAAAAIOCDTNVEZuagIkAAAAAAAAATRdnWax8aGEAAAAAAAAAAAAAPT8yQQAAAAAAAPw/AADwDwAA4AcAAMADAACAAQAAgAEAAAAAAAAAAAAAAAAAAAAAAACAAQAAgAEAAMADAADgBwAA8A8AAPw/AAA="
     />
   </head>
+
   <body>
     <div
       class="bg min-w-screen min-h-screen bg-gray-200 flex items-start justify-center px-5 py-5"
     >
-      <div class="w-full max-w-xs lg:max-w-lg">
+      <div class="w-full max-w-xs lg:max-w-xl">
         <h1
-          class="px-8 pt-6 pb-6 bg-white shadow-md rounded block text-gray-700 text-xl mb-2"
+          class="py-4 px-2 lg:px-8 bg-white shadow-md rounded block text-gray-700 text-base lg:text-xl mb-2"
         >
           Download Your
           <a href="https://www.tripadvisor.com">TripAdvisor</a> Travel Map
         </h1>
-        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <form class="bg-white shadow-md rounded py-4 px-2 lg:px-8 mb-2">
           <div class="mb-4">
             <label class="block text-gray-700 text-sm font-bold mb-2" for="url">
               Please enter your tripadvisor profile url
@@ -126,6 +127,25 @@
                 <th class="lg:px-4 border px-1 py-2">Country</th>
                 <th class="lg:px-4 border px-1 py-2">City</th>
                 <th class="lg:p-x4 border px-1 py-2">Been?</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div
+          class="bg-white highscore hidden rounded shadow-md py-4 px-2 lg:px-8"
+        >
+          <h2 class="py-2 block text-l text-gray-700 font-bold">
+            Highscore (last 30 days)
+          </h2>
+          <table class="text-sm lg:text-md table-auto mb-4 mt-4">
+            <thead>
+              <tr class="bg-white">
+                <th class="lg:px-4 border px-1 py-2">#</th>
+                <th class="lg:px-4 border px-1 py-2">User</th>
+                <th class="lg:px-4 border px-1 py-2 text-right">Countries</th>
+                <th class="lg:px-4 border px-1 py-2 text-right">Cities</th>
+                <th class="lg:px-4 border px-1 py-2">Date</th>
               </tr>
             </thead>
             <tbody></tbody>
