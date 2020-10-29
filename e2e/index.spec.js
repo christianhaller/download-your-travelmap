@@ -10,7 +10,7 @@ describe("homepage", () => {
     await page.type("#url", "https://www.tripadvisor.com/Profile/agaraizar");
     await page.click("button[type='submit']");
 
-    await page.waitForSelector("table tbody tr");
+    await page.waitForSelector(".success table tbody tr");
 
     const found = await page.evaluate(() => window.find("Paris"));
     expect(found).toBe(true);
