@@ -20,6 +20,7 @@ export interface Stat {
   countries: number;
   cities: number;
   url: string;
+  date: number;
 }
 
 export interface TransformedStat {

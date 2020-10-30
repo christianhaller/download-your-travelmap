@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Highscore formats 1`] = `"60 minutes"`;
+
+exports[`Highscore formats 2`] = `"60 seconds"`;
+
+exports[`Highscore formats 3`] = `"1 second"`;
+
+exports[`Highscore formats 4`] = `"24 hours"`;
+
+exports[`Highscore formats 5`] = `"1 day"`;
+
+exports[`Highscore formats 6`] = `"12 months"`;
+
+exports[`Highscore formats 7`] = `"1 year"`;
+
+exports[`Highscore renders table 1`] = `
+"<div><div class=\\"highscore\\"><table><tbody><tr class=\\"bg-gray-100\\">
+      <td class=\\"lg:px-4 border px-1 py-2 text-right text-xs\\">🏆</td>
+      <td class=\\"lg:px-4 border px-1 py-2 text-right\\"><a rel=\\"noopener noreferrer\\" target=\\"_blank\\" href=\\"url\\">christianhaller</a></td>
+      <td class=\\"lg:px-4 border px-1 py-2 text-right\\">4</td>
+      <td class=\\"lg:px-4 border px-1 py-2 text-right\\">2</td>
+      <td class=\\"lg:px-4 border px-1 py-2 text-right text-xs\\">50 years ago</td></tr><tr class=\\"bg-white\\">
+      <td class=\\"lg:px-4 border px-1 py-2 text-right text-xs\\">🥈</td>
+      <td class=\\"lg:px-4 border px-1 py-2 text-right\\"><a rel=\\"noopener noreferrer\\" target=\\"_blank\\" href=\\"url\\">anneka</a></td>
+      <td class=\\"lg:px-4 border px-1 py-2 text-right\\">99</td>
+      <td class=\\"lg:px-4 border px-1 py-2 text-right\\">2</td>
+      <td class=\\"lg:px-4 border px-1 py-2 text-right text-xs\\">50 years ago</td></tr><tr class=\\"bg-gray-100\\">
+      <td class=\\"lg:px-4 border px-1 py-2 text-right text-xs\\">🥉</td>
+      <td class=\\"lg:px-4 border px-1 py-2 text-right\\"><a rel=\\"noopener noreferrer\\" target=\\"_blank\\" href=\\"url\\">another user</a></td>
+      <td class=\\"lg:px-4 border px-1 py-2 text-right\\">333</td>
+      <td class=\\"lg:px-4 border px-1 py-2 text-right\\">2</td>
+      <td class=\\"lg:px-4 border px-1 py-2 text-right text-xs\\">50 years ago</td></tr><tr class=\\"bg-white\\">
+      <td class=\\"lg:px-4 border px-1 py-2 text-right text-xs\\">4.</td>
+      <td class=\\"lg:px-4 border px-1 py-2 text-right\\"><a rel=\\"noopener noreferrer\\" target=\\"_blank\\" href=\\"url\\">user4</a></td>
+      <td class=\\"lg:px-4 border px-1 py-2 text-right\\">100</td>
+      <td class=\\"lg:px-4 border px-1 py-2 text-right\\">2</td>
+      <td class=\\"lg:px-4 border px-1 py-2 text-right text-xs\\">50 years ago</td></tr></tbody></table></div></div>"
+`;

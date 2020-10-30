@@ -27,8 +27,8 @@ export class Success {
     });
   }
 
-  private async show(data: Response): Promise<void> {
-    this.el?.classList.remove(this.hiddenClassName);
+  public async show(data: Response): Promise<void> {
+    this.el.classList.remove(this.hiddenClassName);
     const chart = await new Chart().init(this.el, data.places);
     const flags = new Flags().init(this.el, data);
     const png = await chart.getImage();
@@ -38,6 +38,6 @@ export class Success {
   }
 
   private hide(): void {
-    this.el?.classList.add(this.hiddenClassName);
+    this.el.classList.add(this.hiddenClassName);
   }
 }
