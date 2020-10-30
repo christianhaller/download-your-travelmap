@@ -23,7 +23,7 @@ export interface Stat {
 }
 
 export interface StatWithDate extends Stat {
-  date: number
+  date: number;
 }
 
 export interface TransformedStat {

@@ -1,55 +1,52 @@
 import { Success } from "./Success";
 
-
-jest.mock('./DownloadButton', () => {
+jest.mock("./DownloadButton", () => {
   return {
-    "DownloadButton": jest.fn(() => {
+    DownloadButton: jest.fn(() => {
       return {
-        init: () => { }
-      }
-    })
-  }
+        init: () => {},
+      };
+    }),
+  };
 });
 
-jest.mock('./Table', () => {
+jest.mock("./Table", () => {
   return {
-    "Table": jest.fn(() => {
+    Table: jest.fn(() => {
       return {
-        init: () => { }
-      }
-    })
-  }
+        init: () => {},
+      };
+    }),
+  };
 });
 
-jest.mock('./Flags', () => {
+jest.mock("./Flags", () => {
   return {
-    "Flags": jest.fn(() => {
+    Flags: jest.fn(() => {
       return {
         init: () => {
           return {
-            getString: () => { }
-          }
-        }
-      }
-    }
-    )
-  }
+            getString: () => {},
+          };
+        },
+      };
+    }),
+  };
 });
 
-jest.mock('./Chart', () => {
+jest.mock("./Chart", () => {
   return {
-    "Chart": jest.fn(() => {
+    Chart: jest.fn(() => {
       return {
-        "init": () => {
+        init: () => {
           return {
-            "getImage": () => { }
-          }
+            getImage: () => {},
+          };
         },
-
-      }
-    })
-  }
-})
+      };
+    }),
+  };
+});
 
 describe("Success", () => {
   document.body.innerHTML = '<div class="success"></div>';
@@ -151,5 +148,5 @@ describe("Success", () => {
         },
       ],
     });
-  })
+  });
 });
