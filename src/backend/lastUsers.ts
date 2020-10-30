@@ -1,6 +1,7 @@
-import type { EnhancedPin, Stat } from "./interace.ts";
+import type { EnhancedPin, Stat, StatWithDate } from "./interace.ts";
 import type { Timestamp } from "./timeStamp30DaysAgo.ts";
 import type { S3 } from "./s3.ts";
+
 
 class LastUsers {
   private timestamp: Timestamp;
@@ -42,7 +43,7 @@ class LastUsers {
     };
   }
 
-  async list(): Promise<Stat[] | undefined> {
+  async list(): Promise<StatWithDate[] | undefined> {
     const timeStamp30DaysAgo = this.timestamp.getT();
     const last30Days = Object.entries(await this.s3.getObject())
       .map(([key, values]) => {

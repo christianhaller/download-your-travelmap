@@ -22,6 +22,10 @@ export interface Stat {
   url: string;
 }
 
+export interface StatWithDate extends Stat {
+  date: number
+}
+
 export interface TransformedStat {
   date: number;
   countries: number;

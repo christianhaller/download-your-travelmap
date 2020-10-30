@@ -17,6 +17,10 @@ export default ["initial", "success"].map((name) => ({
     }),
     commonjs(),
     json(),
-    terser(),
+    terser({
+      format: {
+        comments: false
+      }
+    })
   ],
 }));
