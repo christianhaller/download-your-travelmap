@@ -1,4 +1,4 @@
-import type { Stat } from "../../backend/interace";
+import type { StatWithDate } from "../../backend/interace";
 
 class Highscore {
   private el: HTMLFormElement;
@@ -38,7 +38,7 @@ class Highscore {
   }
   async init() {
     this.el = this.doc.querySelector(".highscore");
-    const highscore = (await (await fetch("/api/highscore")).json()) as Stat[];
+    const highscore = (await (await fetch("/api/highscore")).json()) as StatWithDate[];
     const currentDate = new Date();
 
     const tableBody = this.el.querySelector("table tbody") as HTMLTableElement;
@@ -49,16 +49,15 @@ class Highscore {
 
     highscore.forEach(({ username, cities, countries, date, url }, index) => {
       const html = `
-      <td class="${classes} text-xs">${
-        emoji[index] ? emoji[index] : `${index + 1}.`
-      }</td>
+      <td class="${classes} text-xs">${emoji[index] ? emoji[index] : `${index + 1}.`
+        }</td>
       <td class="${classes}"><a rel="noopener noreferrer" target="_blank" href="${url}">${username}</a></td>
       <td class="${classes}">${countries}</td>
       <td class="${classes}">${cities}</td>
       <td class="${classes} text-xs">${Highscore.timeSince(
-        currentDate,
-        new Date(date)
-      )} ago</td>`;
+          currentDate,
+          new Date(date)
+        )} ago</td>`;
 
       const row = new_tbody.insertRow();
       row.innerHTML = html;
