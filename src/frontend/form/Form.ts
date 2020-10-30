@@ -46,7 +46,7 @@ export class Form {
         newURL.searchParams.set("url", url.href);
 
         if (window.location.href !== newURL.href) {
-          window.history.replaceState(null, "", newURL.href);
+          window.history.pushState(null, "", newURL.href);
         }
       } else {
         throw new Error(
