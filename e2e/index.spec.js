@@ -12,7 +12,19 @@ describe("homepage", () => {
 
     await page.waitForSelector(".success table tbody tr");
 
-    const found = await page.evaluate(() => window.find("Paris"));
+    let found = await page.evaluate(() => window.find("Paris"));
+    expect(found).toBe(true);
+  }, 10000);
+
+  it("has highscore", async () => {
+    await page.goto(url);
+
+    await expect(page.title()).resolves.toMatch(
+      "Download Your TripAdvisor Travel Map (kml/csv)"
+    );
+
+    await page.waitForSelector(".highscore:not(.hidden) table");
+    const found = await page.evaluate(() => window.find("Highscore"));
     expect(found).toBe(true);
   }, 10000);
 });

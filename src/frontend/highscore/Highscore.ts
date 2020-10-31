@@ -54,7 +54,7 @@ class Highscore {
       <td class="${classes}">${
         emoji[index] ? emoji[index] : `${index + 1}.`
       }</td>
-      <td class="${classes}"><a rel="noopener noreferrer" target="_blank" href="${url}">${username}</a></td>
+      <td class="${classes}"><a rel="noopener noreferrer nofollow" target="_blank" href="${url}">${username}</a></td>
       <td class="${classes}">${countries}</td>
       <td class="${classes}">${cities}</td>
       <td class="${classes}">${Highscore.timeSince(

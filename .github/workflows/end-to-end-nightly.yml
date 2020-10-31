@@ -1,0 +1,19 @@
+name: test end to end nightly
+
+on:
+  schedule:
+    # * is a special character in YAML so you have to quote this string
+    - cron:  '0 */6 * * *'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: '15'
+      - run: npm ci
+      - run: URL=https://download-your-travelmap.christianhaller.com npm run test:e2e
+
+
