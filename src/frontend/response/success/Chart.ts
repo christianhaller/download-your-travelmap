@@ -1,5 +1,5 @@
 import type { EnhancedPin } from "../../../backend/interace";
-import loadjs from "loadjs";
+import load from "load-js/src/load-js.js";
 
 export class Chart {
   private places: EnhancedPin[];
@@ -8,8 +8,8 @@ export class Chart {
 
   private async load() {
     return new Promise(async (resolve) => {
-      await loadjs("https://www.gstatic.com/charts/loader.js", {
-        returnPromise: true,
+      await load({
+        url: "https://www.gstatic.com/charts/loader.js",
         async: true,
       });
 

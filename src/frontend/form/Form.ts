@@ -1,4 +1,4 @@
-import loadjs from "loadjs";
+import load from "load-js/src/load-js.js";
 import { validate } from "./validate";
 import { UrlInput } from "./UrlInput";
 import { SubmitButton } from "./SubmitButton";
@@ -30,7 +30,7 @@ export class Form {
 
       const [res] = await Promise.all([
         fetch(`/api?url=${url}`),
-        loadjs("/success.js", { returnPromise: true, async: true }),
+        load({ url: "/success.js", async: true }),
       ]);
 
       this.submitButton.loadingStop();

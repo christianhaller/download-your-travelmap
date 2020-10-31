@@ -12,13 +12,13 @@ jest.mock("../response/failure/Failure", () => ({
   })),
 }));
 
-jest.mock("loadjs", () => jest.fn().mockResolvedValue(true));
+jest.mock("load-js/src/load-js.js", () => jest.fn().mockResolvedValue(true));
 
 jest.mock("./UrlInput", () => ({
   UrlInput: jest.fn(() => ({
     init: () => ({
       setFocus: () => {},
-      getValue: () => {
+      getValue: (): string => {
         return url;
       },
       setValue: () => {},

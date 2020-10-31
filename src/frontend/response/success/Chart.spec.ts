@@ -1,6 +1,6 @@
 import { Chart } from "./Chart";
 
-jest.mock("loadjs", () => jest.fn().mockResolvedValue(true));
+jest.mock("load-js/src/load-js.js", () => jest.fn().mockResolvedValue(true));
 let draw;
 
 describe("Chart", () => {

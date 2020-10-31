@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { Form } from "./form/Form";
 import { Highscore } from "./highscore/Highscore";
 
