@@ -7,7 +7,10 @@ describe("homepage", () => {
     await expect(page.title()).resolves.toMatch(
       "Download Your TripAdvisor Travel Map (kml/csv)"
     );
-    await page.type("#url", "https://www.tripadvisor.com/Profile/agaraizar");
+    await page.type(
+      "#url",
+      "https://www.tripadvisor.com/Profile/christianhaller"
+    );
     await page.click("button[type='submit']");
 
     await page.waitForSelector(".success table tbody tr");
