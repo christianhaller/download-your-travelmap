@@ -1,18 +1,18 @@
 import { LastUsers } from "./lastUsers.ts";
-import { Timestamp } from "./timeStamp30DaysAgo.ts";
+import { Timestamp } from "./timeStampNDaysAgo.ts";
 
-import { assertEquals, stub } from "../../deps.ts";
+import { assertEquals, AWSSignerV4, stub } from "../../deps.ts";
 
 import { TransformedStat } from "./interace.ts";
 import { S3 } from "./s3.ts";
 
 Deno.test({
-  name: "lists users",
+  name: "list users",
   fn: async () => {
     const t: Timestamp = new Timestamp();
-    stub(t, "getT", () => 1502255549068);
-    const s3: S3 = new S3();
-    stub(s3, "getObject", () => expected);
+    stub(t, "getTimestamp30DaysAgo", () => 1502255549068);
+    const s3: S3 = new S3({} as AWSSignerV4, "local");
+    const getObject = stub(s3, "getObject", () => expected);
 
     const expected = {
       theplanetd: {
@@ -29,14 +29,27 @@ Deno.test({
       },
       ich: {
         cities: 585,
-        date: 1502255549067,
+        date: 1502255549069,
         countries: 78,
+        url: "http://",
+      },
+      du: {
+        cities: 585,
+        date: 1502255549069,
+        countries: 203,
         url: "http://",
       },
     } as Record<string, TransformedStat>;
 
     const res = await new LastUsers(t, s3).list();
     assertEquals(res, [
+      {
+        cities: 585,
+        date: 1502255549069,
+        countries: 203,
+        username: "du",
+        url: "http://",
+      },
       {
         cities: 582,
         date: 1602073736895,
@@ -51,14 +64,53 @@ Deno.test({
         username: "Andres74",
         url: "http://",
       },
+      {
+        cities: 585,
+        date: 1502255549069,
+        countries: 78,
+        username: "ich",
+        url: "http://",
+      },
     ]);
+    getObject.restore();
+  },
+});
+
+Deno.test({
+  name: "saves user",
+  fn: async () => {
+    const t: Timestamp = new Timestamp();
+    stub(t, "getTimestamp", () => 1502255549068);
+    const s3: S3 = new S3({} as AWSSignerV4, "local");
+    const put = stub(s3, "putObject");
+    stub(s3, "getObject", () => {
+      return {};
+    });
+
+    await new LastUsers(t, s3).save({
+      cities: 582,
+      countries: 83,
+      username: "theplanetd",
+      url: "http://",
+    });
+    assertEquals(put.calls[0].args[0], {
+      theplanetd: {
+        cities: 582,
+        countries: 83,
+        date: 1502255549068,
+        url: "http://",
+      },
+    });
+    put.restore();
   },
 });
 
 Deno.test({
   name: "stats",
   fn: () => {
-    const s3: S3 = new S3();
+    const s3: S3 = new S3({} as AWSSignerV4, "local");
+    const t: Timestamp = new Timestamp();
+    stub(t, "getT", () => 1502255549068);
     const res = new LastUsers(new Timestamp(), s3).stats([
       {
         lat: 42.54325,
@@ -78,8 +130,36 @@ Deno.test({
         lat: 42.55383,
         lng: 1.59044,
         flags: ["been"],
-        city: "Paris",
+        city: "LA",
+        country: "USA",
+      },
+      {
+        lat: 42.55383,
+        lng: 1.59044,
+        flags: ["been"],
+        city: "NYC",
+        country: "USA",
+      },
+      {
+        lat: 42.55383,
+        lng: 1.59044,
+        flags: ["been"],
+        city: "SF",
+        country: "USA",
+      },
+      {
+        lat: 42.55383,
+        lng: 1.59044,
+        flags: ["been"],
+        city: "Lyon",
         country: "France",
+      },
+      {
+        lat: 42.55383,
+        lng: 1.59044,
+        flags: ["been"],
+        city: "Brussel",
+        country: "Belge",
       },
       {
         lat: 42.55383,
@@ -91,8 +171,8 @@ Deno.test({
     ]);
 
     assertEquals(res, {
-      cities: 3,
-      countries: 2,
+      cities: 7,
+      countries: 4,
     });
   },
 });

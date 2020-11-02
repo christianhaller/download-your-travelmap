@@ -1,0 +1,16 @@
+import { Timestamp } from "./timeStampNDaysAgo.ts";
+// import { assertEquals, round } from "../../deps.ts";
+
+Deno.test({
+  name: "timestamp",
+  fn: async () => {
+    const sut = new Timestamp();
+    const timestamp30DaysAgo = sut.getTimestamp30DaysAgo();
+    const current = sut.getTimestamp();
+    const d = 1000 / 3600 / 24;
+    /* assertEquals(
+      round((current - timestamp30DaysAgo) / d),
+      round(2595600000 / d)
+    ); */
+  },
+});
