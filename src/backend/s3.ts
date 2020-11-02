@@ -1,18 +1,14 @@
 import { TransformedStat } from "./interace.ts";
-import { AWSSignerV4, createHash, log } from "../../deps.ts";
-import type { Credentials } from "../../deps.ts";
+import { createHash } from "../../deps.ts";
+import type { AWSSignerV4 } from "../../deps.ts";
 
 export class S3 {
   public key: string;
   public signer: AWSSignerV4;
 
-  constructor() {
-    const credentials: Credentials = {
-      awsAccessKeyId: Deno.env.get("APP_AWS_ACCESS_KEY_ID") as string,
-      awsSecretKey: Deno.env.get("APP_AWS_SECRET_ACCESS_KEY") as string,
-    };
-    this.key = `${Deno.env.get("APP_ENV")}.json`;
-    this.signer = new AWSSignerV4("eu-central-1", credentials);
+  constructor(signer: AWSSignerV4, key: string) {
+    this.key = `${key}.json`;
+    this.signer = signer;
   }
   private static headers(body = "") {
     return {
@@ -43,7 +39,6 @@ export class S3 {
     const req = await this.signedRequest(undefined, "GET");
     const response = await fetch(req);
     if (!response.ok) {
-      log.error(response.statusText);
       return {};
     }
     return (await response.json()) as Record<string, TransformedStat>;

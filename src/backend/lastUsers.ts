@@ -1,5 +1,5 @@
 import type { EnhancedPin, Stat, StatWithDate } from "./interace.ts";
-import type { Timestamp } from "./timeStamp30DaysAgo.ts";
+import type { Timestamp } from "./timeStampNDaysAgo.ts";
 import type { S3 } from "./s3.ts";
 
 class LastUsers {
@@ -21,7 +21,7 @@ class LastUsers {
       countries,
       cities,
       url,
-      date: new Date().getTime(),
+      date: this.timestamp.getT(),
     };
     await this.s3.putObject(data);
   }
