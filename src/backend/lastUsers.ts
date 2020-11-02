@@ -1,6 +1,7 @@
 import type { EnhancedPin, Stat, StatWithDate } from "./interace.ts";
 import type { Timestamp } from "./timeStampNDaysAgo.ts";
 import type { S3 } from "./s3.ts";
+import { log } from "../../deps.ts";
 
 class LastUsers {
   private timestamp: Timestamp;
@@ -23,17 +24,18 @@ class LastUsers {
       url,
       date: this.timestamp.getT(),
     };
+    log.debug(data);
     await this.s3.putObject(data);
   }
   stats(
-    data: EnhancedPin[],
+    data: EnhancedPin[]
   ): {
     countries: number;
     cities: number;
   } {
     const countries = [
       ...new Set(
-        data.filter(LastUsers.isFaveOrBeen).map(({ country }) => country),
+        data.filter(LastUsers.isFaveOrBeen).map(({ country }) => country)
       ),
     ];
     return {
@@ -63,7 +65,7 @@ class LastUsers {
           return -1;
         }
         return 0;
-      },
+      }
     );
   }
 }
