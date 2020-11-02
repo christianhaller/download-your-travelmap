@@ -1,7 +1,6 @@
 import type { EnhancedPin, Stat, StatWithDate } from "./interace.ts";
 import type { Timestamp } from "./timeStampNDaysAgo.ts";
 import type { S3 } from "./s3.ts";
-import { log } from "../../deps.ts";
 
 class LastUsers {
   private timestamp: Timestamp;
@@ -22,20 +21,19 @@ class LastUsers {
       countries,
       cities,
       url,
-      date: this.timestamp.getT(),
+      date: this.timestamp.getTimestamp(),
     };
-    log.debug(data);
     await this.s3.putObject(data);
   }
   stats(
-    data: EnhancedPin[]
+    data: EnhancedPin[],
   ): {
     countries: number;
     cities: number;
   } {
     const countries = [
       ...new Set(
-        data.filter(LastUsers.isFaveOrBeen).map(({ country }) => country)
+        data.filter(LastUsers.isFaveOrBeen).map(({ country }) => country),
       ),
     ];
     return {
@@ -45,8 +43,11 @@ class LastUsers {
   }
 
   async list(): Promise<StatWithDate[] | undefined> {
-    const timeStamp30DaysAgo = this.timestamp.getT();
-    const last30Days = Object.entries(await this.s3.getObject())
+    const timeStamp30DaysAgo = this.timestamp.getTimestamp30DaysAgo();
+    // log.debug(`timestamp: ${timeStamp30DaysAgo}`);
+    const unfilteredResult = Object.entries(await this.s3.getObject());
+    // log.debug(`unfiltered: ${unfilteredResult.length}`);
+    const last30Days = unfilteredResult
       .map(([key, values]) => {
         return {
           username: key,
@@ -56,6 +57,7 @@ class LastUsers {
       .filter(({ date }) => {
         return date > timeStamp30DaysAgo;
       });
+    // log.debug(`filtered: ${last30Days.length}`);
     return last30Days.sort(
       ({ countries: countriesA }, { countries: countriesB }) => {
         if (countriesA < countriesB) {
@@ -65,7 +67,7 @@ class LastUsers {
           return -1;
         }
         return 0;
-      }
+      },
     );
   }
 }

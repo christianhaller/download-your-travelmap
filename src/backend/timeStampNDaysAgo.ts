@@ -1,6 +1,13 @@
 class Timestamp {
-  getT() {
-    return new Date().setDate(new Date().getDate() - 30);
+  private date: Date;
+  constructor() {
+    this.date = new Date();
+  }
+  getTimestamp30DaysAgo() {
+    return new Date().setDate(this.date.getDate() - 30);
+  }
+  getTimestamp() {
+    return this.date.getTime();
   }
 }
 

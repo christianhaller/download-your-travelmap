@@ -1,5 +1,5 @@
 import { TransformedStat } from "./interace.ts";
-import { createHash } from "../../deps.ts";
+import { createHash, log } from "../../deps.ts";
 import type { AWSSignerV4 } from "../../deps.ts";
 
 export class S3 {
@@ -30,9 +30,11 @@ export class S3 {
   }
 
   async putObject(data: unknown): Promise<void> {
+    log.info(data);
     const body = JSON.stringify(data);
     const req = await this.signedRequest(body, "PUT");
     await fetch(req);
+    log.debug("put done");
   }
 
   async getObject(): Promise<Record<string, TransformedStat>> {
@@ -41,7 +43,9 @@ export class S3 {
     if (!response.ok) {
       return {};
     }
-    return (await response.json()) as Record<string, TransformedStat>;
+    const json = (await response.json()) as Record<string, TransformedStat>;
+    log.info(json);
+    return json;
   }
 
   private static sha256Hex(data: string | Uint8Array): string {

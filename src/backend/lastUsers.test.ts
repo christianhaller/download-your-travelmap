@@ -10,7 +10,7 @@ Deno.test({
   name: "list users",
   fn: async () => {
     const t: Timestamp = new Timestamp();
-    stub(t, "getT", () => 1502255549068);
+    stub(t, "getTimestamp30DaysAgo", () => 1502255549068);
     const s3: S3 = new S3({} as AWSSignerV4, "local");
     const getObject = stub(s3, "getObject", () => expected);
 
@@ -80,7 +80,7 @@ Deno.test({
   name: "saves user",
   fn: async () => {
     const t: Timestamp = new Timestamp();
-    stub(t, "getT", () => 1502255549068);
+    stub(t, "getTimestamp", () => 1502255549068);
     const s3: S3 = new S3({} as AWSSignerV4, "local");
     const put = stub(s3, "putObject");
     stub(s3, "getObject", () => {

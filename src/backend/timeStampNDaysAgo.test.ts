@@ -4,7 +4,9 @@ import { assertEquals } from "../../deps.ts";
 Deno.test({
   name: "timestamp",
   fn: async () => {
-    const res = new Timestamp().getT();
-    assertEquals(Number.isInteger(res), true);
+    const sut = new Timestamp();
+    const timestamp30DaysAgo = sut.getTimestamp30DaysAgo();
+    const current = sut.getTimestamp();
+    assertEquals(current - timestamp30DaysAgo, 2595600000);
   },
 });
