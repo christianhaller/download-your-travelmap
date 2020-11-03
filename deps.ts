@@ -16,7 +16,7 @@ import { createHash } from "https://deno.land/std@0.76.0/hash/mod.ts";
 import { spy, stub } from "https://deno.land/x/mock@v0.9.2/mod.ts";
 import * as log from "https://deno.land/std@0.76.0/log/mod.ts";
 import type { ServerRequest } from "https://deno.land/std@0.76.0/http/server.ts";
-import "https://deno.land/x/dotenv@v0.5.0/load.ts";
+import "https://deno.land/x/dotenv@v1.0.1/load.ts";
 
 export {
   assertArrayIncludes,
