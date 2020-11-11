@@ -26,7 +26,7 @@
     "bytes": "^3.1.0",
     "country-emoji": "^1.5.4",
     "geojson": "^0.5.0",
-    "json2csv": "^5.0.3",
+    "json2csv": "^5.0.4",
     "jszip": "^3.5.0",
     "load-js": "^3.0.3",
     "tokml": "^0.4.0"
