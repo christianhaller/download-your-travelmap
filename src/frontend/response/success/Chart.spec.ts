@@ -30,6 +30,7 @@ describe("Chart", () => {
       ),
     },
     charts: {
+      safeLoad:jest.fn(),
       load: jest.fn(),
       setOnLoadCallback: jest.fn((cb) => {
         cb();
