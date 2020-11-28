@@ -9,7 +9,7 @@ import {
 import {
   AWSSignerV4,
   Credentials,
-} from "https://deno.land/x/aws_sign_v4@0.1.4/mod.ts";
+} from "https://deno.land/x/aws_sign_v4@0.1.5/mod.ts";
 
 import { createHash } from "https://deno.land/std@0.79.0/hash/mod.ts";
 

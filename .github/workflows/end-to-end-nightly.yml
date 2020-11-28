@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-node@v2-beta
         with:
           node-version: '15'
-      - run: npm ci
+      - run: PUPPETEER_PRODUCT=firefox npm ci
       - run: URL=https://download-your-travelmap.christianhaller.com npm run test:e2e
 
 
