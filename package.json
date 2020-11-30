@@ -32,10 +32,10 @@
     "tokml": "^0.4.0"
   },
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^16.0.0",
+    "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-html": "^0.2.0",
     "@rollup/plugin-json": "^4.1.0",
-    "@rollup/plugin-typescript": "^6.1.0",
+    "@rollup/plugin-typescript": "^8.0.0",
     "@types/google.visualization": "0.0.57",
     "@types/json2csv": "^5.0.1",
     "@types/jszip": "^3.4.1",
