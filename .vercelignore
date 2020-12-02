@@ -9,3 +9,5 @@
 !*.config.js
 !build.js
 !deps.ts
+!cssnano.config.js
+

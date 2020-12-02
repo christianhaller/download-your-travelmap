@@ -1,0 +1,77 @@
+doctype html
+head
+    meta(charset='utf-8')
+    title Download Your TripAdvisor Travel Map (kml/csv)
+    link(rel='stylesheet' href='../styles/styles.pcss')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='content-security-policy' content="default-src 'self'; script-src 'self' https://www.gstatic.com/charts/ https://feedback.fish; style-src 'unsafe-inline' 'self' https://www.gstatic.com/charts/ https://feedback.fish; object-src 'none'; base-uri 'self'; connect-src 'self' data: https://www.gstatic.com/charts/; font-src 'self'; frame-src 'self' https://feedback.fish; img-src 'self' data:; manifest-src 'self'; media-src 'self'; worker-src 'none';")
+    link(rel='canonical' href='https://download-your-travelmap.christianhaller.com')
+    meta(name='description' content='download your tripadvisor travel map')
+    link(rel='shortcut icon' href='data:image/x-icon;base64,AAABAAEAEBAAAAAAAABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAA3cWnABV/NgDHml4AyZpeAMyfZABDrWQA1biTAMCMRwDKo3AACnUrADaZVgDXvZkAR7hqACaKRQDDlFYAwpVZAD+lXwDYr3kA5cScAErMcADHm2IALpBOAEXbcADesXYAv4xIAAh0KQDUuZcARrRoAM6mcQC+kVcAw5NUANGrdwDRrHoAzq2GAErFbgAtj0wAxZxmAEnPcQDeyawAPeluANS0iQDfy7IA7+HPANi3iQDry6AA7+PVAEWwZgDpz6wAvo5PADJ3MgBHt2kAw5JSAGuYXQDbxKcAxphbAMWaYQAAbiIA4cakAFGUWwDTtIoAjYdOAMyeZAAtdjAAzqFkALeOWQDHxaIAzqJnAOfStgBEjVAAwpFQAMKTVgDAlVwA3MGfAMWWVgDYq3AA6tvIAEjOcADbsHYA7uDOAO/gzgDIn2gA48urAMigawDizbEARK9lAOHOtADOoWUAvoxLACuoUQDXu5cA59K3AMGRUQDq07EA06ZrAMORUQDXqm4A2sSpAMaXWgDfxaMAIHgvAMmcYADKnGAARN1xAN7KsgDgs3cA2LaJANa5kgAueC8AmopHANKmbADbvpgAwZJVANrBoQDfwZgAC4cwAMOZYQDarnIA1K9+AN7HqgDJm14A5MikANK0jQDs4NAAA3ElAD7obwDhzLAA37R7AOHOtgAKcigARbJnALi0jgDk07wA5tK5AMKQUADZvpkAc41JANjBogDFlVYA6drIAEyTXABKynAAQapiAOXPsQDl0roAwJBRAL+RVADGkUsA6Lt/AMOUVADWqW4AxJZaAIiEQQCtiUYA6NrJAObfzwDIml0A7d7MAEXccQAEdCcA5cypADOVUgDVupgAwI5MADaZVQDFkEkAxJRVAMWUVQDOq34A59jEAM2thADDl14ASsNvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAApZOTpQAAAAAAAAAAAAAsOo9bRDmBagAAAAAAAAAhHQOnX4ZtOTkgAAAAAACjRh+mikqVNDk5OQgAAACjXA9inHgEbCShpAs5GQAAkUc3ZgVXQAKOLxyCBpkAMXCXZUNeYJaIIxQmjZhYWKtTFT5udWkYS54ofZ+SOBAlayl2En+UZE45c1EJqDx0SAFJY3k1OS0Tcm+HDFpxHgAHfoU5Ql0woFJUkFYnegAAIndFOTtQK0+dTKmENqoAAACiDhYaOQqMLnuLKhsAAAAAAIOCDTNVEZuagIkAAAAAAAAATRdnWax8aGEAAAAAAAAAAAAAPT8yQQAAAAAAAPw/AADwDwAA4AcAAMADAACAAQAAgAEAAAAAAAAAAAAAAAAAAAAAAACAAQAAgAEAAMADAADgBwAA8A8AAPw/AAA=')
+.bg.min-w-screen.min-h-screen.bg-gray-200.flex.items-start.justify-center.px-2.py-2(class='lg:px-5 lg:py-5')
+    .w-full.max-w-xs(class='lg:max-w-xl')
+        h1.py-4.px-2.bg-white.shadow-md.rounded.block.text-gray-700.text-base.mb-2(class='lg:px-8 lg:text-xl')
+            | Download Your
+            a(href='https://www.tripadvisor.com') TripAdvisor
+            |  Travel Map
+        form.bg-white.shadow-md.rounded.py-4.px-2.mb-2(class='lg:px-8')
+            .mb-4
+                label.block.text-gray-700.text-sm.font-bold.mb-2(for='url')
+                    | Please enter your tripadvisor profile url
+                input#url.shadow.appearance-none.border.rounded.w-full.py-2.px-3.text-gray-700.leading-tight(class='focus:outline-none focus:shadow-outline' type='url' autofocus='' placeholder='https://www.tripadvisor.com/members/christianhaller' required='')
+            .flex.items-center.justify-between
+                button.inline-flex.right.px-4.py-2.border.border-transparent.text-base.leading-6.font-medium.rounded-md.text-white.bg-indigo-600.transition.ease-in-out.duration-150.cursor-not-allowed(class='hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700' type='submit')
+                    svg.js-spinner-icon.hidden.animate-spin.-ml-1.mr-3.h-5.w-5.text-white(xmlns='http://www.w3.org/2000/svg' fill='none' viewbox='0 0 24 24')
+                        circle.opacity-25(cx='12' cy='12' r='10' stroke='currentColor' stroke-width='4')
+                        path.opacity-75(fill='currentColor' d='M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z')
+                    svg.js-submit-icon.ml-1.mr-3.h-5.w-5.text-white(xmlns='http://www.w3.org/2000/svg' viewbox='0 0 1000 1000')
+                        path(d='M36.9 506.2c-37.1 19.5-35.6 48 3.3 63.4l115.3 45.6c38.9 15.4 97.9 7 130.9-18.8L787 201.6c32.9-25.9 36.4-22.1 7.8 8.5L399.1 633.7c-28.7 30.5-20.2 68 18.8 83.1l13.5 5.3c39.1 15.1 102.8 40.5 141.6 56.3l127.9 52.1c38.8 15.7 70.6 28.8 70.7 29.1 0 .2.2 1 .4 1 .2.1 9.4-33 20.3-73.4L987.1 70.9c11-40.4-10.3-57.6-47.4-38.1L36.9 506.2zM353.3 975c-2.3 6.8 78.8-117.5 78.8-117.5 23-35 10-76.8-28.8-92.6l-88.5-36.3c-38.7-15.9-57.3 2.7-41.3 41.5 0 .1 82.1 197.9 79.8 204.9z')
+                        path(d='M36.9 506.2c-37.1 19.5-35.6 48 3.3 63.4l115.3 45.6c38.9 15.4 97.9 7 130.9-18.8L787 201.6c32.9-25.9 36.4-22.1 7.8 8.5L399.1 633.7c-28.7 30.5-20.2 68 18.8 83.1l13.5 5.3c39.1 15.1 102.8 40.5 141.6 56.3l127.9 52.1c38.8 15.7 70.6 28.8 70.7 29.1 0 .2.2 1 .4 1 .2.1 9.4-33 20.3-73.4L987.1 70.9c11-40.4-10.3-57.6-47.4-38.1L36.9 506.2zM353.3 975c-2.3 6.8 78.8-117.5 78.8-117.5 23-35 10-76.8-28.8-92.6l-88.5-36.3c-38.7-15.9-57.3 2.7-41.3 41.5 0 .1 82.1 197.9 79.8 204.9z')
+                    |             Submit
+        .hidden.failure.rounded.mb-2
+            .bg-red-500.text-white.font-bold.rounded-t.px-4.py-3.shadow-md
+                | Oh no!
+            .border.border-t-0.border-red-400.rounded-b.bg-red-100.px-4.py-3.text-red-700
+                p
+        .hidden.rounded.mb-4.success.bg-white.border-t-4.border-teal-500.rounded-b.text-teal-900.px-4.py-3.shadow-md(role='alert')
+            .flex.justify-center
+                a#download.px-4.py-2.cursor-not-allowed.border-transparent.text-base.leading-6.font-medium.rounded-md.text-white.bg-indigo-600.inline-flex.items-center(href='/' class='hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700')
+                    svg.animate-bounce.fill-current.w-4.h-4.mr-2(xmlns='http://www.w3.org/2000/svg' viewbox='0 0 20 20')
+                        path(d='M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z')
+                    span Download
+            p.been.mt-2.mb-2
+            #chart(style='width: 100%; height: 200px')
+            table.text-sm.table-auto.mb-4.mt-4(class='lg:text-md')
+                thead
+                    tr.bg-white
+                        th.border.px-1.py-2(class='lg:px-4') Country
+                        th.border.px-1.py-2(class='lg:px-4') City
+                        th.border.px-1.py-2(class='lg:p-x4') Been?
+                tbody
+        .bg-white.highscore.hidden.rounded.shadow-md.py-4.px-2(class='lg:px-8')
+            h2.py-2.block.text-l.text-gray-700.font-bold
+                | Highscore (last 30 days)
+            table.text-xs.table-auto.mb-4.mt-4(class='lg:text-md')
+                thead
+                    tr.bg-white
+                        th.border.px-1.py-2.text-right(class='lg:px-4') #
+                        th.border.px-1.py-2.text-right(class='lg:px-4') User
+                        th.border.px-1.py-2.text-right(class='lg:px-4') Countries
+                        th.border.px-1.py-2.text-right(class='lg:px-4') Cities
+                        th.border.px-1.py-2(class='lg:px-4') Date
+                tbody
+        p.m-8.text-center.text-gray-200.text-xs
+            a(data-feedback-fish='')
+                | Feedback
+            |         |
+            a(href='https://www.tripadvisor.com/ShowTopic-g1-i12105-k4907156-How_can_I_download_my_travel_map_pins_list-Tripadvisor_Support.html') Why?
+            |         |
+            a(href='https://github.com/christianhaller/download-your-travelmap') How?
+            |         |
+            a(href='https://www.paypal.com/paypalme/christianhaller/2') Say thanks!
+            |         |
+            span.js-rendered-in
+            |         &#x1F64F; | &copy;2020
+button.hidden.px-1.py-1.border.border-transparent.text-base.rounded-md.text-white.bg-indigo-600(data-feedback-fish='' class='lg:fixed lg:block lg:-right-5 lg:top-1/2 lg:transform lg:rotate-90 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700') Feedback
+script(async='' src='../initial.ts')
+script(defer='' src='https://feedback.fish/ff.js?pid=ec6517912eb5a3')
