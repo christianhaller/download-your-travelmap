@@ -7,3 +7,4 @@ public/*.map
 .idea
 node_modules
 tmp
+.parcel-cache

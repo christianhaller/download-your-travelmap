@@ -5,6 +5,10 @@
     "../backend/validHostnames.ts"
   ],
   "compilerOptions": {
+    "module": "commonjs",
+    "paths": {
+      "~*": ["./*"]
+    },
     "target": "ES6",
     "lib": ["es5", "es6", "dom"],
     "esModuleInterop": true,
