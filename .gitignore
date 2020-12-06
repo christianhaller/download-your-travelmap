@@ -8,3 +8,4 @@ public/*.map
 node_modules
 tmp
 .parcel-cache
+public
