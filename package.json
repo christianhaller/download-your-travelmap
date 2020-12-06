@@ -30,10 +30,11 @@
     "geojson": "^0.5.0",
     "json2csv": "^5.0.5",
     "jszip": "^3.5.0",
+    "load-js": "^3.0.3",
     "tokml": "^0.4.0"
   },
   "devDependencies": {
-    "@types/google.visualization": "0.0.57",
+    "@types/google.visualization": "0.0.58",
     "@types/json2csv": "^5.0.1",
     "@types/jszip": "^3.4.1",
     "autoprefixer": "^10.0.4",
@@ -43,7 +44,7 @@
     "npm-check-updates": "^10.2.2",
     "parcel": "^2.0.0-nightly.464",
     "parcel-bundler": "^1.12.4",
-    "postcss": "^8.1.10",
+    "postcss": "^8.1.14",
     "postcss-import": "^13.0.0",
     "postcss-modules": "^4.0.0",
     "prettier": "^2.2.1",
@@ -51,7 +52,7 @@
     "puppeteer": "^5.5.0",
     "tailwindcss": "^2.0.1",
     "ts-jest": "^26.4.4",
-    "ts-node": "^9.0.0",
+    "ts-node": "^9.1.0",
     "tslib": "^2.0.3",
     "typescript": "^4.1.2"
   },

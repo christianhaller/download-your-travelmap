@@ -8,8 +8,10 @@ export class Chart {
 
   private async load() {
     return new Promise(async (resolve) => {
-      // @ts-ignore
-      await import("https://www.gstatic.com/charts/loader.js");
+      await load({
+        url: "https://www.gstatic.com/charts/loader.js",
+        async: true,
+      });
 
       google.charts.load("current", {
         packages: ["geochart"],
