@@ -4,8 +4,10 @@ block body
         .w-full.max-w-xs(class='lg:max-w-xl')
             h1.py-4.px-2.bg-white.shadow-md.rounded.block.text-gray-700.text-base.mb-2(class='lg:px-8 lg:text-xl')
                 | Download Your
+                |
                 a(href='https://www.tripadvisor.com') TripAdvisor
-                |  Travel Map
+                |
+                |Travel Map
             form.bg-white.shadow-md.rounded.py-4.px-2.mb-2(class='lg:px-8')
                 .mb-4
                     label.block.text-gray-700.text-sm.font-bold.mb-2(for='url')
@@ -53,9 +55,7 @@ block body
                             th.border.px-1.py-2(class='lg:px-4') Date
                     tbody
             p.m-8.text-center.text-gray-200.text-xs
-                a(data-feedback-fish='')
-                    | Feedback
-                |         |
+                |
                 a(href='https://www.tripadvisor.com/ShowTopic-g1-i12105-k4907156-How_can_I_download_my_travel_map_pins_list-Tripadvisor_Support.html') Why?
                 |         |
                 a(href='https://github.com/christianhaller/download-your-travelmap') How?
@@ -64,6 +64,4 @@ block body
                 |         |
                 span.js-rendered-in
                 |         &#x1F64F; | &copy;2021
-    button.hidden.px-1.py-1.border.border-transparent.text-base.rounded-md.text-white.bg-indigo-600(data-feedback-fish='' class='lg:fixed lg:block lg:-right-5 lg:top-1/2 lg:transform lg:rotate-90 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700') Feedback
     script(async='' src='../initial.ts')
-    script(defer='' src='https://feedback.fish/ff.js?pid=ec6517912eb5a3')
