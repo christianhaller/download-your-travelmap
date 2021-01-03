@@ -20,20 +20,20 @@ exports[`Highscore renders table 1`] = `
       <td class=\\"lg:px-4 border px-1 py-2 text-right\\"><a rel=\\"noopener noreferrer nofollow\\" target=\\"_blank\\" href=\\"url\\">christianhaller</a></td>
       <td class=\\"lg:px-4 border px-1 py-2 text-right\\">4</td>
       <td class=\\"lg:px-4 border px-1 py-2 text-right\\">2</td>
-      <td class=\\"lg:px-4 border px-1 py-2 text-right\\">50 years ago</td></tr><tr class=\\"bg-white\\">
+      <td class=\\"lg:px-4 border px-1 py-2 text-right\\">51 years ago</td></tr><tr class=\\"bg-white\\">
       <td class=\\"lg:px-4 border px-1 py-2 text-right\\">🥈</td>
       <td class=\\"lg:px-4 border px-1 py-2 text-right\\"><a rel=\\"noopener noreferrer nofollow\\" target=\\"_blank\\" href=\\"url\\">anneka</a></td>
       <td class=\\"lg:px-4 border px-1 py-2 text-right\\">99</td>
       <td class=\\"lg:px-4 border px-1 py-2 text-right\\">2</td>
-      <td class=\\"lg:px-4 border px-1 py-2 text-right\\">50 years ago</td></tr><tr class=\\"bg-gray-100\\">
+      <td class=\\"lg:px-4 border px-1 py-2 text-right\\">51 years ago</td></tr><tr class=\\"bg-gray-100\\">
       <td class=\\"lg:px-4 border px-1 py-2 text-right\\">🥉</td>
       <td class=\\"lg:px-4 border px-1 py-2 text-right\\"><a rel=\\"noopener noreferrer nofollow\\" target=\\"_blank\\" href=\\"url\\">another user</a></td>
       <td class=\\"lg:px-4 border px-1 py-2 text-right\\">333</td>
       <td class=\\"lg:px-4 border px-1 py-2 text-right\\">2</td>
-      <td class=\\"lg:px-4 border px-1 py-2 text-right\\">50 years ago</td></tr><tr class=\\"bg-white\\">
+      <td class=\\"lg:px-4 border px-1 py-2 text-right\\">51 years ago</td></tr><tr class=\\"bg-white\\">
       <td class=\\"lg:px-4 border px-1 py-2 text-right\\">4.</td>
       <td class=\\"lg:px-4 border px-1 py-2 text-right\\"><a rel=\\"noopener noreferrer nofollow\\" target=\\"_blank\\" href=\\"url\\">user4</a></td>
       <td class=\\"lg:px-4 border px-1 py-2 text-right\\">100</td>
       <td class=\\"lg:px-4 border px-1 py-2 text-right\\">2</td>
-      <td class=\\"lg:px-4 border px-1 py-2 text-right\\">50 years ago</td></tr></tbody></table></div></div>"
+      <td class=\\"lg:px-4 border px-1 py-2 text-right\\">51 years ago</td></tr></tbody></table></div></div>"
 `;
