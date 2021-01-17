@@ -46,7 +46,7 @@ class Highscore {
     const tableBody = this.el.querySelector("table tbody") as HTMLTableElement;
 
     const new_tbody = document.createElement("tbody");
-    const classes = ["lg:px-4", "border", "px-1", "py-2 text-right"].join(" ");
+    const classes = ["lg:px-4", "border", "px-1", "py-2"].join(" ");
     const emoji = ["🏆", "🥈", "🥉"];
 
     highscore.forEach(({ username, cities, countries, date, url }, index) => {
@@ -55,9 +55,9 @@ class Highscore {
         emoji[index] ? emoji[index] : `${index + 1}.`
       }</td>
       <td class="${classes}"><a rel="noopener noreferrer nofollow" target="_blank" href="${url}">${username}</a></td>
-      <td class="${classes}">${countries}</td>
-      <td class="${classes}">${cities}</td>
-      <td class="${classes}">${Highscore.timeSince(
+      <td class="${classes} text-right">${countries}</td>
+      <td class="${classes} text-right">${cities}</td>
+      <td class="${classes} text-right">${Highscore.timeSince(
         currentDate,
         new Date(date)
       )} ago</td>`;
