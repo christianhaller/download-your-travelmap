@@ -44,7 +44,7 @@
     "jest-puppeteer": "^4.4.0",
     "npm-check-updates": "^11.1.1",
     "parcel": "^2.0.0-nightly.467",
-    "postcss": "^8.2.4",
+    "postcss": "^8.2.5",
     "postcss-import": "^14.0.0",
     "postcss-modules": "^4.0.0",
     "prettier": "^2.2.1",
