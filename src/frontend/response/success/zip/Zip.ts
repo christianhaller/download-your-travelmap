@@ -1,4 +1,4 @@
-import JSZip from "jszip";
+import JSZip from "jszip/lib/index.js";
 import { kml } from "./kml";
 import { csv } from "./csv";
 import type { Response } from "../../../../backend/interace";
