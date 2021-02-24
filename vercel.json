@@ -7,7 +7,7 @@
   },
   "build": {
     "env": {
-      "DENO_VERSION": "1.7.2"
+      "DENO_VERSION": "1.7.5"
     }
   },
   "github": {
