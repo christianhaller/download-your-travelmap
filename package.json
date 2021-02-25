@@ -42,7 +42,7 @@
     "@parcel/transformer-html": "^2.0.0-nightly.609",
     "@parcel/transformer-postcss": "^2.0.0-nightly.609",
     "@parcel/transformer-posthtml": "^2.0.0-nightly.609",
-    "@parcel/transformer-pug": "^2.0.0-nightly.609",
+    "@parcel/transformer-pug": "^2.0.0-nightly.610",
     "@types/google.visualization": "0.0.60",
     "@types/json2csv": "^5.0.1",
     "@types/jszip": "^3.4.1",
