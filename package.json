@@ -34,7 +34,7 @@
     "tokml": "^0.4.0"
   },
   "devDependencies": {
-    "@parcel/optimizer-cssnano": "^2.0.0-nightly.609",
+    "@parcel/optimizer-cssnano": "^2.0.0-nightly.610",
     "@parcel/optimizer-htmlnano": "^2.0.0-nightly.609",
     "@parcel/packager-css": "^2.0.0-nightly.609",
     "@parcel/packager-html": "^2.0.0-nightly.609",
