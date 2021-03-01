@@ -55,7 +55,7 @@
     "parcel": "^2.0.0-nightly.610",
     "postcss": "^8.2.6",
     "prettier": "^2.2.1",
-    "pug": "^3.0.0",
+    "pug": "^3.0.2",
     "puppeteer": "^8.0.0",
     "tailwindcss": "^2.0.3",
     "ts-jest": "^26.5.2",
