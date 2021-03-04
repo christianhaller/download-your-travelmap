@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        deno: ["v1.x", nightly"]
+        deno: ["v1.7", v1.8", "canary"]
 
     steps:
       - uses: actions/checkout@master
