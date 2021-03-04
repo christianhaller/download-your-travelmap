@@ -5,16 +5,19 @@ on:
   pull_request:
   schedule:
     # * is a special character in YAML so you have to quote this string
-      - cron:  '0 */6 * * *'
+    - cron: "0 */6 * * *"
 
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        deno: ["v1.x", nightly"]
 
     steps:
       - uses: actions/checkout@master
       - name: Use Deno
         uses: denolib/setup-deno@master
         with:
-          deno-version: 1.x
+          deno-version: ${{ matrix.deno }}
       - run: npm run test:backend
