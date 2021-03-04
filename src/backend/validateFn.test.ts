@@ -9,7 +9,7 @@ Deno.test({
     try {
       validateFn(new URL(""), []);
     } catch (e) {
-      assertEquals(e.message, "Invalid URL.");
+      assertEquals(e.message, "Invalid URL");
     }
   },
 });
