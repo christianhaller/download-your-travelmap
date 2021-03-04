@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        deno: ["v1.x", "nightly"]
+        deno: ["v1.x", "nightly", "canary"]
 
     steps:
       - uses: actions/checkout@master
@@ -20,4 +20,6 @@ jobs:
         uses: denolib/setup-deno@v2
         with:
           deno-version: ${{ matrix.deno }}
-      - run: npm run test:backend
+      - run: |
+          deno --version
+          npm run test:backend
