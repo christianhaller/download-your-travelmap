@@ -53,7 +53,7 @@
     "jest-puppeteer": "^4.4.0",
     "npm-check-updates": "^11.1.10",
     "parcel": "^2.0.0-nightly.610",
-    "postcss": "^8.2.6",
+    "postcss": "^8.2.7",
     "prettier": "^2.2.1",
     "pug": "^3.0.2",
     "puppeteer": "^8.0.0",
