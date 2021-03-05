@@ -40,7 +40,7 @@
     "@parcel/packager-html": "^2.0.0-nightly.616",
     "@parcel/transformer-css": "^2.0.0-nightly.616",
     "@parcel/transformer-html": "^2.0.0-nightly.616",
-    "@parcel/transformer-postcss": "^2.0.0-nightly.616",
+    "@parcel/transformer-postcss": "^2.0.0-nightly.617",
     "@parcel/transformer-posthtml": "^2.0.0-nightly.616",
     "@parcel/transformer-pug": "^2.0.0-nightly.616",
     "@types/google.visualization": "0.0.60",
