@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@parcel/optimizer-cssnano": "^2.0.0-nightly.620",
-    "@parcel/optimizer-htmlnano": "^2.0.0-nightly.620",
+    "@parcel/optimizer-htmlnano": "^2.0.0-nightly.621",
     "@parcel/packager-css": "^2.0.0-nightly.620",
     "@parcel/packager-html": "^2.0.0-nightly.620",
     "@parcel/transformer-css": "^2.0.0-nightly.620",
