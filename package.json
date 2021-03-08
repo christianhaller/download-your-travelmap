@@ -39,7 +39,7 @@
     "@parcel/packager-css": "^2.0.0-nightly.620",
     "@parcel/packager-html": "^2.0.0-nightly.620",
     "@parcel/transformer-css": "^2.0.0-nightly.620",
-    "@parcel/transformer-html": "^2.0.0-nightly.620",
+    "@parcel/transformer-html": "^2.0.0-nightly.621",
     "@parcel/transformer-postcss": "^2.0.0-nightly.620",
     "@parcel/transformer-posthtml": "^2.0.0-nightly.620",
     "@parcel/transformer-pug": "^2.0.0-nightly.620",
