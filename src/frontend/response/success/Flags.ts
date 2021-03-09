@@ -36,11 +36,6 @@ export class Flags {
     return this.flagString;
   }
   public getFlag(country: string): string {
-    if (country === "Republic of North Macedonia") {
-      // remap to old country name https://github.com/meeDamian/country-emoji/blob/master/countries.json#L143
-      country = "Macedonia";
-    }
-
     return `${flag(country) || ""} `;
   }
   private render() {

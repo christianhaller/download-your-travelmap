@@ -14,6 +14,7 @@
     "deps:backend": "npm run dmm -- check",
     "deps": "npm run deps:backend && npm run deps:frontend",
     "dmm": "deno run --allow-write --allow-net --allow-read https://deno.land/x/dmm@v1.1.5/mod.ts",
+    "vercel:dev": "vercel dev",
     "upgrade:backend": "npm run dmm -- update",
     "upgrade:frontend": "ncu -u",
     "upgrade": "npm run upgrade:backend && npm run upgrade:frontend"
@@ -26,7 +27,7 @@
   },
   "dependencies": {
     "bytes": "^3.1.0",
-    "country-emoji": "^1.5.4",
+    "country-emoji": "^1.5.5",
     "geojson": "^0.5.0",
     "json2csv": "^5.0.6",
     "jszip": "3.6",
@@ -34,15 +35,15 @@
     "tokml": "^0.4.0"
   },
   "devDependencies": {
-    "@parcel/optimizer-cssnano": "^2.0.0-nightly.620",
-    "@parcel/optimizer-htmlnano": "^2.0.0-nightly.620",
-    "@parcel/packager-css": "^2.0.0-nightly.620",
-    "@parcel/packager-html": "^2.0.0-nightly.620",
-    "@parcel/transformer-css": "^2.0.0-nightly.620",
-    "@parcel/transformer-html": "^2.0.0-nightly.620",
-    "@parcel/transformer-postcss": "^2.0.0-nightly.620",
-    "@parcel/transformer-posthtml": "^2.0.0-nightly.620",
-    "@parcel/transformer-pug": "^2.0.0-nightly.620",
+    "@parcel/optimizer-cssnano": "^2.0.0-nightly.621",
+    "@parcel/optimizer-htmlnano": "^2.0.0-nightly.621",
+    "@parcel/packager-css": "^2.0.0-nightly.621",
+    "@parcel/packager-html": "^2.0.0-nightly.621",
+    "@parcel/transformer-css": "^2.0.0-nightly.621",
+    "@parcel/transformer-html": "^2.0.0-nightly.621",
+    "@parcel/transformer-postcss": "^2.0.0-nightly.621",
+    "@parcel/transformer-posthtml": "^2.0.0-nightly.621",
+    "@parcel/transformer-pug": "^2.0.0-nightly.621",
     "@types/google.visualization": "0.0.60",
     "@types/json2csv": "^5.0.1",
     "@types/jszip": "^3.4.1",
@@ -51,8 +52,8 @@
     "cssnano": "^4.1.10",
     "jest": "^26.6.3",
     "jest-puppeteer": "^4.4.0",
-    "npm-check-updates": "^11.1.11",
-    "parcel": "^2.0.0-nightly.618",
+    "npm-check-updates": "^11.2.0",
+    "parcel": "^2.0.0-nightly.619",
     "postcss": "^8.2.7",
     "prettier": "^2.2.1",
     "pug": "^3.0.2",
@@ -61,7 +62,8 @@
     "ts-jest": "^26.5.3",
     "ts-node": "^9.1.1",
     "tslib": "^2.1.0",
-    "typescript": "^4.2.3"
+    "typescript": "^4.2.3",
+    "vercel": "^21.3.3"
   },
   "repository": {
     "type": "git",
