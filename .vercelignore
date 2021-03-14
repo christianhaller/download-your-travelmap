@@ -9,4 +9,5 @@
 !build.js
 !deps.ts
 !cssnano.config.js
+!.postcssrc
 !.htmlnanorc
