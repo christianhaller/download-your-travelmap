@@ -47,13 +47,13 @@ class Highscore {
 
     const new_tbody = document.createElement("tbody");
     const classes = ["lg:px-4", "border", "px-1", "py-2"].join(" ");
-    const emoji = ["🏆", "🥈", "🥉"];
+    const emoji = [" 🏆 ", " 🥈 ", " 🥉 "];
 
     highscore.forEach(({ username, cities, countries, date, url }, index) => {
       const html = `
-      <td class="${classes}">${
+      <td class="${classes}"><a class="no-underline" href="/?url=${url}">${
         emoji[index] ? emoji[index] : `${index + 1}.`
-      }</td>
+      }</a></td>
       <td class="${classes}"><a rel="noopener noreferrer nofollow" target="_blank" href="${url}">${username}</a></td>
       <td class="${classes} text-right">${countries}</td>
       <td class="${classes} text-right">${cities}</td>
