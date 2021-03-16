@@ -44,7 +44,7 @@
     "@parcel/transformer-postcss": "^2.0.0-nightly.628",
     "@parcel/transformer-posthtml": "^2.0.0-nightly.628",
     "@parcel/transformer-pug": "^2.0.0-nightly.628",
-    "@types/google.visualization": "0.0.60",
+    "@types/google.visualization": "0.0.61",
     "@types/json2csv": "^5.0.1",
     "@types/jszip": "^3.4.1",
     "autoprefixer": "^10.2.5",
