@@ -35,7 +35,7 @@
     "tokml": "^0.4.0"
   },
   "devDependencies": {
-    "@parcel/transformer-pug": "^2.0.0-nightly.628",
+    "@parcel/transformer-pug": "^2.0.0-nightly.643",
     "@types/google.visualization": "0.0.64",
     "@types/json2csv": "^5.0.1",
     "@types/jszip": "^3.4.1",
