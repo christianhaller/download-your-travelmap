@@ -11,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2-beta
+      - uses: actions/setup-node@v2
         with:
-          node-version: '15'
+          node-version: '16'
       - run: npm ci
       - run: PUPPETEER_EXECUTABLE_PATH="/usr/bin/google-chrome-stable" URL=https://download-your-travelmap.christianhaller.com npm run test:e2e
 
