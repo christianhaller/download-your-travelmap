@@ -1,15 +1,16 @@
 name: test end to end
 
-on: [pull_request]
+on: pull_request_target
 
 jobs:
   test:
     runs-on: ubuntu-latest
+    if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
         with:
-          node-version: '16'
+          node-version: "16"
       - run: PUPPETEER_PRODUCT=firefox npm ci
       - name: Waiting for 200 from the Vercel Preview
         uses: patrickedqvist/wait-for-vercel-preview@master
@@ -18,5 +19,3 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           max_timeout: 60
       - run: PUPPETEER_EXECUTABLE_PATH="/usr/bin/google-chrome-stable" URL=${{steps.waitFor200.outputs.url}} npm run test:e2e
-     
-
