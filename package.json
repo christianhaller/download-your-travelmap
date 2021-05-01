@@ -27,16 +27,17 @@
   },
   "dependencies": {
     "bytes": "^3.1.0",
+    "client-zip": "^2.0.0",
     "country-emoji": "^1.5.6",
     "geojson": "^0.5.0",
     "json2csv": "^5.0.6",
-    "jszip": "3.6",
     "load-js": "^3.0.3",
     "tokml": "^0.4.0"
   },
   "devDependencies": {
-    "@parcel/transformer-pug": "^2.0.0-nightly.628",
+    "@parcel/transformer-pug": "^2.0.0-nightly.651",
     "@types/google.visualization": "0.0.66",
+    "@types/jest": "^26.0.23",
     "@types/json2csv": "^5.0.1",
     "@types/jszip": "^3.4.1",
     "autoprefixer": "^10.2.5",

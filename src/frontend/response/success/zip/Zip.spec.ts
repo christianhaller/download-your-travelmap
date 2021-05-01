@@ -1,4 +1,15 @@
 import { Zip } from "./Zip";
+import type { Response } from "../../../../backend/interace";
+
+jest.mock("client-zip", () => ({
+  downloadZip: jest.fn(() => {
+    return {
+      blob: () => {
+        return Promise.resolve(new Blob());
+      },
+    };
+  }),
+}));
 
 describe("Zip", () => {
   test("create", async () => {
@@ -22,11 +33,11 @@ describe("Zip", () => {
             country: "Uruguay",
           },
         ],
-      },
+      } as Response,
       "🇲🇰",
       new Blob([])
     );
 
-    await expect(res).resolves.toBeInstanceOf(Blob);
+    await expect(res).resolves.toMatchSnapshot();
   });
 });
