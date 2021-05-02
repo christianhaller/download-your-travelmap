@@ -1,4 +1,4 @@
-import JSZip from "jszip/lib/index.js";
+import { downloadZip } from "client-zip";
 import { kml } from "./kml";
 import { csv } from "./csv";
 import type { Response } from "../../../../backend/interace";
@@ -10,19 +10,23 @@ export class Zip {
     png: Blob
   ): Promise<Blob> {
     const { username } = data;
-    const zip = new JSZip();
 
-    zip.file(
-      "hi_" + username + ".txt",
-      "wanna say thanks? https://www.paypal.com/paypalme/christianhaller/2"
-    );
-    zip.file(`${username}.csv`, csv(data.places));
-    zip.file(`${username}.kml`, kml(data));
-    zip.file(`${username}.png`, png);
-    /* istanbul ignore else*/
-    if (flags) {
-      zip.file(`${username}.txt`, flags);
-    }
-    return zip.generateAsync({ type: "blob" });
+    const files = [
+      ["kml", kml(data)],
+      ["csv", csv(data.places)],
+      [
+        "txt",
+        `${
+          flags || ""
+        } wanna say thanks? https://www.paypal.com/paypalme/christianhaller/2`,
+      ],
+      ["png", png],
+    ].map(([type, input]) => {
+      return {
+        name: `${username}.${type}`,
+        input,
+      };
+    });
+    return downloadZip(files).blob();
   }
 }

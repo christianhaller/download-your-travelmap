@@ -10,6 +10,16 @@ jest.mock("./DownloadButton", () => {
   };
 });
 
+jest.mock("client-zip", () => ({
+  downloadZip: jest.fn(() => {
+    return {
+      blob: () => {
+        return Promise.resolve(new Blob());
+      },
+    };
+  }),
+}));
+
 jest.mock("./Table", () => {
   return {
     Table: jest.fn(() => {
