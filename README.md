@@ -16,7 +16,7 @@
     <a href="https://GitHub.com/christianhaller/download-your-travelmap/graphs/commit-activity"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" alt="maintained" /></a>
    <img src="https://img.shields.io/github/package-json/dependency-version/christianhaller/download-your-travelmap/geojson?color=red" />
    <img src="https://img.shields.io/github/package-json/dependency-version/christianhaller/download-your-travelmap/json2csv?color=red" />
-   <img src="https://img.shields.io/github/package-json/dependency-version/christianhaller/download-your-travelmap/jszip?color=red" />
+   <img src="https://img.shields.io/github/package-json/dependency-version/christianhaller/download-your-travelmap/client-zip?color=red" />
 
    <img src="https://img.shields.io/github/package-json/dependency-version/christianhaller/download-your-travelmap/bytes?color=red" />
    <img src="https://img.shields.io/github/package-json/dependency-version/christianhaller/download-your-travelmap/country-emoji?color=red" />
