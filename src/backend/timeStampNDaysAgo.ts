@@ -3,8 +3,8 @@ class Timestamp {
   constructor() {
     this.date = new Date();
   }
-  getTimestamp30DaysAgo() {
-    return new Date().setDate(this.date.getDate() - 30);
+  getTimestampNDaysAgo(days: number) {
+    return new Date().setDate(this.date.getDate() - days);
   }
   getTimestamp() {
     return this.date.getTime();

@@ -26,14 +26,14 @@ class LastUsers {
     await this.s3.putObject(data);
   }
   stats(
-    data: EnhancedPin[],
+    data: EnhancedPin[]
   ): {
     countries: number;
     cities: number;
   } {
     const countries = [
       ...new Set(
-        data.filter(LastUsers.isFaveOrBeen).map(({ country }) => country),
+        data.filter(LastUsers.isFaveOrBeen).map(({ country }) => country)
       ),
     ];
     return {
@@ -42,8 +42,8 @@ class LastUsers {
     };
   }
 
-  async list(): Promise<StatWithDate[] | undefined> {
-    const timeStamp30DaysAgo = this.timestamp.getTimestamp30DaysAgo();
+  async list(days: number): Promise<StatWithDate[] | undefined> {
+    const timeStamp30DaysAgo = this.timestamp.getTimestampNDaysAgo(days);
     // log.debug(`timestamp: ${timeStamp30DaysAgo}`);
     const unfilteredResult = Object.entries(await this.s3.getObject());
     // log.debug(`unfiltered: ${unfilteredResult.length}`);
@@ -67,7 +67,7 @@ class LastUsers {
           return -1;
         }
         return 0;
-      },
+      }
     );
   }
 }

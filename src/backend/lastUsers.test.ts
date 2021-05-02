@@ -10,7 +10,7 @@ Deno.test({
   name: "list users",
   fn: async () => {
     const t: Timestamp = new Timestamp();
-    stub(t, "getTimestamp30DaysAgo", () => 1502255549068);
+    stub(t, "getTimestampNDaysAgo", () => 1502255549068);
     const s3: S3 = new S3({} as AWSSignerV4, "local");
     const getObject = stub(s3, "getObject", () => expected);
 
@@ -41,7 +41,7 @@ Deno.test({
       },
     } as Record<string, TransformedStat>;
 
-    const res = await new LastUsers(t, s3).list();
+    const res = await new LastUsers(t, s3).list(30);
     assertEquals(res, [
       {
         cities: 585,
