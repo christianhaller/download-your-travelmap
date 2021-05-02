@@ -35,6 +35,7 @@
     "tokml": "^0.4.0"
   },
   "devDependencies": {
+    "@parcel/transformer-pug": "^2.0.0-nightly.651",
     "@types/google.visualization": "0.0.66",
     "@types/jest": "^26.0.23",
     "@types/json2csv": "^5.0.1",
@@ -44,8 +45,8 @@
     "cssnano": "^5.0.2",
     "jest": "^26.6.3",
     "jest-puppeteer": "^5.0.3",
-    "npm-check-updates": "^11.5.7",
-    "parcel": "^2.0.0-nightly.626",
+    "npm-check-updates": "^11.5.9",
+    "parcel": "^2.0.0-nightly.649",
     "postcss": "^8.2.13",
     "prettier": "^2.2.1",
     "pug": "^3.0.2",
