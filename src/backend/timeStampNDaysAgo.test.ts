@@ -5,7 +5,7 @@ Deno.test({
   name: "timestamp",
   fn: async () => {
     const sut = new Timestamp();
-    const timestamp30DaysAgo = sut.getTimestamp30DaysAgo();
+    const timestamp30DaysAgo = sut.getTimestampNDaysAgo(30);
     const current = sut.getTimestamp();
     const d = 1000 / 3600 / 24;
     /* assertEquals(
