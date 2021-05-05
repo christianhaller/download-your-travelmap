@@ -3,6 +3,7 @@ import type { StatWithDate } from "../../backend/interace";
 class Highscore {
   private el: HTMLFormElement;
   private doc: HTMLDocument;
+  private tableBody: HTMLTableElement;
   constructor(document: HTMLDocument) {
     this.doc = document;
   }
@@ -36,15 +37,34 @@ class Highscore {
     }
     return `${Math.floor(seconds)} second${plural(seconds)}`;
   }
+
+  async handler(e) {
+    this.tableBody.classList.add("hidden");
+    e.preventDefault();
+    const url = e.target.getAttribute("href");
+    const res = (await (await fetch(url)).json()) as StatWithDate[];
+    this.render(res);
+  }
   async init() {
     this.el = this.doc.querySelector(".highscore");
-    const highscore = (await (
-      await fetch("/api/highscore")
-    ).json()) as StatWithDate[];
+    this.tableBody = this.el.querySelector("table tbody") as HTMLTableElement;
+
+    const switches: HTMLElement[] = Array.from(
+      this.doc.querySelectorAll(".highscore__switch")
+    );
+
+    const events = ["click", "init"];
+
+    switches.map((el) => {
+      events.map((event) => {
+        el.addEventListener(event, (evt) => this.handler(evt));
+      });
+    });
+    switches[0].dispatchEvent(new CustomEvent("init"));
+  }
+
+  render(highscore) {
     const currentDate = new Date();
-
-    const tableBody = this.el.querySelector("table tbody") as HTMLTableElement;
-
     const new_tbody = document.createElement("tbody");
     const classes = ["lg:px-4", "border", "px-1", "py-2"].join(" ");
     const emoji = [" 🏆 ", " 🥈 ", " 🥉 "];
@@ -70,7 +90,8 @@ class Highscore {
       }
       row.classList.add(className);
     });
-    tableBody.parentNode.replaceChild(new_tbody, tableBody);
+    this.tableBody.parentNode.replaceChild(new_tbody, this.tableBody);
+    this.tableBody = new_tbody;
     this.el.classList.remove("hidden");
   }
 }

@@ -44,7 +44,7 @@ block body
                     tbody
             .bg-white.highscore.hidden.rounded.shadow-md.py-4.px-2(class='lg:px-8')
                 h2.py-2.block.text-l.text-gray-700.font-bold
-                    | Highscore (last 30 days)
+                    | Highscore (<a class="highscore__switch" href="/api/highscore/">last 30 days</a> | <a href="/api/highscore/alltime" class="highscore__switch" >alltime</a>)
                 table.text-xs.table-fixed.mb-4.mt-4(class='lg:text-md')
                     thead
                         tr.bg-white
