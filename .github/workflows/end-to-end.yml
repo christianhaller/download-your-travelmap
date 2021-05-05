@@ -2,6 +2,9 @@ name: test end to end
 
 on: pull_request_target
 
+permissions:
+  packages: read
+
 jobs:
   test:
     runs-on: ubuntu-latest
