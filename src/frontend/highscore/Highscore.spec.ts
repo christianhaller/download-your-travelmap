@@ -34,7 +34,7 @@ const mockResponse = [
 describe("Highscore", () => {
   it("renders table", async () => {
     document.body.innerHTML =
-      "<div><div class='highscore hidden'><table><tbody></tbody></table></div></div>";
+      `<div><div class='highscore hidden'><h2 class="block font-bold py-2 text-gray-700 text-l">Highscore (<a class="highscore__switch" href="/api/highscore/">last 30 days</a> | <a href="/api/highscore/alltime" class="highscore__switch">alltime</a>)</h2><table><tbody></tbody></table></div></div>`;
 
     const mockJsonPromise = Promise.resolve(mockResponse);
     const mockFetchPromise = Promise.resolve({

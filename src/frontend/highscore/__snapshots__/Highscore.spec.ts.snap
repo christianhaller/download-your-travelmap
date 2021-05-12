@@ -14,26 +14,4 @@ exports[`Highscore formats 6`] = `"12 months"`;
 
 exports[`Highscore formats 7`] = `"1 year"`;
 
-exports[`Highscore renders table 1`] = `
-"<div><div class=\\"highscore\\"><table><tbody><tr class=\\"bg-gray-100\\">
-      <td class=\\"lg:px-4 border px-1 py-2\\"><a class=\\"no-underline\\" href=\\"/?url=url\\"> 🏆 </a></td>
-      <td class=\\"lg:px-4 border px-1 py-2\\"><a rel=\\"noopener noreferrer nofollow\\" target=\\"_blank\\" href=\\"url\\">christianhaller</a></td>
-      <td class=\\"lg:px-4 border px-1 py-2 text-right\\">4</td>
-      <td class=\\"lg:px-4 border px-1 py-2 text-right\\">2</td>
-      <td class=\\"lg:px-4 border px-1 py-2 text-right\\">51 years ago</td></tr><tr class=\\"bg-white\\">
-      <td class=\\"lg:px-4 border px-1 py-2\\"><a class=\\"no-underline\\" href=\\"/?url=url\\"> 🥈 </a></td>
-      <td class=\\"lg:px-4 border px-1 py-2\\"><a rel=\\"noopener noreferrer nofollow\\" target=\\"_blank\\" href=\\"url\\">anneka</a></td>
-      <td class=\\"lg:px-4 border px-1 py-2 text-right\\">99</td>
-      <td class=\\"lg:px-4 border px-1 py-2 text-right\\">2</td>
-      <td class=\\"lg:px-4 border px-1 py-2 text-right\\">51 years ago</td></tr><tr class=\\"bg-gray-100\\">
-      <td class=\\"lg:px-4 border px-1 py-2\\"><a class=\\"no-underline\\" href=\\"/?url=url\\"> 🥉 </a></td>
-      <td class=\\"lg:px-4 border px-1 py-2\\"><a rel=\\"noopener noreferrer nofollow\\" target=\\"_blank\\" href=\\"url\\">another user</a></td>
-      <td class=\\"lg:px-4 border px-1 py-2 text-right\\">333</td>
-      <td class=\\"lg:px-4 border px-1 py-2 text-right\\">2</td>
-      <td class=\\"lg:px-4 border px-1 py-2 text-right\\">51 years ago</td></tr><tr class=\\"bg-white\\">
-      <td class=\\"lg:px-4 border px-1 py-2\\"><a class=\\"no-underline\\" href=\\"/?url=url\\">4.</a></td>
-      <td class=\\"lg:px-4 border px-1 py-2\\"><a rel=\\"noopener noreferrer nofollow\\" target=\\"_blank\\" href=\\"url\\">user4</a></td>
-      <td class=\\"lg:px-4 border px-1 py-2 text-right\\">100</td>
-      <td class=\\"lg:px-4 border px-1 py-2 text-right\\">2</td>
-      <td class=\\"lg:px-4 border px-1 py-2 text-right\\">51 years ago</td></tr></tbody></table></div></div>"
-`;
+exports[`Highscore renders table 1`] = `"<div><div class=\\"highscore hidden\\"><h2 class=\\"block font-bold py-2 text-gray-700 text-l\\">Highscore (<a class=\\"highscore__switch\\" href=\\"/api/highscore/\\">last 30 days</a> | <a href=\\"/api/highscore/alltime\\" class=\\"highscore__switch\\">alltime</a>)</h2><table><tbody class=\\"hidden\\"></tbody></table></div></div>"`;
