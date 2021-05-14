@@ -64,5 +64,9 @@ block body
                 li
                     span.js-rendered-in
                 li
-                    span &copy; 2021
+                    a(href=`https://github.com/denoland/deno/releases/tag/v${DENO_VERSION}`) Deno@#{DENO_VERSION}
+                li
+                    a(href=`https://github.com/christianhaller/download-your-travelmap/commit/${SHA}`) #{SHA}
+                li
+                    span &copy; #{YEAR}
     script(async='' src='../initial.ts')
