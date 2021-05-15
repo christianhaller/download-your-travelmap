@@ -11,3 +11,4 @@
 !cssnano.config.js
 !.postcssrc
 !.htmlnanorc
+!pug.config.js
