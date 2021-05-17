@@ -10,7 +10,7 @@
   ],
   "build": {
     "env": {
-      "DENO_VERSION": "1.10.1"
+      "DENO_VERSION": "1.10.2"
     }
   },
   "github": {
