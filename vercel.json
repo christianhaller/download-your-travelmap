@@ -2,11 +2,14 @@
   "version": 2,
   "functions": {
     "api/**/*.ts": {
-      "runtime": "vercel-deno@0.7.11"
+      "runtime": "vercel-deno@0.7.12"
     }
   },
   "rewrites": [
-    { "source": "/api/highscore/alltime", "destination": "/api/highscore?alltime" }
+    {
+      "source": "/api/highscore/alltime",
+      "destination": "/api/highscore?alltime"
+    }
   ],
   "build": {
     "env": {
