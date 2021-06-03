@@ -1,8 +1,6 @@
 import { Failure } from "./Failure";
 
 describe("Failure", () => {
-  document.body.innerHTML = '<div class="failure hidden"><p>abc</p></div>';
-
   test("show/hide", () => {
     const sut = new Failure(document).init();
 

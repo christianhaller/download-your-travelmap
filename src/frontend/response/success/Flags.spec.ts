@@ -1,7 +1,6 @@
 import { Flags } from "./Flags";
 
 describe("Flags", () => {
-  document.body.innerHTML = '<div class="been"></div>';
   const data = {
     language: "en",
     username: "christianhaller",

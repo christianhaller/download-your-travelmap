@@ -44,6 +44,7 @@
     "cpy-cli": "^3.1.1",
     "cssnano": "^5.0.5",
     "jest": "^27.0.3",
+    "jest-handlebars": "^1.0.1",
     "jest-puppeteer": "^5.0.4",
     "npm-check-updates": "^11.6.0",
     "parcel": "^2.0.0-nightly.649",

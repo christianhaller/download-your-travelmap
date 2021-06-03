@@ -4,9 +4,6 @@ import { Flags } from "./Flags";
 describe("Table", () => {
   const flags = new Flags();
   const sut = new Table(flags);
-
-  document.body.innerHTML = "<table><tbody></tbody></table>";
-
   test("init", () => {
     sut.init(document.body, {
       language: "en",
@@ -28,6 +25,6 @@ describe("Table", () => {
         },
       ],
     });
-    expect(document.querySelector("table").innerHTML).toMatchSnapshot();
+    expect(document.querySelector("table tbody").innerHTML).toMatchSnapshot();
   });
 });

@@ -55,7 +55,6 @@ export class Form {
     } catch (e) {
       this.urlInput.setFocus();
       this.failure.show(e.message);
-      console.log(e.stack);
     }
   }
 

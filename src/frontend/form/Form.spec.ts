@@ -2,8 +2,7 @@ import { Form } from "./Form";
 
 let url;
 let failureShowMock;
-
-jest.mock("../response/failure/Failure", () => ({
+const body = jest.mock("../response/failure/Failure", () => ({
   Failure: jest.fn(() => ({
     init: jest.fn(() => ({
       hide: jest.fn(),
@@ -12,7 +11,7 @@ jest.mock("../response/failure/Failure", () => ({
   })),
 }));
 
-jest.mock('../success',()=>{})
+jest.mock("../success", () => {});
 
 jest.mock("./UrlInput", () => ({
   UrlInput: jest.fn(() => ({
@@ -58,9 +57,6 @@ const mockSuccessResponse = {
 
 describe("Form", () => {
   test("submit valid url", async () => {
-    document.body.innerHTML =
-      "<form><input id='url'/><button type='submit'></button></form>";
-
     document.addEventListener("success.show", function (opt: any): void {
       expect(opt.detail).toMatchSnapshot();
     });
@@ -78,9 +74,6 @@ describe("Form", () => {
   });
 
   test("submit invalid url", () => {
-    document.body.innerHTML =
-      "<form><input id='url'/><button type='submit'></button></form>";
-
     url = "garbage";
 
     failureShowMock = jest.fn(() => {
@@ -101,8 +94,7 @@ describe("Form", () => {
       json: () => mockJsonPromise,
     });
     global.fetch = jest.fn().mockImplementation(() => mockFetchPromise);
-    document.body.innerHTML =
-      "<form><input id='url'/><button type='submit'></button></form>";
+
     document.addEventListener("success.show", function (opt: any): void {
       expect(opt.detail).toMatchSnapshot();
     });
@@ -122,8 +114,6 @@ describe("Form", () => {
       expect(failureShowMock).toHaveBeenCalled();
     });
     global.fetch = jest.fn().mockImplementation(() => mockFetchPromise);
-    document.body.innerHTML =
-      "<form><input id='url'/><button type='submit'></button></form>";
 
     url = "https://www.tripadvisor.it/members/me";
     new Form(document).init();
@@ -134,8 +124,6 @@ describe("Form", () => {
   });
 
   test("invalid by browser", () => {
-    document.body.innerHTML =
-      "<form><input id='url'/><button type='submit'></button></form>";
     new Form(document).init();
     document
       .querySelector("form")

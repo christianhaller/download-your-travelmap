@@ -59,7 +59,6 @@ jest.mock("./Chart", () => {
 });
 
 describe("Success", () => {
-  document.body.innerHTML = '<div class="success"></div>';
   const sut = new Success(document);
   sut.init();
   test("init", () => {
