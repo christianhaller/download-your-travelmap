@@ -48,7 +48,7 @@
     "npm-check-updates": "^11.6.0",
     "parcel": "^2.0.0-nightly.649",
     "postcss": "^8.3.0",
-    "prettier": "^2.3.0",
+    "prettier": "^2.3.1",
     "pug": "^3.0.2",
     "puppeteer": "^9.1.1",
     "tailwindcss": "^2.1.2",
