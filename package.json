@@ -45,7 +45,7 @@
     "cssnano": "^5.0.6",
     "jest": "^27.0.4",
     "jest-puppeteer": "^5.0.4",
-    "npm-check-updates": "^11.6.0",
+    "npm-check-updates": "^11.7.1",
     "parcel": "^2.0.0-nightly.649",
     "postcss": "^8.3.5",
     "prettier": "^2.3.1",
