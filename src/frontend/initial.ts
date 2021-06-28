@@ -1,5 +1,5 @@
 /* istanbul ignore file */
-import { Form } from "./form/Form";
+import { Form } from "./form/form";
 import { Highscore } from "./highscore/highscore";
 
 const form = new Form(document).init();
