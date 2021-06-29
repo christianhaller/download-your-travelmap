@@ -15,7 +15,7 @@ export default async (req: ServerRequest) => {
     const url = getUrl(req);
     log.info(url);
     validate(url);
-    const map = await getMap(url);
+    const map = await getMap(new URL("https://www.christianhaller.com"));
     const l = new LastUsers(
       new Timestamp(),
       new S3(new AWSSignerV4("eu-central-1", credentials), env)
