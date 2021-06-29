@@ -1,4 +1,3 @@
-import URL from "URL";
 import { LastUsers } from "../src/backend/lastUsers.ts";
 import { failure, success } from "../src/backend/response.ts";
 import { Timestamp } from "../src/backend/timeStampNDaysAgo.ts";
