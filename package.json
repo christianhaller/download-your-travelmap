@@ -43,7 +43,7 @@
     "autoprefixer": "^10.2.6",
     "cpy-cli": "^3.1.1",
     "cssnano": "^5.0.6",
-    "jest": "^27.0.5",
+    "jest": "^27.0.6",
     "jest-puppeteer": "^5.0.4",
     "npm-check-updates": "^11.7.1",
     "parcel": "^2.0.0-nightly.649",
