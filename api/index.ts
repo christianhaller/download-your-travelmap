@@ -1,4 +1,4 @@
-#!/usr/bin/env deno run --allow-net --log-level info --allow-env --version 1.11.5
+#!/usr/bin/env deno run --allow-net --log-level info --allow-env
 
 import { getUrl } from "../src/backend/url.ts";
 import { validate } from "../src/backend/validate.ts";
