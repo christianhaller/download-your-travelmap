@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@parcel/transformer-pug": "^2.0.0-nightly.651",
-    "@types/google.visualization": "0.0.66",
+    "@types/google.visualization": "0.0.67",
     "@types/jest": "^26.0.23",
     "@types/json2csv": "^5.0.2",
     "@types/jszip": "^3.4.1",
