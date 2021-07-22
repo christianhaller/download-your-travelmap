@@ -5,7 +5,7 @@ module.exports = {
     content: [
       "./src/frontend/templates/*.pug",
       "./src/frontend/response/success/Table*",
-      "./src/frontend/Highscore/Highscore.ts",
+      "./src/frontend/highscore/Highscore.ts",
     ],
   },
   variants: {},

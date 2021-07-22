@@ -1,4 +1,5 @@
-import URL from "URL";
+#!/usr/bin/env deno run --allow-net --log-level info --allow-env
+
 import { LastUsers } from "../src/backend/lastUsers.ts";
 import { failure, success } from "../src/backend/response.ts";
 import { Timestamp } from "../src/backend/timeStampNDaysAgo.ts";

@@ -2,7 +2,7 @@
   "version": 2,
   "functions": {
     "api/**/*.ts": {
-      "runtime": "vercel-deno@0.7.11"
+      "runtime": "vercel-deno@0.8.0"
     }
   },
   "rewrites": [
@@ -10,7 +10,7 @@
   ],
   "build": {
     "env": {
-      "DENO_VERSION": "1.10.2"
+      "DENOVERSION": "1.11.5"
     }
   },
   "github": {

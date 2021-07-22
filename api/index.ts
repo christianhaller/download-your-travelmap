@@ -1,3 +1,5 @@
+#!/usr/bin/env deno run --allow-net --log-level info --allow-env
+
 import { getUrl } from "../src/backend/url.ts";
 import { validate } from "../src/backend/validate.ts";
 import { getMap } from "../src/backend/map/index.ts";
@@ -16,7 +18,7 @@ export default async (req: ServerRequest) => {
     const map = await getMap(url);
     const l = new LastUsers(
       new Timestamp(),
-      new S3(new AWSSignerV4("eu-central-1", credentials), env),
+      new S3(new AWSSignerV4("eu-central-1", credentials), env)
     );
     const { countries, cities } = l.stats(map.places);
     await l.save({
