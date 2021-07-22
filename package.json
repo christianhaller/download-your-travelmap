@@ -38,7 +38,7 @@
     "@parcel/transformer-pug": "^2.0.0-nightly.651",
     "@types/jest": "^26.0.24",
     "@types/google.visualization": "0.0.67",
-    "@types/json2csv": "^5.0.2",
+    "@types/json2csv": "^5.0.3",
     "@types/jszip": "^3.4.1",
     "autoprefixer": "^10.2.6",
     "cpy-cli": "^3.1.1",
