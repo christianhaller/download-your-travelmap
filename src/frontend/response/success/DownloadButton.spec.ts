@@ -1,9 +1,6 @@
 import { DownloadButton } from "./DownloadButton";
 
 describe("DownloadButton", () => {
-  document.body.innerHTML =
-    '<a id="download" class="cursor-not-allowed" ><span></span></a>';
-
   global.URL.createObjectURL = jest.fn(() => {
     return "x";
   });

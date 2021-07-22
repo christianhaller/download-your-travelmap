@@ -54,6 +54,114 @@ Object {
 }
 `;
 
+exports[`Form autosubmit 3`] = `
+Object {
+  "language": "en",
+  "places": Array [
+    Object {
+      "city": "Kyiv(Kiev)",
+      "country": "Ukraine",
+      "flags": Array [
+        "been",
+      ],
+      "lat": 50.444885,
+      "lng": 30.536667,
+    },
+    Object {
+      "city": "Colonia del Sacramento",
+      "country": "Uruguay",
+      "flags": Array [
+        "been",
+      ],
+      "lat": -34.45451,
+      "lng": -57.83755,
+    },
+  ],
+  "username": "christianhaller",
+}
+`;
+
+exports[`Form autosubmit 4`] = `
+Object {
+  "language": "en",
+  "places": Array [
+    Object {
+      "city": "Kyiv(Kiev)",
+      "country": "Ukraine",
+      "flags": Array [
+        "been",
+      ],
+      "lat": 50.444885,
+      "lng": 30.536667,
+    },
+    Object {
+      "city": "Colonia del Sacramento",
+      "country": "Uruguay",
+      "flags": Array [
+        "been",
+      ],
+      "lat": -34.45451,
+      "lng": -57.83755,
+    },
+  ],
+  "username": "christianhaller",
+}
+`;
+
+exports[`Form autosubmit 5`] = `
+Object {
+  "language": "en",
+  "places": Array [
+    Object {
+      "city": "Kyiv(Kiev)",
+      "country": "Ukraine",
+      "flags": Array [
+        "been",
+      ],
+      "lat": 50.444885,
+      "lng": 30.536667,
+    },
+    Object {
+      "city": "Colonia del Sacramento",
+      "country": "Uruguay",
+      "flags": Array [
+        "been",
+      ],
+      "lat": -34.45451,
+      "lng": -57.83755,
+    },
+  ],
+  "username": "christianhaller",
+}
+`;
+
+exports[`Form autosubmit 6`] = `
+Object {
+  "language": "en",
+  "places": Array [
+    Object {
+      "city": "Kyiv(Kiev)",
+      "country": "Ukraine",
+      "flags": Array [
+        "been",
+      ],
+      "lat": 50.444885,
+      "lng": 30.536667,
+    },
+    Object {
+      "city": "Colonia del Sacramento",
+      "country": "Uruguay",
+      "flags": Array [
+        "been",
+      ],
+      "lat": -34.45451,
+      "lng": -57.83755,
+    },
+  ],
+  "username": "christianhaller",
+}
+`;
+
 exports[`Form submit valid url 1`] = `
 Object {
   "language": "en",

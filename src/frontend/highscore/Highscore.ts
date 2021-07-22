@@ -65,7 +65,7 @@ class Highscore {
 
   render(highscore) {
     const currentDate = new Date();
-    const new_tbody = document.createElement("tbody");
+    const new_tbody = document.createElement("tbody") as HTMLTableBody;
     const classes = ["lg:px-4", "border", "px-1", "py-2"].join(" ");
     const emoji = [" 🏆 ", " 🥈 ", " 🥉 "];
 

@@ -30,7 +30,7 @@ describe("Chart", () => {
       ),
     },
     charts: {
-      safeLoad:jest.fn(),
+      safeLoad: jest.fn(),
       load: jest.fn(),
       setOnLoadCallback: jest.fn((cb) => {
         cb();
@@ -42,7 +42,6 @@ describe("Chart", () => {
     draw = jest.fn(() => {
       expect(draw.mock.calls[0]).toMatchSnapshot();
     });
-    document.body.innerHTML = "<div id='chart'></div>";
 
     new Chart().init(document.body, [
       {
@@ -69,7 +68,6 @@ describe("Chart", () => {
         return "blob";
       }),
     }));
-    document.body.innerHTML = "<div id='chart'></div>";
 
     const res = await new Chart().init(document.body, [
       {

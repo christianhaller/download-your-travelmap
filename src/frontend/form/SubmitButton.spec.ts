@@ -1,9 +1,6 @@
 import { SubmitButton } from "./SubmitButton";
 
 describe("SubmitButton", () => {
-  document.body.innerHTML =
-    '<button class="cursor-not-allowed"><span class="js-submit-icon"></span><span class="js-spinner-icon"></span></button>';
-
   const sut = new SubmitButton();
   test("init", () => {
     sut.init(document.body);

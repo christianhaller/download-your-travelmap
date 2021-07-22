@@ -3,9 +3,6 @@ import { UrlInput } from "./UrlInput";
 jest.useFakeTimers();
 
 describe("UrlInput", () => {
-  document.body.innerHTML =
-    '<input id="url" type="text" class="cursor-not-allowed" />';
-
   const sut = new UrlInput();
   test("init", () => {
     const handler = jest.fn();
