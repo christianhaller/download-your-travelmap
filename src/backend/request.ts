@@ -1,12 +1,13 @@
 import { log } from "../../deps.ts";
+import { userAgent } from "./ua.ts";
 
 const request = async (url: URL): Promise<string> => {
   const { href } = url;
   log.debug(`fetch url ${href}`);
+  log.info(userAgent);
   const res = await fetch(href, {
     headers: {
-      "User-Agent":
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36",
+      "User-Agent": userAgent,
     },
   });
   log.debug(res);
