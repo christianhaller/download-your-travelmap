@@ -42,7 +42,7 @@
     "@types/jszip": "^3.4.1",
     "autoprefixer": "^10.3.1",
     "cpy-cli": "^3.1.1",
-    "cssnano": "^5.0.7",
+    "cssnano": "^5.0.8",
     "jest": "^27.0.6",
     "jest-puppeteer": "^5.0.4",
     "npm-check-updates": "^11.8.3",
