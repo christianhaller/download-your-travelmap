@@ -50,7 +50,7 @@
     "postcss": "^8.3.7",
     "prettier": "^2.4.1",
     "pug": "^3.0.2",
-    "puppeteer": "^10.2.0",
+    "puppeteer": "^10.4.0",
     "tailwindcss": "^2.2.15",
     "ts-jest": "^27.0.5",
     "ts-node": "^10.2.1",
