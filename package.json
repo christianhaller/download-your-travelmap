@@ -51,7 +51,7 @@
     "prettier": "^2.4.1",
     "pug": "^3.0.2",
     "puppeteer": "^10.4.0",
-    "tailwindcss": "^2.2.15",
+    "tailwindcss": "^2.2.16",
     "ts-jest": "^27.0.5",
     "ts-node": "^10.2.1",
     "tslib": "^2.3.1",
