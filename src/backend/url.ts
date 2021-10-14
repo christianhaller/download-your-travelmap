@@ -1,6 +1,6 @@
-import { ServerRequest } from "../../deps.ts";
+import { listenAndServe } from "../../deps.ts";
 
-const getUrl = (req: ServerRequest): URL => {
+const getUrl = (req: any): URL => {
   const [, query] = req.url.split("?");
 
   const url = new URLSearchParams(query).get("url");

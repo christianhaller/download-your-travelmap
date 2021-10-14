@@ -4,10 +4,10 @@ import { LastUsers } from "../src/backend/lastUsers.ts";
 import { failure, success } from "../src/backend/response.ts";
 import { Timestamp } from "../src/backend/timeStampNDaysAgo.ts";
 import { S3 } from "../src/backend/s3.ts";
-import { AWSSignerV4, log, ServerRequest } from "../deps.ts";
+import { AWSSignerV4, log, listenAndServe } from "../deps.ts";
 import { credentials, env } from "../src/backend/env.ts";
 
-export default async (req: ServerRequest) => {
+export default async (req: any) => {
   try {
     let days = 30;
     log.info(req.url.match("alltime"));
