@@ -7,10 +7,10 @@ import { Table } from "./Table";
 
 export class Success {
   private el: HTMLElement | undefined;
-  private doc: HTMLDocument;
+  private doc: Document;
   private hiddenClassName = "hidden";
 
-  constructor(doc: HTMLDocument) {
+  constructor(doc: Document) {
     this.doc = doc;
     return this;
   }
