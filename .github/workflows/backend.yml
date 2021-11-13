@@ -21,6 +21,5 @@ jobs:
         uses: denoland/setup-deno@main
         with:
           deno-version: ${{ matrix.deno }}
-      - run: |
-          deno --version
-          npm run test:backend
+      - run: deno --version
+      - run: npm run test:backend
