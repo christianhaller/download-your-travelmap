@@ -13,7 +13,7 @@
     "deps:frontend": "ncu",
     "deps:backend": "npm run dmm -- check",
     "deps": "npm run deps:backend && npm run deps:frontend",
-    "dmm": "deno run --allow-write --allow-net --allow-read https://deno.land/x/dmm@v1.1.5/mod.ts",
+    "dmm": "deno run --allow-write --allow-net --allow-read https://deno.land/x/dmm@v1.3.2/mod.ts",
     "vercel:dev": "vercel dev -d",
     "upgrade:backend": "npm run dmm -- update",
     "upgrade:frontend": "ncu -u",

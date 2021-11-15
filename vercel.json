@@ -10,7 +10,7 @@
   ],
   "build": {
     "env": {
-      "DENOVERSION": "1.16.1"
+      "DENOVERSION": "1.14.3"
     }
   },
   "github": {
