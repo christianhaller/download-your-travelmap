@@ -2,9 +2,9 @@ import type { StatWithDate } from "../../backend/interace";
 
 class Highscore {
   private el: HTMLFormElement;
-  private doc: HTMLDocument;
+  private doc: Document;
   private tableBody: HTMLTableElement;
-  constructor(document: HTMLDocument) {
+  constructor(document: Document) {
     this.doc = document;
   }
 
@@ -65,7 +65,7 @@ class Highscore {
 
   render(highscore) {
     const currentDate = new Date();
-    const new_tbody = document.createElement("tbody") as HTMLTableBody;
+    const new_tbody = document.createElement("tbody") as unknown as HTMLTableElement;
     const classes = ["lg:px-4", "border", "px-1", "py-2"].join(" ");
     const emoji = [" 🏆 ", " 🥈 ", " 🥉 "];
 

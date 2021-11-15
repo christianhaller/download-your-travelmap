@@ -8,10 +8,10 @@ export class Form {
   private submitButton: SubmitButton;
   private urlInput: UrlInput;
   private el: HTMLFormElement;
-  private doc: HTMLDocument;
+  private doc: Document;
   private failure: Failure;
 
-  constructor(document: HTMLDocument) {
+  constructor(document: Document) {
     this.doc = document;
   }
 
