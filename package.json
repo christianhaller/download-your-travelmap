@@ -39,7 +39,6 @@
     "@types/google.visualization": "0.0.68",
     "@types/jest": "^27.0.2",
     "@types/json2csv": "^5.0.3",
-    "@types/jszip": "^3.4.1",
     "autoprefixer": "^10.4.0",
     "cpy-cli": "^3.1.1",
     "cssnano": "^5.0.11",
