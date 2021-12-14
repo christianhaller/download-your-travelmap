@@ -42,6 +42,27 @@ Deno.test("try to fix bug", async () => {
   assertStrictEquals(username, "piotrk306");
 });
 
+
+Deno.test("markkxldor", async () => {
+  const url = new URL(
+      "https://www.tripadvisor.com/Profile/markkxldor"
+  );
+  const { places, username } = await getMap(url);
+  assertArrayIncludes(places, [
+    {
+      city: "Ho Chi Minh City",
+      country: "Vietnam",
+      flags: [
+        "been",
+      ],
+      lat: 10.82293,
+      lng: 106.62975,
+    },
+
+  ]);
+  assertStrictEquals(username, "markkxldor");
+});
+
 Deno.test("getMap theplanetd", async () => {
   const url = new URL("https://www.tripadvisor.com/Profile/theplanetd");
   const { username } = await getMap(url);

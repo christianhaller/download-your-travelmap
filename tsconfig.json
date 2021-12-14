@@ -3,7 +3,8 @@
     "src/backend/**/*"
   ],
   "compilerOptions": {
-    "downlevelIteration": true
+    "downlevelIteration": true,
+    "useUnknownInCatchVariables": false
   },
   "isolatedModules": true,
   "plugins": [

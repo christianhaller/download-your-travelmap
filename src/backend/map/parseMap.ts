@@ -1,4 +1,5 @@
 import { parseUser } from "./parseUser.ts";
+import { log } from "../../../deps.ts";
 
 import type { Pin, Response } from "../interace.ts";
 
@@ -46,6 +47,7 @@ const parseMap = (str: string): Response => {
       places,
     };
   } catch (e) {
+    log.info(e);
     throw new Error("can't parse map");
   }
 };
