@@ -35,7 +35,7 @@
     "tokml": "^0.4.0"
   },
   "devDependencies": {
-    "@parcel/transformer-pug": "^2.0.1",
+    "@parcel/transformer-pug": "^2.2.0",
     "@types/google.visualization": "0.0.68",
     "@types/jest": "^27.0.3",
     "@types/json2csv": "^5.0.3",
