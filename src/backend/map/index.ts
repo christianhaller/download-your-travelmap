@@ -14,7 +14,7 @@ const getMap = async (url: URL): Promise<Response> => {
     url.pathname = parseProfile(res);
     const mapResponse = await request(url);
     // Deno.writeTextFile("markkxldor.html", mapResponse);
-    log.info(mapResponse);
+    // log.info(mapResponse);
     return parseMap(mapResponse);
   }
 };

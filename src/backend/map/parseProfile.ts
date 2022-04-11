@@ -9,10 +9,16 @@ const parseProfile = (str: string) => {
     const key2 = `userId\\\\":\\\\"(.*?)\\\\"`;
     const re = new RegExp(key2);
 
-    const [, id] = str.match(re) || [];
+    let [, id] = str.match(re) || [];
 
     if (!id) {
-      throw new Error("map link not found");
+      const r = `userId":"(.*?)"`;
+      const re = new RegExp(r);
+
+      [, id] = str.match(re) || [];
+      if (!id) {
+        throw new Error("map link not found");
+      }
     }
 
     return "/TravelMap-a_uid." + id;
