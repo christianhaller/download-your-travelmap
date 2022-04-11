@@ -1,5 +1,4 @@
 import { parseUser } from "./parseUser.ts";
-import { log } from "../../../deps.ts";
 
 import type { Pin, Response } from "../interace.ts";
 
@@ -18,7 +17,7 @@ const parseMap = (str: string): Response => {
 
     const places = Object.values(pins[key])
       .map(({ lat, lng, flags, name }) => {
-        const [city, state, country = state || "unknown"] = name.split(",");
+        const [city, _state, country = _state || "unknown"] = name.split(",");
         return {
           lat,
           lng,
@@ -47,7 +46,6 @@ const parseMap = (str: string): Response => {
       places,
     };
   } catch (e) {
-    log.info(e);
     throw new Error("can't parse map");
   }
 };

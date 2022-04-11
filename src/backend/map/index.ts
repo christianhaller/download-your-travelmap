@@ -13,6 +13,8 @@ const getMap = async (url: URL): Promise<Response> => {
   } catch (e) {
     url.pathname = parseProfile(res);
     const mapResponse = await request(url);
+    // Deno.writeTextFile("markkxldor.html", mapResponse);
+    log.info(mapResponse);
     return parseMap(mapResponse);
   }
 };
