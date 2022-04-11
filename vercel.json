@@ -2,7 +2,7 @@
   "version": 2,
   "functions": {
     "api/**/*.ts": {
-      "runtime": "vercel-deno@2"
+      "runtime": "vercel-deno@2.0.0"
     }
   },
   "rewrites": [
