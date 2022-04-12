@@ -5,7 +5,7 @@ import { assertEquals } from "../../deps.ts";
 
 Deno.test({
   name: "invalid url",
-  fn: async () => {
+  fn: () => {
     try {
       validateFn(new URL(""), []);
     } catch (e) {
@@ -16,13 +16,13 @@ Deno.test({
 
 Deno.test({
   name: "not a ta url",
-  fn: async () => {
+  fn: () => {
     try {
       validateFn(new URL("https://christianhaller.com"), validHostnames);
     } catch (e) {
       assertEquals(
         e.message,
-        "christianhaller.com is not a valid tripadvisor url",
+        "christianhaller.com is not a valid tripadvisor url"
       );
     }
   },
@@ -30,24 +30,24 @@ Deno.test({
 
 Deno.test({
   name: "ta url",
-  fn: async () => {
+  fn: () => {
     validateFn(new URL("https://tripadvisor.de"), validHostnames);
   },
 });
 
 Deno.test({
   name: "tripadvisor.de",
-  fn: async () => {
+  fn: () => {
     validateFn(new URL("https://www.tripadvisor.de"), validHostnames);
   },
 });
 
 Deno.test({
   name: "profile",
-  fn: async () => {
+  fn: () => {
     validateFn(
       new URL("https://www.tripadvisor.com/members/GermanR"),
-      validHostnames,
+      validHostnames
     );
   },
 });
