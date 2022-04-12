@@ -6,7 +6,7 @@
     "downlevelIteration": true,
     "useUnknownInCatchVariables": false
   },
-  "isolatedModules": true,
+  "isolatedModules": false,
   "plugins": [
     {
       "name": "typescript-deno-plugin",

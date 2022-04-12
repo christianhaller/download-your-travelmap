@@ -7,12 +7,12 @@ import { failure, success } from "../src/backend/response.ts";
 import { LastUsers } from "../src/backend/lastUsers.ts";
 import { Timestamp } from "../src/backend/timeStampNDaysAgo.ts";
 import { S3 } from "../src/backend/s3.ts";
-import { AWSSignerV4, log, ServerRequest } from "../deps.ts";
+import { AWSSignerV4, log } from "../deps.ts";
 import { credentials, env } from "../src/backend/env.ts";
 
-export default async (req: ServerRequest) => {
+export default async ({ request }: Deno.RequestEvent) => {
   try {
-    const url = getUrl(req);
+    const url = getUrl({ request });
     log.info(url);
     validate(url);
     const map = await getMap(url);
@@ -27,8 +27,8 @@ export default async (req: ServerRequest) => {
       countries,
       url: url.href,
     });
-    success(req, map);
+    success(map);
   } catch (error) {
-    failure(req, error.message);
+    failure(error.message);
   }
 };

@@ -24,7 +24,7 @@ export class S3 {
         method,
         headers,
         body,
-      },
+      }
     );
     return this.signer.sign("s3", request);
   }

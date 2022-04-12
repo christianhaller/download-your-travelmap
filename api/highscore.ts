@@ -4,10 +4,10 @@ import { LastUsers } from "../src/backend/lastUsers.ts";
 import { failure, success } from "../src/backend/response.ts";
 import { Timestamp } from "../src/backend/timeStampNDaysAgo.ts";
 import { S3 } from "../src/backend/s3.ts";
-import { AWSSignerV4, log, ServerRequest } from "../deps.ts";
+import { AWSSignerV4, log } from "../deps.ts";
 import { credentials, env } from "../src/backend/env.ts";
 
-export default async (req: ServerRequest) => {
+export default async ({ request: req }: Deno.RequestEvent) => {
   try {
     let days = 30;
     log.info(req.url.match("alltime"));
@@ -15,7 +15,6 @@ export default async (req: ServerRequest) => {
       days = 99999;
     }
     success(
-      req,
       await new LastUsers(
         new Timestamp(),
         new S3(new AWSSignerV4("eu-central-1", credentials), env)
@@ -24,6 +23,6 @@ export default async (req: ServerRequest) => {
     );
   } catch (error) {
     log.error(JSON.stringify(error));
-    failure(req, error.message);
+    failure(error.message);
   }
 };

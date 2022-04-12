@@ -3,7 +3,7 @@ import { Timestamp } from "./timeStampNDaysAgo.ts";
 
 Deno.test({
   name: "timestamp",
-  fn: async () => {
+  fn: () => {
     const sut = new Timestamp();
     const timestamp30DaysAgo = sut.getTimestampNDaysAgo(30);
     const current = sut.getTimestamp();
