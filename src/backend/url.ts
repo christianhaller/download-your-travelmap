@@ -1,5 +1,5 @@
-const getUrl = ({ request: req }: Deno.RequestEvent): URL => {
-  const [, query] = req.url.split("?");
+const getUrl = (request: Deno.RequestEvent): URL => {
+  const [, query] = request.request.url.split("?");
 
   const url = new URLSearchParams(query).get("url");
   if (!url) {

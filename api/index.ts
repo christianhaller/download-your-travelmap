@@ -10,9 +10,9 @@ import { S3 } from "../src/backend/s3.ts";
 import { AWSSignerV4, log } from "../deps.ts";
 import { credentials, env } from "../src/backend/env.ts";
 
-export default async ({ request }: Deno.RequestEvent) => {
+export default async (request: Deno.RequestEvent) => {
   try {
-    const url = getUrl({ request });
+    const url = getUrl(request);
     log.info(url);
     validate(url);
     const map = await getMap(url);
