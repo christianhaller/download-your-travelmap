@@ -1,4 +1,4 @@
-#!/usr/bin/env deno run --version v1.20.5 --allow-all
+#!/usr/bin/env deno run --allow-all --version v1.20.5
 
 import { getUrl } from "../src/backend/url.ts";
 import { validate } from "../src/backend/validate.ts";
