@@ -1,24 +1,28 @@
 import { S3 } from "./s3.ts";
-import { assertEquals, AWSSignerV4, stub } from "../../deps.ts";
+import { assertEquals, AWSSignerV4, stub, resolvesNext } from "../../deps.ts";
 
 Deno.test({
   name: "s3 getObject",
   fn: async () => {
-    const s = stub(self, "fetch");
-    s.returns = [
-      {
-        ok: true,
-        json: () => {
-          return {};
+    const s = stub(
+      self,
+      "fetch",
+      resolvesNext([
+        {
+          ok: true,
+          json: () => {
+            return {};
+          },
         },
-      },
-    ];
+      ])
+    );
+
     const res = await new S3(
       new AWSSignerV4("eu-central-1", {
         awsAccessKeyId: "rrr",
         awsSecretKey: "ddd",
       }),
-      "local",
+      "local"
     ).getObject();
     assertEquals(res, {});
     s.restore();
@@ -28,24 +32,28 @@ Deno.test({
 Deno.test({
   name: "s3 getObject not ok",
   fn: async () => {
-    const s = stub(self, "fetch");
-    s.returns = [
-      {
-        statusText: "fuck",
-        ok: false,
-      },
-    ];
+    const s = stub(
+      self,
+      "fetch",
+      resolvesNext([
+        {
+          statusText: "fuck",
+          ok: false,
+        },
+      ])
+    );
+
     const res = await new S3(
       new AWSSignerV4("eu-central-1", {
         awsAccessKeyId: "rrr",
         awsSecretKey: "ddd",
       }),
-      "local",
+      "local"
     ).getObject();
     assertEquals(res, {});
     assertEquals(
       s.calls[0].args[0].url,
-      "https://download-your-travelmap.s3.eu-central-1.amazonaws.com/local.json",
+      "https://download-your-travelmap.s3.eu-central-1.amazonaws.com/local.json"
     );
     s.restore();
   },
@@ -54,23 +62,27 @@ Deno.test({
 Deno.test({
   name: "s3 putObject",
   fn: async () => {
-    const s = stub(self, "fetch");
-    s.returns = [
-      {
-        ok: true,
-        json: () => {},
-      },
-    ];
+    const s = stub(
+      self,
+      "fetch",
+      resolvesNext([
+        {
+          ok: true,
+          json: () => {},
+        },
+      ])
+    );
+
     await new S3(
       new AWSSignerV4("eu-central-1", {
         awsAccessKeyId: "rrr",
         awsSecretKey: "ddd",
       }),
-      "local",
+      "local"
     ).putObject({});
     assertEquals(
       s.calls[0].args[0].url,
-      "https://download-your-travelmap.s3.eu-central-1.amazonaws.com/local.json",
+      "https://download-your-travelmap.s3.eu-central-1.amazonaws.com/local.json"
     );
     s.restore();
   },

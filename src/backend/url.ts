@@ -1,7 +1,5 @@
-import { ServerRequest } from "../../deps.ts";
-
-const getUrl = (req: ServerRequest): URL => {
-  const [, query] = req.url.split("?");
+const getUrl = ({ request }: Deno.RequestEvent): URL => {
+  const [, query] = request.url.split("?");
 
   const url = new URLSearchParams(query).get("url");
   if (!url) {

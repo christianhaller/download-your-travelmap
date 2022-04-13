@@ -1,14 +1,14 @@
 import { getUrl } from "./url.ts";
-import { assertEquals, assertThrows, ServerRequest } from "../../deps.ts";
+import { assertEquals, assertThrows } from "../../deps.ts";
 
 Deno.test({
   name: "responds with url",
   fn: () => {
     const req = {
       url: "https://download-your-travelmap.christianhaller.com?url=http://www.tripadvisor.com/members/christianhaller",
-    } as unknown as ServerRequest;
+    };
 
-    const sut = getUrl(req);
+    const sut = getUrl({ request: req } as Deno.RequestEvent);
     assertEquals(
       sut.href,
       "http://www.tripadvisor.com/members/christianhaller"
@@ -19,13 +19,13 @@ Deno.test({
 Deno.test({
   name: "throws error",
   fn: () => {
-    const req = {
+    const request = {
       url: "https://download-your-travelmap.christianhaller.com",
-    } as unknown as ServerRequest;
+    };
 
     assertThrows(
       (): void => {
-        getUrl(req);
+        getUrl({ request } as Deno.RequestEvent);
       },
       Error,
       "no url set"

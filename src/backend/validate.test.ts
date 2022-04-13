@@ -3,13 +3,13 @@ import { assertThrows } from "../../deps.ts";
 
 Deno.test({
   name: "validate url",
-  fn: async () => {
+  fn: () => {
     assertThrows(
       (): void => {
-        validate(("bullshit" as unknown) as URL);
+        validate("bullshit" as unknown as URL);
       },
       Error,
-      "undefined is not a valid tripadvisor url",
+      "undefined is not a valid tripadvisor url"
     );
   },
 });

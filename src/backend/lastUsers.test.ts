@@ -110,7 +110,7 @@ Deno.test({
   fn: () => {
     const s3: S3 = new S3({} as AWSSignerV4, "local");
     const t: Timestamp = new Timestamp();
-    stub(t, "getT", () => 1502255549068);
+    stub(t, "getTimestamp", () => 1502255549068);
     const res = new LastUsers(new Timestamp(), s3).stats([
       {
         lat: 42.54325,

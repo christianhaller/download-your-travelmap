@@ -1,4 +1,4 @@
-#!/usr/bin/env deno run --allow-net --log-level info --allow-env
+#!/usr/bin/env deno run --version v1.20.5 --allow-net --log-level info --allow-env
 
 import { getUrl } from "../src/backend/url.ts";
 import { validate } from "../src/backend/validate.ts";
@@ -7,12 +7,12 @@ import { failure, success } from "../src/backend/response.ts";
 import { LastUsers } from "../src/backend/lastUsers.ts";
 import { Timestamp } from "../src/backend/timeStampNDaysAgo.ts";
 import { S3 } from "../src/backend/s3.ts";
-import { AWSSignerV4, log, ServerRequest } from "../deps.ts";
+import { AWSSignerV4, log } from "../deps.ts";
 import { credentials, env } from "../src/backend/env.ts";
 
-export default async (req: ServerRequest) => {
+export default async ({ request }: Deno.RequestEvent): Promise<Response> => {
   try {
-    const url = getUrl(req);
+    const url = getUrl({ request } as Deno.RequestEvent);
     log.info(url);
     validate(url);
     const map = await getMap(url);
@@ -27,8 +27,8 @@ export default async (req: ServerRequest) => {
       countries,
       url: url.href,
     });
-    success(req, map);
+    return success(map);
   } catch (error) {
-    failure(req, error.message);
+    return failure(error.message);
   }
 };

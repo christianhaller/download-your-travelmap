@@ -1,5 +1,3 @@
-import { ServerRequest } from "../../deps.ts";
-
 const getHeaders = (ttl = "3600"): Headers => {
   const headers = new Headers();
   headers.append("cache-control", `s-maxage=${ttl}, maxage=${ttl}`);
@@ -7,20 +5,21 @@ const getHeaders = (ttl = "3600"): Headers => {
   return headers;
 };
 
-const success = (req: ServerRequest, b: unknown, ttl = "3600"): void => {
+const success = (b: unknown, ttl = "3600"): Response => {
   const headers = getHeaders(ttl);
   const body = JSON.stringify(b);
 
-  req.respond({ body, headers });
+  return new Response(body, {
+    status: 200,
+    headers,
+  });
 };
 
-const failure = (req: ServerRequest, body: string): void => {
+const failure = (body: string): Response => {
   const headers = getHeaders();
-
-  req.respond({
+  return new Response(body, {
     status: 400,
     headers,
-    body,
   });
 };
 export { failure, success };
