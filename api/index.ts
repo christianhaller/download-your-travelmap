@@ -10,7 +10,7 @@ import { S3 } from "../src/backend/s3.ts";
 import { AWSSignerV4, log } from "../deps.ts";
 import { credentials, env } from "../src/backend/env.ts";
 
-export default async ({ request }: Deno.RequestEvent) => {
+export default async ({ request }: Deno.RequestEvent): Promise<Response> => {
   try {
     const url = getUrl({ request } as Deno.RequestEvent);
     log.info(url);
@@ -27,8 +27,8 @@ export default async ({ request }: Deno.RequestEvent) => {
       countries,
       url: url.href,
     });
-    success(map);
+    return success(map);
   } catch (error) {
-    failure(error.message);
+    return failure(error.message);
   }
 };
