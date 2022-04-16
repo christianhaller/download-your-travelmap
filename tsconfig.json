@@ -1,6 +1,7 @@
 {
   "include": [
-    "src/backend/**/*"
+    "src/backend/**/*",
+    "api/**/*"
   ],
   "compilerOptions": {
     "downlevelIteration": true,

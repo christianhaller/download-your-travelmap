@@ -35,7 +35,7 @@ export class Chart {
       data.addRows([[lat, lng, flags.includes("been") ? 1 : 10, city]]);
     });
 
-    const options:google.visualization.GeoChartOptions = {
+    const options: google.visualization.GeoChartOptions = {
       backgroundColor: {
         fill: "transparent",
         stroke: "#FFF",
@@ -53,7 +53,6 @@ export class Chart {
 
     this.chart = new google.visualization.GeoChart(this.el);
 
-   
     this.chart.draw(data, options);
     return this;
   }

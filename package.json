@@ -8,7 +8,7 @@
     "test": "npm run test:backend && npm run test:frontend",
     "test:e2e": "jest -c e2e/jest.config.js",
     "test:frontend": "jest",
-    "test:backend": "deno test --allow-read --allow-net --log-level info --allow-env src/backend",
+    "test:backend": "deno test --allow-read --allow-net --log-level info --allow-env api src/backend",
     "fmt": "deno fmt src/backend api && prettier 'src/frontend/**/*' '!**/*.snap' --write",
     "deps:frontend": "ncu",
     "deps:backend": "npm run dmm -- check",
@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "bytes": "^3.1.2",
-    "client-zip": "^2.0.1",
+    "client-zip": "^2.1.0",
     "country-emoji": "^1.5.6",
     "geojson": "^0.5.0",
     "json2csv": "^5.0.7",

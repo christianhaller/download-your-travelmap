@@ -1,5 +1,5 @@
 import { request } from "./request.ts";
-import { assertEquals, assertRejects, stub, resolvesNext } from "../../deps.ts";
+import { assertEquals, assertRejects, resolvesNext, stub } from "../../deps.ts";
 
 Deno.test({
   name: "sends response",
@@ -14,7 +14,7 @@ Deno.test({
             return "foo";
           },
         },
-      ])
+      ]),
     );
 
     const res = await request(new URL("https://christianhaller.com"));
@@ -29,7 +29,7 @@ Deno.test({
     const s = stub(
       self,
       "fetch",
-      resolvesNext([{ ok: false, text: () => {} }])
+      resolvesNext([{ ok: false, text: () => {} }]),
     );
 
     assertRejects(
@@ -37,7 +37,7 @@ Deno.test({
         await request(new URL("https://christianhaller.com"));
       },
       Error,
-      "url https://christianhaller.com/ is not ok"
+      "url https://christianhaller.com/ is not ok",
     );
     s.restore();
   },

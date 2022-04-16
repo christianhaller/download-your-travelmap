@@ -33,6 +33,6 @@ Deno.test("parseProfile with exception", async () => {
       parseProfile(str);
     },
     Error,
-    "map link not found"
+    "map link not found",
   );
 });

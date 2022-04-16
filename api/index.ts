@@ -18,7 +18,7 @@ export default async ({ request }: Deno.RequestEvent): Promise<Response> => {
     const map = await getMap(url);
     const l = new LastUsers(
       new Timestamp(),
-      new S3(new AWSSignerV4("eu-central-1", credentials), env)
+      new S3(new AWSSignerV4("eu-central-1", credentials()), env),
     );
     const { countries, cities } = l.stats(map.places);
     await l.save({
