@@ -61,7 +61,16 @@
     "type": "git",
     "url": "git@github.com-ch:christianhaller/download-your-travelmap.git"
   },
-  "keywords": [],
+  "keywords": [
+    "tripadvisor",
+    "crawl",
+    "travelamp",
+    "csv",
+    "kml",
+    "deno",
+    "download",
+    "zip"
+  ],
   "author": "Christian Haller",
   "license": "ISC"
 }
