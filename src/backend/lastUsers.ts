@@ -26,14 +26,14 @@ class LastUsers {
     await this.s3.putObject(data);
   }
   stats(
-    data: EnhancedPin[]
+    data: EnhancedPin[],
   ): {
     countries: number;
     cities: number;
   } {
     const countries = [
       ...new Set(
-        data.filter(LastUsers.isFaveOrBeen).map(({ country }) => country)
+        data.filter(LastUsers.isFaveOrBeen).map(({ country }) => country),
       ),
     ];
     return {
@@ -67,7 +67,7 @@ class LastUsers {
           return -1;
         }
         return 0;
-      }
+      },
     );
   }
 }

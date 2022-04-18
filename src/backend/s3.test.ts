@@ -1,5 +1,5 @@
 import { S3 } from "./s3.ts";
-import { assertEquals, AWSSignerV4, stub, resolvesNext } from "../../deps.ts";
+import { assertEquals, AWSSignerV4, resolvesNext, stub } from "../../deps.ts";
 
 Deno.test({
   name: "s3 getObject",
@@ -14,7 +14,7 @@ Deno.test({
             return {};
           },
         },
-      ])
+      ]),
     );
 
     const res = await new S3(
@@ -22,7 +22,7 @@ Deno.test({
         awsAccessKeyId: "rrr",
         awsSecretKey: "ddd",
       }),
-      "local"
+      "local",
     ).getObject();
     assertEquals(res, {});
     s.restore();
@@ -40,7 +40,7 @@ Deno.test({
           statusText: "fuck",
           ok: false,
         },
-      ])
+      ]),
     );
 
     const res = await new S3(
@@ -48,12 +48,12 @@ Deno.test({
         awsAccessKeyId: "rrr",
         awsSecretKey: "ddd",
       }),
-      "local"
+      "local",
     ).getObject();
     assertEquals(res, {});
     assertEquals(
       s.calls[0].args[0].url,
-      "https://download-your-travelmap.s3.eu-central-1.amazonaws.com/local.json"
+      "https://download-your-travelmap.s3.eu-central-1.amazonaws.com/local.json",
     );
     s.restore();
   },
@@ -70,7 +70,7 @@ Deno.test({
           ok: true,
           json: () => {},
         },
-      ])
+      ]),
     );
 
     await new S3(
@@ -78,11 +78,11 @@ Deno.test({
         awsAccessKeyId: "rrr",
         awsSecretKey: "ddd",
       }),
-      "local"
+      "local",
     ).putObject({});
     assertEquals(
       s.calls[0].args[0].url,
-      "https://download-your-travelmap.s3.eu-central-1.amazonaws.com/local.json"
+      "https://download-your-travelmap.s3.eu-central-1.amazonaws.com/local.json",
     );
     s.restore();
   },

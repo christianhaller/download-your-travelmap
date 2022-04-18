@@ -27,7 +27,7 @@ Deno.test("getMap from profile page", async () => {
 
 Deno.test("try to fix bug", async () => {
   const url = new URL(
-    "https://www.tripadvisor.com/TravelMap-a_uid.0FFD2FF98FA609FE296CBC72838317A4"
+    "https://www.tripadvisor.com/TravelMap-a_uid.0FFD2FF98FA609FE296CBC72838317A4",
   );
   const { places, username } = await getMap(url);
   assertArrayIncludes(places, [
@@ -42,10 +42,9 @@ Deno.test("try to fix bug", async () => {
   assertStrictEquals(username, "piotrk306");
 });
 
-
 Deno.test("markkxldor", async () => {
   const url = new URL(
-      "https://www.tripadvisor.com/Profile/markkxldor"
+    "https://www.tripadvisor.com/Profile/markkxldor",
   );
   const { places, username } = await getMap(url);
   assertArrayIncludes(places, [
@@ -58,7 +57,6 @@ Deno.test("markkxldor", async () => {
       lat: 10.82293,
       lng: 106.62975,
     },
-
   ]);
   assertStrictEquals(username, "markkxldor");
 });
@@ -72,7 +70,7 @@ Deno.test("getMap theplanetd", async () => {
 
 Deno.test("getMap from map page", async () => {
   const url = new URL(
-    "https://www.tripadvisor.com/TravelMap-a_uid.F16A76DBDC7075B786CC2C71B9198693"
+    "https://www.tripadvisor.com/TravelMap-a_uid.F16A76DBDC7075B786CC2C71B9198693",
   );
 
   const { places, username } = await getMap(url);

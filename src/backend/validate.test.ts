@@ -9,7 +9,7 @@ Deno.test({
         validate("bullshit" as unknown as URL);
       },
       Error,
-      "undefined is not a valid tripadvisor url"
+      "undefined is not a valid tripadvisor url",
     );
   },
 });

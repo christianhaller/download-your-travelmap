@@ -12,7 +12,7 @@ jest.mock("../response/failure/Failure", () => ({
   })),
 }));
 
-jest.mock('../success',()=>{})
+jest.mock("../success", () => {});
 
 jest.mock("./UrlInput", () => ({
   UrlInput: jest.fn(() => ({
