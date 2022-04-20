@@ -1,5 +1,6 @@
 /*
-!api
+!api/index.ts
+!api/highscore.ts
 !src
 !vercel.json
 !package.json
