@@ -1,5 +1,5 @@
-import { assertEquals } from "../deps.ts";
-import app from "./highscore.ts";
+import { assertEquals } from "../../deps.ts";
+import app from "../../api/highscore.ts";
 // vercel env pull
 import { config } from "https://deno.land/x/dotenv/mod.ts";
 

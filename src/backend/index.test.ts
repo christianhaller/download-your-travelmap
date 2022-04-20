@@ -1,8 +1,8 @@
-import { assertEquals } from "../deps.ts";
+import { assertEquals } from "../../deps.ts";
 // vercel env pull
 import { config } from "https://deno.land/x/dotenv/mod.ts";
 
-import app from "./index.ts";
+import app from "../../api/index.ts";
 
 Deno.env.get("APP_AWS_SECRET_ACCESS_KEY");
 Deno.test({
