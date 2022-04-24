@@ -16,7 +16,7 @@ jobs:
           node-version: "16"
       - run: PUPPETEER_PRODUCT=firefox npm ci
       - name: Waiting for 200 from the Vercel Preview
-        uses: patrickedqvist/wait-for-vercel-preview@1.2.0
+        uses: patrickedqvist/wait-for-vercel-preview@v1.2.0
         id: waitFor200
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
