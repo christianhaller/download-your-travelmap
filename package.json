@@ -38,7 +38,7 @@
   "devDependencies": {
     "@parcel/transformer-pug": "^2.6.0",
     "@types/google.visualization": "0.0.68",
-    "@types/jest": "^27.5.1",
+    "@types/jest": "^28.1.1",
     "@types/json2csv": "^5.0.3",
     "autoprefixer": "^10.4.7",
     "cpy-cli": "^4.1.0",
