@@ -1,10 +1,7 @@
 import type { EnhancedPin } from "../../../backend/interace";
 import load from "load-js/src/load-js.js";
 
-const getOptions = (
-  width,
-  pointSize = 1
-): google.visualization.GeoChartOptions => {
+const getOptions = (width): google.visualization.GeoChartOptions => {
   return {
     backgroundColor: {
       fill: "transparent",
