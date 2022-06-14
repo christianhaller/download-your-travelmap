@@ -1,7 +1,7 @@
 import type { EnhancedPin } from "../../../backend/interace";
 import load from "load-js/src/load-js.js";
 
-const getOptions = (width): google.visualization.GeoChartOptions => {
+const getOptions = (width, pointSize): google.visualization.GeoChartOptions => {
   return {
     backgroundColor: {
       fill: "transparent",
@@ -9,7 +9,7 @@ const getOptions = (width): google.visualization.GeoChartOptions => {
       strokeWidth: 0,
     },
     datalessRegionColor: "#f5f5f5",
-    pointSize: 30,
+    pointSize,
     displayMode: "markers",
     resolution: "countries",
     sizeAxis: { minValue: 1, maxValue: 200 },
@@ -72,7 +72,7 @@ export class Chart {
         const res = await fetch(chart.getImageURI());
         resolve(res.blob());
       });
-      chart.draw(getData(this.places), getOptions(3000, 50));
+      chart.draw(getData(this.places), getOptions(3000, 100));
     });
   }
 }
