@@ -70,7 +70,7 @@ export class Chart {
         );
 
         chart.draw(getData(this.places), getOptions(5000));
-        const res = await fetch(this.chart.getImageURI());
+        const res = await fetch(chart.getImageURI());
         resolve(res.blob());
       });
     });
