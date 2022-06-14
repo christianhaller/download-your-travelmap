@@ -64,11 +64,10 @@ export class Chart {
   }
   async getImage(): Promise<Blob> {
     return new Promise((resolve) => {
-      google.visualization.events.addListener(this.chart, "ready", async () => {
-        const chart = new google.visualization.GeoChart(
-          document.getElementById("image")
-        );
-
+      const chart = new google.visualization.GeoChart(
+        document.getElementById("image")
+      );
+      google.visualization.events.addListener(chart, "ready", async () => {
         chart.draw(getData(this.places), getOptions(5000));
         const res = await fetch(chart.getImageURI());
         resolve(res.blob());
