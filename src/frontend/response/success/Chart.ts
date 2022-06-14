@@ -67,11 +67,12 @@ export class Chart {
       const chart = new google.visualization.GeoChart(
         document.getElementById("image")
       );
+
       google.visualization.events.addListener(chart, "ready", async () => {
-        chart.draw(getData(this.places), getOptions(5000));
         const res = await fetch(chart.getImageURI());
         resolve(res.blob());
       });
+      chart.draw(getData(this.places), getOptions(5000));
     });
   }
 }
