@@ -1,7 +1,7 @@
 import type { EnhancedPin } from "../../../backend/interace";
 import load from "load-js/src/load-js.js";
 
-const getOptions = (width, pointSize): google.visualization.GeoChartOptions => {
+const getOptions = (width:number): google.visualization.GeoChartOptions => {
   return {
     backgroundColor: {
       fill: "transparent",
@@ -9,7 +9,6 @@ const getOptions = (width, pointSize): google.visualization.GeoChartOptions => {
       strokeWidth: 0,
     },
     datalessRegionColor: "#f5f5f5",
-    pointSize,
     displayMode: "markers",
     resolution: "countries",
     sizeAxis: { minValue: 1, maxValue: 200 },
@@ -20,7 +19,7 @@ const getOptions = (width, pointSize): google.visualization.GeoChartOptions => {
   };
 };
 
-const getData = (places: EnhancedPin[]) => {
+const getData = (places: EnhancedPin[],size:number) => {
   const data = new google.visualization.DataTable();
   data.addColumn("number", "Lat");
   data.addColumn("number", "Long");
@@ -28,7 +27,7 @@ const getData = (places: EnhancedPin[]) => {
   data.addColumn({ type: "string", role: "tooltip" });
 
   places.forEach(({ lat, lng, city, flags }) => {
-    data.addRows([[lat, lng, flags.includes("been") ? 1 : 10, city]]);
+    data.addRows([[lat, lng, flags.includes("been") ? 1 : size, city]]);
   });
   return data;
 };
@@ -59,7 +58,7 @@ export class Chart {
 
     this.chart = new google.visualization.GeoChart(this.el);
 
-    this.chart.draw(getData(this.places), getOptions(this.el.offsetWidth - 40));
+    this.chart.draw(getData(this.places,10), getOptions(this.el.offsetWidth - 40));
     return this;
   }
   async getImage(): Promise<Blob> {
@@ -72,7 +71,7 @@ export class Chart {
         const res = await fetch(chart.getImageURI());
         resolve(res.blob());
       });
-      chart.draw(getData(this.places), getOptions(3000, 200));
+      chart.draw(getData(this.places,50), getOptions(3000));
     });
   }
 }
