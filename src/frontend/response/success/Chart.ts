@@ -1,12 +1,43 @@
 import type { EnhancedPin } from "../../../backend/interace";
 import load from "load-js/src/load-js.js";
 
+const getOptions = (width:number): google.visualization.GeoChartOptions => {
+  return {
+    backgroundColor: {
+      fill: "transparent",
+      stroke: "#FFF",
+      strokeWidth: 0,
+    },
+    datalessRegionColor: "#f5f5f5",
+    displayMode: "markers",
+    resolution: "countries",
+    sizeAxis: { minValue: 1, maxValue: 200 },
+    legend: "none",
+    keepAspectRatio: true,
+    width,
+    colorAxis: { minValue: 1, maxValue: 10, colors: ["#ff0099", "#000"] },
+  };
+};
+
+const getData = (places: EnhancedPin[],size:number) => {
+  const data = new google.visualization.DataTable();
+  data.addColumn("number", "Lat");
+  data.addColumn("number", "Long");
+  data.addColumn("number", "Value");
+  data.addColumn({ type: "string", role: "tooltip" });
+
+  places.forEach(({ lat, lng, city, flags }) => {
+    data.addRows([[lat, lng, flags.includes("been") ? 1 : size, city]]);
+  });
+  return data;
+};
+
 export class Chart {
   private places: EnhancedPin[];
   private el: HTMLElement;
   private chart: google.visualization.GeoChart;
 
-  private async load() {
+  private load() {
     return new Promise(async (resolve) => {
       await load({
         url: "https://www.gstatic.com/charts/loader.js",
@@ -25,43 +56,22 @@ export class Chart {
     this.places = places;
     await this.load();
 
-    const data = new google.visualization.DataTable();
-    data.addColumn("number", "Lat");
-    data.addColumn("number", "Long");
-    data.addColumn("number", "Value");
-    data.addColumn({ type: "string", role: "tooltip" });
-
-    this.places.forEach(({ lat, lng, city, flags }) => {
-      data.addRows([[lat, lng, flags.includes("been") ? 1 : 10, city]]);
-    });
-
-    const options: google.visualization.GeoChartOptions = {
-      backgroundColor: {
-        fill: "transparent",
-        stroke: "#FFF",
-        strokeWidth: 0,
-      },
-      datalessRegionColor: "#f5f5f5",
-      displayMode: "markers",
-      resolution: "countries",
-      sizeAxis: { minValue: 1, maxValue: 200 },
-      legend: "none",
-      keepAspectRatio: true,
-      width: this.el.offsetWidth - 40,
-      colorAxis: { minValue: 1, maxValue: 10, colors: ["#ff0099", "#000"] },
-    };
-
     this.chart = new google.visualization.GeoChart(this.el);
 
-    this.chart.draw(data, options);
+    this.chart.draw(getData(this.places,10), getOptions(this.el.offsetWidth - 40));
     return this;
   }
   async getImage(): Promise<Blob> {
     return new Promise((resolve) => {
-      google.visualization.events.addListener(this.chart, "ready", async () => {
-        const res = await fetch(this.chart.getImageURI());
+      const chart = new google.visualization.GeoChart(
+        document.getElementById("image")
+      );
+
+      google.visualization.events.addListener(chart, "ready", async () => {
+        const res = await fetch(chart.getImageURI());
         resolve(res.blob());
       });
+      chart.draw(getData(this.places,50), getOptions(3000));
     });
   }
 }
