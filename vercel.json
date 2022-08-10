@@ -1,7 +1,7 @@
 {
   "version": 2,
   "functions": {
-    "api/**/*.[jt]s": { "runtime": "vercel-deno@2.0.0" }
+    "api/**/*.[jt]s": { "runtime": "vercel-deno@2.0.1" }
   },
   "rewrites": [
     { "source": "/api/highscore/alltime", "destination": "/api/highscore?alltime" }
