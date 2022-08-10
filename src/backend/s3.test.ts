@@ -1,5 +1,11 @@
 import { S3 } from "./s3.ts";
-import { assertEquals, AWSSignerV4, resolvesNext, stub } from "../../deps.ts";
+import {
+  assertEquals,
+  assertRejects,
+  AWSSignerV4,
+  resolvesNext,
+  stub,
+} from "../../deps.ts";
 
 Deno.test({
   name: "s3 getObject",
@@ -43,18 +49,20 @@ Deno.test({
       ]),
     );
 
-    const res = await new S3(
-      new AWSSignerV4("eu-central-1", {
-        awsAccessKeyId: "rrr",
-        awsSecretKey: "ddd",
-      }),
-      "local",
-    ).getObject();
-    assertEquals(res, {});
-    assertEquals(
-      s.calls[0].args[0].url,
-      "https://download-your-travelmap.s3.eu-central-1.amazonaws.com/local.json",
+    await assertRejects(
+      () => {
+        return new S3(
+          new AWSSignerV4("eu-central-1", {
+            awsAccessKeyId: "rrr",
+            awsSecretKey: "ddd",
+          }),
+          "local",
+        ).getObject();
+      },
+      Error,
+      "s3 fucked up",
     );
+
     s.restore();
   },
 });
