@@ -6,6 +6,8 @@ const credentials = (): Credentials => {
     awsSecretKey: Deno.env.get("APP_AWS_SECRET_ACCESS_KEY") as string,
   };
 };
-const env = Deno.env.get("APP_ENV") as string;
+const env = (): string => {
+  return Deno.env.get("APP_ENV") as string;
+};
 
 export { credentials, env };

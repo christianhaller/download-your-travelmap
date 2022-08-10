@@ -1,6 +1,7 @@
 import { TransformedStat } from "./interace.ts";
 import { createHash } from "../../deps.ts";
 import type { AWSSignerV4 } from "../../deps.ts";
+import { log } from "../../deps.ts";
 
 export class S3 {
   public key: string;
@@ -41,7 +42,7 @@ export class S3 {
     const req = await this.signedRequest(undefined, "GET");
     const response = await fetch(req);
     if (!response.ok) {
-      return {};
+      throw Error("s3 fucked up");
     }
     const json = (await response.json()) as Record<string, TransformedStat>;
     // log.info(json);

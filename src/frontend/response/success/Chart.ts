@@ -1,7 +1,7 @@
 import type { EnhancedPin } from "../../../backend/interace";
 import load from "load-js/src/load-js.js";
 
-const getOptions = (width:number): google.visualization.GeoChartOptions => {
+const getOptions = (width: number): google.visualization.GeoChartOptions => {
   return {
     backgroundColor: {
       fill: "transparent",
@@ -19,7 +19,7 @@ const getOptions = (width:number): google.visualization.GeoChartOptions => {
   };
 };
 
-const getData = (places: EnhancedPin[],size:number) => {
+const getData = (places: EnhancedPin[], size: number) => {
   const data = new google.visualization.DataTable();
   data.addColumn("number", "Lat");
   data.addColumn("number", "Long");
@@ -58,7 +58,10 @@ export class Chart {
 
     this.chart = new google.visualization.GeoChart(this.el);
 
-    this.chart.draw(getData(this.places,10), getOptions(this.el.offsetWidth - 40));
+    this.chart.draw(
+      getData(this.places, 10),
+      getOptions(this.el.offsetWidth - 40)
+    );
     return this;
   }
   async getImage(): Promise<Blob> {
@@ -71,7 +74,7 @@ export class Chart {
         const res = await fetch(chart.getImageURI());
         resolve(res.blob());
       });
-      chart.draw(getData(this.places,50), getOptions(3000));
+      chart.draw(getData(this.places, 50), getOptions(3000));
     });
   }
 }
