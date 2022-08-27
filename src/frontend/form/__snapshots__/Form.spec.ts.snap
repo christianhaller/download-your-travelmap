@@ -1,22 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Form autosubmit 1`] = `
-Object {
+{
   "language": "en",
-  "places": Array [
-    Object {
+  "places": [
+    {
       "city": "Kyiv(Kiev)",
       "country": "Ukraine",
-      "flags": Array [
+      "flags": [
         "been",
       ],
       "lat": 50.444885,
       "lng": 30.536667,
     },
-    Object {
+    {
       "city": "Colonia del Sacramento",
       "country": "Uruguay",
-      "flags": Array [
+      "flags": [
         "been",
       ],
       "lat": -34.45451,
@@ -28,22 +28,22 @@ Object {
 `;
 
 exports[`Form autosubmit 2`] = `
-Object {
+{
   "language": "en",
-  "places": Array [
-    Object {
+  "places": [
+    {
       "city": "Kyiv(Kiev)",
       "country": "Ukraine",
-      "flags": Array [
+      "flags": [
         "been",
       ],
       "lat": 50.444885,
       "lng": 30.536667,
     },
-    Object {
+    {
       "city": "Colonia del Sacramento",
       "country": "Uruguay",
-      "flags": Array [
+      "flags": [
         "been",
       ],
       "lat": -34.45451,
@@ -55,22 +55,22 @@ Object {
 `;
 
 exports[`Form submit valid url 1`] = `
-Object {
+{
   "language": "en",
-  "places": Array [
-    Object {
+  "places": [
+    {
       "city": "Kyiv(Kiev)",
       "country": "Ukraine",
-      "flags": Array [
+      "flags": [
         "been",
       ],
       "lat": 50.444885,
       "lng": 30.536667,
     },
-    Object {
+    {
       "city": "Colonia del Sacramento",
       "country": "Uruguay",
-      "flags": Array [
+      "flags": [
         "been",
       ],
       "lat": -34.45451,

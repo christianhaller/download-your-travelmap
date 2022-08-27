@@ -14,4 +14,4 @@ exports[`Highscore formats 6`] = `"12 months"`;
 
 exports[`Highscore formats 7`] = `"1 year"`;
 
-exports[`Highscore renders table 1`] = `"<div><div class=\\"highscore hidden\\"><h2 class=\\"block font-bold py-2 text-gray-700 text-l\\">Highscore (<a class=\\"highscore__switch\\" href=\\"/api/highscore/\\">last 30 days</a> | <a href=\\"/api/highscore/alltime\\" class=\\"highscore__switch\\">alltime</a>)</h2><table><tbody class=\\"hidden\\"></tbody></table></div></div>"`;
+exports[`Highscore renders table 1`] = `"<div><div class="highscore hidden"><h2 class="block font-bold py-2 text-gray-700 text-l">Highscore (<a class="highscore__switch" href="/api/highscore/">last 30 days</a> | <a href="/api/highscore/alltime" class="highscore__switch">alltime</a>)</h2><table><tbody class="hidden"></tbody></table></div></div>"`;

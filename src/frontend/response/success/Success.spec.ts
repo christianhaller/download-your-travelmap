@@ -98,24 +98,24 @@ describe("Success", () => {
     );
     expect(spy).toMatchInlineSnapshot(`
       [MockFunction] {
-        "calls": Array [
-          Array [
-            Object {
+        "calls": [
+          [
+            {
               "language": "en",
-              "places": Array [
-                Object {
+              "places": [
+                {
                   "city": "Kyiv(Kiev)",
                   "country": "Ukraine",
-                  "flags": Array [
+                  "flags": [
                     "been",
                   ],
                   "lat": 50.444885,
                   "lng": 30.536667,
                 },
-                Object {
+                {
                   "city": "Colonia del Sacramento",
                   "country": "Uruguay",
-                  "flags": Array [
+                  "flags": [
                     "been",
                   ],
                   "lat": -34.45451,
@@ -126,8 +126,8 @@ describe("Success", () => {
             },
           ],
         ],
-        "results": Array [
-          Object {
+        "results": [
+          {
             "type": "return",
             "value": Promise {},
           },

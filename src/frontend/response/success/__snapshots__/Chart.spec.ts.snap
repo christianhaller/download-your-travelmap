@@ -1,53 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Chart draw 1`] = `
-Array [
-  Object {
+[
+  {
     "addColumn": [MockFunction] {
-      "calls": Array [
-        Array [
+      "calls": [
+        [
           "number",
           "Lat",
         ],
-        Array [
+        [
           "number",
           "Long",
         ],
-        Array [
+        [
           "number",
           "Value",
         ],
-        Array [
-          Object {
+        [
+          {
             "role": "tooltip",
             "type": "string",
           },
         ],
       ],
-      "results": Array [
-        Object {
+      "results": [
+        {
           "type": "return",
           "value": undefined,
         },
-        Object {
+        {
           "type": "return",
           "value": undefined,
         },
-        Object {
+        {
           "type": "return",
           "value": undefined,
         },
-        Object {
+        {
           "type": "return",
           "value": undefined,
         },
       ],
     },
     "addRows": [MockFunction] {
-      "calls": Array [
-        Array [
-          Array [
-            Array [
+      "calls": [
+        [
+          [
+            [
               50.444885,
               30.536667,
               1,
@@ -55,9 +55,9 @@ Array [
             ],
           ],
         ],
-        Array [
-          Array [
-            Array [
+        [
+          [
+            [
               -34.45451,
               -57.83755,
               1,
@@ -66,26 +66,26 @@ Array [
           ],
         ],
       ],
-      "results": Array [
-        Object {
+      "results": [
+        {
           "type": "return",
           "value": undefined,
         },
-        Object {
+        {
           "type": "return",
           "value": undefined,
         },
       ],
     },
   },
-  Object {
-    "backgroundColor": Object {
+  {
+    "backgroundColor": {
       "fill": "transparent",
       "stroke": "#FFF",
       "strokeWidth": 0,
     },
-    "colorAxis": Object {
-      "colors": Array [
+    "colorAxis": {
+      "colors": [
         "#ff0099",
         "#000",
       ],
@@ -97,7 +97,7 @@ Array [
     "keepAspectRatio": true,
     "legend": "none",
     "resolution": "countries",
-    "sizeAxis": Object {
+    "sizeAxis": {
       "maxValue": 200,
       "minValue": 1,
     },
