@@ -10,6 +10,8 @@ export class S3 {
   constructor(signer: AWSSignerV4, key: string) {
     this.key = `${key}.json`;
     this.signer = signer;
+
+    log.info(key);
   }
   private static headers(body = "") {
     return {
@@ -25,7 +27,7 @@ export class S3 {
         method,
         headers,
         body,
-      },
+      }
     );
     return this.signer.sign("s3", request);
   }
