@@ -99,12 +99,7 @@ module.exports = {
 
   // A preset that is used as a base for Jest's configuration
   preset: "ts-jest",
-  globals: {
-    "ts-jest": {
-      isolatedModules: true,
-      tsconfig: "src/frontend/tsconfig.json",
-    },
-  },
+
   // Run tests from one or more projects
   // projects: undefined,
 
@@ -181,8 +176,9 @@ module.exports = {
   // timers: "real",
 
   transform: {
-    "^.+\\.[tj]s$": "ts-jest",
+    "^.+\\.[tj]s$": ["ts-jest", {}],
   },
+
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   transformIgnorePatterns: [`node_modules/(?!client-zip)`],
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them

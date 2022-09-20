@@ -11,7 +11,7 @@ Deno.test({
         url: "/?alltime",
       },
     } as unknown as Deno.RequestEvent);
-    assertEquals(res.status, 400);
+    assertEquals(res.status, 200);
   },
 });
 

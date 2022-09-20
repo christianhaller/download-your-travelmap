@@ -1,18 +1,14 @@
 {
   "include": [
-    "src/backend/**/*",
+    "src/**/*",
     "api/**/*"
   ],
   "compilerOptions": {
-    "downlevelIteration": true,
-    "useUnknownInCatchVariables": false
+    "target": "ES6",
+    "lib": ["es5", "es6", "dom"],
+    "esModuleInterop": true,
+    "isolatedModules": true,
   },
-  "isolatedModules": true,
-  "plugins": [
-    {
-      "name": "typescript-deno-plugin",
-      "enable": true,
-      "importmap": "import_map.json"
-    }
-  ]
+
+
 }

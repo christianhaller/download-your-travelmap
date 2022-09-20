@@ -15,7 +15,7 @@ export class S3 {
   }
   private static headers(body = "") {
     return {
-      "content-length": body.length.toString(),
+      ...(body.length && {"content-length": body.length.toString()}),
       "x-amz-content-sha256": S3.sha256Hex(body),
     };
   }
