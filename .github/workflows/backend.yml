@@ -26,4 +26,4 @@ jobs:
         env:
           APP_AWS_ACCESS_KEY_ID: ${{ secrets.APP_AWS_ACCESS_KEY_ID }}
           APP_AWS_SECRET_ACCESS_KEY: ${{secrets.APP_AWS_SECRET_ACCESS_KEY}}
-          APP_ENV: preview
+          APP_ENV: production
