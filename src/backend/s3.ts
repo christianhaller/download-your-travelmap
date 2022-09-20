@@ -44,7 +44,7 @@ export class S3 {
     const req = await this.signedRequest(undefined, "GET");
     const response = await fetch(req);
     if (!response.ok) {
-      log.info(reponse);
+      log.info(response);
       throw Error("s3 fucked up");
     }
     const json = (await response.json()) as Record<string, TransformedStat>;
