@@ -15,12 +15,12 @@ export class S3 {
   }
   private static headers(body = "") {
     return {
-      "content-length": body.length.toString(),
+      ...(body.length && {"content-length": body.length.toString()}),
       "x-amz-content-sha256": S3.sha256Hex(body),
     };
   }
   public async signedRequest(body: string | undefined, method: "PUT" | "GET") {
-    const headers = await S3.headers(body);
+    const headers = S3.headers(body);
     const request = new Request(
       `https://download-your-travelmap.s3.eu-central-1.amazonaws.com/${this.key}`,
       {
@@ -44,6 +44,7 @@ export class S3 {
     const req = await this.signedRequest(undefined, "GET");
     const response = await fetch(req);
     if (!response.ok) {
+      log.info(response);
       throw Error("s3 fucked up");
     }
     const json = (await response.json()) as Record<string, TransformedStat>;
