@@ -20,7 +20,7 @@ export class S3 {
     };
   }
   public async signedRequest(body: string | undefined, method: "PUT" | "GET") {
-    const headers = await S3.headers(body);
+    const headers = S3.headers(body);
     const request = new Request(
       `https://download-your-travelmap.s3.eu-central-1.amazonaws.com/${this.key}`,
       {
