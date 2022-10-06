@@ -57,7 +57,7 @@
     "ts-node": "^10.9.1",
     "tslib": "^2.4.0",
     "typescript": "^4.8.4",
-    "vercel": "^28.4.6"
+    "vercel": "^28.4.7"
   },
   "repository": {
     "type": "git",
