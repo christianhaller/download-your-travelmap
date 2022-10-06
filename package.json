@@ -38,7 +38,7 @@
   "devDependencies": {
     "@parcel/transformer-pug": "^2.7.0",
     "@types/google.visualization": "0.0.68",
-    "@types/jest": "^29.1.1",
+    "@types/jest": "^29.1.2",
     "@types/json2csv": "^5.0.3",
     "autoprefixer": "^10.4.12",
     "cpy-cli": "^4.2.0",
@@ -51,13 +51,13 @@
     "postcss": "^8.4.17",
     "prettier": "^2.7.1",
     "pug": "^3.0.2",
-    "puppeteer": "^18.2.0",
+    "puppeteer": "^18.2.1",
     "tailwindcss": "^3.1.8",
     "ts-jest": "^29.0.3",
     "ts-node": "^10.9.1",
     "tslib": "^2.4.0",
     "typescript": "^4.8.4",
-    "vercel": "^28.4.6"
+    "vercel": "^28.4.8"
   },
   "repository": {
     "type": "git",
