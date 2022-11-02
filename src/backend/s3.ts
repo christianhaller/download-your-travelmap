@@ -1,5 +1,5 @@
 import { TransformedStat } from "./interace.ts";
-import {createHash, encode} from "../../deps.ts";
+import { encode } from "../../deps.ts";
 import type { AWSSignerV4 } from "../../deps.ts";
 import { log } from "../../deps.ts";
 
@@ -27,7 +27,7 @@ export class S3 {
         method,
         headers,
         body,
-      }
+      },
     );
     return this.signer.sign("s3", request);
   }
@@ -53,10 +53,16 @@ export class S3 {
   }
 
   private static async sha256Hex(data: string): Promise<string> {
-
     return new TextDecoder()
-        .decode(encode(new Uint8Array(await crypto.subtle.digest('sha-256', new TextEncoder().encode(data)))));
-
-
+      .decode(
+        encode(
+          new Uint8Array(
+            await crypto.subtle.digest(
+              "sha-256",
+              new TextEncoder().encode(data),
+            ),
+          ),
+        ),
+      );
   }
 }

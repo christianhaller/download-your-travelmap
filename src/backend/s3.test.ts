@@ -45,7 +45,7 @@ Deno.test({
         {
           statusText: "fuck",
           ok: false,
-            json: () => {},
+          json: () => {},
         },
       ]),
     );

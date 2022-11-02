@@ -7,8 +7,6 @@
     "target": "ES6",
     "lib": ["es5", "es6", "dom"],
     "esModuleInterop": true,
-    "isolatedModules": true,
-  },
-
-
+    "isolatedModules": true
+  }
 }
