@@ -6,12 +6,13 @@ import {
   assertRejects,
 } from "https://deno.land/std@0.161.0/testing/asserts.ts";
 
+import {encode} from "https://deno.land/std@0.161.0/encoding/hex.ts";
+
 import {
   AWSSignerV4,
   Credentials,
 } from "https://deno.land/x/aws_sign_v4@1.0.2/mod.ts";
 
-import { createHash } from "https://deno.land/std@0.160.0/hash/mod.ts";
 
 import {
   spy,
@@ -29,8 +30,8 @@ export {
   assertThrows,
   assertRejects,
   AWSSignerV4,
-  createHash,
   resolvesNext,
+  encode,
   log,
   spy,
   stub,
