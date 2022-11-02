@@ -1,5 +1,6 @@
 import { TransformedStat } from "./interace.ts";
-import { createHash } from "../../deps.ts";
+
+import { encode } from "../../deps.ts";
 import type { AWSSignerV4 } from "../../deps.ts";
 import { log } from "../../deps.ts";
 
@@ -13,21 +14,21 @@ export class S3 {
 
     log.info(key);
   }
-  private static headers(body = "") {
+  private static async headers(body = "") {
     return {
       ...(body.length && {"content-length": body.length.toString()}),
-      "x-amz-content-sha256": S3.sha256Hex(body),
+      "x-amz-content-sha256": await S3.sha256Hex(body),
     };
   }
   public async signedRequest(body: string | undefined, method: "PUT" | "GET") {
-    const headers = S3.headers(body);
+    const headers = await S3.headers(body);
     const request = new Request(
       `https://download-your-travelmap.s3.eu-central-1.amazonaws.com/${this.key}`,
       {
         method,
         headers,
         body,
-      }
+      },
     );
     return this.signer.sign("s3", request);
   }
@@ -52,9 +53,17 @@ export class S3 {
     return json;
   }
 
-  private static sha256Hex(data: string | Uint8Array): string {
-    const hasher = createHash("sha256");
-    hasher.update(data);
-    return hasher.toString("hex");
+  private static async sha256Hex(data: string): Promise<string> {
+    return new TextDecoder()
+      .decode(
+        encode(
+          new Uint8Array(
+            await crypto.subtle.digest(
+              "sha-256",
+              new TextEncoder().encode(data),
+            ),
+          ),
+        ),
+      );
   }
 }

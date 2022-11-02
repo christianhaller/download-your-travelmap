@@ -18,12 +18,12 @@
    <img src="https://img.shields.io/github/package-json/dependency-version/christianhaller/download-your-travelmap/json2csv?color=red" />
    <img src="https://img.shields.io/github/package-json/dependency-version/christianhaller/download-your-travelmap/client-zip?color=red" />
 
-   <img src="https://img.shields.io/github/package-json/dependency-version/christianhaller/download-your-travelmap/bytes?color=red" />
+<img src="https://img.shields.io/github/package-json/dependency-version/christianhaller/download-your-travelmap/bytes?color=red" />
    <img src="https://img.shields.io/github/package-json/dependency-version/christianhaller/download-your-travelmap/country-emoji?color=red" />
    <img src="https://img.shields.io/github/package-json/dependency-version/christianhaller/download-your-travelmap/tokml?color=red" />
    <img src="https://img.shields.io/github/package-json/dependency-version/christianhaller/download-your-travelmap/dev/typescript.svg?color=yellow" />
    <img src="https://img.shields.io/github/package-json/dependency-version/christianhaller/download-your-travelmap/dev/tailwindcss.svg?color=yellow" />
    <img src="https://img.shields.io/github/package-json/dependency-version/christianhaller/download-your-travelmap/dev/parcel.svg?color=yellow" />
    <img src="https://img.shields.io/github/package-json/dependency-version/christianhaller/download-your-travelmap/dev/cssnano.svg?color=yellow" />
-   <img src="./website.gif" /> 
+   <img src="./website.gif" />
 </p>

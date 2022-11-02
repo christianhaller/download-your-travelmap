@@ -5,11 +5,11 @@ describe("homepage", () => {
     await page.goto(url);
 
     await expect(page.title()).resolves.toMatch(
-      "Download Your TripAdvisor Travel Map (kml/csv)"
+      "Download Your TripAdvisor Travel Map (kml/csv)",
     );
     await page.type(
       "#url",
-      "https://www.tripadvisor.com/Profile/christianhaller"
+      "https://www.tripadvisor.com/Profile/christianhaller",
     );
     await page.click("button[type='submit']");
 
@@ -23,7 +23,7 @@ describe("homepage", () => {
     await page.goto(url);
 
     await expect(page.title()).resolves.toMatch(
-      "Download Your TripAdvisor Travel Map (kml/csv)"
+      "Download Your TripAdvisor Travel Map (kml/csv)",
     );
 
     await page.waitForSelector(".highscore:not(.hidden) table");

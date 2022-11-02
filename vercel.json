@@ -4,7 +4,10 @@
     "api/**/*.[jt]s": { "runtime": "vercel-deno@2.0.0" }
   },
   "rewrites": [
-    { "source": "/api/highscore/alltime", "destination": "/api/highscore?alltime" }
+    {
+      "source": "/api/highscore/alltime",
+      "destination": "/api/highscore?alltime"
+    }
   ],
   "build": {
     "env": {

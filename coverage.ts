@@ -3,7 +3,7 @@
 // Make sure you have json-summary as a coverage reporter in your jest config.
 // coverageReporters: ['json-summary', 'text', 'lcov']
 
-import { readFileSync, mkdirSync, writeFileSync } from "fs";
+import { mkdirSync, readFileSync, writeFileSync } from "fs";
 import { join } from "path";
 import { get } from "https";
 import { ok } from "assert";
@@ -15,7 +15,7 @@ Promise.resolve().then(async () => {
     process.cwd(),
     "tmp",
     "coverage",
-    "coverage-summary.json"
+    "coverage-summary.json",
   );
   const summary = JSON.parse(readFileSync(summaryPath, "utf8")) as Summary;
   const summaryKeys = ["lines", "statements", "functions", "branches"] as const;
@@ -37,7 +37,8 @@ function getBadgeURL(summary: Summary, key: keyof jest.CoverageSummary) {
   // https://shields.io/category/coverage
   const coverage = `${pct}${encodeURI("%")}`;
   const colour = pct! < 80 ? "red" : pct! < 90 ? "yellow" : "brightgreen";
-  const url = `https://img.shields.io/badge/${key}-${coverage}-${colour}?logo=jest`;
+  const url =
+    `https://img.shields.io/badge/${key}-${coverage}-${colour}?logo=jest`;
 
   return url;
 }
