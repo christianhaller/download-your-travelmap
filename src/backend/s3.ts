@@ -16,7 +16,7 @@ export class S3 {
   }
   private static async headers(body = "") {
     return {
-      ...(body.length && {"content-length": body.length.toString()}),
+      ...(body.length && { "content-length": body.length.toString() }),
       "x-amz-content-sha256": await S3.sha256Hex(body),
     };
   }
