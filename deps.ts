@@ -4,10 +4,10 @@ import {
   assertRejects,
   assertStrictEquals,
   assertThrows,
-} from "https://deno.land/std@0.168.0/testing/asserts.ts";
+} from "https://deno.land/std@0.170.0/testing/asserts.ts";
 
 
-import { encode } from "https://deno.land/std@0.168.0/encoding/hex.ts";
+import { encode } from "https://deno.land/std@0.170.0/encoding/hex.ts";
 
 import {
   AWSSignerV4,
@@ -20,7 +20,7 @@ import {
   spy,
   stub,
 } from "https://deno.land/x/mock@0.15.2/mod.ts";
-import * as log from "https://deno.land/std@0.168.0/log/mod.ts";
+import * as log from "https://deno.land/std@0.170.0/log/mod.ts";
 
 import "https://deno.land/x/dotenv@v3.2.0/load.ts";
 
