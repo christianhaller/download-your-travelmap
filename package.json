@@ -32,7 +32,7 @@
     "country-emoji": "^1.5.6",
     "geojson": "^0.5.0",
     "json2csv": "^5.0.7",
-    "load-js": "^3.1.0",
+    "load-js": "^3.1.1",
     "tokml": "^0.4.0"
   },
   "devDependencies": {
@@ -57,7 +57,7 @@
     "ts-node": "^10.9.1",
     "tslib": "^2.4.1",
     "typescript": "^4.9.4",
-    "vercel": "^28.10.1"
+    "vercel": "^28.10.3"
   },
   "repository": {
     "type": "git",
