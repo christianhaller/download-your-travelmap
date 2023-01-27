@@ -44,7 +44,7 @@
     "cpy-cli": "^4.2.0",
     "cssnano": "^5.1.14",
     "jest": "^29.3.1",
-    "jest-environment-jsdom": "^29.3.1",
+    "jest-environment-jsdom": "^29.4.1",
     "jest-puppeteer": "^6.2.0",
     "npm-check-updates": "^16.6.2",
     "parcel": "^2.8.2",
