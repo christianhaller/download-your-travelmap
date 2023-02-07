@@ -47,7 +47,7 @@
     "jest": "^29.4.1",
     "jest-environment-jsdom": "^29.4.1",
     "jest-puppeteer": "^7.0.0",
-    "npm-check-updates": "^16.6.4",
+    "npm-check-updates": "^16.6.5",
     "parcel": "^2.8.3",
     "postcss": "^8.4.21",
     "prettier": "^2.8.3",
