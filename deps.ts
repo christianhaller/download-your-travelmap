@@ -22,7 +22,7 @@ import {
 } from "https://deno.land/x/mock@0.15.2/mod.ts";
 import * as log from "https://deno.land/std@0.177.0/log/mod.ts";
 
-import "https://deno.land/x/dotenv@v3.2.0/load.ts";
+import "https://deno.land/x/dotenv@v3.2.2/load.ts";
 
 export {
   encode,
