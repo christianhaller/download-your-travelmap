@@ -50,7 +50,7 @@
     "npm-check-updates": "^16.7.5",
     "parcel": "^2.8.3",
     "postcss": "^8.4.21",
-    "prettier": "^2.8.4",
+    "prettier": "^2.8.7",
     "pug": "^3.0.2",
     "puppeteer": "^19.7.1",
     "tailwindcss": "^3.2.7",
