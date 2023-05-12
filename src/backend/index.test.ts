@@ -8,11 +8,8 @@ Deno.test({
   fn: async () => {
     Deno.env.set("APP_ENV", "development");
     const res = await app({
-      request: {
-        url:
-          "https://download-your-travelmap.christianhaller.com/?url=https%3A%2F%2Fwww.tripadvisor.com%2FTravelMap-a_uid.793EEF266391AE7A70AAA05EEAC5D8B4",
-      },
-    } as unknown as Deno.RequestEvent);
+      url: "https://download-your-travelmap.christianhaller.com/?url=https%3A%2F%2Fwww.tripadvisor.com%2FTravelMap-a_uid.793EEF266391AE7A70AAA05EEAC5D8B4",
+    } as Request);
     assertEquals(res.status, 200);
   },
 });

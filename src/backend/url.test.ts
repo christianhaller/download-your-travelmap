@@ -5,14 +5,13 @@ Deno.test({
   name: "responds with url",
   fn: () => {
     const req = {
-      url:
-        "https://download-your-travelmap.christianhaller.com?url=http://www.tripadvisor.com/members/christianhaller",
+      url: "https://download-your-travelmap.christianhaller.com?url=http://www.tripadvisor.com/members/christianhaller",
     };
 
-    const sut = getUrl({ request: req } as Deno.RequestEvent);
+    const sut = getUrl(req as Request);
     assertEquals(
       sut.href,
-      "http://www.tripadvisor.com/members/christianhaller",
+      "http://www.tripadvisor.com/members/christianhaller"
     );
   },
 });
@@ -26,10 +25,10 @@ Deno.test({
 
     assertThrows(
       (): void => {
-        getUrl({ request } as Deno.RequestEvent);
+        getUrl(request as Request);
       },
       Error,
-      "no url set",
+      "no url set"
     );
   },
 });

@@ -1,7 +1,7 @@
 {
   "version": 2,
   "functions": {
-    "api/**/*.[jt]s": { "runtime": "vercel-deno@2.0.0" }
+    "api/**/*.[jt]s": { "runtime": "vercel-deno@3.0.2"}
   },
   "rewrites": [
     {
@@ -9,11 +9,7 @@
       "destination": "/api/highscore?alltime"
     }
   ],
-  "build": {
-    "env": {
-      "DENOVERSION": "1.20.5"
-    }
-  },
+
   "github": {
     "enabled": true
   },
