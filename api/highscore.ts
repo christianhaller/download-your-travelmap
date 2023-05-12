@@ -7,11 +7,11 @@ import { S3 } from "../src/backend/s3.ts";
 import { AWSSignerV4, log } from "../deps.ts";
 import { credentials, env } from "../src/backend/env.ts";
 
-export default async ({ request: req }: Request): Promise<Response> => {
+export default async (request: Request): Promise<Response> => {
   try {
     let days = 30;
-    log.info(req.url.match("alltime"));
-    if (req.url.match("alltime")) {
+    log.info(request.url.match("alltime"));
+    if (request.url.match("alltime")) {
       days = 99999;
     }
     return success(
