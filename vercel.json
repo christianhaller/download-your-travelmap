@@ -1,7 +1,9 @@
 {
   "version": 2,
   "functions": {
-    "api/**/*.[jt]s": { "runtime": "vercel-deno@3.0.2"}
+    "api/**/*.[jt]s": {
+      "runtime": "vercel-deno@3.0.2"
+    }
   },
   "rewrites": [
     {
@@ -9,9 +11,54 @@
       "destination": "/api/highscore?alltime"
     }
   ],
-
-  "github": {
-    "enabled": true
-  },
-  "public": true
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "max-age=3600, s-maxage=3600, public"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    },
+    {
+      "source": "/(.*).css",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "max-age=31104000, s-maxage=3600, immutable, public"
+        }
+      ]
+    },
+    {
+      "source": "/(.*).svg",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "max-age=31104000, s-maxage=3600, immutable, public"
+        }
+      ]
+    },
+    {
+      "source": "/(.*).js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "max-age=31104000, s-maxage=3600, immutable, public"
+        }
+      ]
+    }
+  ],
+"github": {
+"enabled": true
+},
+"public": true
 }
