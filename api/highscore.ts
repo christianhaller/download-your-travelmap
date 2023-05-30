@@ -17,9 +17,9 @@ export default async (request: Request): Promise<Response> => {
     return success(
       await new LastUsers(
         new Timestamp(),
-        new S3(new AWSSignerV4("eu-central-1", credentials()), env())
+        new S3(new AWSSignerV4("eu-central-1", credentials()), env()),
       ).list(days),
-      "60"
+      "60",
     );
   } catch (error) {
     log.error("oh, error" + error);
