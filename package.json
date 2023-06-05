@@ -29,7 +29,7 @@
   "dependencies": {
     "@deno/shim-deno": "^0.16.1",
     "bytes": "^3.1.2",
-    "client-zip": "^2.4.3",
+    "client-zip": "^2.4.4",
     "country-emoji": "^1.5.6",
     "geojson": "^0.5.0",
     "json2csv": "^5.0.7",
