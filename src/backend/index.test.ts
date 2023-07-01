@@ -2,6 +2,12 @@ import { assertEquals } from "../../deps.ts";
 
 import app from "../../api/index.ts";
 
+/*
+
+this is like a headless e2e test
+
+ */
+
 Deno.test({
   name: "index",
   sanitizeResources: false,

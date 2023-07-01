@@ -2,7 +2,7 @@ const request = async (url: URL): Promise<string> => {
   const { href } = url;
 
   const c = new AbortController();
-  const id = setTimeout(() => c.abort(), 3000);
+  const id = setTimeout(() => c.abort(), 2000);
 
   const res = await fetch(href, {
     signal: c.signal,
