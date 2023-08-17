@@ -1,13 +1,12 @@
-import {
-  assertArrayIncludes,
-  assertEquals,
+import {  assertArrayIncludes, assertEquals,
   assertRejects,
   assertStrictEquals,
-  assertThrows,
-} from "https://deno.land/std@0.197.0/testing/asserts.ts";
+  assertThrows, } from "https://deno.land/std@0.198.0/assert/mod.ts";
 
 
-import { encode } from "https://deno.land/std@0.197.0/encoding/hex.ts";
+
+
+import { encode } from "https://deno.land/std@0.198.0/encoding/hex.ts";
 
 import {
   AWSSignerV4,
@@ -15,12 +14,18 @@ import {
 } from "https://deno.land/x/aws_sign_v4@1.0.2/mod.ts";
 
 
-import {
+
+
+import * as mock from "https://deno.land/x/mock@0.15.2/mod.ts";
+
+const {
   resolvesNext,
+
   spy,
-  stub,
-} from "https://deno.land/x/mock@0.15.2/mod.ts";
-import * as log from "https://deno.land/std@0.197.0/log/mod.ts";
+  stub
+} = mock;
+
+import * as log from "https://deno.land/std@0.198.0/log/mod.ts";
 
 import "https://deno.land/x/dotenv@v3.2.2/load.ts";
 
@@ -33,6 +38,7 @@ export {
   assertThrows,
   AWSSignerV4,
   resolvesNext,
+
   log,
   spy,
   stub,
