@@ -2,9 +2,6 @@ name: test end to end nightly
 
 on:
   push:
-  schedule:
-    # * is a special character in YAML so you have to quote this string
-    - cron:  '0 */6 * * *'
 
 jobs:
   test:
