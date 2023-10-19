@@ -39,7 +39,7 @@
   "devDependencies": {
     "@parcel/transformer-pug": "^2.10.0",
     "@prettier/plugin-pug": "^3.0.0",
-    "@types/google.visualization": "0.0.70",
+    "@types/google.visualization": "0.0.71",
     "@types/jest": "^29.5.5",
     "@types/json2csv": "^5.0.4",
     "autoprefixer": "^10.4.16",
