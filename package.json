@@ -37,7 +37,7 @@
     "tokml": "^0.4.0"
   },
   "devDependencies": {
-    "@parcel/transformer-pug": "^2.10.1",
+    "@parcel/transformer-pug": "^2.10.2",
     "@prettier/plugin-pug": "^3.0.0",
     "@types/google.visualization": "0.0.71",
     "@types/jest": "^29.5.6",
