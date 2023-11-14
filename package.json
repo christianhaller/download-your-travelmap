@@ -27,7 +27,7 @@
     }
   },
   "dependencies": {
-    "@deno/shim-deno": "^0.16.1",
+    "@deno/shim-deno": "^0.17.0",
     "bytes": "^3.1.2",
     "client-zip": "^2.4.4",
     "country-emoji": "^1.5.6",
