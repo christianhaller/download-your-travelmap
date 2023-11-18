@@ -27,7 +27,7 @@
     }
   },
   "dependencies": {
-    "@deno/shim-deno": "^0.16.1",
+    "@deno/shim-deno": "^0.17.0",
     "bytes": "^3.1.2",
     "client-zip": "^2.4.4",
     "country-emoji": "^1.5.6",
@@ -37,11 +37,11 @@
     "tokml": "^0.4.0"
   },
   "devDependencies": {
-    "@parcel/transformer-pug": "^2.10.2",
+    "@parcel/transformer-pug": "^2.10.3",
     "@prettier/plugin-pug": "^3.0.0",
-    "@types/google.visualization": "0.0.71",
-    "@types/jest": "^29.5.7",
-    "@types/json2csv": "^5.0.5",
+    "@types/google.visualization": "0.0.72",
+    "@types/jest": "^29.5.8",
+    "@types/json2csv": "^5.0.6",
     "autoprefixer": "^10.4.16",
     "cpy-cli": "^5.0.0",
     "cssnano": "^6.0.1",
@@ -49,16 +49,16 @@
     "jest-environment-jsdom": "^29.7.0",
     "jest-puppeteer": "^9.0.1",
     "npm-check-updates": "^16.14.6",
-    "parcel": "^2.10.2",
+    "parcel": "^2.10.3",
     "postcss": "^8.4.31",
-    "prettier": "^3.0.3",
+    "prettier": "^3.1.0",
     "pug": "^3.0.2",
-    "puppeteer": "^21.5.0",
+    "puppeteer": "^21.5.2",
     "tailwindcss": "^3.3.5",
     "ts-jest": "^29.1.1",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2",
-    "vercel": "^32.5.0"
+    "vercel": "^32.5.5"
   },
   "repository": {
     "type": "git",
