@@ -1,6 +1,5 @@
 import { TransformedStat } from "./interace.ts";
 
-import { encode } from "../../deps.ts";
 import type { AWSSignerV4 } from "../../deps.ts";
 import { log } from "../../deps.ts";
 
@@ -54,16 +53,15 @@ export class S3 {
   }
 
   private static async sha256Hex(data: string): Promise<string> {
-    return new TextDecoder()
-      .decode(
-        encode(
-          new Uint8Array(
-            await crypto.subtle.digest(
-              "sha-256",
-              new TextEncoder().encode(data),
-            ),
-          ),
-        ),
-      );
+    return bytesAsHex(await hashSha256(new TextEncoder().encode(data)));
   }
+}
+
+async function hashSha256(content: Uint8Array) {
+  const buffer = await crypto.subtle.digest("SHA-256", content);
+  return new Uint8Array(buffer);
+}
+
+export function bytesAsHex(buffer: Uint8Array) {
+  return [...buffer].map((x) => x.toString(16).padStart(2, "0")).join("");
 }
