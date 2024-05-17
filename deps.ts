@@ -4,7 +4,7 @@ import {
   assertRejects,
   assertStrictEquals,
   assertThrows,
-} from "https://deno.land/std@0.223.0/assert/mod.ts";
+} from "https://deno.land/std@0.224.0/assert/mod.ts";
 
 import {
   AWSSignerV4,
@@ -20,7 +20,7 @@ const {
   stub,
 } = mock;
 
-import * as log from "https://deno.land/std@0.223.0/log/mod.ts";
+import * as log from "https://deno.land/std@0.224.0/log/mod.ts";
 
 import "https://deno.land/x/dotenv@v3.2.2/load.ts";
 
